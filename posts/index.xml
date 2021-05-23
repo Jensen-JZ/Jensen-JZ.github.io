@@ -5,41 +5,16 @@
     <link>https://jen-jon.github.io/posts/</link>
     <description>Recent content in Posts on Jensen Zhang | 张敬尧</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 21 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 May 2021 14:22:21 +0800</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>test1</title>
-      <link>https://jen-jon.github.io/posts/test1/</link>
-      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      <title>The Usage of ADM PV-RCNN</title>
+      <link>https://jen-jon.github.io/posts/adm-pv-rcnn/</link>
+      <pubDate>Fri, 21 May 2021 14:22:21 +0800</pubDate>
       
-      <guid>https://jen-jon.github.io/posts/test1/</guid>
-      <description>大标题 这是我的第二个测试Markdown！！！！！</description>
-    </item>
-    
-    <item>
-      <title>test0</title>
-      <link>https://jen-jon.github.io/posts/test0/</link>
-      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://jen-jon.github.io/posts/test0/</guid>
-      <description>大标题 这是我的第一个测试文档！！！！</description>
-    </item>
-    
-    <item>
-      <title>test3</title>
-      <link>https://jen-jon.github.io/posts/test3/</link>
-      <pubDate>Wed, 05 Apr 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://jen-jon.github.io/posts/test3/</guid>
-      <description>打 标题 这是我 测试的1231231 第四个文档！！</description>
-    </item>
-    
-    <item>
-      <title>test2</title>
-      <link>https://jen-jon.github.io/posts/test2/</link>
-      <pubDate>Sat, 01 Jan 2011 00:00:00 +0000</pubDate>
-      
-      <guid>https://jen-jon.github.io/posts/test2/</guid>
-      <description>大标题21212 这时我测试的第三个MD文档！！！</description>
+      <guid>https://jen-jon.github.io/posts/adm-pv-rcnn/</guid>
+      <description>The Usage of ADM PV-RCNN  Tags: Docker; LiDAR; 3D Computer Vision
+  Note This document mainly introduces the use of ADM PV-RCNN Docker container, details can be seen here.
+This Docker container contains a complete pipline working files from LiDAR to algorithm model. This Docker container can process the Pcap format data packets collected by LiDAR. Currently, it only supports data collected by four types of LiDAR produced by Robosense: RS-LiDAR-16, RS-LiDAR-32, RS-LiDAR-64 and RS-LiDAR-128.</description>
     </item>
     
   </channel>

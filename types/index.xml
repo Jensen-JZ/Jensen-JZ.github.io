@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jensen Zhang | 张敬尧</title>
+    <link>https://jen-jon.github.io/types/</link>
+    <description>Recent content on Jensen Zhang | 张敬尧</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 22 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/types/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lifestyle Blogs</title>
+      <link>https://jen-jon.github.io/types/lifestyle/</link>
+      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/types/lifestyle/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Summary Blogs</title>
+      <link>https://jen-jon.github.io/types/summary/</link>
+      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/types/summary/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Technology Blogs</title>
+      <link>https://jen-jon.github.io/types/technology/</link>
+      <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/types/technology/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

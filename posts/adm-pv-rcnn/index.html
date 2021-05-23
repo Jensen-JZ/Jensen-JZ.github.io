@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang=""><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>The Usage of ADM PV-RCNN</title>
+    <meta name="description" content="A simple monospaced resume theme for Hugo.">
+    <meta name="author" content='Jensen Zhang'>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+
+    
+    <link rel="stylesheet" href="/sass/researcher.min.css">
+
+    
+        <link rel="icon" type="image/ico" href="https://jen-jon.github.io/favicon.ico">
+    
+
+    
+        
+    
+</head>
+
+    <body><div class="container mt-5">
+    <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
+        <a class="navbar-brand mx-0 mr-sm-auto" href="https://jen-jon.github.io/" title="Jensen Zhang | 张敬尧">
+          
+          Jensen Zhang | 张敬尧
+        </a>
+        <div class="navbar-nav flex-row flex-wrap justify-content-center">
+            
+                
+                
+                    <a class="nav-item nav-link" href="/about" title="About">
+                        About
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/posts" title="Posts">
+                        Posts
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/contact" title="Contact">
+                        Contact
+                    </a>
+                    
+                
+            
+        </div>
+    </nav>
+</div>
+<hr>
+<div id="content">
+<div class="container">
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/663ADM.png" alt="ADM Logo"></p>
+<hr>
+<h1 id="the-usage-of-adm-pv-rcnn">The Usage of ADM PV-RCNN</h1>
+<blockquote>
+<p><strong>Tags: Docker; LiDAR; 3D Computer Vision</strong></p>
+</blockquote>
+<hr>
+<h2 id="note">Note</h2>
+<p><em>This document mainly introduces the use of ADM PV-RCNN Docker container, details can be seen <a href="https://hub.docker.com/r/663lab/adm-pv-rcnn">here</a>.</em></p>
+<p>This Docker container contains a complete pipline working files from LiDAR to algorithm model. This Docker container can process the Pcap format data packets collected by LiDAR. Currently, it only supports data collected by four types of LiDAR produced by Robosense: <strong>RS-LiDAR-16</strong>, <strong>RS-LiDAR-32</strong>, <strong>RS-LiDAR-64</strong> and <strong>RS-LiDAR-128</strong>. More brands and types of lidar will be supported in the future.</p>
+<hr>
+<h2 id="description">Description</h2>
+<p><strong>ADM PV-RCNN</strong> full name is Adaptive Deformable Module PV-RCNN, is a new Point-based and Voxel-based 3D object detection model designed based on PV-RCNN (See <a href="https://github.com/open-mmlab/OpenPCDet)">https://github.com/open-mmlab/OpenPCDet)</a>. We add adaptive deformation convolution module and context fusion module on the basis of PV-RCNN. Adaptive deformation convolution module can solve the problem of poor recognition accuracy of PV-RCNN model in fuzzy scene and long-distance scene, and context fusion module can reduce the probability of false positive of PV-RCNN model in the area of uneven distribution of point cloud. We tested the proposed ADM PV-RCNN model on KITTI datasets, and the results show that the proposed model were much higher than PV-RCNN and other similar models.</p>
+<hr>
+<h2 id="download">Download</h2>
+<p>Simply type <code>docker pull 663lab/ adm-pv-rcnn:v1.0</code> on the machine where Docker is installed, and you can download the Docker container.</p>
+<hr>
+<h2 id="usage">Usage</h2>
+<h3 id="1-parse-the-lidar-pcap-packet">1. Parse the LiDAR pcap packet</h3>
+<p>Enter the Docker container and mount the Pcap format data packet collected by Robosense lidar into the Docker container.</p>
+<h4 id="a-go-to-the-robosense-lidar-sdk-folder">a. Go to the Robosense LiDAR SDK folder</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd ~/catkin_ws/src/rslidar_sdk/
+</code></pre></div><h4 id="b-convert-pcap-packets-to-pcd-data">b. Convert Pcap packets to Pcd data</h4>
+<h5 id="-modify-the-parameters-in-the-configyaml-file-under-the-config-directory-to-the-corresponding-parameters-such-as-changing-msg_source-to-3-changing-pcap_path-to-the-path-of-pcap-packet-and-changing-lidar_type-to-the-type-of-lidar">▪︎ Modify the parameters in the <code>config.yaml</code> file under the <code>config</code> directory to the corresponding parameters, such as changing <code>msg_source</code> to 3, changing <code>pcap_path</code> to the <strong>path of pcap packet</strong>, and changing <code>lidar_type</code> to the <strong>type of LiDAR</strong>.</h5>
+<h5 id="-turn-the-pcap-packets-into-rosbag-packets-by-running-the-following-command">▪︎ Turn the Pcap packets into ROSBag packets by running the following command:</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">roslaunch rslidar_sdk start.launch
+</code></pre></div><h5 id="-go-to-the-directory-where-pcap-packets-are-stored">▪︎ Go to the directory where Pcap packets are stored</h5>
+<h5 id="-repair-rosbag-packet-by-running-the-following-command">▪︎ Repair ROSBag packet by running the following command:</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rosbag reindex xxx.bag.active
+rosbag fix xxx.bag.active result.bag
+</code></pre></div><h5 id="-turn-the-rosbag-packets-into-pcd-data-by-running-following-command">▪︎ Turn the ROSBag packets into Pcd data by running following command:</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rosrun pcl_ros bag_to_pcd result.bag ~/pcdfiles
+</code></pre></div><p>The converted Pcd data files are stored in the <code>/root/pcdfiles/</code>directory.</p>
+<h3 id="2-convert-lidar-point-clouds-to-standardized-bin-files">2. Convert LiDAR point clouds to standardized bin files</h3>
+<h4 id="a-convert-pcd-data-files-to-binary-bin-data-files">a. Convert Pcd data files to binary bin data files</h4>
+<h5 id="-go-to-the-pcd-to-bin-project-folder">▪︎ Go to the Pcd-to-bin project folder</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd ~/pcd2bin/
+</code></pre></div><h5 id="-modify-the-pcd2bincpp-file-in-the-current-directory-and-change-pcd_path-and-bin_path-to-corresponding-paths">▪︎ Modify the pcd2bin.cpp file in the current directory, and change pcd_path and bin_path to corresponding paths.</h5>
+<h5 id="-compile-and-install-the-pcd-to-bin-project-by-running-following-command">▪︎ Compile and install the Pcd-to-bin project by running following command:</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir build <span style="color:#f92672">&amp;&amp;</span> cd build
+cmake .. <span style="color:#f92672">&amp;&amp;</span> make
+</code></pre></div><h5 id="-generate-binary-bin-data-files-by-running-following-command">▪︎ Generate binary bin data files by running following command:</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">zsh ./bin2pcd
+</code></pre></div><h4 id="b-modify-bin-data-files-to-standardized-bin-files">b. Modify bin data files to standardized bin files</h4>
+<h5 id="-go-to-modbin-project-folder">▪︎ Go to Modbin project folder:</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd ~/modbin/
+</code></pre></div><h5 id="-generate-standardized-bin-data-files-by-running-following-command">▪︎ Generate standardized bin data files by running following command:</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">mkdir ~/modfiles
+conda activate model
+python modbin.py --ori_path ~/binfiles mod_path ~/modfiles
+</code></pre></div><h3 id="3-usages-of-adm-pv-rcnn">3. Usages of ADM PV-RCNN</h3>
+<h4 id="a-go-to-the-adm-pv-rcnn-project-folder">a. Go to the ADM PV-RCNN project folder:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd ~/ADM-PV-RCNN/
+</code></pre></div><h4 id="b-copy-adm-pv-rcnn-src-into-openpcdet">b. Copy ADM PV-RCNN src into OpenPCDet:</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">zsh ./init.sh
+</code></pre></div><h4 id="c-prepare-kitti-dataset">c. Prepare KITTI dataset:</h4>
+<h5 id="-please-download-the-official-a-hrefhttpwwwcvlibsnetdatasetskittieval_objectphpobj_benchmark3dkitti-3d-object-detectiona-dataset-and-organize-the-downloaded-files-as-follows-the-road-planes-could-be-downloaded-from-a-hrefhttpsdrivegooglecomfiled1pbu2upqlx9gsud99mfy9qnx0oexq3kajviewuspsharingroad-planea-which-are-optional-for-data-augmentation-in-the-training">▪︎ Please download the official <a href="http://www.cvlibs.net/datasets/kitti/eval_object.php?obj_benchmark=3d">KITTI 3D object detection</a> dataset and organize the downloaded files as follows (the road planes could be downloaded from <a href="https://drive.google.com/file/d/1Pbu2uPQlx9GsuD99MFy9QNX0OEXq3kaj/view?usp=sharing">[road plane]</a>, which are optional for data augmentation in the training):</h5>
+<p><strong><pre>
+ADM-PV-RCNN
+├── OpenPCDet
+│   ├── data
+│   │   ├── kitti
+│   │   │   │──ImageSets
+│   │   │   │──training
+│   │   │   │   ├──calib &amp; velodyne &amp; label_2 &amp; image_2 &amp; (optional: planes)
+│   │   │   │──testing
+│   │   │   │   ├──calib &amp; velodyne &amp; image_2
+│   ├── pcdet
+│   ├── tools
+</pre></strong></p>
+<h5 id="-generate-the-data-infos-by-running-the-following-command">▪︎ Generate the data infos by running the following command:</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python <span style="color:#f92672">-</span>m pcdet<span style="color:#f92672">.</span>datasets<span style="color:#f92672">.</span>kitti<span style="color:#f92672">.</span>kitti_dataset create_kitti_infos tools<span style="color:#f92672">/</span>cfgs<span style="color:#f92672">/</span>dataset_configs<span style="color:#f92672">/</span>kitti_dataset<span style="color:#f92672">.</span>yaml
+</code></pre></div><h4 id="d-run-experiments-with-a-specific-configuration-file">d. Run experiments with a specific configuration file:</h4>
+<h5 id="-test-and-evaluate-the-pretrained-modelyou-can-download-our-pretrained-model-a-hrefhttpsdrivegooglecomfiled1jwxymlpgg4bmlwcxtmi-q8i3q-aehvj9viewuspsharingherea">▪︎ Test and evaluate the pretrained model,You can download our pretrained model <a href="https://drive.google.com/file/d/1jWxymlpGG4BMLWCxTMI-Q8i3q-AehVj9/view?usp=sharing">here</a>.</h5>
+<h6 id="-go-to-tools">• Go to tools:</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd OpenPCDet/tools
+</code></pre></div><h6 id="-test-with-a-pretrained-model">• Test with a pretrained model:</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python test<span style="color:#f92672">.</span>py <span style="color:#f92672">--</span>cfg_file <span style="color:#960050;background-color:#1e0010">$</span>{CONFIG_FILE} <span style="color:#f92672">--</span>batch_size <span style="color:#960050;background-color:#1e0010">$</span>{BATCH_SIZE} <span style="color:#f92672">--</span>ckpt <span style="color:#960050;background-color:#1e0010">$</span>{CKPT}
+</code></pre></div><h6 id="-for-example">• For example:</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python test<span style="color:#f92672">.</span>py <span style="color:#f92672">--</span>cfg_file cfgs<span style="color:#f92672">/</span>kitti_models<span style="color:#f92672">/</span>def_pv_rcnn<span style="color:#f92672">.</span>yaml <span style="color:#f92672">--</span>batch_size <span style="color:#ae81ff">4</span> <span style="color:#f92672">--</span>ckpt <span style="color:#960050;background-color:#1e0010">$</span>{SAVED_CKPT_PATH}<span style="color:#f92672">/</span>def_pv_rcnn<span style="color:#f92672">.</span>pth
+</code></pre></div><h5 id="-train-a-model">▪︎ Train a model:</h5>
+<h6 id="-train-with-multiple-gpus">• Train with multiple GPUs:</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sh scripts/dist_train.sh <span style="color:#e6db74">${</span>NUM_GPUS<span style="color:#e6db74">}</span> --cfg_file <span style="color:#e6db74">${</span>CONFIG_FILE<span style="color:#e6db74">}</span> --batch_size <span style="color:#e6db74">${</span>BATCH_SIZE<span style="color:#e6db74">}</span>  --epochs <span style="color:#ae81ff">80</span>
+</code></pre></div><h6 id="-for-example-1">• For example:</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sh scripts/dist_train.sh <span style="color:#ae81ff">8</span> --cfg_file cfgs/kitti_models/def_pv_rcnn.yaml  --batch_size <span style="color:#ae81ff">16</span>  --epochs <span style="color:#ae81ff">100</span>
+</code></pre></div><h6 id="-train-with-a-single-gpu">• Train with a single GPU:</h6>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python train<span style="color:#f92672">.</span>py <span style="color:#f92672">--</span>cfg_file <span style="color:#960050;background-color:#1e0010">$</span>{CONFIG_FILE} <span style="color:#f92672">--</span>batch_size <span style="color:#960050;background-color:#1e0010">$</span>{BATCH_SIZE} <span style="color:#f92672">--</span>epochs <span style="color:#ae81ff">100</span>
+</code></pre></div><h4 id="e-quick-demo">e. Quick demo</h4>
+<h5 id="-run-the-demo-with-a-pretrained-model-and-your-custom-point-cloud-data-by-running-following-command">▪︎ Run the demo with a pretrained model and your custom point cloud data by running following command:</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python demo<span style="color:#f92672">.</span>py <span style="color:#f92672">--</span>cfg_file cfgs<span style="color:#f92672">/</span>kitti_models<span style="color:#f92672">/</span>adm_pv_rcnn<span style="color:#f92672">.</span>yaml <span style="color:#f92672">--</span>ckpt adm_pv_rcnn_epoch_100<span style="color:#f92672">.</span>pth <span style="color:#f92672">--</span>data_path <span style="color:#960050;background-color:#1e0010">$</span>{POINT_CLOUD_DATA}
+</code></pre></div><p>Here <strong><code>${POINT_CLOUD_DATA}</code></strong> could be the following format:</p>
+<ol>
+<li>
+<p>Your transformed custom data with a single numpy file like <strong><code>my_data.npy</code></strong>.</p>
+</li>
+<li>
+<p>Your transformed custom data with a single bin file like <strong><code>my_data.bin</code></strong>.</p>
+</li>
+<li>
+<p>Your transformed custom data with a directory to test with multiple point cloud data.</p>
+</li>
+<li>
+<p>The original KITTI <strong><code>.bin</code></strong> data within <strong><code>data/kitti</code></strong>, like <strong><code>data/kitti/testing/velodyne/000010.bin</code></strong>.</p>
+</li>
+</ol>
+<h4 id="ps--if-you-have-any-questions-please-email-me-at-ijerrygoogmailcom-please-indicate-adm-pv-rcnn-as-the-subject-of-the-email">P.s. : If you have any questions, please email me at <a href="mailto:ijerry.goo@gmail.com">ijerry.goo@gmail.com</a> (please indicate &ldquo;ADM PV-RCNN&rdquo; as the subject of the email).</h4>
+
+</div>
+
+        </div><div id="footer" class="mb-5">
+    <hr>
+    <div class="container text-center">
+        
+            <a href="https://github.com/Jen-Jon/" class="fab fa-github fa-1x" title="Github"></a>
+        
+            <a href="https://hub.docker.com/u/ijerry22" class="fab fa-docker fa-1x" title="DockerHub"></a>
+        
+            <a href="https://www.researchgate.net/profile/Jingyao-Zhang-4" class="fab fa-researchgate fa-1x" title="researchgate"></a>
+        
+            <a href="mailto:ijerry.goo@gmail.com" class="fas fa-envelope fa-1x" title="E-mail"></a>
+        
+    </div>
+    
+        <div class="container text-center">
+            <a href="https://github.com/Jen-Jon/" title="By Jensen-Jon"><small>By Jensen-Jon</small></a>
+        </div>
+    
+</div>
+</body>
+</html>
