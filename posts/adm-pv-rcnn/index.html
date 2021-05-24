@@ -25,9 +25,9 @@
 
     <body><div class="container mt-5">
     <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
-        <a class="navbar-brand mx-0 mr-sm-auto" href="https://jen-jon.github.io/" title="Jensen Zhang | 张敬尧">
+        <a class="navbar-brand mx-0 mr-sm-auto" href="https://jen-jon.github.io/" title="Jensen&#39;s Homepage">
           
-          Jensen Zhang | 张敬尧
+          Jensen&#39;s Homepage
         </a>
         <div class="navbar-nav flex-row flex-wrap justify-content-center">
             
@@ -51,6 +51,13 @@
                         Contact
                     </a>
                     
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/tools" title="Tools">
+                        Tools
+                    </a>
+                    
                 
             
         </div>
@@ -72,7 +79,7 @@
 <p>This Docker container contains a complete pipline working files from LiDAR to algorithm model. This Docker container can process the Pcap format data packets collected by LiDAR. Currently, it only supports data collected by four types of LiDAR produced by Robosense: <strong>RS-LiDAR-16</strong>, <strong>RS-LiDAR-32</strong>, <strong>RS-LiDAR-64</strong> and <strong>RS-LiDAR-128</strong>. More brands and types of lidar will be supported in the future.</p>
 <hr>
 <h2 id="description">Description</h2>
-<p><strong>ADM PV-RCNN</strong> full name is Adaptive Deformable Module PV-RCNN, is a new Point-based and Voxel-based 3D object detection model designed based on PV-RCNN (See <a href="https://github.com/open-mmlab/OpenPCDet)">https://github.com/open-mmlab/OpenPCDet)</a>. We add adaptive deformation convolution module and context fusion module on the basis of PV-RCNN. Adaptive deformation convolution module can solve the problem of poor recognition accuracy of PV-RCNN model in fuzzy scene and long-distance scene, and context fusion module can reduce the probability of false positive of PV-RCNN model in the area of uneven distribution of point cloud. We tested the proposed ADM PV-RCNN model on KITTI datasets, and the results show that the proposed model were much higher than PV-RCNN and other similar models.</p>
+<p><strong>ADM PV-RCNN</strong> full name is Adaptive Deformable Module PV-RCNN, is a new Point-based and Voxel-based 3D object detection model designed based on PV-RCNN (See <a href="https://github.com/open-mmlab/OpenPCDet">github.com/open-mmlab/OpenPCDet</a>). We add adaptive deformation convolution module and context fusion module on the basis of PV-RCNN. Adaptive deformation convolution module can solve the problem of poor recognition accuracy of PV-RCNN model in fuzzy scene and long-distance scene, and context fusion module can reduce the probability of false positive of PV-RCNN model in the area of uneven distribution of point cloud. We tested the proposed ADM PV-RCNN model on KITTI datasets, and the results show that the proposed model were much higher than PV-RCNN and other similar models.</p>
 <hr>
 <h2 id="download">Download</h2>
 <p>Simply type <code>docker pull 663lab/ adm-pv-rcnn:v1.0</code> on the machine where Docker is installed, and you can download the Docker container.</p>
