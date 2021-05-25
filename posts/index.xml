@@ -24,13 +24,27 @@ sudo sh -c &amp;#39;echo &amp;#34;deb http://packages.ros.org/ros/ubuntu $(lsb_r
     <item>
       <title>The Usage of ADM PV-RCNN</title>
       <link>https://jen-jon.github.io/posts/adm-pv-rcnn/</link>
-      <pubDate>Fri, 21 May 2021 14:22:21 +0800</pubDate>
+      <pubDate>Sun, 23 May 2021 14:22:21 +0800</pubDate>
       
       <guid>https://jen-jon.github.io/posts/adm-pv-rcnn/</guid>
       <description>The Usage of ADM PV-RCNN  Type: Technology Blog
 Tags: Docker; LiDAR; 3D Computer Vision
   Note This document mainly introduces the use of ADM PV-RCNN Docker container, details can be seen here.
 This Docker container contains a complete pipline working files from LiDAR to algorithm model. This Docker container can process the Pcap format data packets collected by LiDAR. Currently, it only supports data collected by four types of LiDAR produced by Robosense: RS-LiDAR-16, RS-LiDAR-32, RS-LiDAR-64 and RS-LiDAR-128.</description>
+    </item>
+    
+    <item>
+      <title>逛合肥京东电气超级体验店</title>
+      <link>https://jen-jon.github.io/posts/jdmall/</link>
+      <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/jdmall/</guid>
+      <description> 逛合肥京东电器超级体验店  Type: Lifestyle Blog
+Tags: 京东; 电子产品; 探店
+  听闻最近京东的全球第二家电器超级体验店开业了，居然在合肥。打开地图搜了搜，发现也不远，坐地铁经过五站就可以到达，目测骑车也就十来分钟的事。 下地铁后，远处就能看到超体外玻璃幕墙上“爬”着一个巨大的“狗东（京东的拟人形象就是一只狗，简称‘狗东’）”，由于目前还是试营业阶段，所以门口还是能看出很多正在施工的痕迹。不过好在体验店的里面已经基本能够投入使用了。
+整个超体一共有六层，其中地上五层，地下一层。地上五层都是京东运营的，地下那一层是百大运营的合家福超市，估计是怕大家逛超体逛累了，可以在超市买点吃喝的。
+走进大厅，首先映入眼帘的就是偌大的京东苹果授权店和其他手机厂商的授权店，貌似一楼都是和手机有关的展品。苹果授权店的人也是最多的，一大批顾客都挤在陈列苹果设备的吧台上。我也顺道去看了看前不久发布的搭载M1芯片的多彩iMac，怎么说呢，这款iMac的屏幕边框太大，可能不是我想要的那种电脑，其次，我是真的很受不了苹果的秒控鼠标，这种扁平式的鼠标也太反人类了吧？！苹果的触控板完全吊打鼠标啊！ 除了苹果，小米的展台也人头攒动，不过有一说一，小米新出的11 Utral的摄像模组也太突出了吧，这玩意揣口袋里不怕被钥匙什么的划坏吗？要是再戴个手机壳，那这手机可真有半斤了！妥妥的“米半斤”！ 小米的Mix Fold也忒像三星Galaxy Fold一代了吧？极度怀疑小米是不是买了三星的解决方案。然后这个外屏比例实在难以接受，整的就像米家AI多亲至尊纪念版手机一样&amp;hellip;&amp;hellip; 华为的展台还依旧是中规中矩，一副简洁的风格。 除了手机之外，一楼还留有一小部分展示有相机、音乐播放器、无人机等产品，不过这索尼家的展台是不是小的有点过分了（好像五楼还有索尼电视的展台，不知道算不算一家的）？ 这次体验主要集中在一楼，其他楼层就简单逛了逛，二楼主要是电脑厂商的授权店和展台；三楼主要是小型智能家居、按摩椅的天下；四楼是热水器空调冰箱的王国；五楼就是各家电视厂商争奇斗艳的舞台了，不过索尼、三星、LG这三家真的是太强了，国产显示面板还是有很长的路要走啊。
+P.s.: 合肥京东电器超级体验店位置=&amp;gt;潜山路与望江路交口，港汇广场（地铁三号线洪岗站下即可） </description>
     </item>
     
   </channel>
