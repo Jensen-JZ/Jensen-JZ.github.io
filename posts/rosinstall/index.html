@@ -96,12 +96,10 @@
 <td>ROS Noetic Ninjemys</td>
 <td>Ubuntu 20.04</td>
 </tr>
-<tr>
-<td>因此本文介绍与Ubuntu18.04对应的ROS Melodic Morenia的安装方式。ROS官网提供了Ubuntu平台下编译好的ROS软件包和源码（不推荐），本文推荐大家直接下载官方编译好的软件包。</td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<p>因此本文介绍与Ubuntu18.04对应的ROS Melodic Morenia的安装方式。ROS官网提供了Ubuntu平台下编译好的ROS软件包和源码（不推荐），本文推荐大家直接下载官方编译好的软件包。</p>
+<hr>
 <h2 id="1-安装">1. 安装</h2>
 <h3 id="11-配置ubuntu软件仓库">1.1. 配置Ubuntu软件仓库</h3>
 <p>配置你的Ubuntu软件仓库（repositories）以允许使用“restricted”“universe”和“multiverse”存储库。你可以根据<a href="https://help.ubuntu.com/community/Repositories/Ubuntu">Ubuntu软件仓库</a>指南来完成这项工作。</p>
@@ -121,13 +119,13 @@
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt update
 </code></pre></div><p>在 ROS 中有很多不同的库和工具。我们提供了四种默认选项供你开始。你也可以单独安装ROS的软件包。</p>
 <p>如果下面的步骤出现问题，你可以用这个源来替代上面提到的源：<a href="http://wiki.ros.org/action/show/TestingRepository?action=show&amp;redirect=ShadowRepository">ros-shadow-fixed（英文页面）</a></p>
-<p>**桌面完整版（推荐）：**包含ROS、<a href="http://wiki.ros.org/rqt">rqt</a>、<a href="http://wiki.ros.org/rviz">rviz</a>、机器人通用库、2D/3D模拟器、导航以及2D/3D感知包。</p>
+<p><strong>桌面完整版（推荐）</strong>：包含ROS、<a href="http://wiki.ros.org/rqt">rqt</a>、<a href="http://wiki.ros.org/rviz">rviz</a>、机器人通用库、2D/3D模拟器、导航以及2D/3D感知包。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install ros-melodic-desktop-full
-</code></pre></div><p><strong>桌面版：</strong> 包含ROS，<a href="http://wiki.ros.org/rqt">rqt</a>、<a href="http://wiki.ros.org/rviz">rviz</a>和机器人通用库。</p>
+</code></pre></div><p><strong>桌面版</strong>：包含ROS，<a href="http://wiki.ros.org/rqt">rqt</a>、<a href="http://wiki.ros.org/rviz">rviz</a>和机器人通用库。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install ros-melodic-desktop
-</code></pre></div><p><strong>ROS-基础包：</strong> 包含ROS包，构建和通信库。没有图形界面工具。</p>
+</code></pre></div><p><strong>ROS-基础包</strong>： 包含ROS包，构建和通信库。没有图形界面工具。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install ros-melodic-ros-base
-</code></pre></div><p><strong>单独的包：</strong> 你也可以安装某个指定的ROS软件包（使用软件包名称替换掉下面的PACKAGE）：</p>
+</code></pre></div><p><strong>单独的包</strong>： 你也可以安装某个指定的ROS软件包（使用软件包名称替换掉下面的PACKAGE）：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install ros-melodic-PACKAGE
 </code></pre></div><p>如：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt install ros-melodic-slam-gmapping
@@ -147,7 +145,8 @@ source ~/.zshrc
 <p>到目前为止，你已经安装了运行核心ROS包所需的内容。为了创建和管理自己的ROS工作区，有各种各样的工具和需求分别分布。例如：<a href="http://wiki.ros.org/rosinstall">rosinstall</a>是一个经常使用的命令行工具，它使你能够轻松地从一个命令下载许多ROS包的源树。</p>
 <p>要安装这个工具和其他构建ROS包的依赖项，请运行:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential
-</code></pre></div><h2 id="2-测试ros">2. 测试ROS</h2>
+</code></pre></div><hr>
+<h2 id="2-测试ros">2. 测试ROS</h2>
 <p>完成上述步骤的安装过程后需要验证ROS是否安装成功，请输入：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">roscore
 </code></pre></div><p>看到如<code>started core service [/rosout]</code>的输出即表示安装成功！</p>
