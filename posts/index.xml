@@ -12,7 +12,12 @@
       <pubDate>Tue, 25 May 2021 17:20:21 +0800</pubDate>
       
       <guid>https://jen-jon.github.io/posts/rosinstall/</guid>
-      <description></description>
+      <description>在Ubuntu18.04系统中安装Robot Operate System  Type: Technology Blog
+Tags: ROS; Ubuntu
+  0. 装前须知 ROS官方发行了许多版本，它们与Ubuntu的发行版本存在对应关如下表：
+   ROS版本 Ubuntu版本     ROS Kinetic Kame Ubuntu 16.04   ROS Melodic Morenia Ubuntu 18.04   ROS Noetic Ninjemys Ubuntu 20.04   因此本文介绍与Ubuntu18.04对应的ROS Melodic Morenia的安装方式。ROS官网提供了Ubuntu平台下编译好的ROS软件包和源码（不推荐），本文推荐大家直接下载官方编译好的软件包。     1. 安装 1.1. 配置Ubuntu软件仓库 配置你的Ubuntu软件仓库（repositories）以允许使用“restricted”“universe”和“multiverse”存储库。你可以根据Ubuntu软件仓库指南来完成这项工作。
+1.2. 设置sources.list 设置电脑以安装来自packages.ros.org的软件。
+sudo sh -c &amp;#39;echo &amp;#34;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&amp;#34; &amp;gt; /etc/apt/sources.</description>
     </item>
     
     <item>
