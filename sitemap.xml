@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://jen-jon.github.io/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jen-jon.github.io/posts/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jen-jon.github.io/posts/dockerproxy/</loc>
+    <lastmod>2021-06-29T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://jen-jon.github.io/mediatest/</loc>
     <lastmod>2021-06-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jen-jon.github.io/booklist/</loc>
     <lastmod>2021-06-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jen-jon.github.io/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jen-jon.github.io/posts/</loc>
-    <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jen-jon.github.io/posts/thoughts-in-may/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
