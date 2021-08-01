@@ -104,7 +104,7 @@ This Docker container contains a complete pipline working files from LiDAR to al
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jen-jon.github.io/about/</guid>
-      <description>About Me def welcome(): print(&amp;#34;Hello! This is Jensen Zhang!&amp;#34;) return 😊 Welcome to visit my homepage! I am a senior student in the Department of Computer Science and Technology, Anhui Agricultural University, and I will graduate from college at the end of June this year. In October 2020, I got the opportunity to study for a master&amp;rsquo;s degree without an examination. This September, I will enter Hefei University of Technology</description>
+      <description>About Me def welcome(): print(&amp;#34;Hello! This is Jensen Zhang!&amp;#34;) return 😊 Hello everyone! Welcome to visit my homepage! I&amp;rsquo;m a postgraduate of CS in the Lab for Media Computing of Hefei University of Technology. I&amp;rsquo;m mainly engaged in the reasearch of Low-light Image Enhancement algorithms and Computational Photography. Some research has also been done on Few-shot Learning and 3D Object Detection based on Lidar. The blogs in my homepage were</description>
     </item>
     
     <item>
@@ -113,10 +113,10 @@ This Docker container contains a complete pipline working files from LiDAR to al
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://jen-jon.github.io/contact/</guid>
-      <description>Contact Me  Email: ijerry.goo@gmail.com WeChat: Jensen-Jon   Mailing Address  663, North Building, Engineering Science and Technology Building, Anhui Agricultural University
-130 Changjiang West Road, Shushan District
-Hefei City
-Anhui Province
+      <description>Contact Me  Email: ijerry.goo@gmail.com WeChat: Jensen-Jon   Mailing Address  Lab for Media Computing
+Block A, Feicui Science and Education Building, Hefei University of Technology
+485 Danxia West Road, Shushan District
+Hefei City, Anhui Province
   Social  Github Bilibili DockerHub ResearchGate  </description>
     </item>
     
