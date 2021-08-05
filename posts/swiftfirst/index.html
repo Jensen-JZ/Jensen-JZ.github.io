@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang=""><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Swift初见（代码完善版）</title>
+    <meta name="description" content="A simple homepage of Jensen Zhang.">
+    <meta name="author" content='Jensen Zhang'>
+
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/buttonsstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/busuanzi.pure.mini.js"></script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?2f401f546fb29f7b8978eae3f0055b5f";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="/sass/researcher.min.css">
+
+    
+        <link rel="icon" type="image/ico" href="https://jen-jon.github.io/images/favicon.ico">
+    
+
+    
+        
+    
+</head>
+
+    <body><div class="container mt-5">
+    <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
+        <a class="navbar-brand mx-0 mr-sm-auto" href="https://jen-jon.github.io/" title="Jensen&#39;s Homepage">
+          
+          <i class="fas fa-home"></i>
+          Jensen&#39;s Homepage
+        </a>
+        <div class="navbar-nav flex-row flex-wrap justify-content-center">
+            
+                
+                
+                    <a class="nav-item nav-link" href="/about" title="About">
+                        About
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/posts" title="Posts">
+                        Posts
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/contact" title="Contact">
+                        Contact
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/tools" title="Tools">
+                        Tools
+                    </a>
+                    
+                
+            
+        </div>
+    </nav>
+</div>
+<hr>
+<div id="content">
+<div class="container">
+    
+    <h1 style="color: #dc3545;">Swift初见（代码完善版）</h1>
+    
+    <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 4, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
+    
+    <h5>This article is about <em>9028</em> words and may take <em>19</em> minutes to read.</h5>
+    <hr>
+    
+    
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/swiftfirst.png" alt="Logo"/></p>
+    <hr>
+    
+    
+    <blockquote>
+        <p><strong>Type: technology blog</strong></p>
+        <p><strong>Tags: iOS; Swift; Apple</strong></p>
+    </blockquote>
+    <hr>
+    
+    
+    <h1 style="color: #dc3545;">Content</h1>
+    <br>
+    
+    <h2 id="swift简介">Swift简介</h2>
+<p>Swift是美国苹果公司推出的编程语言，专门针对苹果的桌面操作系统macOS和苹果移动操作系统iOS、iPadOS以及watchOS和tvOS的应用开发。Swift 在各个方面优于 Objective-C，也不会有那么多复杂的符号和表达式。同时，Swift 更加快速、便利、高效、安全。除此之外，新的 Swift 语言依旧会与 Object-C 相兼容。（更多关于Swift的信息可以访问苹果公司官方<a href="https://developer.apple.com/cn/swift/">网址</a>）</p>
+<p>一般来说，一行<code>Swift</code>代码就是一个完整的程序。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;Hello, World!&#34;</span>)
+<span style="color:#f92672">---</span>
+output: Hello, World!
+</code></pre></div><hr>
+<h2 id="简单值">简单值</h2>
+<p><code>Swift</code>中常量用<code>let</code>来修饰，常量值只能赋值一次，可以在多个地方使用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> constValue = <span style="color:#ae81ff">20</span>
+<span style="color:#66d9ef">let</span> constInteger: Int
+print(constValue)
+<span style="color:#f92672">---</span>
+output: <span style="color:#ae81ff">20</span>
+</code></pre></div><p><code>Swift</code>中变量用<code>var</code>来修饰，与<code>JavaScript</code>的语法很像，变量可以多次赋值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> variableValue = <span style="color:#ae81ff">20</span>
+variableValue = <span style="color:#ae81ff">30</span>
+print(variableValue)
+<span style="color:#f92672">---</span>
+output: <span style="color:#ae81ff">30</span>
+</code></pre></div><p>常量和变量的类型必须和赋给它的值一样，然而并不用明确地声明类型。当通过一个值来声明常量和变量时，编译器会自动推断其类型。如果初始值没有提供足够的信息，或者没有初始值时，需要在变/常量后面声明类型，用冒号分割。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> implicitInteger = <span style="color:#ae81ff">70</span>
+print(<span style="color:#e6db74">&#34;Implicit Integer:&#34;</span>, implicitInteger)
+<span style="color:#66d9ef">let</span> implicitDouble = <span style="color:#ae81ff">71.0</span>
+print(<span style="color:#e6db74">&#34;Implicit Double:&#34;</span>, implicitDouble)
+<span style="color:#66d9ef">let</span> explicitDouble: Double = <span style="color:#ae81ff">72</span>
+print(<span style="color:#e6db74">&#34;Explicit Double:&#34;</span>, explicitDouble)
+<span style="color:#f92672">---</span>
+output: Implicit Integer: <span style="color:#ae81ff">70</span>
+Implicit Double: <span style="color:#ae81ff">71.0</span>
+Explicit Double: <span style="color:#ae81ff">72.0</span>
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>：</p>
+<p>创建一个常量，显示指定类型为Float，并指定初始值为4</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> explicitFloat: Float = <span style="color:#ae81ff">100</span>
+print(<span style="color:#e6db74">&#34;Practice Result:&#34;</span>, explicitFloat)
+<span style="color:#f92672">---</span>
+output: Practice Result: <span style="color:#ae81ff">100.0</span>
+</code></pre></div><hr>
+<p>值永远不会被隐式转换为其他类型，如果需要把一个值转换成其他类型，请显式转换。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> label = <span style="color:#e6db74">&#34;The width is &#34;</span>
+<span style="color:#66d9ef">let</span> width = <span style="color:#ae81ff">94</span>
+<span style="color:#66d9ef">let</span> widthLabel = label <span style="color:#f92672">+</span> String(width)
+print(<span style="color:#e6db74">&#34;Explicit Conversion Result:&#34;</span>, widthLabel)
+<span style="color:#f92672">---</span>
+output: Explicit Conversion Result: The width <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">94</span>
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>删除上面倒数第二行中的String，错误提示是什么？</p>
+</blockquote>
+<p>参考答案：</p>
+<p><code>Binary operator '+' cannot be applied to operands of type 'String' and 'int'</code></p>
+<hr>
+<p>有一种更简单的吧值转换成字符串的方法：把值写到括号中，并且在括号之前写一个反斜杠<code>\</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> apples = <span style="color:#ae81ff">3</span>
+<span style="color:#66d9ef">let</span> oranges = <span style="color:#ae81ff">5</span>
+<span style="color:#66d9ef">let</span> fruitSummary = <span style="color:#e6db74">&#34;I have </span><span style="color:#e6db74">\(</span>apples<span style="color:#e6db74">)</span><span style="color:#e6db74"> apples, and </span><span style="color:#e6db74">\(</span>oranges<span style="color:#e6db74">)</span><span style="color:#e6db74"> oranges. So I have </span><span style="color:#e6db74">\(</span>apples <span style="color:#f92672">+</span> oranges<span style="color:#e6db74">)</span><span style="color:#e6db74"> pieces of fruits totaly.&#34;</span>
+print(fruitSummary)
+<span style="color:#f92672">---</span>
+output: I have <span style="color:#ae81ff">3</span> apples, and <span style="color:#ae81ff">5</span> oranges. So I have <span style="color:#ae81ff">8</span> pieces of fruits totaly.
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>使用<code>\()</code>来把一个浮点计算转换成字符串，再加上某人的名字，和他打个招呼</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> constScore = <span style="color:#ae81ff">301.92</span>
+<span style="color:#66d9ef">let</span> nameSocre = <span style="color:#e6db74">&#34;Jensen </span><span style="color:#e6db74">\(</span>constScore<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
+print(<span style="color:#e6db74">&#34;Hello, &#34;</span>, nameSocre)
+<span style="color:#f92672">---</span>
+output: Hello,  Jensen <span style="color:#ae81ff">301.92</span>
+</code></pre></div><hr>
+<p>使用三个双引号<code>&quot;&quot;&quot;</code>来包含多行字符串内容，每行行首的缩进会被去除，直到和结尾引号的缩进相匹配。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> quotation = <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">I said &#34;</span>I have <span style="color:#960050;background-color:#1e0010">\</span>(apples) apples, and <span style="color:#960050;background-color:#1e0010">\</span>(oranges) oranges<span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">And then I said &#34;</span>I have <span style="color:#960050;background-color:#1e0010">\</span>(apples <span style="color:#f92672">+</span> oranges) pieces of fruits totaly.<span style="color:#e6db74">&#34;
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+print(quotation)
+<span style="color:#f92672">---</span>
+output: I said <span style="color:#e6db74">&#34;I have 3 apples, and 5 oranges&#34;</span>
+And then I said <span style="color:#e6db74">&#34;I have 8 pieces of fruits totaly.&#34;</span>
+</code></pre></div><p>使用方括号<code>[]</code>来创建数组和字典，并使用下标或者键<code>（Key）</code>来访问元素，最后一个元素后面允许有个逗号。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> shoppingList = [<span style="color:#e6db74">&#34;catfish&#34;</span>, <span style="color:#e6db74">&#34;water&#34;</span>, <span style="color:#e6db74">&#34;tulips&#34;</span>, <span style="color:#e6db74">&#34;blue paint&#34;</span>, ]
+print(shoppingList[<span style="color:#ae81ff">0</span>])
+shoppingList[<span style="color:#ae81ff">2</span>] = <span style="color:#e6db74">&#34;Jensen&#34;</span>
+print(shoppingList)
+
+<span style="color:#66d9ef">var</span> occupations = [
+    <span style="color:#e6db74">&#34;Country&#34;</span>: <span style="color:#e6db74">&#34;China&#34;</span>,
+    <span style="color:#e6db74">&#34;City&#34;</span>: <span style="color:#e6db74">&#34;Hefei&#34;</span>
+]
+occupations[<span style="color:#e6db74">&#34;University&#34;</span>] = <span style="color:#e6db74">&#34;HFUT&#34;</span>
+print(occupations)
+<span style="color:#f92672">---</span>
+output: catfish
+[<span style="color:#e6db74">&#34;catfish&#34;</span>, <span style="color:#e6db74">&#34;water&#34;</span>, <span style="color:#e6db74">&#34;Jensen&#34;</span>, <span style="color:#e6db74">&#34;blue paint&#34;</span>]
+[<span style="color:#e6db74">&#34;University&#34;</span>: <span style="color:#e6db74">&#34;HFUT&#34;</span>, <span style="color:#e6db74">&#34;Country&#34;</span>: <span style="color:#e6db74">&#34;China&#34;</span>, <span style="color:#e6db74">&#34;City&#34;</span>: <span style="color:#e6db74">&#34;Hefei&#34;</span>]
+</code></pre></div><p>数组在添加元素时会自动变大。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">shoppingList.append(<span style="color:#e6db74">&#34;apples&#34;</span>)
+print(<span style="color:#e6db74">&#34;数组添加元素后的长度：&#34;</span>, shoppingList.count)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">数组添加元素后的长度：</span> <span style="color:#ae81ff">5</span>
+</code></pre></div><p>使用初始化语法来创建一个空数组或者空字典。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> emptyArray: [String] = []
+<span style="color:#66d9ef">let</span> emptyDicitionary: [String: Float] = [:]
+</code></pre></div><p>如果变量的类型信息可以被推断出来，可以用<code>[]</code>和<code>[:]</code>来创建空数组和空字典。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">shoppingList = []
+occupations = [:]
+</code></pre></div><hr>
+<h2 id="控制流">控制流</h2>
+<p>使用<code>if</code>和<code>switch</code>来进行条件操作，使用<code>for-in</code>、<code>while</code>和<code>repeat-while</code>来进行循环，包裹条件和循环变量的括号可以省略。在<code>if</code>语句中，条件必须是一个布尔表达式，这意味着像<code>if score { ... }</code>这样的代码将报错，而不会隐式地与0做对比。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> individualScores = [<span style="color:#ae81ff">75</span>, <span style="color:#ae81ff">43</span>, <span style="color:#ae81ff">103</span>, <span style="color:#ae81ff">87</span>, <span style="color:#ae81ff">12</span>]
+<span style="color:#66d9ef">var</span> teamScore = <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> score <span style="color:#66d9ef">in</span> individualScores {
+    <span style="color:#66d9ef">if</span> score <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">50</span> {
+        teamScore <span style="color:#f92672">+=</span> <span style="color:#ae81ff">3</span>
+    } <span style="color:#66d9ef">else</span> {
+        teamScore <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    }
+}
+print(<span style="color:#e6db74">&#34;The value of teamScore: &#34;</span>, teamScore)
+<span style="color:#f92672">---</span>
+output: The value of teamScore:  <span style="color:#ae81ff">11</span>
+</code></pre></div><p>可以一起使用<code>if</code>和<code>let</code>一起来处理值缺失的情况。这些值可由可选值来代表。一个可选的值是一个具体的值或者是<code>nil</code>以表示值缺失在类型后面加一个问号<code>?</code>来标记这个变量的值是可选的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> optionalString: String? = <span style="color:#e6db74">&#34;Hello&#34;</span>
+print(optionalString == <span style="color:#66d9ef">nil</span>)
+optionalString = <span style="color:#66d9ef">nil</span>
+print(optionalString == <span style="color:#66d9ef">nil</span>)
+
+<span style="color:#66d9ef">var</span> optionalName: String? = <span style="color:#e6db74">&#34;Jensen Jon&#34;</span>
+<span style="color:#66d9ef">var</span> greeting = <span style="color:#e6db74">&#34;Hello&#34;</span>
+<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> name = optionalName {
+    greeting = <span style="color:#e6db74">&#34;Hello, </span><span style="color:#e6db74">\(</span>name<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
+    print(greeting)
+}
+<span style="color:#f92672">---</span>
+output: <span style="color:#66d9ef">false</span>
+<span style="color:#66d9ef">true</span>
+Hello, Jensen Jon
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>把optionaName改成nil，greeting会是什么？添加一个else语句，当optionalName是nil时，给greeting赋一个不同的值</p>
+</blockquote>
+<p>参考答案：
+<code>如果变量的可选值是nil，条件会判断为false，大括号中的代码会被跳过。如果不是nil，会将值解包并赋给let后面的常量，这样代码块中就可以使用这个值了</code></p>
+<hr>
+<p>另一种处理可选值的方法是通过使用<code>??</code>操作符来提供一个默认值。如果可选值缺失的话，可以使用默认值来代替。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> nickName: String? = <span style="color:#66d9ef">nil</span>
+<span style="color:#66d9ef">let</span> fullName: String = <span style="color:#e6db74">&#34;Jensen Jon&#34;</span>
+<span style="color:#66d9ef">let</span> informalGreeting = <span style="color:#e6db74">&#34;Hi </span><span style="color:#e6db74">\(</span>nickName ?? fullName<span style="color:#e6db74">)</span><span style="color:#e6db74">!&#34;</span>
+print(<span style="color:#e6db74">&#34;informalGreeting: &#34;</span>, informalGreeting)
+<span style="color:#f92672">---</span>
+output: informalGreeting:  Hi Jensen Jon!
+</code></pre></div><p><code>switch</code>支持任意类型的数据以及各种比较操作&ndash;不仅仅是整数以及测试相等。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> vegetable = <span style="color:#e6db74">&#34;red pepper&#34;</span>  <span style="color:#75715e">// Red Pepper 红胡椒</span>
+<span style="color:#66d9ef">switch</span> vegetable {
+<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;celery&#34;</span>:
+    print(<span style="color:#e6db74">&#34;Add some raisins and make ants on a log.&#34;</span>)  <span style="color:#75715e">// Swift中运行switch中匹配的case语句后，程序会自动退出switch语句，不需要break语句</span>
+<span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;cucumber&#34;</span>, <span style="color:#e6db74">&#34;watercress&#34;</span>:
+    print(<span style="color:#e6db74">&#34;That would make a good tea sandwich.&#34;</span>)
+<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> x <span style="color:#66d9ef">where</span> x.hasSuffix(<span style="color:#e6db74">&#34;pepper&#34;</span>):  <span style="color:#75715e">// Warning: let在上述例子中将匹配等时的值赋给常量x</span>
+    print(<span style="color:#e6db74">&#34;Is it a spicy </span><span style="color:#e6db74">\(</span>x<span style="color:#e6db74">)</span><span style="color:#e6db74">?&#34;</span>)
+<span style="color:#66d9ef">default</span>:
+    print(<span style="color:#e6db74">&#34;Everything testes good in soup.&#34;</span>)
+}
+<span style="color:#f92672">---</span>
+output: Is it a spicy red pepper?
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>删除default语句，看看会有什么错误？</p>
+</blockquote>
+<p>参考答案：
+<code>Switch must be exhaustive</code></p>
+<hr>
+<p>可以使用<code>for-in</code>来遍历字典，需要一对变量来表示每个键值对，字典是一个无序集合，所以它们的键和值以任意顺序迭代结束。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> interestingNumbers = [
+    <span style="color:#e6db74">&#34;Prime&#34;</span>: [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">13</span>],
+    <span style="color:#e6db74">&#34;Fibonacci&#34;</span>: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">8</span>],
+    <span style="color:#e6db74">&#34;Square&#34;</span>: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">16</span>, <span style="color:#ae81ff">25</span>]
+]
+<span style="color:#66d9ef">var</span> largest = <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">_</span>, numbers) <span style="color:#66d9ef">in</span> interestingNumbers {
+    <span style="color:#66d9ef">for</span> number <span style="color:#66d9ef">in</span> numbers {
+        <span style="color:#66d9ef">if</span> number <span style="color:#f92672">&gt;</span> largest {
+            largest = number
+        }
+    }
+}
+print(<span style="color:#e6db74">&#34;interestingNumbers字典中的最大值是：&#34;</span>, largest)
+<span style="color:#f92672">---</span>
+output: interestingNumbers字典中的最大值是<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">25</span>
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>将_替换成变量名，以确定哪种类型的值是最大的</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> largCls = <span style="color:#e6db74">&#34;&#34;</span>; largest = <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> (varClass, numbers) <span style="color:#66d9ef">in</span> interestingNumbers {
+    <span style="color:#66d9ef">for</span> number <span style="color:#66d9ef">in</span> numbers {
+        <span style="color:#66d9ef">if</span> number <span style="color:#f92672">&gt;</span> largest {
+            largest = number
+            largCls = varClass
+        }
+    }
+}
+print(<span style="color:#e6db74">&#34;字典中最大值的类型是：&#34;</span>, largCls)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">字典中最大值的类型是：</span> Square
+</code></pre></div><hr>
+<p>使用<code>while</code>来重复运行一段代码直到条件改变。循环条件也可以在结尾，保证至少能循环一次。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> n = <span style="color:#ae81ff">2</span>
+<span style="color:#66d9ef">while</span> n <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span> {
+    n <span style="color:#f92672">*=</span> <span style="color:#ae81ff">2</span>
+}
+print(<span style="color:#e6db74">&#34;n: &#34;</span>, n)
+
+<span style="color:#66d9ef">var</span> m = <span style="color:#ae81ff">2</span>
+<span style="color:#66d9ef">repeat</span> {
+    m <span style="color:#f92672">*=</span> <span style="color:#ae81ff">2</span>
+} <span style="color:#66d9ef">while</span> m <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>
+print(<span style="color:#e6db74">&#34;m: &#34;</span>, m)
+<span style="color:#f92672">---</span>
+output: n:  <span style="color:#ae81ff">128</span>
+m:  <span style="color:#ae81ff">128</span>
+</code></pre></div><p>你可以在循环中使用<code>..&lt;</code>来表示下标范围。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> total = <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0.</span>.&lt;<span style="color:#ae81ff">5</span> {
+    print(i)
+    total <span style="color:#f92672">+=</span> i
+}
+print(<span style="color:#e6db74">&#34;Total(..&lt;): &#34;</span>, total)
+<span style="color:#f92672">---</span>
+output: <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">2</span>
+<span style="color:#ae81ff">3</span>
+<span style="color:#ae81ff">4</span>
+Total(..<span style="color:#f92672">&lt;</span>):  <span style="color:#ae81ff">10</span>
+</code></pre></div><p>使用<code>..&lt;</code>创建的范围不包含上届，如果想包含的话需要使用<code>...</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">total = <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> i <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0.</span>..<span style="color:#ae81ff">5</span> {
+    print(i)
+    total <span style="color:#f92672">+=</span> i
+}
+print(<span style="color:#e6db74">&#34;Total(...): &#34;</span>, total)
+<span style="color:#f92672">---</span>
+output: <span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">1</span>
+<span style="color:#ae81ff">2</span>
+<span style="color:#ae81ff">3</span>
+<span style="color:#ae81ff">4</span>
+<span style="color:#ae81ff">5</span>
+Total(...):  <span style="color:#ae81ff">15</span>
+</code></pre></div><hr>
+<h2 id="函数和闭包">函数和闭包</h2>
+<p>使用<code>func</code>来声明一个函数，使用名字和参数来调用参数。使用<code>-&gt;</code>来指定函数返回值的类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">greet</span>(person: String, day: String) -&gt; String {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello </span><span style="color:#e6db74">\(</span>person<span style="color:#e6db74">)</span><span style="color:#e6db74">, today is </span><span style="color:#e6db74">\(</span>day<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>
+}
+print(greet(person: <span style="color:#e6db74">&#34;Jensen&#34;</span>, day: <span style="color:#e6db74">&#34;Thursday&#34;</span>))
+<span style="color:#f92672">---</span>
+output: Hello Jensen, today <span style="color:#66d9ef">is</span> Thursday.
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>删除day参数，在这个欢迎语中添加一个参数来表示今天的特价菜</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">greet</span>(person: String, delicacy: String) -&gt; String {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello </span><span style="color:#e6db74">\(</span>person<span style="color:#e6db74">)</span><span style="color:#e6db74">, our special delicacy is </span><span style="color:#e6db74">\(</span>delicacy<span style="color:#e6db74">)</span><span style="color:#e6db74"> today!&#34;</span>
+}
+print(greet(person: <span style="color:#e6db74">&#34;Jensen&#34;</span>, delicacy: <span style="color:#e6db74">&#34;beef&#34;</span>))
+<span style="color:#f92672">---</span>
+output: Hello Jensen, our special delicacy <span style="color:#66d9ef">is</span> beef today!
+</code></pre></div><p>默认情况下，函数使用它们的参数名称作为它们参数的标签，在参数名称前可以自定义参数标签，或者使用<code>_</code>表示不使用参数标签。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">greet</span>(<span style="color:#66d9ef">_</span> person: String, on day: String) -&gt; String {
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Hello </span><span style="color:#e6db74">\(</span>person<span style="color:#e6db74">)</span><span style="color:#e6db74">, today is </span><span style="color:#e6db74">\(</span>day<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>
+}
+print(greet(<span style="color:#e6db74">&#34;Jensen&#34;</span>, on: <span style="color:#e6db74">&#34;Thursday&#34;</span>))
+<span style="color:#f92672">---</span>
+output: Hello Jensen, today <span style="color:#66d9ef">is</span> Thursday.
+</code></pre></div><p>使用元组来生成复合值，比如让一个函数返回多个值，该元组的元素可以用名称或数字来获取。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">calculateStatistics</span>(scores: [Int]) -&gt; (min: Int, max: Int, sum: Int) {
+    <span style="color:#66d9ef">var</span> min = scores[<span style="color:#ae81ff">0</span>]
+    <span style="color:#66d9ef">var</span> max = scores[<span style="color:#ae81ff">0</span>]
+    <span style="color:#66d9ef">var</span> sum = <span style="color:#ae81ff">0</span>
+    
+    <span style="color:#66d9ef">for</span> score <span style="color:#66d9ef">in</span> scores {
+        <span style="color:#66d9ef">if</span> score <span style="color:#f92672">&gt;</span> max {
+            max = score
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> score <span style="color:#f92672">&lt;</span> min {
+            min = score
+        }
+        sum <span style="color:#f92672">+=</span> score
+    }
+
+    <span style="color:#66d9ef">return</span> (min, max, sum)
+}
+<span style="color:#66d9ef">let</span> statistics = calculateStatistics(scores: [<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">100</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">0</span>])
+print(<span style="color:#e6db74">&#34;Max value is &#34;</span>, statistics.max, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Min value is &#34;</span>, statistics.min, <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Sum value is &#34;</span>, statistics.sum)
+print(statistics.<span style="color:#ae81ff">2</span>)
+<span style="color:#f92672">---</span>
+output: Max value <span style="color:#66d9ef">is</span>  <span style="color:#ae81ff">100</span> 
+Min value <span style="color:#66d9ef">is</span>  <span style="color:#f92672">-</span><span style="color:#ae81ff">9</span> 
+Sum value <span style="color:#66d9ef">is</span>  <span style="color:#ae81ff">99</span>
+<span style="color:#ae81ff">99</span>
+</code></pre></div><p>函数可以嵌套，被嵌套的函数可以访问外侧函数的变量。可以使用嵌套函数来重构一个太长或者太复杂的函数。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">returnFifteen</span>() -&gt; Int {
+    <span style="color:#66d9ef">var</span> y = <span style="color:#ae81ff">10</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">add</span>() {
+        y <span style="color:#f92672">+=</span> <span style="color:#ae81ff">5</span>
+    }
+    add()
+    <span style="color:#66d9ef">return</span> y
+}
+print(<span style="color:#e6db74">&#34;经过嵌套函数处理后的y值是：&#34;</span>, returnFifteen())
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">经过嵌套函数处理后的</span>y值是<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">15</span>
+</code></pre></div><p>函数是第一等类型，这意味着函数可以作为另一个函数的返回值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeIncrementer</span>() -&gt; ((Int) -&gt; Int) {
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">addOne</span>(number: Int) -&gt; Int {
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> number
+    }
+    <span style="color:#66d9ef">return</span> addOne
+}
+<span style="color:#66d9ef">var</span> increment = makeIncrementer()
+print(<span style="color:#e6db74">&#34;Increment is &#34;</span>, increment(<span style="color:#ae81ff">7</span>))
+<span style="color:#f92672">---</span>
+output: Increment <span style="color:#66d9ef">is</span>  <span style="color:#ae81ff">8</span>
+</code></pre></div><p>函数也可以作为一个参数传入另一个函数。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">hasAnyMatches</span>(list: [Int], condition: (Int) -&gt; Bool) -&gt; Bool {
+    <span style="color:#66d9ef">for</span> item <span style="color:#66d9ef">in</span> list {
+        <span style="color:#66d9ef">if</span> condition(item) {  <span style="color:#75715e">// if条件语句的条件必须是一个布尔表达式</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">lessThanTen</span>(number: Int) -&gt; Bool {
+    <span style="color:#66d9ef">return</span> number <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>
+}
+<span style="color:#66d9ef">var</span> numbers = [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">11</span>]
+print(hasAnyMatches(list: numbers, condition:  lessThanTen))
+<span style="color:#f92672">---</span>
+output: <span style="color:#66d9ef">true</span>
+</code></pre></div><p>函数实际上是一种特殊的闭包：它是一段能之后被调取的代码。闭包中的代码能访问闭包作用域中的变量和函数，即使闭包是在一个不同的作用域被执行的，正如上面的嵌套函数。可以使用<code>{}</code>来创建一个匿名闭包，使用<code>in</code>将参数和返回值类型的声明与闭包函数体进行分离。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> result = numbers.map({
+    (number: Int) -&gt; Int <span style="color:#66d9ef">in</span>
+    <span style="color:#66d9ef">let</span> result = <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> number
+    <span style="color:#66d9ef">return</span> result
+})
+print(<span style="color:#e6db74">&#34;闭包值：&#34;</span>, result)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">闭包值：</span> [<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">60</span>, <span style="color:#ae81ff">27</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">33</span>]
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>重写闭包，对所有奇数返回0</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">result = numbers.map({
+    (number: Int) -&gt; Int <span style="color:#66d9ef">in</span>
+    <span style="color:#66d9ef">if</span> number <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>
+    }
+    <span style="color:#66d9ef">return</span> number
+})
+print(<span style="color:#e6db74">&#34;闭包值：&#34;</span>, result)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">闭包值：</span> [<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>]
+</code></pre></div><p>如果一个闭包的类型已知，比如作为一个代理的回调，你可以忽略参数，返回值，甚至两个都忽略。单个语句闭包会把它语句的值作为结果返回。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> mappedNumbers = numbers.map({number <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">3</span> <span style="color:#f92672">*</span> number})
+print(<span style="color:#e6db74">&#34;简洁闭包：&#34;</span>, mappedNumbers)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">简洁闭包：</span> [<span style="color:#ae81ff">30</span>, <span style="color:#ae81ff">60</span>, <span style="color:#ae81ff">27</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">33</span>]
+</code></pre></div><p>可以通过参数位置而不是参数名字来引用参数，这个方法在非常短的闭包中非常有用，当一个闭包作为最后一个参数来传递给一个函数的时候，可以直接跟在圆括号的后面。当一个闭包是传给函数的唯一参数时，可以完全忽略圆括号。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> sortedNumbers = numbers.sorted {$0 <span style="color:#f92672">&gt;</span> $1}
+print(<span style="color:#e6db74">&#34;简洁闭包（无圆括号）：&#34;</span>, sortedNumbers)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">简洁闭包（无圆括号）：</span> [<span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">2</span>]
+</code></pre></div><hr>
+<h2 id="类和对象">类和对象</h2>
+<p>使用<code>class</code>和类名来创建一个类。类中属性的声明和变量、常量的声明一样，不同的是类中常/变量的上下文是类。同样的，方法和函数声明也一样。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shape</span> {
+    <span style="color:#66d9ef">var</span> numberOfSides = <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">simpleDescription</span>() -&gt; String {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;A shape with </span><span style="color:#e6db74">\(</span>numberOfSides<span style="color:#e6db74">)</span><span style="color:#e6db74"> sides.&#34;</span>
+    }
+}
+print(Shape().simpleDescription())
+<span style="color:#f92672">---</span>
+output: A shape with <span style="color:#ae81ff">0</span> sides.
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>使用let添加一个常量属性，再添加一个接收一个参数的方法</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Shapes</span> {
+    <span style="color:#66d9ef">let</span> constVal = <span style="color:#ae81ff">10</span>
+    <span style="color:#66d9ef">var</span> numberOfSize = <span style="color:#ae81ff">20</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">setter</span>(<span style="color:#66d9ef">_</span> number: Int) {
+        numberOfSize = number
+    }
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">shwoInfo</span>() -&gt; String {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Class Shape has a const value constVal and a variable value numberOfSize, the value of constVal is </span><span style="color:#e6db74">\(</span>constVal<span style="color:#e6db74">)</span><span style="color:#e6db74">, the value of numberOfSize is </span><span style="color:#e6db74">\(</span>numberOfSize<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>
+    }
+}
+<span style="color:#66d9ef">var</span> shapes = Shapes()
+shapes.setter(<span style="color:#ae81ff">100</span>)
+print(shapes.shwoInfo())
+<span style="color:#f92672">---</span>
+output: Class Shape has a const value constVal and a variable value numberOfSize, the value of constVal <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">10</span>, the value of numberOfSize <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">100.</span>
+</code></pre></div><p>要创建一个类的实例，在类名后面加上括号。使用点语法来访问实例的属性和方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> shape = Shape()
+shape.numberOfSides = <span style="color:#ae81ff">7</span>
+print(<span style="color:#e6db74">&#34;shape对象已创建：&#34;</span>, shape.simpleDescription())
+<span style="color:#f92672">---</span>
+output: shape对象已创建<span style="color:#960050;background-color:#1e0010">：</span> A shape with <span style="color:#ae81ff">7</span> sides.
+</code></pre></div><p>述的<code>Shape/Shapes</code>类还缺少了一个非常重要的东西：一个构造函数来初始化实例。可以使用<code>init</code>来创建一个构造器。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NamedShape</span> {
+    <span style="color:#66d9ef">var</span> numberOfSides: Int = <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">var</span> name: String
+    
+    <span style="color:#66d9ef">init</span>(name: String) {
+        <span style="color:#66d9ef">self</span>.name = name
+    }
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">simpleDescription</span>() -&gt; String {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;A shape with </span><span style="color:#e6db74">\(</span>numberOfSides<span style="color:#e6db74">)</span><span style="color:#e6db74"> sides.&#34;</span>
+    }
+}
+</code></pre></div><p>注意，类似于<code>Python</code>，在上述例子中<code>self</code>被用来区别实例变量name和构造器参数name。当需要创建实例的时候，就需要像传入函数参数一样给类的构造器传入参数。创建实例时，类的每个属性都需要赋值，无论是通过声明还是通过构造器。</p>
+<p>如果需要在对象释放前进行一些清理工作，需要使用<code>deinit</code>创建一个析构函数。</p>
+<p>子类的定义方法是在它们的类名后面加上父类的名字，并用冒号分割。创建类时，并不需要一个标准的根类<code>（Root）</code>，所以可以根据需要添加或者忽略父类。子类如果需要重写父类的方法的话，就需要使用<code>override</code>关键字来标记，如果没有添加<code>override</code>就重写的话，编译器会报错。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Square</span>: NamedShape {
+    <span style="color:#66d9ef">var</span> sideLength: Double
+    
+    <span style="color:#66d9ef">init</span>(sideLength: Double, name: String) {
+        <span style="color:#66d9ef">self</span>.sideLength = sideLength
+        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(name: name)
+        numberOfSides = <span style="color:#ae81ff">4</span>
+    }
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">area</span>() -&gt; Double {
+        <span style="color:#66d9ef">return</span> sideLength <span style="color:#f92672">*</span> sideLength
+    }
+    
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">simpleDescription</span>() -&gt; String {  <span style="color:#75715e">// 重写父类方法，并调用父类属性</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;A square with sides of length </span><span style="color:#e6db74">\(</span>sideLength<span style="color:#e6db74">)</span><span style="color:#e6db74">. Producted by </span><span style="color:#e6db74">\(</span>name<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>
+    }
+}
+<span style="color:#66d9ef">let</span> test = Square(sideLength: <span style="color:#ae81ff">5.2</span>, name: <span style="color:#e6db74">&#34;Jensen&#34;</span>)
+print(<span style="color:#e6db74">&#34;Square: Area&#34;</span>, test.area())
+print(test.simpleDescription(), test.numberOfSides)
+<span style="color:#f92672">---</span>
+output: Square: Area <span style="color:#ae81ff">27.040000000000003</span>
+A square with sides of length <span style="color:#ae81ff">5.2</span>. Producted by Jensen. <span style="color:#ae81ff">4</span>
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>创建NamedShape的另一个字类Circle，构造器接收两个参数，一个是半径，另一个时名称，在子类中实现area()和simpleDescription()方法</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Circle</span>: NamedShape {
+    <span style="color:#66d9ef">var</span> radius: Double
+    
+    <span style="color:#66d9ef">init</span>(radius: Double, name: String) {
+        <span style="color:#66d9ef">self</span>.radius = radius
+        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(name: name)
+        numberOfSides = <span style="color:#ae81ff">1</span>
+    }
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">area</span>() -&gt; Double {
+        <span style="color:#66d9ef">return</span> radius <span style="color:#f92672">*</span> radius <span style="color:#f92672">*</span> Double.pi
+    }
+
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">simpleDescription</span>() -&gt; String {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;A circle has </span><span style="color:#e6db74">\(</span>numberOfSides<span style="color:#e6db74">)</span><span style="color:#e6db74"> side and with radius of </span><span style="color:#e6db74">\(</span>radius<span style="color:#e6db74">)</span><span style="color:#e6db74">, its area is </span><span style="color:#e6db74">\(</span>area<span style="color:#e6db74">())</span><span style="color:#e6db74">. Producted by </span><span style="color:#e6db74">\(</span>name<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>
+    }
+}
+<span style="color:#66d9ef">let</span> circle = Circle(radius: <span style="color:#ae81ff">5.2</span>, name: <span style="color:#e6db74">&#34;Jensen&#34;</span>)
+print(circle.simpleDescription())
+<span style="color:#f92672">---</span>
+output: A circle has <span style="color:#ae81ff">1</span> side and with radius of <span style="color:#ae81ff">5.2</span>, its area <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">84.94866535306801</span>. Producted by Jensen.
+</code></pre></div><hr>
+<p>除了简单的存储属性，还有使用<code>getter</code>和<code>setter</code>的计算属性。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">EquilateralTriangle</span>: NamedShape {
+    <span style="color:#66d9ef">var</span> sideLength: Double
+    
+    <span style="color:#66d9ef">init</span>(sideLength: Double, name: String) {
+        <span style="color:#66d9ef">self</span>.sideLength = sideLength
+        <span style="color:#66d9ef">super</span>.<span style="color:#66d9ef">init</span>(name: name)
+        numberOfSides = <span style="color:#ae81ff">3</span>
+    }
+    
+    <span style="color:#66d9ef">var</span> perimeter: Double {
+        <span style="color:#66d9ef">get</span> {
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">3.0</span> <span style="color:#f92672">*</span> sideLength
+        }
+        <span style="color:#66d9ef">set</span> {
+            sideLength = newValue  <span style="color:#f92672">/</span> <span style="color:#ae81ff">3.0</span>
+        }
+    }
+    
+    <span style="color:#66d9ef">override</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">simpleDescription</span>() -&gt; String {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;An equilateral triangle with sides of length </span><span style="color:#e6db74">\(</span>sideLength<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>
+    }
+}
+<span style="color:#66d9ef">var</span> triangle = EquilateralTriangle(sideLength: <span style="color:#ae81ff">3.1</span>, name: <span style="color:#e6db74">&#34;Jensen&#34;</span>)
+print(triangle.simpleDescription())
+triangle.perimeter = <span style="color:#ae81ff">9.9</span>
+print(<span style="color:#e6db74">&#34;Setter后的新值：&#34;</span>, triangle.sideLength)
+<span style="color:#f92672">---</span>
+output: An equilateral triangle with sides of length <span style="color:#ae81ff">3.1</span>.
+Setter后的新值<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">3.3000000000000003</span>
+</code></pre></div><p>在<code>perimeter</code>的<code>setter</code>中，新值的名字时<code>newValue</code>，可以在<code>set</code>之后的圆括号中显式地设置一个名字。注意，<code>EquilateralTriangle</code>类的构造器执行了三个步骤：</p>
+<blockquote>
+<p>设置子类声明的属性值</p>
+<p>调用父类的构造器</p>
+<p>改变父类定义的属性值，其他的工作比如调用方法、getters 和 setters 也可以在这个阶段完成。</p>
+</blockquote>
+<p>如果不需要计算属性，但是仍然需要在设置一个新值之前或者之后运行代码，使用<code>willSet</code>和<code>didSet</code>。写入的代码会在属性值发生改变时调用，但不包含<code>init</code>中发生值改变的情况。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TriangleAndSquare</span> {
+    <span style="color:#66d9ef">var</span> triangle: EquilateralTriangle {
+        <span style="color:#66d9ef">willSet</span> {
+            square.sideLength = newValue.sideLength
+        }
+    }
+    
+    <span style="color:#66d9ef">var</span> square: Square {
+        <span style="color:#66d9ef">willSet</span> {
+            triangle.sideLength = newValue.sideLength
+        }
+    }
+    
+    <span style="color:#66d9ef">init</span>(size: Double, name: String) {
+        square = Square(sideLength: size, name: name)
+        triangle = EquilateralTriangle(sideLength: size, name: name)
+    }
+}
+<span style="color:#66d9ef">var</span> triangleAndSquare = TriangleAndSquare(size: <span style="color:#ae81ff">10</span>, name: <span style="color:#e6db74">&#34;Jensen&#34;</span>)
+print(<span style="color:#e6db74">&#34;第一次调用 &gt; Square.sideLength：&#34;</span>, triangleAndSquare.square.sideLength)
+print(<span style="color:#e6db74">&#34;第一次调用 &gt; EquilaterTriangle.sideLength：&#34;</span>, triangleAndSquare.triangle.sideLength)
+triangleAndSquare.square = Square(sideLength: <span style="color:#ae81ff">30</span>, name: <span style="color:#e6db74">&#34;Jensen&#34;</span>)
+print(<span style="color:#e6db74">&#34;第二次调用 &gt; EquilaterTriangle.sideLength：&#34;</span>, triangleAndSquare.triangle.sideLength)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">第一次调用</span> <span style="color:#f92672">&gt;</span> Square.sideLength<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">10.0</span>
+<span style="color:#960050;background-color:#1e0010">第一次调用</span> <span style="color:#f92672">&gt;</span> EquilaterTriangle.sideLength<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">10.0</span>
+<span style="color:#960050;background-color:#1e0010">第二次调用</span> <span style="color:#f92672">&gt;</span> EquilaterTriangle.sideLength<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">30.0</span>
+</code></pre></div><p>处理变量的可选值时，可以在操作（比如方法、属性和子脚本）之前加上<code>?</code>，如果<code>?</code>之前的值是<code>nil</code>，<code>?</code>后面的东西都会被忽略，并且整个表达式返回<code>nil</code>。否则可选值会被解包，之后的所有代码都会按照解包后的值运行。在这两种情况下，整个表达式的值也是一个可选值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> optionalSquare: Square? = Square(sideLength: <span style="color:#ae81ff">2.5</span>, name: <span style="color:#e6db74">&#34;Jensen&#34;</span>)
+<span style="color:#66d9ef">var</span> sideLength = optionalSquare?.sideLength
+print(<span style="color:#e6db74">&#34;有可选值：&#34;</span>, sideLength)
+optionalSquare = <span style="color:#66d9ef">nil</span>
+sideLength = optionalSquare?.sideLength
+print(<span style="color:#e6db74">&#34;无可选值：&#34;</span>, sideLength)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">有可选值：</span> Optional(<span style="color:#ae81ff">2.5</span>)
+<span style="color:#960050;background-color:#1e0010">无可选值：</span> <span style="color:#66d9ef">nil</span>
+<span style="color:#f92672">---</span>
+warning: Expression implicitly coerced from <span style="color:#960050;background-color:#1e0010">&#39;</span>Double?<span style="color:#960050;background-color:#1e0010">&#39;</span> to <span style="color:#960050;background-color:#1e0010">&#39;</span>Any<span style="color:#960050;background-color:#1e0010">&#39;</span>
+</code></pre></div><hr>
+<h2 id="枚举和结构体">枚举和结构体</h2>
+<p>使用<code>enum</code>来创建一个枚举，就像类和其他所有命名类型一样，枚举可以包含方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">RankTest</span>: Double {
+    <span style="color:#66d9ef">case</span> ace
+    <span style="color:#66d9ef">case</span> two, three, four, five, six, seven
+}
+print(<span style="color:#e6db74">&#34;枚举测试：&#34;</span>, RankTest.two.rawValue)
+
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Rank</span>: Int {
+    <span style="color:#66d9ef">case</span> ace = <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">case</span> two, three, four, five, six, seven, eight, nine, ten
+    <span style="color:#66d9ef">case</span> jack, queen, king
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">simpleDescription</span>() -&gt; String {
+        <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">self</span> {
+        <span style="color:#66d9ef">case</span> .ace:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;ace&#34;</span>
+        <span style="color:#66d9ef">case</span> .jack:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;jack&#34;</span>
+        <span style="color:#66d9ef">case</span> .queen:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;queen&#34;</span>
+        <span style="color:#66d9ef">case</span> .king:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;king&#34;</span>
+        <span style="color:#66d9ef">default</span>:
+            <span style="color:#66d9ef">return</span> String(<span style="color:#66d9ef">self</span>.rawValue)
+        }
+    }
+}
+<span style="color:#66d9ef">let</span> ace = Rank.ace
+<span style="color:#66d9ef">let</span> aceRawValue = ace.rawValue
+print(<span style="color:#e6db74">&#34;ace: &#34;</span>, aceRawValue)
+print(<span style="color:#e6db74">&#34;Rank.xx.simpleDescription(): &#34;</span>, Rank.king.simpleDescription())
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">枚举测试：</span> <span style="color:#ae81ff">1.0</span>
+ace:  <span style="color:#ae81ff">1</span>
+Rank.xx.simpleDescription():  king
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>写一个函数，通过比较它们的原始值来比较两个Rank值</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Rank1</span>: Int {
+    <span style="color:#66d9ef">case</span> ace = <span style="color:#ae81ff">10</span>
+    <span style="color:#66d9ef">case</span> two, three
+}
+
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Rank2</span>: Int {
+    <span style="color:#66d9ef">case</span> ace = <span style="color:#ae81ff">7</span>
+    <span style="color:#66d9ef">case</span> next
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">compareRanks</span>(rankVal1: Int, rankVal2: Int) -&gt; String {
+    <span style="color:#66d9ef">if</span> rankVal1 <span style="color:#f92672">&lt;</span> rankVal2 {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Rank1&#34;</span>
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> rankVal2 <span style="color:#f92672">&lt;</span> rankVal1 {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Rank2&#34;</span>
+    } <span style="color:#66d9ef">else</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Null&#34;</span>
+    }
+}
+
+print(<span style="color:#e6db74">&#34;具有较大的原始值的Rank是：&#34;</span>, compareRanks(rankVal1: Rank1.ace.rawValue, rankVal2: Rank2.ace.rawValue))
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">具有较大的原始值的</span>Rank是<span style="color:#960050;background-color:#1e0010">：</span> Rank2
+</code></pre></div><p>默认情况下，<code>Swift</code>按照从0开始每次加1的方式为原始值进行赋值，原始值可以通过显式赋值来修改。当然了，也可以选择使用字符串或者浮点数作为枚举的原始值，使用<code>rawValue</code>属性来访问一个枚举成员的原始值。</p>
+<p>使用<code>init?(rawValue:)</code>初始化构造器从原始值创近啊一个枚举实例。如果存在于原始值相应的枚举成员就返回该枚举成员，否则就返回<code>nil</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> convertedRank = Rank(rawValue: <span style="color:#ae81ff">11</span>) {
+    <span style="color:#66d9ef">let</span> elevenDescription = convertedRank.simpleDescription()
+    print(elevenDescription)
+}
+<span style="color:#f92672">---</span>
+output: jack
+</code></pre></div><p>枚举的关联值是实际值，并不是原始值的另一种表达方式。实际上，如果没有比较有意义的原始值，就不要提供原始值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Suit</span> {
+    <span style="color:#66d9ef">case</span> spaeds, hearts, diamonds, clubs
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">simpleDescription</span>() -&gt; String {
+        <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">self</span> {
+        <span style="color:#66d9ef">case</span> .spaeds:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;speedsDescription&#34;</span>
+        <span style="color:#66d9ef">case</span> .hearts:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;heartsDescription&#34;</span>
+        <span style="color:#66d9ef">case</span> .diamonds:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;diamondsDescription&#34;</span>
+        <span style="color:#66d9ef">case</span> .clubs:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;clubsDescription&#34;</span>
+        }
+    }
+}
+<span style="color:#66d9ef">let</span> hearts = Suit.hearts
+print(<span style="color:#e6db74">&#34;Suit.hearts: &#34;</span>, hearts)
+<span style="color:#66d9ef">let</span> heartsDescription = hearts.simpleDescription()
+print(<span style="color:#e6db74">&#34;heartsDescription: &#34;</span>, heartsDescription)
+<span style="color:#f92672">---</span>
+output: Suit.hearts:  hearts
+heartsDescription:  heartsDescription
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>给Suit添加一个color()方法，对spades和clubs返回“blcak”，对hearts和diamonds返回“red”</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">SuitTest</span> {
+    <span style="color:#66d9ef">case</span> spaeds, hearts, diamonds, clubs
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">simpleDescription</span>() -&gt; String {
+        <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">self</span> {
+        <span style="color:#66d9ef">case</span> .spaeds:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;speedsDescription&#34;</span>
+        <span style="color:#66d9ef">case</span> .hearts:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;heartsDescription&#34;</span>
+        <span style="color:#66d9ef">case</span> .diamonds:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;diamondsDescription&#34;</span>
+        <span style="color:#66d9ef">case</span> .clubs:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;clubsDescription&#34;</span>
+        }
+    }
+    
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">color</span>() -&gt; String {
+        <span style="color:#66d9ef">switch</span> <span style="color:#66d9ef">self</span> {
+        <span style="color:#66d9ef">case</span> .spaeds:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;black&#34;</span>
+        <span style="color:#66d9ef">case</span> .clubs:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;black&#34;</span>
+        <span style="color:#66d9ef">case</span> .hearts:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;red&#34;</span>
+        <span style="color:#66d9ef">case</span> .diamonds:
+            <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;red&#34;</span>
+        }
+    }
+}
+<span style="color:#66d9ef">let</span> clubs = SuitTest.clubs
+print(<span style="color:#e6db74">&#34;Suits.clubs: &#34;</span>, clubs)
+<span style="color:#66d9ef">let</span> clubsColor = clubs.color()
+print(<span style="color:#e6db74">&#34;clubsColor: &#34;</span>, clubsColor)
+<span style="color:#f92672">---</span>
+output: Suits.clubs:  clubs
+clubsColor:  black
+</code></pre></div><p>注意在上面的例子中使用了两种方式引用<code>hearts</code>枚举成员：</p>
+<blockquote>
+<p>给<code>clubs</code>常量赋值时，枚举成员<code>Suits.clubs</code>需要使用全名来引用，因为常量没有显示指定类型</p>
+<p>在<code>switch</code>里，枚举成员使用缩写<code>.clubs</code>来引用，因为<code>self</code>的值已经是一个<code>Suits</code>类型</p>
+</blockquote>
+<p>在任何已知变量类型的情况下都可以使用缩写。</p>
+<p>如果枚举成员的实例有原始值，那么这些值是在声明时候就已经决定了，这意味着不同枚举实例的枚举成员总会有一个相同的原始值。当然我们也可以为枚举成员设定关联值，关联值是在创建实例时决定的。这意味着同一枚举成员不同实例的关联值可以不同。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ServerResponse</span> {
+    <span style="color:#66d9ef">case</span> result(String, String)
+    <span style="color:#66d9ef">case</span> failure(String)
+}
+
+<span style="color:#66d9ef">var</span> response = ServerResponse.result(<span style="color:#e6db74">&#34;6:00 am&#34;</span>, <span style="color:#e6db74">&#34;8:09 pm&#34;</span>)
+response = ServerResponse.failure(<span style="color:#e6db74">&#34;Out of memory.&#34;</span>)
+
+<span style="color:#66d9ef">switch</span> response {
+<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> .result(sunrise, sunset):
+    print(<span style="color:#e6db74">&#34;Sunrise is at </span><span style="color:#e6db74">\(</span>sunrise<span style="color:#e6db74">)</span><span style="color:#e6db74"> and sunset is at </span><span style="color:#e6db74">\(</span>sunset<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> .failure(message):
+    print(<span style="color:#e6db74">&#34;Failure... </span><span style="color:#e6db74">\(</span>message<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+}
+<span style="color:#f92672">---</span>
+output: Failure... Out of memory.
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>给ServerReponse和switch添加第三种情况</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">ServerResponses</span> {
+    <span style="color:#66d9ef">case</span> result(String, String)
+    <span style="color:#66d9ef">case</span> rain(String)
+    <span style="color:#66d9ef">case</span> failure(String)
+}
+
+<span style="color:#66d9ef">var</span> responses = ServerResponses.result(<span style="color:#e6db74">&#34;6:00 am&#34;</span>, <span style="color:#e6db74">&#34;8:09 pm&#34;</span>)
+responses = ServerResponses.failure(<span style="color:#e6db74">&#34;Out of memory.&#34;</span>)
+responses = ServerResponses.rain(<span style="color:#e6db74">&#34;Today is rain.&#34;</span>)
+
+<span style="color:#66d9ef">switch</span> responses {
+<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> .result(sunrise, sunset):  <span style="color:#75715e">// 注意ServerResponses的值在于switch的分支匹配时，日升和日落时间是如何从该值中提取出来的</span>
+    print(<span style="color:#e6db74">&#34;Sunrise is at </span><span style="color:#e6db74">\(</span>sunrise<span style="color:#e6db74">)</span><span style="color:#e6db74"> and sunset is at </span><span style="color:#e6db74">\(</span>sunset<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> .rain(message):
+    print(<span style="color:#e6db74">&#34;Sorry! </span><span style="color:#e6db74">\(</span>message<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> .failure(message):
+    print(<span style="color:#e6db74">&#34;Failure... </span><span style="color:#e6db74">\(</span>message<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+}
+<span style="color:#f92672">---</span>
+output: Sorry! Today <span style="color:#66d9ef">is</span> rain.
+</code></pre></div><hr>
+<p>使用<code>struct</code>来创建一个结构体。结构体和类有很多相同的地方，包括方法和构造器。结构体与类最大的一个区别就是结构体是值传递，类是引用传递。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Card</span> {
+    <span style="color:#66d9ef">var</span> rank: Rank
+    <span style="color:#66d9ef">var</span> suit: Suit
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">simpleDescription</span>() -&gt; String {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;The </span><span style="color:#e6db74">\(</span>rank.simpleDescription<span style="color:#e6db74">())</span><span style="color:#e6db74"> of </span><span style="color:#e6db74">\(</span>suit.simpleDescription<span style="color:#e6db74">())</span><span style="color:#e6db74">.&#34;</span>
+    }
+}
+<span style="color:#66d9ef">let</span> threeOfSpades = Card(rank: .three, suit: .spaeds)
+<span style="color:#66d9ef">let</span> threeOfSpadesDescription = threeOfSpades.simpleDescription()
+print(<span style="color:#e6db74">&#34;结构体传引用：&#34;</span>, threeOfSpadesDescription)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">结构体传引用：</span> The <span style="color:#ae81ff">3</span> of speedsDescription.
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>写一个方法，创建一副完整的扑克牌，这些牌是所有rank和suit的组合</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Ranks</span>: CaseIterable {
+    <span style="color:#66d9ef">case</span> ace
+    <span style="color:#66d9ef">case</span> two, three, four, five, six, seven, eight, nine, ten
+    <span style="color:#66d9ef">case</span> jack, queen, king
+}
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Suits</span>: CaseIterable {
+    <span style="color:#66d9ef">case</span> spades, clubs, hearts, diamonds
+}
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Cards</span> {
+    <span style="color:#66d9ef">var</span> rank: Ranks
+    <span style="color:#66d9ef">var</span> suit: Suits
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">allCards</span>() {
+    <span style="color:#66d9ef">for</span> suit <span style="color:#66d9ef">in</span> Suits.allCases {
+        <span style="color:#66d9ef">for</span> rank <span style="color:#66d9ef">in</span> Ranks.allCases {
+            Cards(rank: rank, suit: suit)
+        }
+    }
+}
+</code></pre></div><hr>
+<h2 id="协议与拓展">协议与拓展</h2>
+<p>使用<code>protocol</code>来声明一个协议。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">protocol</span> <span style="color:#a6e22e">ExampleProtocol</span> {
+    <span style="color:#66d9ef">var</span> simpleDescription: String { <span style="color:#66d9ef">get</span> }
+    <span style="color:#66d9ef">mutating</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">adjust</span>()
+}
+</code></pre></div><p>类、枚举和结构体都可以遵循协议，有点类似<code>Java</code>中的接口<code>（Interface）</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SimpleClass</span>: ExampleProtocol {  <span style="color:#75715e">// 类遵循协议</span>
+    <span style="color:#66d9ef">var</span> simpleDescription: String = <span style="color:#e6db74">&#34;A very simple class.&#34;</span>
+    <span style="color:#66d9ef">var</span> anotherProperty: Int = <span style="color:#ae81ff">69105</span>
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">adjust</span>() {
+        simpleDescription <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34; Now 100% adjusted.&#34;</span>
+    }
+}
+<span style="color:#66d9ef">var</span> a = SimpleClass()
+a.adjust()
+print(<span style="color:#e6db74">&#34;Adjusted Class&#39;s Description: &#34;</span>, a.simpleDescription)
+
+<span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SimpleStructure</span>: ExampleProtocol {
+    <span style="color:#66d9ef">var</span> simpleDescription: String = <span style="color:#e6db74">&#34;A simple structure.&#34;</span>
+    <span style="color:#66d9ef">mutating</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">adjust</span>() {  <span style="color:#75715e">// 实现协议中的mutating方法时，若是类类型，则不用写mutating关键字，对于结构体和枚举（即值类型），则必须写mutating关键字</span>
+        simpleDescription <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34; (adjusted)&#34;</span>
+    }
+}
+<span style="color:#66d9ef">var</span> b = SimpleStructure()
+b.adjust()
+print(<span style="color:#e6db74">&#34;Adjusted Struct&#39;s Description: &#34;</span>, b.simpleDescription)
+<span style="color:#f92672">---</span>
+output: Adjusted Class<span style="color:#960050;background-color:#1e0010">&#39;</span>s Description:  A very simple <span style="color:#66d9ef">class</span>. Now <span style="color:#ae81ff">100</span><span style="color:#f92672">%</span> adjusted.
+Adjusted Struct<span style="color:#960050;background-color:#1e0010">&#39;</span>s Description:  A simple structure. (adjusted)
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>给ExampleProtocol再增加一个要求。需要怎么改SimpleClass和SimpleStructure才能保证它们仍旧遵循这个协议？</p>
+</blockquote>
+<p>参考答案：
+<code>在SimpleClass和SimpleStructure增加一个方法实现该要求</code></p>
+<hr>
+<p>注意声明<code>SimpleStructure</code>时候，<code>mutating</code>关键字用来标记一个会修改结构体的方法。<code>SimpleClass</code>的声明不需要标记任何方法，因为类中的方法通常是可以修改类的属性（类的性质）。</p>
+<p>使用<code>extension</code>来为现有的类型添加功能，比如新的方法和计算属性。可以使用扩展让某个在别处声明的类型类遵守某个协议，这同样适用于从外部库或者框架引入的类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Int</span>: ExampleProtocol {
+    <span style="color:#66d9ef">var</span> simpleDescription: String {
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;The number </span><span style="color:#e6db74">\(</span><span style="color:#66d9ef">self</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>
+    }
+    <span style="color:#66d9ef">mutating</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">adjust</span>() {
+        <span style="color:#66d9ef">self</span> <span style="color:#f92672">+=</span> <span style="color:#ae81ff">0</span>
+    }
+}
+print(<span style="color:#e6db74">&#34;Extension &gt; Int: &#34;</span>, <span style="color:#ae81ff">7.</span>simpleDescription)
+<span style="color:#f92672">---</span>
+output: Extension <span style="color:#f92672">&gt;</span> Int:  The number <span style="color:#ae81ff">7</span>
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>给Double类型写一个扩展，添加roundValue方法</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">protocol</span> <span style="color:#a6e22e">DoubleProtocol</span> {
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">roundValue</span>() -&gt; Int
+}
+
+<span style="color:#66d9ef">extension</span> <span style="color:#a6e22e">Double</span>: DoubleProtocol {
+    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">roundValue</span>() -&gt; Int {
+        <span style="color:#66d9ef">return</span> Int((<span style="color:#66d9ef">self</span>).rounded())
+    }
+}
+print(<span style="color:#e6db74">&#34;Extension &gt; Double: &#34;</span>, (<span style="color:#ae81ff">3.14</span>).roundValue())
+<span style="color:#f92672">---</span>
+output: Extension <span style="color:#f92672">&gt;</span> Double:  <span style="color:#ae81ff">3</span>
+</code></pre></div><hr>
+<p>可以像使用其他命名类型一样使用协议名。例如，创建一个具有不同类型但是都实现一个协议的对象合集。当处理类型是协议的值时，协议外定义的方法不可用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> protocolValue: ExampleProtocol = a
+print(protocolValue.simpleDescription)  
+<span style="color:#75715e">// print(protocolValue.anotherProperty)  // 如果取消前面的注释，这句程序便会报错</span>
+<span style="color:#f92672">---</span>
+output: A very simple <span style="color:#66d9ef">class</span>. Now <span style="color:#ae81ff">100</span><span style="color:#f92672">%</span> adjusted.
+</code></pre></div><p>即使<code>protocolValue</code>变量运行时的类型时<code>simpleClass</code>，编译器还是会把它的类型当作<code>ExampleProtocol</code>，此时表示不能调用在协议之外的方法或者属性。</p>
+<hr>
+<h2 id="错误处理">错误处理</h2>
+<p>使用采用<code>Error</code>协议的类型来表示错误。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">PrinterError</span>: Error {
+    <span style="color:#66d9ef">case</span> outofPaper
+    <span style="color:#66d9ef">case</span> noToner
+    <span style="color:#66d9ef">case</span> onFire
+}
+</code></pre></div><p>使用<code>throw</code>来抛出一个错误和使用<code>throws</code>来表示一个可以抛出错误的函数。如果在函数中抛出一个错误，这个函数会立刻返回并且调用该函数代码会进行错误处理。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">send</span>(job: Int, toPrinter printerName: String) <span style="color:#66d9ef">throws</span> -&gt; String {
+    <span style="color:#66d9ef">if</span> printerName == <span style="color:#e6db74">&#34;Never has Toner&#34;</span> {
+        <span style="color:#66d9ef">throw</span> PrinterError.noToner
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>printerName<span style="color:#e6db74">)</span><span style="color:#e6db74">, Job sent.&#34;</span>
+}
+print(<span style="color:#e6db74">&#34;ErrorDemo: &#34;</span>, <span style="color:#66d9ef">try</span> send(job: <span style="color:#ae81ff">10</span>, toPrinter: <span style="color:#e6db74">&#34;Okay&#34;</span>))
+<span style="color:#f92672">---</span>
+output: ErrorDemo:  Okay, Job sent.
+</code></pre></div><p>有多种方式可以用来进行错误处理。一种方式时使用<code>do-catch</code>。在<code>do</code>代码块中，使用<code>try</code>来标记可以抛出错误的代码。在<code>catch</code>代码块中，除非另外命名，否则错误会自动命名为<code>error</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">do</span> {
+    <span style="color:#66d9ef">let</span> printerResponse = <span style="color:#66d9ef">try</span> send(job: <span style="color:#ae81ff">1040</span>, toPrinter: <span style="color:#e6db74">&#34;Jensen&#34;</span>)
+    print(printerResponse)
+} <span style="color:#66d9ef">catch</span> {
+    print(error)
+}
+<span style="color:#f92672">---</span>
+output: Jensen, Job sent.
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>将printerName改成“Never has Toner”使得send(job:toPrinter:)函数抛出错误</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">do</span> {
+    <span style="color:#66d9ef">let</span> printerResponse = <span style="color:#66d9ef">try</span> send(job: <span style="color:#ae81ff">0</span>, toPrinter: <span style="color:#e6db74">&#34;Never has Toner&#34;</span>)
+    print(printerResponse)
+} <span style="color:#66d9ef">catch</span> {
+    print(error)
+}
+<span style="color:#f92672">---</span>
+output: noToner
+</code></pre></div><hr>
+<p>可以使用多个<code>catch</code>块来处理特定的错误，参照<code>switch</code>中的<code>case</code>风格来写<code>catch</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">do</span> {
+    <span style="color:#66d9ef">let</span> printerResponse = <span style="color:#66d9ef">try</span> send(job: <span style="color:#ae81ff">0</span>, toPrinter: <span style="color:#e6db74">&#34;Never has Toner&#34;</span>)
+    print(printerResponse)
+} <span style="color:#66d9ef">catch</span> PrinterError.onFire {
+    print(<span style="color:#e6db74">&#34;I&#39;ll just put this over here, with the rest of the fire.&#34;</span>)
+} <span style="color:#66d9ef">catch</span> <span style="color:#66d9ef">let</span> printerError <span style="color:#66d9ef">as</span> PrinterError {
+    print(<span style="color:#e6db74">&#34;Printer error: </span><span style="color:#e6db74">\(</span>printerError<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+} <span style="color:#66d9ef">catch</span> {
+    print(error)
+}
+<span style="color:#f92672">---</span>
+output: Printer error: noToner
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>在do代码块中添加抛出错误的代码，需要抛出哪种错误来使第一个catch块进行接收？怎么使第二个和第三个catch进行接收呢</p>
+</blockquote>
+<p>参考答案：
+<code>要使第一个catch块接收，需要抛出onFire错误；抛出PrinterError中除onFire之外其他错误即可被第二个catch块接收；抛出非PrinterError的错误即可被第三个catch块接收</code></p>
+<hr>
+<p>另一种处理错误的方式时使用<code>try?</code>将结果转换为可选的。如果函数抛出错误，该错误会被抛弃切结果为<code>nil</code>。否则，结果会是一个包含函数返回值的可选值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> printerSuccess = <span style="color:#66d9ef">try</span>? send(job: <span style="color:#ae81ff">1884</span>, toPrinter: <span style="color:#e6db74">&#34;Jensen is handsome&#34;</span>)
+<span style="color:#66d9ef">let</span> printerFailure = <span style="color:#66d9ef">try</span>? send(job: <span style="color:#ae81ff">1885</span>, toPrinter: <span style="color:#e6db74">&#34;Never has Toner&#34;</span>)
+print(<span style="color:#e6db74">&#34;printerSuccess: </span><span style="color:#e6db74">\(</span>printerSuccess<span style="color:#e6db74">)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">printerFailure: </span><span style="color:#e6db74">\(</span>printerFailure<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#f92672">---</span>
+output: printerSuccess: Optional(<span style="color:#e6db74">&#34;Jensen is handsome, Job sent.&#34;</span>)
+printerFailure: <span style="color:#66d9ef">nil</span>
+</code></pre></div><p>使用<code>defer</code>代码块来表示在函数返回前，函数中最后执行的代码。无论函数是否会抛出错误，这段代码都将执行。使用<code>defer</code>，可以把函数调用之初就要执行的代码和函数调用结束时的扫尾代码写在一起，虽然这两者的执行时机截然不同。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> fridgeIsOpen = <span style="color:#66d9ef">false</span>
+<span style="color:#66d9ef">let</span> fridgeContent = [<span style="color:#e6db74">&#34;milk&#34;</span>, <span style="color:#e6db74">&#34;eggs&#34;</span>, <span style="color:#e6db74">&#34;leftovers&#34;</span>]
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">fridgeContains</span>(<span style="color:#66d9ef">_</span> food: String) -&gt; Bool {
+    fridgeIsOpen = <span style="color:#66d9ef">true</span>
+    <span style="color:#66d9ef">defer</span> {
+        fridgeIsOpen = <span style="color:#66d9ef">false</span>
+    }
+    
+    <span style="color:#66d9ef">let</span> result = fridgeContent.contains(food)
+    <span style="color:#66d9ef">return</span> result
+}
+print(<span style="color:#e6db74">&#34;Do this fridge contains banana? &#34;</span>, fridgeContains(<span style="color:#e6db74">&#34;banana&#34;</span>))
+print(<span style="color:#e6db74">&#34;FridgeIsOpen: &#34;</span>, fridgeIsOpen)
+<span style="color:#f92672">---</span>
+output: Do this fridge contains banana?  <span style="color:#66d9ef">false</span>
+FridgeIsOpen:  <span style="color:#66d9ef">false</span>
+</code></pre></div><hr>
+<h2 id="泛型">泛型</h2>
+<p>在尖括号里写一个名字来创建一个泛型函数或者类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeArray</span>&lt;Item&gt;(repeating item: Item, numberOfTimes: Int) -&gt; [Item] {
+    <span style="color:#66d9ef">var</span> result: [Item] = []
+    <span style="color:#66d9ef">for</span> <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0.</span>.&lt;numberOfTimes {
+        result.append(item)
+    }
+    <span style="color:#66d9ef">return</span> result
+}
+<span style="color:#66d9ef">let</span> repeatNum: [String] = makeArray(repeating: <span style="color:#e6db74">&#34;Test&#34;</span>, numberOfTimes: <span style="color:#ae81ff">5</span>)
+print(repeatNum)
+<span style="color:#f92672">---</span>
+output: [<span style="color:#e6db74">&#34;Test&#34;</span>, <span style="color:#e6db74">&#34;Test&#34;</span>, <span style="color:#e6db74">&#34;Test&#34;</span>, <span style="color:#e6db74">&#34;Test&#34;</span>, <span style="color:#e6db74">&#34;Test&#34;</span>]
+</code></pre></div><p>也可以创建泛型函数、方法、类、枚举和结构体</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#75715e">// （重新实现Swift标准库中的可选类型）</span>
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">OptionalValue</span>&lt;Wrapped&gt; {
+    <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">none</span>
+    <span style="color:#66d9ef">case</span> some(Wrapped)
+}
+<span style="color:#66d9ef">var</span> possibleInteger: OptionalValue&lt;Int&gt; = .<span style="color:#66d9ef">none</span>
+possibleInteger = .some(<span style="color:#ae81ff">100</span>)
+print(possibleInteger)
+<span style="color:#f92672">---</span>
+output: some(<span style="color:#ae81ff">100</span>)
+</code></pre></div><p>在类型名后面使用<code>where</code>来指定对类型的一系列需求，比如，限定类型实现某一个协议，限定两个类型是相同的，或者限定某个类必须有一个特定的父类。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">anyCommonElements</span>&lt;T: Sequence, U: Sequence&gt;(<span style="color:#66d9ef">_</span> lhs: T, <span style="color:#66d9ef">_</span> rhs: U) -&gt; Bool
+<span style="color:#66d9ef">where</span> T.Element: Equatable, T.Element == U.Element  <span style="color:#75715e">// 遵循Equatable协议可以包含对 == 和 != 的实现</span>
+{
+    <span style="color:#66d9ef">for</span> lhsItem <span style="color:#66d9ef">in</span> lhs {
+        <span style="color:#66d9ef">for</span> rhsItem <span style="color:#66d9ef">in</span> rhs {
+            <span style="color:#66d9ef">if</span> lhsItem == rhsItem {
+                <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>
+            }
+        }
+    }
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>
+}
+print(<span style="color:#e6db74">&#34;WHERE Test: &#34;</span>, anyCommonElements([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span> ,<span style="color:#ae81ff">3</span>], [<span style="color:#ae81ff">3</span>]))
+<span style="color:#f92672">---</span>
+output: WHERE Test:  <span style="color:#66d9ef">true</span>
+</code></pre></div><blockquote>
+<p><strong>小练习</strong>:</p>
+<p>修改anyCommonElements(_ :_ :)函数来创建一个函数，返回一个数组，内容是两个序列的共有元素</p>
+</blockquote>
+<p>参考答案：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">anyCommonElementsInArray</span>&lt;T: Sequence, U: Sequence&gt;(<span style="color:#66d9ef">_</span> lhs: T, <span style="color:#66d9ef">_</span> rhs: U) -&gt; [T.Element]
+<span style="color:#66d9ef">where</span> T.Element: Equatable, T.Element == U.Element
+{
+    <span style="color:#66d9ef">var</span> outArray: [T.Element] = []
+    <span style="color:#66d9ef">for</span> lhsItem <span style="color:#66d9ef">in</span> lhs {
+        <span style="color:#66d9ef">for</span> rhsItem <span style="color:#66d9ef">in</span> rhs {
+            <span style="color:#66d9ef">if</span> lhsItem == rhsItem {
+                outArray.append(lhsItem)
+            }
+        }
+    }
+    <span style="color:#66d9ef">return</span> outArray
+}
+print(<span style="color:#e6db74">&#34;CommonArray: &#34;</span>, anyCommonElementsInArray([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>], [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>]))
+<span style="color:#f92672">---</span>
+output: CommonArray:  [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]
+</code></pre></div><p><code>&lt;T: Equatable&gt;</code>和<code>&lt;T&gt; ... where T: Equatable</code>的写法是等价的。</p>
+<hr>
+<p>本帖只是对Swift语言做一个概括性的介绍，后续将给大家继续分享Swift语言的详细教程。</p>
+
+    <div class="CornerButtons">
+        <div class="CornerAnimayedFlex">
+            <div class="CornerButton" title="Back to the top">
+                <a href="#top" class="cba fas fa-hand-middle-finger" ></a>
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<h1 style="color: #dc3545;">Comments</h1>
+<script defer src="https://utteranc.es/client.js" 
+repo="Jen-Jon/Jen-Jon.github.io" 
+issue-term="title" 
+theme="github-light" 
+crossorigin="anonymous" async></script>
+
+
+</div>
+
+<h5 style="text-align: center; font-size: large;">This blog is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, please indicate the source for non-commercial reposted.</h5>
+
+
+        </div><strong id="footer" class="mb-5">
+    <hr>
+    
+    <div class="container text-center">
+        
+            <a href="https://github.com/Jen-Jon/" class="fab fa-github fa-1x" title="Github" style="text-decoration: none;"></a>
+        
+            <a href="https://hub.docker.com/u/ijerry22" class="fab fa-docker fa-1x" title="DockerHub" style="text-decoration: none;"></a>
+        
+            <a href="https://www.researchgate.net/profile/Jingyao-Zhang-4" class="fab fa-researchgate fa-1x" title="researchgate" style="text-decoration: none;"></a>
+        
+            <a href="mailto:ijerry.goo@gmail.com" class="fas fa-envelope fa-1x" title="E-mail" style="text-decoration: none;"></a>
+        
+    </div>
+    
+        <div class="container text-center">
+            <h5 class="text-center" style="font-size: small;">Copyright © 2020 <a href="https://github.com/Jen-Jon/" style="color: #dc3545;" title="Jensen-Jon">Jensen-Jon</a>. All rights reserved.</h5>
+        </div>
+    
+</div>
+</body>
+</html>

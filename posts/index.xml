@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 29 Jun 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swift初见（代码完善版）</title>
+      <link>https://jen-jon.github.io/posts/swiftfirst/</link>
+      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/swiftfirst/</guid>
+      <description>Swift简介 Swift是美国苹果公司推出的编程语言，专门针对苹果的桌面操作系统macOS和苹果移动操作系统iOS、iPadOS以及wat</description>
+    </item>
+    
     <item>
       <title>在Docker中配置代理实现“科学”开发</title>
       <link>https://jen-jon.github.io/posts/dockerproxy/</link>
