@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang=""><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Swift学习(2)-基础部分（代码完善版）</title>
+    <meta name="description" content="A simple homepage of Jensen Zhang.">
+    <meta name="author" content='Jensen Zhang'>
+
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/buttonsstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/busuanzi.pure.mini.js"></script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?2f401f546fb29f7b8978eae3f0055b5f";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="/sass/researcher.min.css">
+
+    
+        <link rel="icon" type="image/ico" href="https://jen-jon.github.io/images/favicon.ico">
+    
+
+    
+        
+    
+</head>
+
+    <body><div class="container mt-5">
+    <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
+        <a class="navbar-brand mx-0 mr-sm-auto" href="https://jen-jon.github.io/" title="Jensen&#39;s Homepage">
+          
+          <i class="fas fa-home"></i>
+          Jensen&#39;s Homepage
+        </a>
+        <div class="navbar-nav flex-row flex-wrap justify-content-center">
+            
+                
+                
+                    <a class="nav-item nav-link" href="/about" title="About">
+                        About
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/posts" title="Posts">
+                        Posts
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/contact" title="Contact">
+                        Contact
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/tools" title="Tools">
+                        Tools
+                    </a>
+                    
+                
+            
+        </div>
+    </nav>
+</div>
+<hr>
+<div id="content">
+<div class="container">
+    
+    <h1 style="color: #dc3545;">Swift学习(2)-基础部分（代码完善版）</h1>
+    
+    <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 7, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
+    
+    <h5>This article is about <em>2304</em> words and may take <em>5</em> minutes to read.</h5>
+    <hr>
+    
+    
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/swiftbase.png" alt="Logo"/></p>
+    <hr>
+    
+    
+    <blockquote>
+        <p><strong>Type: technology blog</strong></p>
+        <p><strong>Tags: iOS; Swift; Apple</strong></p>
+    </blockquote>
+    <hr>
+    
+    
+    <h1 style="color: #dc3545;">Content</h1>
+    <br>
+    
+    <p>Swift包含了C和Objective-C上所有基础数据类型，Int表示整型值；Double和Float表示浮点值；Bool是布尔型值；String是文本型数据。Swift还提供了三个基本的集合类型，Array、Set和Dictionary。</p>
+<p>就像C语言一样，Swift使用变量来进行存储并通过变量名来关联值。在Swift中，广泛的使用者着值不可变的变量，它们就是常量，而且比C语言中的常量更强大。在Swift中，如果要处理的值不需要改变，那使用常量可以让代码更加安全并且更清晰地表达意图。</p>
+<p>除了我们熟悉的类型，Swift还增加了Objective-C中没有的高阶数据类型比如元组（Tuple）。元组可以让使用者创建或者传递一组数据，比如作为函数的返回值时，可以用一个元组返回多个值。</p>
+<p>Swift还增加了一个可选（Optional）类型，用于处理值缺失的情况。可选便是“那儿有一个值，并且它等于x”或者“那儿没有值”。可选有点像在Objective-C中使用nil，但是它可以用在任何类型上，不仅仅是类。可选类型比Objective-C中的nil指针更加安全也更具有表现力，它是Swift许多强大特性的重要组成部分。</p>
+<p>Swift是一门类型安全的语言，这意味着Swift可以让使用者清楚地知道值的类型。如果代码需要一个String参数，类型安全会阻止不小心传入的一个Int参数。同样的，如果代码需要的是一个String参数，类型安全会阻止意外传入一个可选的String。类型安全可以帮助开发者在开发阶段尽早地发现并修正错误。</p>
+<hr>
+<h2 id="常量和变量">常量和变量</h2>
+<p>常量和变量把一个名字（如testVal）和一个指定类型的值（如“Jensen”）关联起来。常量的值一旦设定就不能再改变，而变量的值可以随意地更改。</p>
+<h3 id="声明常量和变量">声明常量和变量</h3>
+<p>常量和变量必须在使用前声明，用let来声明常量，用var来声明变量。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> maximumNumberOfLoginAttempts = <span style="color:#ae81ff">10</span>  <span style="color:#75715e">// 常量记录一共可以进行的登录尝试次数</span>
+<span style="color:#66d9ef">var</span> currentLoginAttempt = <span style="color:#ae81ff">0</span>  <span style="color:#75715e">// 变量记录当前登陆尝试次数</span>
+</code></pre></div><p>上述两行代码可以被理解为：“声明一个名字是 maximumNumberOfLoginAttempts 的新常量，并给它一个值 10 。然后，声明一个名字是 currentLoginAttempt 的变量并将它的值初始化为 0 。”</p>
+<p>可以在一行中声明多个常量或者多个变量，用逗号隔开</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> x = <span style="color:#ae81ff">0.0</span>, y = <span style="color:#ae81ff">0.0</span>, z = <span style="color:#ae81ff">0.0</span>
+</code></pre></div><blockquote>
+<p><strong>注意</strong></p>
+<p>如果代码中有不需要改变的值，请使用let关键字将它声明为常量。只将需要改变的值声明为变量即可。</p>
+</blockquote>
+<h3 id="类型注解">类型注解</h3>
+<p>当声明常量或者变量的时候可以加上类型注解（Type Annotation），说明常量或者变量中要存储的值的类型。如果要添加类型注解，需要在常量或者变量名后面加上一个冒号和空格，然后加上类型名称。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> welcomeMessage: String <span style="color:#75715e">// 给welcomeMessage变量增加了类型注解，表示这个变量可以存储String类型的值</span>
+<span style="color:#75715e">// 上述声明中的冒号代表着“是 ... 类型”，welcomeMessage变量现在可以被设置成任意字符串。</span>
+welcomeMessage = <span style="color:#e6db74">&#34;Hello!&#34;</span>
+</code></pre></div><p>甚至可以在一行中定义多个同样类型的变量，用逗号分隔，并在最后一个变量名之后添加类型注解。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> red, green, yellow: Double
+</code></pre></div><h3 id="常量和变量的命名">常量和变量的命名</h3>
+<p>常量和变量名几乎可以包含所有的字符，包括Unicode字符。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> <span style="color:#960050;background-color:#1e0010">π</span> = <span style="color:#ae81ff">3.141592654</span>
+<span style="color:#66d9ef">let</span> <span style="color:#960050;background-color:#1e0010">你好</span> = <span style="color:#e6db74">&#34;你好世界！&#34;</span>
+<span style="color:#66d9ef">let</span> <span style="color:#960050;background-color:#1e0010">🐮🍺</span> = <span style="color:#e6db74">&#34;666&#34;</span>
+</code></pre></div><p>但是也存在例外，常量与变量名不能包含数学符号，箭头，保留的（或者非法的）Unicode码位，连线与制表符。也不能以数字开头，但是可以在常量与变量名的其他地方包含数字。</p>
+<p>一旦给常量或者变量添加了类型注解，就不可以使用相同的名字再次进行声明，或者改变其存储的值的类型。同时，Swift也不允许将变量与变量进行互转。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>如果需要使用与Swift保留关键字相同的名称作为常量或者变量名，可以使用反引号(`)将关键字包围的方式将其作为名字使用。无论如何，开发者都应当避免使用保留关键字作为常量或变量名，除非别无选择。</p>
+</blockquote>
+<p>可以更改现有的变量值为其他同类型的值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> friendlyWelcome = <span style="color:#e6db74">&#34;Hello!&#34;</span>
+friendlyWelcome = <span style="color:#e6db74">&#34;Benjour!&#34;</span>  <span style="color:#75715e">// friendlyWelcome现在是“Bonjour!”</span>
+friendlyWelcome = <span style="color:#e6db74">&#34;你好！&#34;</span> <span style="color:#75715e">// friendlyWelcome现在是“欢迎！”</span>
+<span style="color:#75715e">// 与变量不同，常量的值一旦被确定就不能更改了。尝试这样做会导致变异时报错。</span>
+<span style="color:#66d9ef">let</span> languageName = <span style="color:#e6db74">&#34;Swift&#34;</span>
+<span style="color:#75715e">//languageName = &#34;C++&#34;  // 取消这行注释编译器会报Cannot assign to value: &#39;languageName&#39; is a &#39;let&#39; constant错误</span>
+</code></pre></div><h3 id="输出常量和变量">输出常量和变量</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(friendlyWelcome)  <span style="color:#75715e">// 输出：你好！</span>
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">你好！</span>
+</code></pre></div><p>separator和terminator参数具有默认值，因此调用这个函数的时候可以忽略它们。</p>
+<p>默认情况下，输出函数通过添加换行符来结束当前行。如果不想换行，可以传递一个空字符串给terminator参数</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;Line1&#34;</span>, terminator: <span style="color:#e6db74">&#34;&#34;</span>)
+print(<span style="color:#e6db74">&#34;Line2&#34;</span>)
+<span style="color:#f92672">---</span>
+output: Line1Line2
+</code></pre></div><p>Swift用字符串插值（String interpolation）的方式把常量名或者变量名当做占位符加入到长字符串中。Swift会用当前常量或者变量的值替换这些占位符。将常量或者变量名放入圆括号中，并在开括号钱使用反斜杠将其转义。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;The current login attempt is </span><span style="color:#e6db74">\(</span>currentLoginAttempt<span style="color:#e6db74">)</span><span style="color:#e6db74">, you have </span><span style="color:#e6db74">\(</span>maximumNumberOfLoginAttempts<span style="color:#e6db74">)</span><span style="color:#e6db74"> login attempts in total.&#34;</span>)
+<span style="color:#f92672">---</span>
+output: The current login attempt <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">0</span>, you have <span style="color:#ae81ff">10</span> login attempts <span style="color:#66d9ef">in</span> total.
+</code></pre></div><hr>
+<h3 id="注释">注释</h3>
+<p>Swift中的注释与C语言的注释十分相似，单行注释以双正斜杠（//）作为起始标记。</p>
+<p>也可以进行多行注释，其起始标记为单个正斜杠后跟随一个星号（/*），终止标记为一个星号后跟单个正斜杠（*/）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#75715e">/* 这是一个注释
+</span><span style="color:#75715e"> 但是是多行注释 */</span>
+</code></pre></div><p>与C语言不同的是，Swift的多行注释可以嵌套在其它的多行注释之中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#75715e">/* 这是外层注释的第一行
+</span><span style="color:#75715e"> /* 这是内层注释 */
+</span><span style="color:#75715e"> 这是外层注释的最后一行 */</span>
+</code></pre></div><p>通过运用嵌套多行注释，能够快速方便的注释掉一大段代码，即便这段代码之中已经含有了多行注释块。</p>
+<hr>
+<h2 id="分号">分号</h2>
+<p>与其他大部分编程语言不同，Swift并不强制要求开发者在每条语句的结尾处使用分号（；）。当然，开发者也可以根据自己的习惯添加分号，但是有一种情况下必须要使用分号，即在同一行内写多条独立语句。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> pig = <span style="color:#e6db74">&#34;🐷&#34;</span>; print(pig)
+</code></pre></div>
+    <div class="CornerButtons">
+        <div class="CornerAnimayedFlex">
+            <div class="CornerButton" title="Back to the top">
+                <a href="#top" class="cba fas fa-hand-middle-finger" ></a>
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<h1 style="color: #dc3545;">Comments</h1>
+<script defer src="https://utteranc.es/client.js" 
+repo="Jen-Jon/Jen-Jon.github.io" 
+issue-term="title" 
+theme="github-light" 
+crossorigin="anonymous" async></script>
+
+
+</div>
+
+<h5 style="text-align: center; font-size: large;">This blog is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, please indicate the source for non-commercial reposted.</h5>
+
+
+        </div><strong id="footer" class="mb-5">
+    <hr>
+    
+    <div class="container text-center">
+        
+            <a href="https://github.com/Jen-Jon/" class="fab fa-github fa-1x" title="Github" style="text-decoration: none;"></a>
+        
+            <a href="https://hub.docker.com/u/ijerry22" class="fab fa-docker fa-1x" title="DockerHub" style="text-decoration: none;"></a>
+        
+            <a href="https://www.researchgate.net/profile/Jingyao-Zhang-4" class="fab fa-researchgate fa-1x" title="researchgate" style="text-decoration: none;"></a>
+        
+            <a href="mailto:ijerry.goo@gmail.com" class="fas fa-envelope fa-1x" title="E-mail" style="text-decoration: none;"></a>
+        
+    </div>
+    
+        <div class="container text-center">
+            <h5 class="text-center" style="font-size: small;">Copyright © 2020 <a href="https://github.com/Jen-Jon/" style="color: #dc3545;" title="Jensen-Jon">Jensen-Jon</a>. All rights reserved.</h5>
+        </div>
+    
+</div>
+</body>
+</html>

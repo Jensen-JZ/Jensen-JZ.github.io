@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 04 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swift学习(2)-基础部分（代码完善版）</title>
+      <link>https://jen-jon.github.io/posts/swiftbase/</link>
+      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/swiftbase/</guid>
+      <description>Swift包含了C和Objective-C上所有基础数据类型，Int表示整型值；Double和Float表示浮点值；Bool是布尔型值；St</description>
+    </item>
+    
     <item>
       <title>Swift学习(1)-初•见（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/swiftfirst/</link>
