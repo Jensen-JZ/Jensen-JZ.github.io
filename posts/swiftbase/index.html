@@ -88,7 +88,7 @@
     
     <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 7, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>2304</em> words and may take <em>5</em> minutes to read.</h5>
+    <h5>This article is about <em>7656</em> words and may take <em>16</em> minutes to read.</h5>
     <hr>
     
     
@@ -179,7 +179,212 @@ output: The current login attempt <span style="color:#66d9ef">is</span> <span st
 <h2 id="分号">分号</h2>
 <p>与其他大部分编程语言不同，Swift并不强制要求开发者在每条语句的结尾处使用分号（；）。当然，开发者也可以根据自己的习惯添加分号，但是有一种情况下必须要使用分号，即在同一行内写多条独立语句。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> pig = <span style="color:#e6db74">&#34;🐷&#34;</span>; print(pig)
-</code></pre></div>
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">🐷</span>
+</code></pre></div><hr>
+<h2 id="整数">整数</h2>
+<p>整数就是没有小数部分的数字，比如43和-23。Swift提供了8、16、32和64位的有符号和无符号整数类型。这些整数类型和C语言的命名方式很像，比如8位无符号整数类型是UInt8，32位有符号整数类型是Int32。就像Swift的其他类型一样，整数类型采用大写命名法。</p>
+<h3 id="整数范围">整数范围</h3>
+<p>可以访问不同整数类型的min和max属性来获取对应类型的最小值和最大值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> minValue = UInt8.min
+<span style="color:#66d9ef">let</span> maxValue = UInt8.max
+print(<span style="color:#e6db74">&#34;UInt8类型的最小值是：</span><span style="color:#e6db74">\(</span>minValue<span style="color:#e6db74">)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">UInt8类型的最大值是：</span><span style="color:#e6db74">\(</span>maxValue<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#f92672">---</span>
+output: UInt8类型的最小值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">0</span>
+UInt8类型的最大值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">255</span>
+</code></pre></div><p>min和max所传回值的类型正式其所对的整数类型，如上例UInt8，所传回的值的类型也是UInt8。</p>
+<h3 id="int">Int</h3>
+<p>一般来说，不需要专门指定整数的长度。Swift提供了一个特殊的整数类型Int，长度与当前平台的原生字长相同:</p>
+<blockquote>
+<p>在32位平台上，Int与Int32长度相同</p>
+<p>在64位平台上，Int和Int64长度相同</p>
+</blockquote>
+<h3 id="uint">UInt</h3>
+<p>与Int类型一样，Swift也提供了一个特殊的无符号类型UInt，长度与当前平台的原生字长相同：</p>
+<blockquote>
+<p>在32位平台上，UInt和UInt32长度相同</p>
+<p>在64位平台上，UInt和UInt64长度相同</p>
+</blockquote>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>尽量不要使用UInt，除非真的需要存储一个和当前平台原生字长相同的无符号整数。否则最好使用Int，统一使用Int能够提高代码的可复用性，避免不同类型数字之间的转换，并且匹配数字的类型推断。</p>
+</blockquote>
+<hr>
+<h2 id="浮点数">浮点数</h2>
+<p>浮点数就是有小数部分的数字，比如3.141592654、0.1和-98.09等等。</p>
+<p>浮点类型比整数类型表示的范围要大，可以存储比Int类型更大或者更小的数字。Swift提供了两种有符号浮点数类型：</p>
+<blockquote>
+<p>Double表示64位浮点数，当需要存储很大或者很高精度的浮点数时，请使用此类型</p>
+<p>Float表示32位浮点数，当精度要求不高的话可以使用此类型</p>
+</blockquote>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>Double精确度很高，至少有15位小数，而Float只有6位小数。选择哪种类型取决于你的代码需要处理的值的范围，在两种类型都匹配的情况下将优先选择Double。</p>
+</blockquote>
+<hr>
+<h2 id="类型安全和类型推断">类型安全和类型推断</h2>
+<p>Swift是一个类型安全（Type Safe）的语言。类型安全的语言可以开发者你清楚地知道代码要处理的值的类型。</p>
+<p>由于Swift是类型安全的，所以它在编译代码时会进行类型检查（Type Checks），并把不匹配的类型标记为错误。能够让开发者尽早地发现错误。</p>
+<p>当要处理不同类型的值时，类型检查可以帮助避免错误。然而，这并不是说每次声明常量和变量的时候都需要显式指定类型。如果没有显式指定类型，Swift会使用类型推断（Type Inference）来选择合适的类型。有了类型推断，编译器可以在编译代码的时候自动推断出表达式的类型。原理很简单，只要检查赋的值即可。</p>
+<p>当声明常量或者变量并赋初值的时候类型推断非常有用。声明常量或者变量的时候赋给它们一个字面量（Literal Value或Literal）即可触发类型推断。（字面量就是在代码中直接出现的值，比如0.1和3.141592654等等）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> meaningOfLife = <span style="color:#ae81ff">42</span>  <span style="color:#75715e">// meaningOfLife会被类型推断推测为Int类型</span>
+<span style="color:#66d9ef">let</span> pi = <span style="color:#ae81ff">3.141592654</span>  <span style="color:#75715e">// pi会被类型推断推测为Double类型，当推断浮点数类型时，Swift总是会选择Double而不是Float</span>
+</code></pre></div><p>如果表达式中同时出现了整数和浮点数，总是会被推断为Double类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> anotherPi = <span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.141592654</span>  <span style="color:#75715e">// 原始值3没有显式地声明类型，而后又出现了一个浮点字面量，所以表达式被推断为Double类型</span>
+</code></pre></div><h2 id="数值型字面量">数值型字面量</h2>
+<p>整数字面量可以被写作：</p>
+<blockquote>
+<p>一个十进制数，没有前缀</p>
+<p>一个二进制数，前缀是0b； 一个八进制数，前缀是0o；一个十六进制数，前缀是0x</p>
+</blockquote>
+<p>下面所有的整数字面量的十进制值都是17:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> decimalInteger = <span style="color:#ae81ff">17</span>
+<span style="color:#66d9ef">let</span> binaryInteger = <span style="color:#ae81ff">0b10001</span>  <span style="color:#75715e">// 二进制的17</span>
+<span style="color:#66d9ef">let</span> octalInteger = <span style="color:#ae81ff">0o21</span>  <span style="color:#75715e">// 八进制的17</span>
+<span style="color:#66d9ef">let</span> hexadecimalInteger = <span style="color:#ae81ff">0x11</span>  <span style="color:#75715e">// 十六进制的17</span>
+</code></pre></div><p>小数点两边必须至少要有一个十进制数字或者是十六进制的数字。十进制浮点数也可以有一个可选的指数（Exponent），通过大写或者小写的e来指定；十六进制浮点数必须有一个指数，通过大写或者小写的p来指定。</p>
+<p>十进制：1.25e2表示1.25<em>10^2，等于125.0； 八进制：0xFp-2表示15</em>2^-2，等于3.75</p>
+<p>下面的这些浮点字面量都等于十进制的12.1875。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> decimalDouble = <span style="color:#ae81ff">12.1875</span>
+<span style="color:#66d9ef">let</span> exponentDouble = <span style="color:#ae81ff">1.21875e1</span>
+<span style="color:#66d9ef">let</span> hexadecimalDouble = <span style="color:#ae81ff">0xC</span>.<span style="color:#ae81ff">3</span>p0
+</code></pre></div><p>数值类字面量可以包括额外的格式来增强可读性。整数和浮点数都可以添加额外的零并且包含下划线，并不影响字面量的值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> paddedDouble = <span style="color:#ae81ff">000123.456</span>
+<span style="color:#66d9ef">let</span> oneMillion = <span style="color:#ae81ff">1_000_000</span>
+<span style="color:#66d9ef">let</span> justOverOneMillion = <span style="color:#ae81ff">1_000_000.000_000_1</span>
+</code></pre></div><h2 id="数值型类型转换">数值型类型转换</h2>
+<p>通常来讲，即使代码中的整数常量和变量已知非负，也请使用Int类型。只有在必要的时候才使用其他整数类型，比如要处理外部的长度明确的数据或者为了优化性能、内存占用等等。使用显式指定长度的类型可以及时发现值溢出并且可以暗示正在处理特殊数据。</p>
+<h3 id="整数转换">整数转换</h3>
+<p>不同整数类型的变量和常量可以存储不同范围的数字。Int8类型的常量或者变量可以存储的数字范围为-128～127；而UInt8类型的常量或者变量能够存储的数字范围是0～255。如果数字超出了常量或者变量可存储的范围，编译的时候会报错。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#75715e">// let cannotBeNegative: UInt8 = -1  // 取消该行注释后，会报错：Negative integer &#39;-1&#39; overflows when stored into unsigned type &#39;UInt8&#39;</span>
+<span style="color:#75715e">// let tooBig: Int8 = Int8.max + 1  // 取消该行注释后，会报错：Arithmetic operation &#39;127 + 1&#39; (on type &#39;Int8&#39;) results in an overflow</span>
+</code></pre></div><p>开发者需要根据不同情况选择使用数值型类型转换，这种选择性使用方式，可以预防隐式转换的错误并让代码中的类型转换意图变得清晰。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> twoThousand: UInt16 = <span style="color:#ae81ff">2_000</span>
+<span style="color:#66d9ef">let</span> one: UInt8 = <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">let</span> twoThousandAndOne = twoThousand <span style="color:#f92672">+</span> UInt16(one)  <span style="color:#75715e">// 该代码中UInt16(one)来创建一个新的UInt16数字并用one的值来初始化它，然后便可以使得两个无符号16位值相加</span>
+print(<span style="color:#e6db74">&#34;UInt8转换至UInt16: &#34;</span>, twoThousandAndOne)
+<span style="color:#f92672">---</span>
+output: UInt8转换至UInt16:  <span style="color:#ae81ff">2001</span>
+</code></pre></div><p>SomeType(ofInitialValue)是调用Swift构造器并传入一个初始值的默认方法。在语言内部，UInt16有一个构造器，可以接受一个UInt8类型的值，所以这个构造器可以用现有的UInt8来创建一个新的UInt16</p>
+<h3 id="整数和浮点数转换">整数和浮点数转换</h3>
+<p>整数和浮点数的转换必须显式指定类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> three = <span style="color:#ae81ff">3</span>
+<span style="color:#66d9ef">let</span> pointOneFourOneFiveNine = <span style="color:#ae81ff">0.14159</span>
+<span style="color:#66d9ef">let</span> simplePi = Double(three) <span style="color:#f92672">+</span> pointOneFourOneFiveNine  <span style="color:#75715e">// pi等于3.14159，所以被类型推断为Double类型</span>
+print(<span style="color:#e6db74">&#34;整数和浮点数转换：&#34;</span>, simplePi)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">整数和浮点数转换：</span> <span style="color:#ae81ff">3.14159</span>
+</code></pre></div><p>在上述例子中，常量three的值被用来创建一个Double类型的值，否则加号两边的数类型不同，无法相加。</p>
+<p>浮点数到整数的反向转换同样行，整数类型可以用Double或者Float类型来初始化。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> roundPi = Int(simplePi)  <span style="color:#75715e">// roundPi等于3，所以被推断为Int类型</span>
+print(<span style="color:#e6db74">&#34;浮点数转换至整数：&#34;</span>, roundPi)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">浮点数转换至整数：</span> <span style="color:#ae81ff">3</span>
+</code></pre></div><p>当用这种方式来初始化一个新的整数值时，浮点值会被截断，也就是说4.75会变成4，-3.9会变成-3。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>结合数字类常量和变量不同于结合数字类字面量。字面量3可以直接和字面量0.14159相加，因为数字字面量本身没有明确的类型。它们的类型只在编译器需要求值的时候被预测。</p>
+</blockquote>
+<h3 id="类型别名">类型别名</h3>
+<p>类型别名（Type Aliases）就是给现有类型定义另一个名字。开发者可以使用Typealias关键字来定义类型别名。</p>
+<p>当想要给现有类型起一个更具有意义的名字时，类型别名非常有用。</p>
+<p>假设现在正在处理特定长度的外部资源的数据，定义了一个类型别名后，可以在任何使用原始名的地方使用别名。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">typealias</span> AudioSample = UInt16
+<span style="color:#66d9ef">var</span> maxAmplitudeFound = AudioSample.min  <span style="color:#75715e">// maxAmplitudeFound现在是0</span>
+print(<span style="color:#e6db74">&#34;maxAmplitudeFound现在的值是：&#34;</span>, maxAmplitudeFound)
+<span style="color:#f92672">---</span>
+output: maxAmplitudeFound现在的值是<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">0</span>
+</code></pre></div><p>上述例子中，AudioSample被定义为UInt16的一个别名，因为是别名，所以AudioSample.min实际上是UInt16.min。</p>
+<h3 id="布尔值">布尔值</h3>
+<p>Swift有一个基本的布尔（Boolean）类型，叫做Bool。布尔值指的是逻辑上的值，因为其只能是真或者假。Swift有两个布尔值常量，true和false。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> orangesAreOrange = <span style="color:#66d9ef">true</span>
+<span style="color:#66d9ef">let</span> turnipsAreDelicious = <span style="color:#66d9ef">false</span>
+</code></pre></div><p>orangesAreOrange和turnipsAreDelicious的类型会被推断为Bool，因为它们的初值是布尔字面量。就像之前提到的Int和Doubl一样，如果创建常/变量的时候就赋予true或false，就不需要将常/变量声明为Bool类型。</p>
+<p>编写条件语句特别是if条件语句时，布尔值就非常有用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> turnipsAreDelicious {
+    print(<span style="color:#e6db74">&#34;Haha, turnips are decilious!&#34;</span>)
+} <span style="color:#66d9ef">else</span> {
+    print(<span style="color:#e6db74">&#34;Oh shit! Turnips are horrible!&#34;</span>)
+}
+<span style="color:#f92672">---</span>
+output: Oh shit! Turnips are horrible!
+</code></pre></div><p>如果在需要使用Bool类型的地方使用了非布尔值，Swift的安全机制会报错。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> test = <span style="color:#ae81ff">1</span>
+<span style="color:#75715e">//if test {}  // 如果取消该行注释，则编译器会报错：Type &#39;Int&#39; cannot be used as a boolean; test for &#39;!= 0&#39; instead</span>
+</code></pre></div><p>同样的，下述例子是合法的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> i = <span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">if</span> i == <span style="color:#ae81ff">1</span> {}  <span style="color:#75715e">// i == 1的结果是Bool类型，所以可以通过Swift的类型检查</span>
+</code></pre></div><hr>
+<h2 id="元组">元组</h2>
+<p>元组（Tuples）把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求是相同类型。</p>
+<p>下述例子，(404, &ldquo;Not Found&rdquo;) 是一个描述 HTTP 状态码（HTTP status code）的元组。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> http404Error = (<span style="color:#ae81ff">404</span>, <span style="color:#e6db74">&#34;Not Found&#34;</span>)  <span style="color:#75715e">// http404Error的类型是(Int, String)</span>
+</code></pre></div><p>(404, &ldquo;Not Found&rdquo;)元组把一个Int值和一个String值组合起来表示HTTP状态码的两部分。这个元组可以被描述成“一个类型为(Int, String)的元组”。</p>
+<p>可以把任意顺序的类型组合成一个元组，这个元组可以包含所有类型。还可以将一个元组的内容分解（Decompose）成单独的常量和变量，然后就可以正常使用它们了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> (statusCode, statusMessage) = http404Error
+print(<span style="color:#e6db74">&#34;The http status code is </span><span style="color:#e6db74">\(</span>statusCode<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+print(<span style="color:#e6db74">&#34;The http status message is </span><span style="color:#e6db74">\(</span>statusMessage<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+<span style="color:#f92672">---</span>
+output: The http status code <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">404.</span>
+The http status message <span style="color:#66d9ef">is</span> Not Found.
+</code></pre></div><p>如果只需要一部分元组值，分解的时候可以吧要忽略的部分用下划线(_)标记，类似于Python。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> (httpStatusCode, <span style="color:#66d9ef">_</span>) = http404Error
+print(<span style="color:#e6db74">&#34;The temp http status code is </span><span style="color:#e6db74">\(</span>httpStatusCode<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+<span style="color:#f92672">---</span>
+output: The temp http status code <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">404.</span>
+</code></pre></div><p>还可以通过下标来访问元组中的单个元素，下标从零开始。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;通过下标访问元组中的第一个元素：&#34;</span>, http404Error.<span style="color:#ae81ff">0</span>)
+print(<span style="color:#e6db74">&#34;通过下标访问元组中的第二个元素：</span><span style="color:#e6db74">\(</span>http404Error.<span style="color:#ae81ff">1</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">通过下标访问元组中的第一个元素：</span> <span style="color:#ae81ff">404</span>
+<span style="color:#960050;background-color:#1e0010">通过下标访问元组中的第二个元素：</span>Not Found
+</code></pre></div><p>可以在定义元组的时候给耽搁元素命名，然后通过名字来获取这些元素的值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> http500Status = (statusCode: <span style="color:#ae81ff">500</span>, description: <span style="color:#e6db74">&#34;Server Error&#34;</span>)
+print(<span style="color:#e6db74">&#34;通过元组元素命名方式访问第一个元素：</span><span style="color:#e6db74">\(</span>http500Status.statusCode<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+print(<span style="color:#e6db74">&#34;通过元组元素命名方式访问第二个元素：</span><span style="color:#e6db74">\(</span>http500Status.description<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#f92672">---</span>
+output: <span style="color:#960050;background-color:#1e0010">通过元组元素命名方式访问第一个元素：</span><span style="color:#ae81ff">500</span>
+<span style="color:#960050;background-color:#1e0010">通过元组元素命名方式访问第二个元素：</span>Server Error
+</code></pre></div><p>当函数中需要返回多个值时，元组很有用。</p>
+<hr>
+<h2 id="可选类型">可选类型</h2>
+<p>使用可选类型（Optionals）来处理值可能缺失的情况。可选类型表示有两种可能：</p>
+<p>或者有值，开发者可以选择可选类型访问这个值；或者可能根本没有值</p>
+<p>一个例子，Swift的Int类型有一种构造器，作用是将一个String值转换成一个Int值。然而，不是所有的字符串都可以转换成一个整数。字符串“123”可以被转换成数字123，但是字符串“Hello， world”不行。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> possibleNumber = <span style="color:#e6db74">&#34;123&#34;</span>
+<span style="color:#66d9ef">var</span> convertedNumber = Int(possibleNumber)
+print(<span style="color:#e6db74">&#34;convertedNumber被推测为类型“Int?”，或者类型“optional Int”：&#34;</span>, convertedNumber!)
+<span style="color:#66d9ef">let</span> possibleName = <span style="color:#e6db74">&#34;Jensen&#34;</span>
+convertedNumber = Int(possibleName)
+print(<span style="color:#e6db74">&#34;字符串</span><span style="color:#e6db74">\(</span>possibleName<span style="color:#e6db74">)</span><span style="color:#e6db74">转成数字后有问题：&#34;</span>, convertedNumber)
+<span style="color:#f92672">---</span>
+output: convertedNumber被推测为类型<span style="color:#960050;background-color:#1e0010">“</span>Int?<span style="color:#960050;background-color:#1e0010">”，或者类型“</span><span style="color:#66d9ef">optional</span> Int<span style="color:#960050;background-color:#1e0010">”：</span> <span style="color:#ae81ff">123</span>
+<span style="color:#960050;background-color:#1e0010">字符串</span>Jensen转成数字后有问题<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#66d9ef">nil</span>
+</code></pre></div><p>// 由于该构造器可能会失效，所以Int(xxx)返回的是一个可选类型（optional）的Int，而不是一个Int。可选的Int被写作Int?，问号暗示包含的值时可选类型，但不能包含其他任何值比如Bool值或者String值，只能是Int或者是什么都没有。</p>
+<p>// nil
+// 可以给可选变量赋值为nil来表示没有值。
+var serverResponseCode: Int? = 404  // serverResponseCode包含一个可选的Int值404
+serverResponseCode = nil  // serverResponseCode现在不包含值
+print(&ldquo;可选值serverResponseCode：&rdquo;, serverResponseCode)</p>
+<p>// 请注意，nil不能用于非可选的常量和变量，如果代码中有常量或者变量需要处理缺失值的情况，请把它们声明成对应的可选类型。如果声明一个可选常量或者变量但是没有赋值，它们会自动被设置为nil。
+var surveyAnswer: String?
+print(&ldquo;没有赋值的可选常/变量的值为：&rdquo;, surveyAnswer)</p>
+<p>// if语句以及强制解析
+// 可以使用if语句和nil比较来判断一个可选值是否包含值，可以使用“相等”(==)或“不等”(!=)来执行比较。
+// 如果可选类型有值，它将不等于nil。
+if convertedNumber != nil {
+print(&ldquo;convertedNumber contains some integer value.&quot;)
+} else {
+print(&ldquo;convertedNumber is nil.&quot;)
+}</p>
+<p>// 当确定可选类型确实包含值之后，可以在可选的名字后面加上一个感叹号(!)来获取值。这个操作被称为可选值的强制解析（Forced Unwrapping）。
+let optionalInteger: Int? = 10086
+if optionalInteger != nil {
+print(&ldquo;The optional integer value is (optionalInteger!)&quot;)  // 来获取一个不存在的可选值会导致运行错误，使用！来强制解析值之前，一定要确定可选包含一个非nil的值。
+} else {
+print(&ldquo;The optional value is Nil.&quot;)
+}</p>
+
     <div class="CornerButtons">
         <div class="CornerAnimayedFlex">
             <div class="CornerButton" title="Back to the top">
