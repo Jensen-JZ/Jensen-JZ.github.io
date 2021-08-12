@@ -88,7 +88,7 @@
     
     <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 12, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>1941</em> words and may take <em>4</em> minutes to read.</h5>
+    <h5>This article is about <em>2828</em> words and may take <em>6</em> minutes to read.</h5>
     <hr>
     
     
@@ -135,7 +135,7 @@ print(<span style="color:#e6db74">&#34;值</span><span style="color:#e6db74">\(<
 output: <span style="color:#960050;background-color:#1e0010">值</span><span style="color:#ae81ff">252</span><span style="color:#960050;background-color:#1e0010">和值</span><span style="color:#ae81ff">63</span><span style="color:#960050;background-color:#1e0010">按位与后的结果为：</span><span style="color:#ae81ff">60</span>
 </code></pre></div><h3 id="bitwise-or-operator按位或运算符">Bitwise OR Operator（按位或运算符）</h3>
 <p>按位或运算符<code>/</code>可以对两个数的比特位进行比较。它返回一个新的数，只要两个数的对应位中有任意一个为1时，新数的对应位就为1。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitwiseOR.png" alt="Bitwise OR OP"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitwiseOROP.png" alt="Bitwise OR OP"></p>
 <p>在下面的示例中，<code>someBits</code>和<code>moreBits</code>存在不同的位被设置为1。使用按位或运算符之后，得到二进制数值11111110，等价于无符号十进制的254。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> someBits: UInt8 = <span style="color:#ae81ff">0b10110010</span>
 <span style="color:#66d9ef">let</span> moreBits: UInt8 = <span style="color:#ae81ff">0b01011110</span>
@@ -163,6 +163,34 @@ output: <span style="color:#960050;background-color:#1e0010">值</span><span sty
 <p> <strong>3.</strong> 用0来填充移位后产生的空白位</p>
 <p>上述方法被称为<em>逻辑移位</em>。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitshiftUnsigned.png" alt="Bit shift unsigned"></p>
+<p>下面的代码演示了<code>Swift</code>中的移位运算。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> shiftBits: UInt8 = <span style="color:#ae81ff">0b00000100</span>
+print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>shiftBits<span style="color:#e6db74">)</span><span style="color:#e6db74">向左移1位：</span><span style="color:#e6db74">\(</span>shiftBits <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">1</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 0b00001000</span>
+print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>shiftBits<span style="color:#e6db74">)</span><span style="color:#e6db74">向左移2位：</span><span style="color:#e6db74">\(</span>shiftBits <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">2</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 0b00010000</span>
+print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>shiftBits<span style="color:#e6db74">)</span><span style="color:#e6db74">向左移5位：</span><span style="color:#e6db74">\(</span>shiftBits <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">5</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 0b10000000</span>
+print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>shiftBits<span style="color:#e6db74">)</span><span style="color:#e6db74">向左移6位：</span><span style="color:#e6db74">\(</span>shiftBits <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">6</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 0b00000000</span>
+print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>shiftBits<span style="color:#e6db74">)</span><span style="color:#e6db74">向右移2位：</span><span style="color:#e6db74">\(</span>shiftBits <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">2</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 0b00000001</span>
+<span style="color:#f92672">---</span>
+output: <span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">向左移</span><span style="color:#ae81ff">1</span><span style="color:#960050;background-color:#1e0010">位：</span><span style="color:#ae81ff">8</span>
+<span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">向左移</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">位：</span><span style="color:#ae81ff">16</span>
+<span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">向左移</span><span style="color:#ae81ff">5</span><span style="color:#960050;background-color:#1e0010">位：</span><span style="color:#ae81ff">128</span>
+<span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">向左移</span><span style="color:#ae81ff">6</span><span style="color:#960050;background-color:#1e0010">位：</span><span style="color:#ae81ff">0</span>
+<span style="color:#ae81ff">4</span><span style="color:#960050;background-color:#1e0010">向右移</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">位：</span><span style="color:#ae81ff">1</span>
+</code></pre></div><p>可以使用移位运算对其他的数据类型进行编码和解码。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> pink: UInt32 = <span style="color:#ae81ff">0xCC6699</span>; print(pink)
+<span style="color:#66d9ef">let</span> redComponent  = (pink <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xFF0000</span>) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">16</span>  <span style="color:#75715e">// redComponent是0xCC，即204</span>
+<span style="color:#66d9ef">let</span> greenComponent = (pink <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x00FF00</span>) <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">8</span>  <span style="color:#75715e">// greenComponent是0x66，即102</span>
+<span style="color:#66d9ef">let</span> blueComponent = (pink <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x0000FF</span>) <span style="color:#75715e">// blueComponent是0x99，即153</span>
+print(<span style="color:#e6db74">&#34;pink中红色分量为：</span><span style="color:#e6db74">\(</span>redComponent<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+print(<span style="color:#e6db74">&#34;pink中绿色分量为：</span><span style="color:#e6db74">\(</span>greenComponent<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+print(<span style="color:#e6db74">&#34;pink中蓝色分量为：</span><span style="color:#e6db74">\(</span>blueComponent<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+<span style="color:#f92672">---</span>
+output: <span style="color:#ae81ff">13395609</span>
+pink中红色分量为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">204</span>
+pink中绿色分量为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">102</span>
+pink中蓝色分量为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">153</span>
+</code></pre></div><p>// 在上述示例中，使用了一个命名为<code>pink</code>的<code>UInt32</code>型常量来存储<code>Cascading Style Sheets (CSS)</code>中粉色的颜色值。该<code>CSS</code>的颜色值<code>#CC6699</code>，在<code>Swift</code>中表示为十六进制的<code>0xCC6699</code>。然后利用按位与运算符<code>&amp;</code>和按位右移运算符<code>&gt;&gt;</code>从这个颜色中分解出红（CC）、绿（66）蓝（99）三个部分。
+// 红色部分（redComponent）是通过对<code>0xCC6699</code>和<code>0xFF0000</code>进行按位与运算后得到的。<code>0xFF0000</code>中的0部分“掩盖”了<code>0xCC6699</code>中的第二第三个字节，只留下<code>0xCC0000</code>。然后将这个数向右移16位后就变成<code>0x0000CC</code>，也就是十进制数值的204。</p>
 
     <div class="CornerButtons">
         <div class="CornerAnimayedFlex">
