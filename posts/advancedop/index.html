@@ -88,7 +88,7 @@
     
     <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 12, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>2828</em> words and may take <em>6</em> minutes to read.</h5>
+    <h5>This article is about <em>3560</em> words and may take <em>8</em> minutes to read.</h5>
     <hr>
     
     
@@ -189,8 +189,21 @@ output: <span style="color:#ae81ff">13395609</span>
 pink中红色分量为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">204</span>
 pink中绿色分量为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">102</span>
 pink中蓝色分量为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">153</span>
-</code></pre></div><p>// 在上述示例中，使用了一个命名为<code>pink</code>的<code>UInt32</code>型常量来存储<code>Cascading Style Sheets (CSS)</code>中粉色的颜色值。该<code>CSS</code>的颜色值<code>#CC6699</code>，在<code>Swift</code>中表示为十六进制的<code>0xCC6699</code>。然后利用按位与运算符<code>&amp;</code>和按位右移运算符<code>&gt;&gt;</code>从这个颜色中分解出红（CC）、绿（66）蓝（99）三个部分。
-// 红色部分（redComponent）是通过对<code>0xCC6699</code>和<code>0xFF0000</code>进行按位与运算后得到的。<code>0xFF0000</code>中的0部分“掩盖”了<code>0xCC6699</code>中的第二第三个字节，只留下<code>0xCC0000</code>。然后将这个数向右移16位后就变成<code>0x0000CC</code>，也就是十进制数值的204。</p>
+</code></pre></div><p>在上述示例中，使用了一个命名为<code>pink</code>的<code>UInt32</code>型常量来存储<code>Cascading Style Sheets (CSS)</code>中粉色的颜色值。该<code>CSS</code>的颜色值<code>#CC6699</code>，在<code>Swift</code>中表示为十六进制的<code>0xCC6699</code>。然后利用按位与运算符<code>&amp;</code>和按位右移运算符<code>&gt;&gt;</code>从这个颜色中分解出红（CC）、绿（66）蓝（99）三个部分。</p>
+<p>红色部分（redComponent）是通过对<code>0xCC6699</code>和<code>0xFF0000</code>进行按位与运算后得到的。<code>0xFF0000</code>中的0部分“掩盖”了<code>0xCC6699</code>中的第二第三个字节，只留下<code>0xCC0000</code>。然后将这个数向右移16位后就变成<code>0x0000CC</code>，也就是十进制数值的204。</p>
+<h4 id="有符号整数的移位运算">有符号整数的移位运算</h4>
+<p>对比无符号整数，有符号整数的移位运算相对复杂得多，这种复杂性源于有符号整数的二进制表现形式。（为了简单起见，以下的示例都是基于8比特的有符号整数，但是其中的原理对于任何位数的有符号整数都是通用的。）</p>
+<p>有符号整数使用第一个比特位（通常被称为符号位）来表示这个数的正负。符号位为0代表正数，符号位为1代表负数。</p>
+<p>其余的比特位（通常被称为数值位）存储了实际的值。有符号正整数和无符号数的存储方式都是一样的，都是从0开始算起。这是值为 4 的 Int8 型整数的二进制位表现形式：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitshiftSignedFour.png" alt="Bit shift signed four"></p>
+<p>符号位为0（代表这是一个“正数”），另外7位则代表了十进制数值4的二进制表示。</p>
+<p>负数的存储方式略有不同，它存储2的<code>n</code>次方减去实际值的绝对值，这里的<code>n</code>是数值位的位数。一个8比特位的数有七个比特位是数值位，所以是2的7次方，即128。这是值为 -4 的 Int8 型整数的二进制表现形式：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitshiftSignedMinusFour.png" alt="Bit shift signed minus four"></p>
+<p>这次的符号位为1，说明这是一个负数，另外7个位则代表了数值124（即<code>2^7 - |-4| = 124</code>）的二进制表示。</p>
+<p>负数的表示通常被称为二进制补码。用这种方式来表示负数乍一看有点奇怪，但是它却有几个优点。</p>
+<p>首先，如果想对-1和-4进行加法运算，只需要对这两个数的全部8个比特位执行标准的二进制相加（包括符号位），并且将计算结果中超出8位的数值丢弃。</p>
+<p>其次，使用二进制补码可以使负数的按位左移和右移运算得到跟正数同样地效果。即每向左移一位就可以将自身的数值乘以2，每向右移一位就可以将自身的数值除以2。要达到此目的，对有符号整数的右移有一个额外的规则：当对有符号整数进行按位右移运算时，遵循无符号整数相同的规则，但是对于移位产生的空白位使用符号位进行填充，而不是用0。</p>
+<p>这个行为可以确保有符号整数的符号位不会因为右移运算而改变，这通常被称为<em>算术移位</em>。</p>
 
     <div class="CornerButtons">
         <div class="CornerAnimayedFlex">
