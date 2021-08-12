@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 10 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 12 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swift学习(4)-高级运算符（代码完善版）</title>
+      <link>https://jen-jon.github.io/posts/advancedop/</link>
+      <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/advancedop/</guid>
+      <description>除了之前介绍过的基本运算符，Swift还提供了数种可以对数值进行复杂运算的高级运算符。它们包含了在C和Objective-C中已经被大家所熟</description>
+    </item>
+    
     <item>
       <title>Swift学习(3)-基本运算符（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/swiftbasicop/</link>
