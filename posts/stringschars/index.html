@@ -88,7 +88,7 @@
     
     <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 13, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>11570</em> words and may take <em>24</em> minutes to read.</h5>
+    <h5>This article is about <em>11658</em> words and may take <em>24</em> minutes to read.</h5>
     <hr>
     
     
@@ -556,6 +556,51 @@ output: <span style="color:#ae81ff">6</span> mansion scenes; <span style="color:
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> dogString = <span style="color:#e6db74">&#34;Dog‼🐶&#34;</span>
 </code></pre></div><h3 id="utf-8表示">UTF-8表示</h3>
 <p>可以通过遍历<code>String</code>的<code>utf8</code>属性来访问它的<code>UTF-8</code>表示。其为<code>String.UTF8View</code>类型的属性，<code>UTF8View</code>是无符号8位（UInt8）值的集合，每一个<code>UInt8</code>值都是一个字符的<code>UTF-8</code>表示：</p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th style="text-align:center">D<br>U+0044</th>
+<th style="text-align:center">o<br>U+006F</th>
+<th style="text-align:center">g<br>U+0067</th>
+<th style="text-align:center">‼<br>U+203C</th>
+<th style="text-align:center">🐶<br>U+1F436</th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UTF-8<br>Code Unit</td>
+<td style="text-align:center">68</td>
+<td style="text-align:center">111</td>
+<td style="text-align:center">103</td>
+<td style="text-align:center">226</td>
+<td style="text-align:center">128</td>
+<td style="text-align:center">188</td>
+<td style="text-align:center">240</td>
+<td style="text-align:center">159</td>
+<td style="text-align:center">144</td>
+<td style="text-align:center">182</td>
+</tr>
+<tr>
+<td>Position</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">8</td>
+<td style="text-align:center">9</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">for</span> codeUnit <span style="color:#66d9ef">in</span> dogString.utf8 {
     print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>codeUnit<span style="color:#e6db74">)</span><span style="color:#e6db74"> &#34;</span>, terminator: <span style="color:#e6db74">&#34;&#34;</span>)
 }
@@ -565,6 +610,39 @@ output: <span style="color:#ae81ff">68</span> <span style="color:#ae81ff">111</s
 </code></pre></div><p>上面的例子中，前三个十进制<code>codeUnit</code>值（68、111、103）代表了字符<code>D</code>、<code>o</code>和<code>g</code>，它们的<code>UTF-8</code>表示与<code>ASCII</code>表示相同。接下来的三个十进制<code>codeUnit</code>值（226、128、188）是<code>DOUBLE EXCLAMATION MARK</code>的3字节<code>UTF-8</code>表示。最后的四个<code>codeUnit</code>值（240、159、144、182）是<code>DOG FACE</code>的4字节<code>UTF-8</code>表示。</p>
 <h3 id="utf-16表示">UTF-16表示</h3>
 <p>可以通过遍历<code>String</code>的<code>utf16</code>属性来访问它的<code>UTF-16</code>表示。其为<code>String.UTF16View</code>类型属性，<code>UTF16View</code>是无符号16位（UInt16）值的集合，每一个<code>UInt16</code>都是一个字符的<code>UTF-16</code>表示：</p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th style="text-align:center">D<br>U+0044</th>
+<th style="text-align:center">o<br>U+006F</th>
+<th style="text-align:center">g<br>U+0067</th>
+<th style="text-align:center">‼<br>U+203C</th>
+<th style="text-align:center">🐶<br>U+1F436</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UTF-16<br>Code Unit</td>
+<td style="text-align:center">68</td>
+<td style="text-align:center">111</td>
+<td style="text-align:center">103</td>
+<td style="text-align:center">8252</td>
+<td style="text-align:center">55357</td>
+<td style="text-align:center">56374</td>
+</tr>
+<tr>
+<td>Position</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">for</span> codeUnit <span style="color:#66d9ef">in</span> dogString.utf16 {
     print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>codeUnit<span style="color:#e6db74">)</span><span style="color:#e6db74"> &#34;</span>, terminator: <span style="color:#e6db74">&#34;&#34;</span>)
 }
@@ -577,6 +655,36 @@ output: <span style="color:#ae81ff">68</span> <span style="color:#ae81ff">111</s
 <h3 id="unicode标量表示">Unicode标量表示</h3>
 <p>可以通过遍历<code>String</code>值的<code>unicodeScalars</code>属性来访问它的<code>Unicode</code>标量表示。其为<code>UnicodeScalarView</code>类型的属性，<code>UnicodeScalarView</code>是<code>UnicodeScalar</code>类型的值的集合。</p>
 <p>每一个<code>unicodeScalar</code>拥有一个<code>value</code>属性，可以返回对应的21位数值，用<code>UInt32</code>来表示：</p>
+<table>
+<thead>
+<tr>
+<th>Character</th>
+<th style="text-align:center">D<br>U+0044</th>
+<th style="text-align:center">o<br>U+006F</th>
+<th style="text-align:center">g<br>U+0067</th>
+<th style="text-align:center">‼<br>U+203C</th>
+<th style="text-align:center">🐶<br>U+1F436</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Unicode Scalar<br>Code Unit</td>
+<td style="text-align:center">68</td>
+<td style="text-align:center">111</td>
+<td style="text-align:center">103</td>
+<td style="text-align:center">8252</td>
+<td style="text-align:center">128054</td>
+</tr>
+<tr>
+<td>Position</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">for</span> scalar <span style="color:#66d9ef">in</span> dogString.unicodeScalars {
     print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>scalar.value<span style="color:#e6db74">)</span><span style="color:#e6db74"> &#34;</span>, terminator: <span style="color:#e6db74">&#34;&#34;</span>)
 }
