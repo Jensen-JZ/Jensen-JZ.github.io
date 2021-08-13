@@ -88,7 +88,7 @@
     
     <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>May 23, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>801</em> words and may take <em>4</em> minutes to read.</h5>
+    <h5>This article is about <em>805</em> words and may take <em>4</em> minutes to read.</h5>
     <hr>
     
     
@@ -190,20 +190,10 @@ ADM-PV-RCNN
 <h5 id="-run-the-demo-with-a-pretrained-model-and-your-custom-point-cloud-data-by-running-following-command">▪︎ Run the demo with a pretrained model and your custom point cloud data by running following command:</h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">python demo<span style="color:#f92672">.</span>py <span style="color:#f92672">--</span>cfg_file cfgs<span style="color:#f92672">/</span>kitti_models<span style="color:#f92672">/</span>adm_pv_rcnn<span style="color:#f92672">.</span>yaml <span style="color:#f92672">--</span>ckpt adm_pv_rcnn_epoch_100<span style="color:#f92672">.</span>pth <span style="color:#f92672">--</span>data_path <span style="color:#960050;background-color:#1e0010">$</span>{POINT_CLOUD_DATA}
 </code></pre></div><p>Here <strong><code>${POINT_CLOUD_DATA}</code></strong> could be the following format:</p>
-<ol>
-<li>
-<p>Your transformed custom data with a single numpy file like <strong><code>my_data.npy</code></strong>.</p>
-</li>
-<li>
-<p>Your transformed custom data with a single bin file like <strong><code>my_data.bin</code></strong>.</p>
-</li>
-<li>
-<p>Your transformed custom data with a directory to test with multiple point cloud data.</p>
-</li>
-<li>
-<p>The original KITTI <strong><code>.bin</code></strong> data within <strong><code>data/kitti</code></strong>, like <strong><code>data/kitti/testing/velodyne/000010.bin</code></strong>.</p>
-</li>
-</ol>
+<p>1). Your transformed custom data with a single numpy file like <strong><code>my_data.npy</code></strong>.</p>
+<p>2). Your transformed custom data with a single bin file like <strong><code>my_data.bin</code></strong>.</p>
+<p>3). Your transformed custom data with a directory to test with multiple point cloud data.</p>
+<p>4). The original KITTI <strong><code>.bin</code></strong> data within <strong><code>data/kitti</code></strong>, like <strong><code>data/kitti/testing/velodyne/000010.bin</code></strong>.</p>
 <h4 id="ps--if-you-have-any-questions-please-email-me-at-ijerrygoogmailcom-please-indicate-adm-pv-rcnn-as-the-subject-of-the-email">P.s. : If you have any questions, please email me at <a href="mailto:ijerry.goo@gmail.com">ijerry.goo@gmail.com</a> (please indicate &ldquo;ADM PV-RCNN&rdquo; as the subject of the email).</h4>
 
     <div class="CornerButtons">
