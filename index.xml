@@ -6,7 +6,18 @@
     <description>Recent content in Jensen-Jon | Home on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 13 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 17 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ML Peach RGB-D Dataset</title>
+      <link>https://jen-jon.github.io/posts/ml-peach-rgbd-dataset/</link>
+      <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/ml-peach-rgbd-dataset/</guid>
+      <description>Multi-label peach RGB-D dataset (Including RGB images, depth images, infrared images)
+Authors: Rao Yuan / Luo Qin / Huo Peilin / Li Yipu / Zhang Jingyao The ML Peach RGB-D Dataset is composed by 2050 multi-modal images of peach on tree filelds captured using Microsoft Azure Kinect DK. Each images contains 3 different modalities, including RGB images, Depth images and Infrared images.
+All images were aligned with the RGB image and manually labelled in 4 classes: unobstructed, obscured by foliage, obscured by branches and obscured by fruit.</description>
+    </item>
+    
     <item>
       <title>Swift学习(5)-字符串和字符（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/stringschars/</link>
