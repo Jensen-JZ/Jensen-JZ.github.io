@@ -8,9 +8,18 @@
     <language>zh-cn</language>
     <lastBuildDate>Sat, 21 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Swift学习(7)-控制流（代码完善版）</title>
+      <link>https://jen-jon.github.io/posts/controlflow/</link>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/controlflow/</guid>
+      <description>Swift提供了多种流程控制结构，包括可以多次执行任务的while循环，基于特定条件选择执行不同代码分支的if、guard和switch语句</description>
+    </item>
+    
+    <item>
       <title>Swift学习(6)-集合类型（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/collectiontype/</link>
-      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
       
       <guid>https://jen-jon.github.io/posts/collectiontype/</guid>
       <description>Swift语言提供数组（Array）、集合（Set）和字典（Dictionary）三种基本的集合类型来存储集合数据。数组是有序数据的集。集合</description>
