@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 17 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 21 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swift学习(6)-集合类型（代码完善版）</title>
+      <link>https://jen-jon.github.io/posts/collectiontype/</link>
+      <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/collectiontype/</guid>
+      <description>Swift语言提供数组（Array）、集合（Set）和字典（Dictionary）三种基本的集合类型来存储集合数据。数组是有序数据的集。集合</description>
+    </item>
+    
     <item>
       <title>ML Peach RGB-D Dataset</title>
       <link>https://jen-jon.github.io/posts/ml-peach-rgbd-dataset/</link>
