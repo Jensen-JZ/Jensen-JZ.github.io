@@ -226,22 +226,22 @@ output: Min <span style="color:#66d9ef">is</span> <span style="color:#f92672">-<
 </blockquote>
 <p>前面的<code>minMax(array:)</code>函数返回了一个包含两个<code>Int</code>值的元组。但是函数不会对传入的数组执行任何安全检查，如果<code>array</code>参数是一个空数组，如上定义的<code>minMax(array:)</code>在试图访问<code>array[0]</code>时会触发一个运行时的错误。</p>
 <p>为了安全地处理这个“空数组”问题，将<code>minMax(array:)</code>函数改写为使用可选元组返回类型，并且当数组为空时返回<code>nil</code>:</p>
-<pre><code class="language-Siwft" data-lang="Siwft">func MinMax(array: [Int]) -&gt; (min: Int, max: Int)? {
-    if array.isEmpty {
-        return nil
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">MinMax</span>(array: [Int]) -&gt; (min: Int, max: Int)? {
+    <span style="color:#66d9ef">if</span> array.isEmpty {
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>
     }
-    var currentMin = array[0]
-    var currentMax = array[0]
-    for value in array[1..&lt;array.count] {
-        if value &lt; currentMin {
+    <span style="color:#66d9ef">var</span> currentMin = array[<span style="color:#ae81ff">0</span>]
+    <span style="color:#66d9ef">var</span> currentMax = array[<span style="color:#ae81ff">0</span>]
+    <span style="color:#66d9ef">for</span> value <span style="color:#66d9ef">in</span> array[<span style="color:#ae81ff">1.</span>.&lt;array.count] {
+        <span style="color:#66d9ef">if</span> value <span style="color:#f92672">&lt;</span> currentMin {
             currentMin = value
-        } else if value &gt; currentMax {
+        } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> value <span style="color:#f92672">&gt;</span> currentMax {
             currentMax = value
         }
     }
-    return (currentMin, currentMax)
+    <span style="color:#66d9ef">return</span> (currentMin, currentMax)
 }
-</code></pre><p>可以使用可选绑定来检查<code>minMax(array:)</code>函数返回的是一个存在的元组值还是<code>nil</code>：</p>
+</code></pre></div><p>可以使用可选绑定来检查<code>minMax(array:)</code>函数返回的是一个存在的元组值还是<code>nil</code>：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> bounds = MinMax(array: [<span style="color:#ae81ff">8</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">109</span>, <span style="color:#ae81ff">3</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">71</span>]) {
     print(<span style="color:#e6db74">&#34;Min is </span><span style="color:#e6db74">\(</span>bounds.min<span style="color:#e6db74">)</span><span style="color:#e6db74"> and max is </span><span style="color:#e6db74">\(</span>bounds.max<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
 }  <span style="color:#75715e">// 打印&#34;Min is -71 and max is 109.&#34;</span>
