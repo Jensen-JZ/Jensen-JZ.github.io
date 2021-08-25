@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang=""><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Swift学习(10)-枚举（代码完善版）</title>
+    <meta name="description" content="A simple homepage of Jensen Zhang.">
+    <meta name="author" content='Jensen Zhang'>
+
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/buttonsstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/busuanzi.pure.mini.js"></script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?2f401f546fb29f7b8978eae3f0055b5f";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="/sass/researcher.min.css">
+
+    
+        <link rel="icon" type="image/ico" href="https://jen-jon.github.io/images/favicon.ico">
+    
+
+    
+        
+    
+</head>
+
+    <body><div class="container mt-5">
+    <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
+        <a class="navbar-brand mx-0 mr-sm-auto" href="https://jen-jon.github.io/" title="Jensen&#39;s Homepage">
+          
+          <i class="fas fa-home"></i>
+          Jensen&#39;s Homepage
+        </a>
+        <div class="navbar-nav flex-row flex-wrap justify-content-center">
+            
+                
+                
+                    <a class="nav-item nav-link" href="/about" title="About">
+                        About
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/posts" title="Posts">
+                        Posts
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/contact" title="Contact">
+                        Contact
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/tools" title="Tools">
+                        Tools
+                    </a>
+                    
+                
+            
+        </div>
+    </nav>
+</div>
+<hr>
+<div id="content">
+<div class="container">
+    
+    <h1 style="color: #dc3545;">Swift学习(10)-枚举（代码完善版）</h1>
+    
+    <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 25, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
+    
+    <h5>This article is about <em>5094</em> words and may take <em>11</em> minutes to read.</h5>
+    <hr>
+    
+    
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/enumerations.png" alt="Logo"/></p>
+    <hr>
+    
+    
+    <blockquote>
+        <p><strong>Type: technology blog</strong></p>
+        <p><strong>Tags: iOS; Swift; Apple</strong></p>
+    </blockquote>
+    <hr>
+    
+    
+    <h1 style="color: #dc3545;">Content</h1>
+    <br>
+    
+    <p>枚举为一组相关的值定义了一个共同的类型。使得能够在代码中以类型安全的方式来使用这些值。</p>
+<p>如果熟悉<code>C</code>语言，会知道在<code>C</code>语言中，枚举会为一组整型值分配相关联的名称。<code>Swift</code>中的枚举更加灵活，不必给每一个枚举成员提供一个值。如果给枚举成员提供一个值（称为原始值），则该值的类型可以是字符串、字符或者是一个整型值或浮点数。</p>
+<p>此外，枚举成员可以指定任意类型的关联值存储到枚举成员中，就像其他语言中的联合体（unions）和辩题（variants）。可以在一个枚举中定义一组相关联的枚举成员，每一个枚举成员都可以有适当类型的关联值。</p>
+<p>在<code>Swift</code>中，枚举类型是一等（First-Class）类型。它们采用了很多在传统上只被类（class）所支持的特性，如计算属性（Computed Properties），用于提供枚举值的附加信息，实例方法（Instance Methods）。用于提供和枚举值相关联的功能。枚举也可以定义构造函数（Initializers）来提供一个初始值；可以在原始实现的基础上扩展它们的功能；还可以遵循协议（Protocols）来提供标准的功能。</p>
+<hr>
+<h2 id="枚举语法">枚举语法</h2>
+<p>使用<code>enum</code>关键词来创建枚举并且把它们的整个定义放在一对大括号内：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">SomeEnumeration</span> {
+    <span style="color:#75715e">// 枚举定义放这里</span>
+}
+<span style="color:#75715e">// 下面使用枚举表示指南针四个方向的例子：</span>
+<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">CompassPoint</span> {
+    <span style="color:#66d9ef">case</span> north
+    <span style="color:#66d9ef">case</span> south
+    <span style="color:#66d9ef">case</span> east
+    <span style="color:#66d9ef">case</span> west
+}
+</code></pre></div><p>枚举中定义的值（如north，south，east和west）是这个枚举的成员值（或成员）。可以使用<code>case</code>关键字来定义一个新的枚举成员值。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>与C和Objective-C不同，Swift的枚举成员在被创建时不会赋予一个默认的整型值。在上面的CompassPoint例子中，north，south，east和west不会被隐式的赋值为0，1，2和3。相反，这些枚举成员本身就是完备的值，这些值的类型是已经明确定义好的CompassPoint类型。
+多个成员值可以出现在同一行上，用逗号隔开：</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Planet</span> {
+    <span style="color:#66d9ef">case</span> mercury, venus, earth, mars, jupiter, saturn, uranus, neptune
+}
+</code></pre></div><p>每个枚举定义了一个全新的类型。像<code>Swift</code>中的其他类型一样，它们的名字（例如CompassPoint和Planet）以一个大写字母开头。给枚举类型起一个单数名字而不是复数名字，以便于：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> directionToHead = CompassPoint.west
+</code></pre></div><p><code>directionToHead</code>的类型还可以在它被<code>CompassPoint</code>的某个值初始化时推断出来，一旦<code>directionToHead</code>被声明为<code>CompassPoint</code>类型，可以使用更简短的点语法将其设置为另一个<code>CompassPoint</code>的值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">directionToHead = .east
+</code></pre></div><p>当<code>directionToHead</code>的类型已知时，再次为其赋值可以省略枚举类型名。在使用具有显式类型的枚举值时，这种写法让代码具有更好的可读性。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;directionToHead: </span><span style="color:#e6db74">\(</span>directionToHead<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+<span style="color:#f92672">---</span>
+output: directionToHead: east.
+</code></pre></div><hr>
+<h2 id="使用switch语句匹配枚举值">使用Switch语句匹配枚举值</h2>
+<p>可以使用<code>switch</code>语句匹配单个枚举值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">directionToHead = .south
+<span style="color:#66d9ef">switch</span> directionToHead {
+<span style="color:#66d9ef">case</span> .north:
+    print(<span style="color:#e6db74">&#34;Lots of planets have a north.&#34;</span>)
+<span style="color:#66d9ef">case</span> .south:
+    print(<span style="color:#e6db74">&#34;Watch out for penguins.&#34;</span>)
+<span style="color:#66d9ef">case</span> .east:
+    print(<span style="color:#e6db74">&#34;Where the sun rises.&#34;</span>)
+<span style="color:#66d9ef">case</span> .west:
+    print(<span style="color:#e6db74">&#34;Where the skies are blue.&#34;</span>)
+}  <span style="color:#75715e">// 打印输出“Watch out the penguins.”</span>
+<span style="color:#f92672">---</span>
+output: Watch out <span style="color:#66d9ef">for</span> penguins.
+</code></pre></div><p>可以这样理解这段代码：</p>
+<p>“判断directionToHead的值。当它等于.north，打印‘Lots of planets have a north.’。当它等于.south，打印‘Watch out for penguins.’” &hellip;&hellip;以此类推</p>
+<p>正如在<a href="https://jen-jon.663lab.com/posts/controlflow/">控制流</a>中介绍的那样，在判断一个枚举类型的值时，<code>switch</code>语句必须穷举所有的情况。如果忽略了<code>.west</code>这种情况，上面那段代码将无法通过编译，因为其没有考虑到<code>CompassPoint</code>的全部成员。强制穷举确保了枚举成员不会被意外遗漏。</p>
+<p>当不需要匹配每个枚举成员的时候，可以提供一个<code>default</code>分支来涵盖所有未明确处理的枚举成员：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> somePlanet = Planet.earth
+<span style="color:#66d9ef">switch</span> somePlanet {
+<span style="color:#66d9ef">case</span> .earth:
+    print(<span style="color:#e6db74">&#34;Mostly harmless.&#34;</span>)
+<span style="color:#66d9ef">default</span>:
+    print(<span style="color:#e6db74">&#34;Not a safe place for humans.&#34;</span>)
+}  <span style="color:#75715e">// 打印输出“Mostly harmless.”</span>
+<span style="color:#f92672">---</span>
+output: Mostly harmless.
+</code></pre></div><hr>
+<h2 id="枚举成员的遍历">枚举成员的遍历</h2>
+<p>在一些情况下，可能会需要得到一个包含枚举所有成员的集合。可以通过如下代码的实现：</p>
+<p>令枚举遵循<code>CaseIterable</code>协议。<code>Swift</code>会生成一个<code>allCases</code>属性，用于表示一个包含枚举所有成员的集合。下面是一个例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">Beverage</span>: CaseIterable {
+    <span style="color:#66d9ef">case</span> coffee, tea, juice
+}
+<span style="color:#66d9ef">let</span> numberOfChoices = Beverage.allCases.count
+print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>numberOfChoices<span style="color:#e6db74">)</span><span style="color:#e6db74"> beverages available.&#34;</span>)
+<span style="color:#f92672">---</span>
+output: <span style="color:#ae81ff">3</span> beverages available.
+</code></pre></div><p>在前面的例子中，通过<code>Beverage.allCases</code>可以访问到包含<code>Beverage</code>枚举所有成员的集合。<code>allCases</code>的使用方法和其他一般集合一样：集合中的元素是枚举类型的实例，所以在上面的情况中，这些元素是<code>Beverage</code>值。在前面的例子中，统计了总共多少个枚举成员。而在下面的例子中，则使用<code>for-in</code>循环来遍历所有枚举成员。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">for</span> beverage <span style="color:#66d9ef">in</span> Beverage.allCases {
+    print(beverage)
+}  <span style="color:#75715e">// coffee  // tea  // juice</span>
+<span style="color:#f92672">---</span>
+output: coffee
+tea
+juice
+</code></pre></div><p>在前面的例子中，使用的语法表明这个枚举遵循<code>CaseIterable</code>协议。</p>
+<hr>
+<h2 id="关联值">关联值</h2>
+<p>枚举语法那一小节的例子演示了如何定义和分类枚举成员。可以为<code>Planet.earth</code>设置一个常量或者变量，并在赋值之后查看这个值。然而，有时候把其他类型的值和成员值一起存储起来会很有用。这额外的信息被称为<em>关联值</em>，并且每次在代码中使用该枚举成员时，还可以修改这个关联值。</p>
+<p>可以定义<code>Swift</code>枚举来存储任意类型的关联值，如果需要的话，每个枚举成员的关联值类型可以各不相同。枚举的这种特性跟其他语言中的可识别联合（Discriminated Unions），标签联合（Tagged Unions），或者变体（Variants）相似。</p>
+<p>例如，假设一个库存跟踪系统需要利用两种不同类型的条形码来跟踪商品，有些商品商标有使用0到9的数字的<code>UPC</code>格式的一维条形码。每一个条形码都有一个代表数字系统的数字，该数字后接五位代表厂商代码的数字，接下来是五位代表“产品代码”的数字。最后一位数字是检查位，用来验证代码是否被正确扫描：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/barcode.png" alt="Bar Code"></p>
+<p>其他商品上标有<code>QR</code>码格式的二维码，它可以使用任何<code>ISO 8859-1</code>字符，并且可以编码一个最多拥有2953个字符的字符串：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/qrcode.png" alt="QR Code"></p>
+<p>这便于库存跟踪系统用包含四个整型值的元组存储<code>UPC</code>码，以及用任意长度的字符串储存<code>QR</code>码：</p>
+<p>在<code>Swift</code>中，使用如下方法定义表示两种商品条形码的枚举：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">BarCode</span> {
+    <span style="color:#66d9ef">case</span> upc(Int, Int, Int, Int)
+    <span style="color:#66d9ef">case</span> qrCode(String)
+}
+</code></pre></div><p>以上代码可以这么理解：</p>
+<p>“定义一个名为BarCode的枚举类型，它的一个成员值是具有(Int, Int, Int, Int)类型关联值的upc，另一个成员值是具有String类型关联值的qrCode。”</p>
+<p>这个定义不提供任何<code>Int</code>或<code>String</code>类型的关联值，它只是定义了，当<code>BarCode</code>常量和变量等于<code>BarCode.upc</code>或<code>BarCode.qrCode</code>时，可以存储的关联值的类型。</p>
+<p>然后可以使用任意一种条形码类型创建新的条形码。例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> productBarCode = BarCode.upc(<span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">85909</span>, <span style="color:#ae81ff">51226</span>, <span style="color:#ae81ff">3</span>)
+</code></pre></div><p>// 上面的例子创建了一个名为<code>productBarCode</code>的变量，并将<code>BarCode.upc</code>赋值给它，关联的元组值为(8, 85909, 51226, 3)。
+// 同一个商品可以被分配成一个不同类型的条形码，例如：
+productBarCode = .qrCode(&ldquo;ABCDEFGHIJKLMNOP&rdquo;)
+// 这时，原始的<code>BarCode.upc</code>和其整数关联值被新的<code>BarCode.qrCode</code>和其字符串关联值所替代。<code>BarCode</code>类型的常量和变量可以存储一个<code>.upc</code>或者<code>.qrCode</code>（连同它们的关联值），但是在同一时间只能存持这两个值中的一个。
+// 可以使用一个<code>switch</code>语句来检查不同的条形码类型，和之前使用<code>Switch</code>语句来匹配枚举值的例子一样。然而，这一次，关联值可以被提取出来作为<code>switch</code>语句的一部分。可以在<code>switch</code>的<code>case</code>分支代码中提取每个关联值作为一个常量（用let前缀）或者一个变量（用var前缀）来使用：
+switch productBarCode {
+case .upc(let numberSystem, let manuFacturer, let product, let check):
+print(&ldquo;UPC: (numberSystem), (manuFacturer), (product), (check).&quot;)
+case .qrCode(let productCode):
+print(&ldquo;QR code: (productCode).&quot;)
+}  // 打印输出“QR code: ABCDEFGHIJKLMNOP”
+// 如果一个枚举成员的所有关联值都被提取为常量，或者都被提取为变量，为了简洁，可以只在成员名称前标注一个<code>let</code>或<code>var</code>：
+productBarCode = .upc(8, 86751, 62119, 3)
+switch productBarCode {
+case let .upc(numberSystem, manuFactor, product, check):
+print(&ldquo;UPC: (numberSystem), (manuFactor), (product), (check).&quot;)
+case let .qrCode(productCode):
+print(&ldquo;QR code: (productCode)&quot;)
+}  // 打印输出“UPC: 8, 86751, 62119, 3.”</p>
+<p>/* 原始值 */
+// 在关联值小节的条形码例子中，演示了如何声明存储不同类型关联值的枚举成员。作为关联值的**替代选择**，枚举成员可以被默认值（称为原始值）预填充，**这些原始值的类型必须相同**。
+// 这是一个使用<code>ASCII</code>码作为原始值的枚举：
+enum ASCIIControlCharacter: Character {
+case tab = &ldquo;\t&rdquo;
+case lineFeed = &ldquo;\n&rdquo;
+case carriageReturn = &ldquo;\r&rdquo;
+}
+// 枚举类型<code>ASCIIControlCharacter</code>的原始值类型被定义为<code>Character</code>，并设置了一些比较常见的<code>ASCII</code>控制字符。<code>Character</code>的描述详见<a href="https://swiftgg.gitbook.io/swift/swift-jiao-cheng/03_strings_and_characters">字符串和字符</a>部分。
+// 原始值可以是字符串、字符，或者任意类型值或浮点型值。每个原始值在枚举声明中必须是唯一的。
+// **注意**
+// 原始值和关联值是不同的。原始值是在定义枚举时被预先填充的值，像上述三个ASCII码。对于一个特定的枚举成员，它的原始值始终不变。关联值是创建一个基于枚举成员的常量或者变量时才设置的值，枚举成员的关联值可以变化。</p>
+<p>// 原始值的隐式赋值
+// 在使用原始值为整数或者字符串的枚举时，不需要显式地为每一个枚举成员设置原始值，<code>Swift</code>将会自动赋值。
+// 例如，当使用整数作为原始值时，隐式赋值的值以此递增1。如果第一个枚举成员没有原始值，则其原始值被设置为0。
+// 下面的枚举是对之前<code>Planet</code>这个枚举的一个细化，利用整型的原始值来表示每个行星在太阳系中的顺序：
+enum Planets: Int {
+case mercury = 1, venus, earth
+case mars, jupiter, saturn, uranus, neptune
+}
+extension Planets: CaseIterable {}
+for planet in Planets.allCases {
+print(&quot;(planet)&rsquo;s raw value is (planet.rawValue).&quot;)
+}
+// 在上面的例子中，<code>Planet.mercury</code>的显式原始值为1，<code>Planet.venus</code>的隐式原始值为2，依次类推。
+// 当使用字符串作为枚举类型的原始值时，每个枚举成员的隐式原始成员值为该枚举成员的名称。
+// 下面例子是<code>CompassPoint</code>枚举的细化，使用字符串类型的原始值来表示各个方向的名称：
+enum CompassPoints: String {
+case north, south, east, west
+}
+// 上面的例子中，<code>CompassPoints.south</code>拥有隐式原始值<code>south</code>，依次类推。
+// 使用枚举成员的<code>rawValue</code>属性可以访问该枚举成员的原始值：
+extension CompassPoints: CaseIterable {}
+for point in CompassPoints.allCases {
+print(&ldquo;The point&rsquo;s raw value is (point.rawValue).&quot;)
+}</p>
+<p>// 使用原始值初始值枚举实例
+// 如果在定义枚举类型的时候使用了原始值，那么将会自动获得一个初始化方法，这个方法接收一个叫做<code>rawValue</code>的参数，参数类型即为原始值的类型，返回值则是枚举成员或<code>nil</code>。可以使用这个初始化方法来创建一个新的枚举实例。
+// 这个例子利用原始值7创建了枚举成员<code>Uranus</code>：
+let possiblePlanet = Planets(rawValue: 7)  // possiblePlanet类型为Planets？值为Planets.uranus
+print(&quot;(possiblePlanet!)&rsquo;s raw value is (possiblePlanet!.rawValue).&quot;)
+// 然而，并非所有<code>Int</code>值都可以找到一个匹配的行星🪐。因此，原始值构造器总是返回一个可选的枚举成员。在上面的例子中，<code>possiblePlanet</code>是<code>Planets?</code>类型，或者说“可选的Planets”。
+// <strong>注意</strong>
+// 原始值构造器是一个可失败的构造器，因为并不是每一个原始值都有与之对应的枚举成员。
+// 如果试图寻找一个位置为11的行星🪐，通过原始值构造器返回的<code>Planets</code>值将是<code>nil</code>：
+let positionToFind = 11
+if let somePlanet = Planets(rawValue: positionToFind) {
+switch somePlanet {
+case .earth:
+print(&ldquo;Mostly harmless.&quot;)
+default:
+print(&ldquo;Not a safe place for humans.&quot;)
+}
+} else {
+print(&ldquo;There isn&rsquo;t a planet at position (positionToFind).&quot;)
+}  // 打印输出“There isn&rsquo;t a planet at position 11.”
+// 这个例子使用了可选绑定（Optional Binding），试图通过原始值11来访问这个行星🪐。<code>if let somePlanet = Planets(rawValue: 11)</code>语句创建了一个可选<code>Planets</code>，如果可选<code>Planets</code>的值存在，就会赋值给<code>somePlanet</code>。这个例子中，无法检索到位置11的行星，所以<code>else</code>分支被执行。</p>
+<p>/* 递归枚举 */
+// 递归枚举是一种枚举类型，它有一个或多个枚举成员使用该枚举类型的实例作为关联值。使用递归枚举时，编译器会插入一个间接层。可以在枚举成员前加上<code>indirect</code>来表示该成员可递归。
+// 例如，下面的例子中，枚举类型存储了简单的算术表达式：
+enum ArithmeticExpression {
+case number(Int)
+indirect case addition(ArithmeticExpression, ArithmeticExpression)
+indirect case multiplication(ArithmeticExpression, ArithmeticExpression)
+}
+// 也可以在枚举类型开头加上<code>indirect</code>关键字来表明它的所有成员都是可递归的：
+indirect enum ArithmeticExpressions {
+case number(Int)
+case addition(ArithmeticExpressions, ArithmeticExpressions)
+case multiplication(ArithmeticExpressions, ArithmeticExpressions)
+}
+// 上面定义的枚举类型可以存储三种算术表达式：纯数字，两个表达式相加，两个表达式相乘。枚举成员<code>addition</code>和<code>multiplication</code>的关联值也是算术表达式&ndash;这些关联值使得嵌套表达式成为可能。例如，表达式(5 + 4) * 2，乘号右边是一个数字，左边则是一个表达式。因为数据是嵌套的，因而用来存储数据的枚举类型也需要支持这种嵌套&ndash;这意味着枚举类型需要支持递归。下面的代码展示了使用<code>ArithmeticExpression</code>这个递归枚举创建表达式(5 + 4) * 2：
+let five = ArithmeticExpressions.number(5)
+let four = ArithmeticExpressions.number(4)
+let sum = ArithmeticExpressions.addition(five, four)
+let product = ArithmeticExpressions.multiplication(sum, ArithmeticExpressions.number(2))
+// 要操作具有递归性质的数据结构，使用递归函数是一种直截了当的方式。例如，下面是一个对算术表达式求值的函数：
+func evaluate(_ expression: ArithmeticExpressions) -&gt; Int {
+switch expression {
+case let .number(value):
+return value
+case let .addition(left, right):
+return evaluate(left) + evaluate(right)
+case let .multiplication(left, right):
+return evaluate(left) * evaluate(right)
+}
+}
+print(evaluate(product))  // 打印输出“18”</p>
+
+    <div class="CornerButtons">
+        <div class="CornerAnimayedFlex">
+            <div class="CornerButton" title="Back to the top">
+                <a href="#top" class="cba fas fa-hand-middle-finger" ></a>
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<h1 style="color: #dc3545;">Comments</h1>
+<script defer src="https://utteranc.es/client.js" 
+repo="Jen-Jon/Jen-Jon.github.io" 
+issue-term="title" 
+theme="github-light" 
+crossorigin="anonymous" async></script>
+
+
+</div>
+
+<h5 style="text-align: center; font-size: large;">This blog is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, please indicate the source for non-commercial reposted.</h5>
+
+
+        </div><strong id="footer" class="mb-5">
+    <hr>
+    
+    <div class="container text-center">
+        
+            <a href="https://github.com/Jen-Jon/" class="fab fa-github fa-1x" title="Github" style="text-decoration: none;"></a>
+        
+            <a href="https://hub.docker.com/u/ijerry22" class="fab fa-docker fa-1x" title="DockerHub" style="text-decoration: none;"></a>
+        
+            <a href="https://www.researchgate.net/profile/Jingyao-Zhang-4" class="fab fa-researchgate fa-1x" title="researchgate" style="text-decoration: none;"></a>
+        
+            <a href="mailto:ijerry.goo@gmail.com" class="fas fa-envelope fa-1x" title="E-mail" style="text-decoration: none;"></a>
+        
+    </div>
+    
+        <div class="container text-center">
+            <h5 class="text-center" style="font-size: small;">Copyright © 2020 <a href="https://github.com/Jen-Jon/" style="color: #dc3545;" title="Jensen-Jon">Jensen-Jon</a>. All rights reserved.</h5>
+        </div>
+    
+</div>
+</body>
+</html>
