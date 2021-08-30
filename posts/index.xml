@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 25 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Swift学习(11)-类和结构体（代码完善版）</title>
+      <link>https://jen-jon.github.io/posts/structclasses/</link>
+      <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/structclasses/</guid>
+      <description>结构体和类作为一种通用而又灵活的结构，成为了人们构建代码的基础。可以使用定义常量、变量和函数的语法，从而为结构体和类定义属性、添加方法。 与其</description>
+    </item>
+    
     <item>
       <title>Swift学习(10)-枚举（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/enumerations/</link>
