@@ -17,6 +17,31 @@
 
     
     <script>
+        WIDGET = {
+        "CONFIG": {
+            "modules": "0124",
+            "background": "5",
+            "tmpColor": "fff",
+            "tmpSize": "16",
+            "tmpPadding": "10px",
+            "cityColor": "000",
+            "citySize": "16",
+            "aqiColor": "fff",
+            "aqiSize": "16",
+            "weatherIconSize": "24",
+            "alertIconSize": "18",
+            "padding": "0px",
+            
+            "language": "en",
+            "key": "06a49925209149af84e325a6c7e5c521"
+        }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/he-simple-common-v2.0.js"></script>
+    
+
+    
+    <script>
         var _hmt = _hmt || [];
         (function() {
           var hm = document.createElement("script");
@@ -39,7 +64,12 @@
     
 </head>
 
-    <body><div class="container mt-5">
+    <body><div class="container mt-5" style="text-align: right;">
+    
+    <div style="display: inline-flex; background-color: #e14859;">
+        <div id="he-plugin-simple"></div>
+    </div>
+    
     <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
         <a class="navbar-brand mx-0 mr-sm-auto" href="https://jen-jon.github.io/" title="Jensen&#39;s Homepage">
           
@@ -80,8 +110,7 @@
         </div>
     </nav>
 </div>
-<hr>
-<div id="content">
+<hr><div id="content">
 <div class="container">
     
     <h1 style="color: #dc3545;">Swift学习(1)-初•见（代码完善版）</h1>
