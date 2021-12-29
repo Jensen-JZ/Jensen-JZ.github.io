@@ -6,7 +6,16 @@
     <description>Recent content in Jensen-Jon | Home on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 30 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 29 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python基础</title>
+      <link>https://jen-jon.github.io/posts/pythonbasic/</link>
+      <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/pythonbasic/</guid>
+      <description>函数知识点汇总 调用函数 Python内置了很多有用的函数可以直接调用。 要掉用一个函数需要知道函数的名称与参数，可以从Python的官方网站查看</description>
+    </item>
+    
     <item>
       <title>Swift学习(11)-类和结构体（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/structclasses/</link>
@@ -206,15 +215,6 @@ This Docker container contains a complete pipline working files from LiDAR to al
       
       <guid>https://jen-jon.github.io/posts/jdmall/</guid>
       <description>听闻最近京东的全球第二家电器超级体验店开业了，居然在合肥。打开地图搜了搜，发现也不远，坐地铁经过五站就可以到达，目测骑车也就十来分钟的事。 下</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://jen-jon.github.io/posts/pythonbasic/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://jen-jon.github.io/posts/pythonbasic/</guid>
-      <description></description>
     </item>
     
     <item>

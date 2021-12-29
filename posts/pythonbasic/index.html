@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title></title>
+    <title>Python基础</title>
     <meta name="description" content="A simple homepage of Jensen Zhang.">
     <meta name="author" content='Jensen Zhang'>
 
@@ -113,10 +113,1597 @@
 <hr><div id="content">
 <div class="container">
     
+    <h1 style="color: #dc3545;">Python基础</h1>
+    
+    <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>December 29, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
+    
+    <h5>This article is about <em>22163</em> words and may take <em>45</em> minutes to read.</h5>
+    <hr>
     
     
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/pythonbasic.png" alt="Logo"/></p>
+    <hr>
     
     
+    <blockquote>
+        <p><strong>Type: technology blog</strong></p>
+        <p><strong>Tags: Python</strong></p>
+    </blockquote>
+    <hr>
+    
+    
+    <h1 style="color: #dc3545;">Content</h1>
+    <br>
+    
+    <h1 id="函数知识点汇总">函数知识点汇总</h1>
+<hr>
+<h2 id="调用函数">调用函数</h2>
+<hr>
+<p>Python内置了很多有用的函数可以直接调用。
+要掉用一个函数需要知道函数的名称与参数，可以从Python的官方网站查看文档，也可以通过help函数查询帮助信息，如<code>help(abs)</code>。</p>
+<p>调用函数时，如果传入的参数数量不对，会报<code>TypeError</code>的错误，并且Python会明确地告诉你所调用的函数需要几个参数；如果传入参数数量正确，但是参数类型不被函数所接受，也会报<code>TypeError</code>错误。</p>
+<p>也有函数可以接受任意多个参数，并返回最大的那个，如<code>max</code>函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">max(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>)  <span style="color:#75715e"># 3</span>
+max(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>)  <span style="color:#75715e"># 2</span>
+</code></pre></div><pre><code>2
+</code></pre>
+<h3 id="数据类型转换">数据类型转换</h3>
+<p>Python内置的函数还包括数据类型转换函数，如<code>int</code>、<code>str</code>等。</p>
+<p>函数名其实就是指向一个函数对象的引用，因此完全可以把函数名赋给一个变量，相当于给这个函数起了一个“别名”：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">m <span style="color:#f92672">=</span> max  <span style="color:#75715e"># 变量m指向max函数</span>
+m(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>)  <span style="color:#75715e"># 因此可以通过变量m调用max函数</span>
+</code></pre></div><pre><code>5
+</code></pre>
+<h2 id="定义函数">定义函数</h2>
+<hr>
+<p>Python中定义函数需要使用<code>def</code>语句，再在其后依次写出函数名、左括号、参数、右括号和冒号，然后再在缩进块中编写函数体，最后使用<code>return</code>语句返回。例子：求绝对值函数<code>my_abs</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_abs</span>(x):
+    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">return</span> x
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>x
+</code></pre></div><p>函数体内部语句在执行时一旦执行到<code>return</code>语句就执行完毕，并返回结果。如果函数体中没有<code>return</code>语句，函数执行到最后也会返回，只是返回的结果为<code>None</code>，也可以写成<code>return None</code>或<code>return</code>。</p>
+<h3 id="空函数">空函数</h3>
+<p>如果定义一个啥都不做的空函数可以在其函数体部分使用<code>pass</code>语句。比如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">if</span> height <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">180</span>:
+    <span style="color:#66d9ef">pass</span>
+</code></pre></div><h3 id="参数检查">参数检查</h3>
+<p>正如上文所述，调用函数时若参数个数不对，Python解释器会抛出<code>TypeError</code>错误并提示，但是如果参数类型不正确，Python解释器是不会像调用内置函数那样自动检查的，这可能会导致函数体执行过程中出现问题，可以使用Python的内置函数<code>isinstance</code>检查参数类型：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">my_abs</span>(x):
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(x, (int, float)):
+        <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">TypeError</span>(<span style="color:#e6db74">&#34;bad operand type&#34;</span>)  <span style="color:#75715e"># 若传入错误的参数类型，函数则会抛出错误</span>
+    <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">return</span> x
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>x
+</code></pre></div><h3 id="返回多个值">返回多个值</h3>
+<p>可以使用<code>return A, B</code>语句返回两个值，当然也可以拓展到多个值。但其实这只是一种假象，Python函数返回的依然是单一值，但是当返回值不止一个时，返回值会被自动包装成一个tuple。</p>
+<h2 id="函数的参数">函数的参数</h2>
+<hr>
+<p>定义函数时，参数的名字和位置确定下来，函数的接口定义就完成了。虽然Python函数定义非常简答，但其却异常灵活。</p>
+<h3 id="位置参数">位置参数</h3>
+<p>例子：计算二次方的函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">power</span>(x):
+    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">**</span> x
+</code></pre></div><p>对于函数<code>power</code>，参数<code>x</code>就是一个位置参数，当调用<code>power</code>函数时，必须传入有且仅有的一个参数<code>x</code>。
+但是上面的函数实际用起来却不合适，倘若要计算三次方、四次方&hellip;岂不是要写很多函数。OK，可以稍微修改一下<code>power</code>函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">power</span>(x, n):
+    s <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">while</span> n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+        n <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+        s <span style="color:#f92672">*=</span> x
+    <span style="color:#66d9ef">return</span> s
+</code></pre></div><p>这个修改后的<code>power</code>函数便可以计算任意次方数，而且此时它拥有两个位置参数<code>x</code>和<code>n</code>，调用时，需要按位置顺序依次给这两个参数赋值。</p>
+<h3 id="默认参数">默认参数</h3>
+<p>但是似乎日常开发中用到二次方计算的情况远大于其他次方，此时可以使用默认参数，将第二个参数<code>n</code>的默认值设为2:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">power</span>(x, n <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>):
+    s <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">while</span> n <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>:
+        n <span style="color:#f92672">-=</span> <span style="color:#ae81ff">1</span>
+        s <span style="color:#f92672">*=</span> x
+    <span style="color:#66d9ef">return</span> s
+</code></pre></div><p>于是调用<code>power(5)</code>时就相当于调用<code>power(5, 2)</code>，而对于<code>n ≠ 2</code>的情况，则需明确地传入<code>n</code>的值。
+使用默认参数可以简化函数的调用，但是有诸多坑：</p>
+<ul>
+<li>默认参数必须放在必选参数的后面；</li>
+<li>有多个默认参数时，既可以按顺序提供部分默认参数，也可以不按顺序提供部分默认参数，但是不按顺序提供时，需要把参数名字写上；</li>
+</ul>
+<p>（如<code>add_student('Jensen', 'Male', city = 'Hefei')</code>，意思为<code>city</code>用传进去的值，其他默认参数继续使用默认值）</p>
+<ul>
+<li>默认参数必须指向不变的对象；</li>
+</ul>
+<p>（如例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add_end</span>(L <span style="color:#f92672">=</span> []):
+    L<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#39;END&#39;</span>)
+    <span style="color:#66d9ef">return</span> L
+</code></pre></div><p>连续调用两次<code>add_end()</code>后，返回<code>['END', 'END']</code>，这是因为默认参数是变量，指向<code>[]</code>，每次调用默认参数的值都会发生改变。）</p>
+<h3 id="可变参数">可变参数</h3>
+<p>Python中还可以定义可变参数，即传入的参数个数是可变的，仅需在参数前加上一个<code>*</code>号即可：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc</span>(seed, <span style="color:#f92672">*</span>nums):
+    sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> nums:
+        sum <span style="color:#f92672">+=</span> n <span style="color:#f92672">*</span> n
+    <span style="color:#66d9ef">return</span> seed, sum
+    
+calc(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>)  <span style="color:#75715e"># 1对应参数seed，后面几个参数都对应可变参数nums</span>
+</code></pre></div><pre><code>(1, 29)
+</code></pre>
+<p>在<code>calc</code>函数内部，参数<code>nums</code>接收到的是一个tuple，调用该函数时，可以传入任意个参数，包括1个参数（即必选参数<code>seed</code>）。
+如果已经有了一个list或者tuple，可以在list或tuple前面加一个<code>*</code>来将其中的元素变为可变参数传入：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">alist <span style="color:#f92672">=</span> [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>]
+calc(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">*</span>alist)  <span style="color:#75715e"># 将list变成转变为可变参数</span>
+</code></pre></div><pre><code>(1, 114)
+</code></pre>
+<h3 id="关键字参数">关键字参数</h3>
+<p>关键字参数允许传入<strong>0个</strong>或任意个含参数名的参数，这些关键字参数在函数内部自动封装为一个dict。与可变参数类似，也可以先组装一个dict，再在dict前加上<code>**</code>来降关键字参数传入：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">person</span>(name, age, <span style="color:#f92672">**</span>kw):
+    print(<span style="color:#e6db74">&#34;name: &#34;</span>, name, <span style="color:#e6db74">&#34;, age: &#34;</span>, age, <span style="color:#e6db74">&#34;, otr: &#34;</span>, kw)
+
+
+info <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;city&#39;</span>: <span style="color:#e6db74">&#39;HFE&#39;</span>, <span style="color:#e6db74">&#39;major&#39;</span>: <span style="color:#e6db74">&#39;Computer Science&#39;</span>}
+    
+person(<span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#ae81ff">22</span>)  <span style="color:#75715e"># 可以只传入必选参数</span>
+person(<span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#ae81ff">22</span>, city <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Hefei&#39;</span>, uni <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;HFUT&#39;</span>)  <span style="color:#75715e"># 传入两个含参数名的参数</span>
+person(<span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#ae81ff">22</span>, <span style="color:#f92672">**</span>info)  <span style="color:#75715e"># 将提前组装好的info解析传入</span>
+</code></pre></div><pre><code>name:  Jensen , age:  22 , otr:  {}
+name:  Jensen , age:  22 , otr:  {'city': 'Hefei', 'uni': 'HFUT'}
+name:  Jensen , age:  22 , otr:  {'city': 'HFE', 'major': 'Computer Science'}
+</code></pre>
+<h3 id="命名关键字参数">命名关键字参数</h3>
+<p>若要限制关键字参数的名字，只接收<code>city</code>和<code>job</code>作为关键字参数，需要在函数的参数表中添加一个分隔符<code>*</code>，分隔符后面的参数被视为命名关键字参数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">person</span>(name, age, <span style="color:#f92672">*</span>, city, uni):  <span style="color:#75715e"># 分隔符*后面的参数即为命名关键字参数</span>
+    print(<span style="color:#e6db74">&#34;name: &#34;</span>, name, <span style="color:#e6db74">&#34;, age: &#34;</span>, age, <span style="color:#e6db74">&#34;, city: &#34;</span>, city, <span style="color:#e6db74">&#34;, uni: &#34;</span>, uni)
+</code></pre></div><p>如果函数参数表中已经有了一个可变参数，则后面跟着的命名关键字参数就不再需要加一个分隔符<code>*</code>了：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">person</span>(name, age, <span style="color:#f92672">*</span>args, city, uni):  <span style="color:#75715e"># 已有可变参数，不需要再加分隔符</span>
+    print(<span style="color:#e6db74">&#34;name: &#34;</span>, name, <span style="color:#e6db74">&#34;, age: &#34;</span>, age, <span style="color:#e6db74">&#34;, city: &#34;</span>, city, <span style="color:#e6db74">&#34;, uni: &#34;</span>, uni)
+    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">args: &#34;</span>, args)
+</code></pre></div><p>命名关键字参数必须传入参数名，否则Python解释器将会将其视为位置参数，而出现报错。</p>
+<p>命名关键字参数也可以有缺省值（默认值），调用时可不传入。</p>
+<h3 id="参数组合">参数组合</h3>
+<p>在Python中定义函数，上述几种参数都可以组合使用，顺序必须遵循：必选参数、默认参数、可变参数、命名关键字参数和关键字参数。但是并不建议使用太多组合，否则函数接口的可读性很差：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">final</span>(a, b, c <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#f92672">*</span>args, d, <span style="color:#f92672">**</span>kw):
+    print(<span style="color:#e6db74">&#34;a: &#34;</span>, a, <span style="color:#e6db74">&#34;, b: &#34;</span>, b , <span style="color:#e6db74">&#34;, d: &#34;</span>, d, <span style="color:#e6db74">&#34;, args: &#34;</span>, args, <span style="color:#e6db74">&#34;, d: &#34;</span>, d, <span style="color:#e6db74">&#34;, kw: &#34;</span>, kw)
+    
+final(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, d <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;final function&#39;</span>)
+</code></pre></div><pre><code>a:  1 , b:  2 , d:  5 , args:  (4,) , d:  5 , kw:  {'name': 'final function'}
+</code></pre>
+<h2 id="递归函数">递归函数</h2>
+<hr>
+<p>在Python函数体内部调用自身本身，这个函数即为递归函数。例子：阶乘函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fact</span>(n):
+    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:  <span style="color:#75715e"># 只有当n==1时需要特殊处理</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">return</span> n <span style="color:#f92672">*</span> fact(n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+
+fact(<span style="color:#ae81ff">1</span>), fact(<span style="color:#ae81ff">10</span>)
+</code></pre></div><pre><code>(1, 3628800)
+</code></pre>
+<p>使用递归函数需要注意防止<strong>栈溢出</strong>。在计算机中，函数调用是通过内存中的<strong>栈</strong>这种数据结构实现的，每进入一个函数调用，栈就会加一层栈帧，每当函数返回，栈中就会减一层栈帧。由于栈的大小有限，因此递归次数过多会导致栈溢出。比如运行<code>fact(10000)</code>，Python解释器会抛错<code>RecursionError: maximum recursion depth exceeded in comparison</code>。</p>
+<p>可以通过尾递归优化解决递归调用栈溢出。尾递归是指函数返回时调用自身本身，并且return语句不能包含表达式。这样无论递归本身调用多少次，都只占用一个栈帧，不会出现栈溢出的问题。上面的<code>fact</code>函数的return语句使用了乘法表达式，因此不是尾递归：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fact</span>(n):
+    <span style="color:#66d9ef">return</span> fact_iter(n, <span style="color:#ae81ff">1</span>)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fact_iter</span>(num, product):
+    <span style="color:#66d9ef">if</span> num <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+        <span style="color:#66d9ef">return</span> product
+    <span style="color:#66d9ef">return</span> fact_iter(num <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, num <span style="color:#f92672">*</span> product)
+
+fact(<span style="color:#ae81ff">10</span>)  <span style="color:#75715e"># 执行fact(10000)依旧会报错</span>
+</code></pre></div><pre><code>3628800
+</code></pre>
+<p>可以发现，上面改进的<code>fact</code>函数仅返回递归函数本身，<code>num - 1</code>和<code>num * product</code>在函数调用前就会被计算，不影响函数调用。遗憾的是，包括Python在内的大多数编程语言都没有对尾递归做优化，因此即便有改进的<code>fact</code>函数也会导致栈溢出，比如执行<code>fact(10000)</code>，Python解释器依旧会抛出<code>RecursionError</code>的错误。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div><h1 id="python高级特性">Python高级特性</h1>
+<hr>
+<h2 id="切片">切片</h2>
+<hr>
+<p>取一个list或tuple的前三个元素，使用Python提供的切片功能，一行就可以完成：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">names <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#e6db74">&#39;Eric&#39;</span>, <span style="color:#e6db74">&#39;Jerry&#39;</span>, <span style="color:#e6db74">&#39;Anderson&#39;</span>, <span style="color:#e6db74">&#39;Taylor&#39;</span>]
+names[<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">3</span>]  <span style="color:#75715e"># 输出 [&#39;Jensen&#39;, &#39;Eric&#39;, &#39;Jerry&#39;]</span>
+</code></pre></div><p><code>names[0:3]</code>表示从索引<code>0</code>处开始取直到索引<code>3</code>为止，但却不包括索引<code>3</code>。即索引为<code>0</code>，<code>1</code>，<code>2</code>正好三个元素，如果开始的索引是<code>0</code>则可以省略，如<code>names[:3]</code>。（小技巧：可以通过<code>names[:]</code>原样复制整个列表）</p>
+<p>类似的，Python也支持取倒数切片，如取最后一个元素<code>names[-1]</code>，取后三个元素<code>names[-3:]</code>。</p>
+<p>切片操作很有用，先创建一个0-99的列表：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">L <span style="color:#f92672">=</span> list(range(<span style="color:#ae81ff">100</span>))
+</code></pre></div><p>可以通过切片操作轻松去除某一段子列表：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">L[:<span style="color:#ae81ff">10</span>]  <span style="color:#75715e"># 取前十个元素；输出：[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+L[<span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>:]  <span style="color:#75715e"># 取后十个元素；输出：[90, 91, 92, 93, 94, 95, 96, 97, 98, 99]</span>
+L[<span style="color:#ae81ff">25</span>:<span style="color:#ae81ff">35</span>]  <span style="color:#75715e"># 取第25-35个元素；输出：[25, 26, 27, 28, 29, 30, 31, 32, 33, 34]</span>
+L[:<span style="color:#ae81ff">10</span>:<span style="color:#ae81ff">2</span>]  <span style="color:#75715e"># 前十个元素间隔一个取一个；输出：[0, 2, 4, 6, 8]</span>
+L[::<span style="color:#ae81ff">10</span>]  <span style="color:#75715e"># 所有元素，每间隔10个取一个；输出：[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]</span>
+</code></pre></div><pre><code>[0, 10, 20, 30, 40, 50, 60, 70, 80, 90]
+</code></pre>
+<p>字符串也可以视作一种list，其中的每个元素就是字符串中的每个字符。因此，字符串也可以使用切片操作，得到的子列表依然是字符串。</p>
+<p><strong>（上述操作，对于元组Tuple均使用，Tuple和List非常类似，但是Tuple一旦初始化就不能修改。）</strong></p>
+<h2 id="迭代">迭代</h2>
+<hr>
+<p>若给定一个<code>list</code>或<code>tuple</code>，可以通过循环来遍历它们，这种遍历就是迭代。在Python中使用<code>for ... in</code>来完成迭代，不仅可以用在<code>list</code>或<code>tuple</code>上，还可以作用在其他可迭代对象（如<code>dict</code>）上：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;a&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;b&#39;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;c&#39;</span>: <span style="color:#ae81ff">3</span>}
+<span style="color:#66d9ef">for</span> key <span style="color:#f92672">in</span> d:
+    print(key)  <span style="color:#75715e"># 输出：a, b, c，默认迭代dict的key</span>
+</code></pre></div><p>迭代<code>dict</code>时，默认是迭代key，若要迭代value可以用<code>for value in d.values()</code>，若要同时迭代key和value，可以用<code>for k, v in d.items()</code>。上文提到了字符串也可以视作一种列表，因此也可作用于<code>for</code>循环。简而言之无论是<code>list</code>还是其他数据类型，只要是可迭代对象，<code>for</code>循环就可以正常运行。</p>
+<p>可以通过<code>collections.abs</code>模块的<code>Iterable</code>类型判断：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#f92672">from</span> collections.abc <span style="color:#f92672">import</span> Iterable
+isinstance(<span style="color:#e6db74">&#39;abc&#39;</span>, Iterable)  <span style="color:#75715e"># str是否可迭代？ True</span>
+isinstance(<span style="color:#ae81ff">123</span>, Iterable)  <span style="color:#75715e"># int是否可迭代？ False</span>
+isinstance([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], Iterable)  <span style="color:#75715e"># list是否可迭代？ True</span>
+</code></pre></div><p>可以使用Python内置的<code>enumerate</code>函数把一个<code>list</code>变成索引-元素对，从而可以在<code>for</code>循环中同时迭代索引和元素本身，这种用法在PyTorch的<code>train loop</code>中十分常见：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">L <span style="color:#f92672">=</span> [<span style="color:#ae81ff">100</span>, <span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#ae81ff">99</span>, <span style="color:#e6db74">&#39;Eric&#39;</span>, <span style="color:#ae81ff">98</span>]  <span style="color:#75715e"># 不仅仅作用于list，其他可迭代对象如字符串、元组都适用</span>
+<span style="color:#66d9ef">for</span> idx, value <span style="color:#f92672">in</span> enumerate(L):
+    print(idx, value)  <span style="color:#75715e"># 会同时打印索引和列表中的元素值</span>
+</code></pre></div><pre><code>0 100
+1 Jensen
+2 99
+3 Eric
+4 98
+</code></pre>
+<p>上面的<code>for</code>循环同时引用了两个变量，这在Python中十分常见：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> x, y <span style="color:#f92672">in</span> ((<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>), (<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>), (<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>)):
+    print(x, y)
+</code></pre></div><pre><code>1 2
+2 3
+3 4
+</code></pre>
+<h2 id="列表生成器">列表生成器</h2>
+<hr>
+<p>列表生成式是Python内置的简单却强大的创建list的生成器，例子：生成<code>list([1, 2, 3, 4, 5, 6, 7, 8, 9])</code>可以用<code>list(range(1, 10))</code>简单生成。</p>
+<p>若要生成<code>[1*1, 2*2, ..., 100*100]</code>的列表怎么办？可以使用列表生成式<code>[x * x for x in range(1, 101)]</code>。</p>
+<p><code>for</code>循环后面还可以加上<code>if</code>判断，可以筛选出仅偶数的平方<code>[x * x for x in range(1, 101) if x % 2 == 0]</code>。</p>
+<p>还可以使用两层循环，生成全排列：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[m <span style="color:#f92672">+</span> n <span style="color:#66d9ef">for</span> m <span style="color:#f92672">in</span> <span style="color:#e6db74">&#39;ABC&#39;</span> <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> <span style="color:#e6db74">&#39;XYZ&#39;</span>]  <span style="color:#75715e"># 两层全排列，三层及以上的循环就很少用到了</span>
+</code></pre></div><pre><code>['AX', 'AY', 'AZ', 'BX', 'BY', 'BZ', 'CX', 'CY', 'CZ']
+</code></pre>
+<p>运用列表生成式可以写出非常简洁的代码，例子：列出当前目录下的所有文件和目录名：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+[dir <span style="color:#66d9ef">for</span> dir <span style="color:#f92672">in</span> os<span style="color:#f92672">.</span>listdir(<span style="color:#e6db74">&#39;.&#39;</span>)]
+</code></pre></div><pre><code>['Functions.ipynb', '.ipynb_checkpoints', 'Advanced Feature.ipynb']
+</code></pre>
+<p>上文提到<code>for</code>循环可以同时引用两个变量，因此列表生成式也可以使用多个变量来生成list：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;a&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;b&#39;</span>:<span style="color:#ae81ff">2</span> , <span style="color:#e6db74">&#39;c&#39;</span>: <span style="color:#ae81ff">3</span>}
+[k <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;=&#39;</span> <span style="color:#f92672">+</span> v <span style="color:#66d9ef">for</span> k, v <span style="color:#f92672">in</span> d<span style="color:#f92672">.</span>items()]  <span style="color:#75715e"># 输出：[&#39;a=1&#39;, &#39;b=2&#39;, &#39;c=3&#39;]</span>
+</code></pre></div><h3 id="ifelse">if&hellip;else</h3>
+<p>在一个列表生成式中，<code>for</code>前面的<code>if ... else</code>是表达式必须要带<code>else</code>子句，而<code>for</code>后面的<code>if</code>是过滤条件，不能带<code>else</code>。</p>
+<p>如执行<code>[x for x in range(1, 11) if x % 2 == 0 else 0]</code>会报错，执行<code>[x if x % 2 == 0 for x in range(1, 11)]</code>也会报错，然而执行下面这行则运行正常：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">[x <span style="color:#66d9ef">if</span> x <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">11</span>)]  <span style="color:#75715e"># for前面的if ... else是表达式必须要带else子句</span>
+</code></pre></div><pre><code>[0, 2, 0, 4, 0, 6, 0, 8, 0, 10]
+</code></pre>
+<h2 id="生成器">生成器</h2>
+<hr>
+<p>若创建了一个十分庞大的列表，但仅仅需要访问其中的几个元素，那么这个列表占用的很多空间都白白浪费了。在Python中可以使用一种边循环边计算的机制：生成器。生成器可以使得列表元素按照某种算法推算出来，不必创建完整的list。</p>
+<p>创建生成器的方法有多种，首先把一个列表生成器的<code>[]</code>换成<code>()</code>就创建了一个生成器<code>g = (x * x for x in range(1, 10))</code>。可以通过<code>next</code>函数将生成器中的每个元素依次打印出来。</p>
+<p>因为生成器保存的是算法，每次调用<code>next</code>函数就计算生成器的下一个元素值，直到计算到最后一个元素后抛出<code>StopIteration</code>的错误。但是一直调用<code>next</code>的方式实在是太傻了，由于生成器也是可迭代对象，可以使用<code>for</code>循环：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">g <span style="color:#f92672">=</span> (x <span style="color:#f92672">*</span> x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10</span>))
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> g:
+    print(i)
+</code></pre></div><pre><code>1
+4
+9
+16
+25
+36
+49
+64
+81
+</code></pre>
+<p>若需要推算的算法十分复杂，无法使用列表生成式实现时，可以使用函数来实现，例如斐波那契数列函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fib</span>(max):
+    n, a, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">while</span> n <span style="color:#f92672">&lt;</span> max:
+        print(b)
+        a, b <span style="color:#f92672">=</span> b, a <span style="color:#f92672">+</span> b
+        n <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;done&#39;</span>
+</code></pre></div><p>上面的函数可以输出斐波那契数列的前N个数，可以从第一个元素开始推算出后续任意元素，这种逻辑非常类似生成器。要把<code>fib</code>函数变成生成器，只需要把<code>print(b)</code>改成<code>yield b</code>就好了：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fib</span>(max):
+    n, a, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">while</span> n <span style="color:#f92672">&lt;</span> max:
+        <span style="color:#66d9ef">yield</span> b  <span style="color:#75715e"># 将print(b)改成yield b</span>
+        a, b <span style="color:#f92672">=</span> b, a <span style="color:#f92672">+</span> b
+        n <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;done&#39;</span>
+
+fib(<span style="color:#ae81ff">10</span>)  <span style="color:#75715e"># 输出： &lt;generator object fib at 0xXXXXX&gt;，说明fib(10)是一个生成器</span>
+</code></pre></div><pre><code>&lt;generator object fib at 0x7f38c9d9ade0&gt;
+</code></pre>
+<p>但是生成器与普通函数执行流程不一样，普通函数是顺序执行，执行到<code>return</code>或者最后一行后返回，而生成器在每次调用<code>next</code>函数时执行，遇到<code>yield</code>语句返回，下次执行时再从上次返回的<code>yield</code>处继续执行，例子：</p>
+<p>（注意：多次调用生成器会生成多个相互独立的生成器对象。）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">odd</span>():
+    print(<span style="color:#e6db74">&#39;step 1&#39;</span>)
+    <span style="color:#66d9ef">yield</span> <span style="color:#ae81ff">1</span>
+    print(<span style="color:#e6db74">&#39;step 2&#39;</span>)
+    <span style="color:#66d9ef">yield</span> <span style="color:#ae81ff">3</span>
+    print(<span style="color:#e6db74">&#39;step 3&#39;</span>)
+    <span style="color:#66d9ef">yield</span> <span style="color:#ae81ff">5</span>
+    
+o <span style="color:#f92672">=</span> odd()
+
+next(o)  <span style="color:#75715e"># 输出：step 1；返回：1</span>
+next(o)  <span style="color:#75715e"># 输出：step 2；返回：3</span>
+next(o)  <span style="color:#75715e"># 输出：step 3；返回：5  此时后面已经没有yield可以执行了，再调用就会抛“StopIteration”错</span>
+</code></pre></div><pre><code>step 1
+step 2
+step 3
+
+
+
+
+
+5
+</code></pre>
+<p>生成器对象创建好后，可以使用<code>for</code>循环迭代，但会发现<code>for</code>循环拿不到生成器<code>return</code>返回的值，因此必须捕获<code>StopIteration</code>错误，返回值就包含在<code>StopIteration</code>的<code>value</code>中：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">g <span style="color:#f92672">=</span> fib(<span style="color:#ae81ff">10</span>)
+<span style="color:#66d9ef">while</span> <span style="color:#66d9ef">True</span>:
+    <span style="color:#66d9ef">try</span>:
+        x <span style="color:#f92672">=</span> next(g)
+        print(<span style="color:#e6db74">&#39;g: &#39;</span>, x)
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">StopIteration</span> <span style="color:#66d9ef">as</span> e:
+        print(<span style="color:#e6db74">&#39;Generator return value: &#39;</span>, e<span style="color:#f92672">.</span>value)
+        <span style="color:#66d9ef">break</span>
+</code></pre></div><pre><code>g:  1
+g:  1
+g:  2
+g:  3
+g:  5
+g:  8
+g:  13
+g:  21
+g:  34
+g:  55
+Generator return value:  done
+</code></pre>
+<h2 id="迭代器">迭代器</h2>
+<hr>
+<p>根据上文可发现可以直接作用于<code>for</code>循环的数据类型有：</p>
+<ul>
+<li>集合数据类型：如<code>list</code>、<code>tuple</code>、<code>dict</code>、<code>set</code>、<code>str</code>等；</li>
+<li>生成器；</li>
+</ul>
+<p>上述这些可直接作用于<code>for</code>循环的对象被统称为可迭代（Iterable）对象，可以使用<code>isinstance</code>函数判断一个对象是否是可迭代对象：<code>isinstance([], Iterable)</code>。</p>
+<p>可以被<code>next</code>函数调用并不断返回下一个值的对象成为迭代器（Iterator），也可以使用<code>isinstance</code>函数判断一个对象是否是迭代器对象：<code>isinstance([], Iterator)</code>。</p>
+<p>因此，生成器即是可迭代对象，也是迭代器。但是<code>list</code>、<code>dict</code>、<code>str</code>等虽然是可迭代对象，但不是迭代器，可以使用<code>iter</code>函数把它们变成迭代器。</p>
+<p><code>Iterator</code>的计算是惰性的，只有在需要返回下一个数据时它才会计算，本质上Python的<code>for</code>循环就是通过不断调用<code>next</code>函数实现的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div><h1 id="函数式编程">函数式编程</h1>
+<hr>
+<h2 id="高阶函数">高阶函数</h2>
+<hr>
+<h3 id="变量可以指向函数">变量可以指向函数</h3>
+<p>如果把函数本身赋值给变量<code>f = abs</code>，此时变量<code>f</code>已经指向了<code>abs</code>函数本身，调用<code>f()</code>和调用<code>abs()</code>完全相同。</p>
+<h3 id="函数名也是变量">函数名也是变量</h3>
+<p>函数名其实就是指向函数的变量，对于<code>abs</code>函数，完全可以把其函数名看作是变量，只是指向一个可以计算绝对值的函数。如果<code>abs = 100</code>即将<code>abs</code>指向<code>100</code>，那就无法再通过<code>abs</code>调用求绝对值函数了，实际代码中绝不允许这样写。</p>
+<h3 id="传入函数">传入函数</h3>
+<p>既然变量可以指向函数，函数的参数能够接收变量，那么一个函数就可以接收另一个函数作为参数，这种函数就叫做高阶函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(x, y ,f):
+    <span style="color:#66d9ef">return</span> f(x) <span style="color:#f92672">+</span> f(y)
+</code></pre></div><p>当调用<code>abs(-6, 5, abs)</code>时，参数<code>x</code>、<code>y</code>、<code>f</code>分别接收<code>-6</code>、<code>5</code>和<code>abs</code>。</p>
+<h3 id="map--reduce">map &amp; reduce</h3>
+<p><code>map</code>函数接收两个参数，一个是函数另一个时可迭代对象，<code>map</code>将传入的函数依次作用在可迭代对象的每个元素上，并把结果作为新的<strong>迭代器对象</strong>返回。例子：将一个求二次方的函数作用在一个列表上：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(x):
+    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">*</span> x
+
+m <span style="color:#f92672">=</span> map(f, [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span> ,<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>])  <span style="color:#75715e"># 求二次方函数作用在列表中的每一个元素上</span>
+list(m)
+</code></pre></div><pre><code>[1, 4, 9, 16, 25, 36, 49, 64]
+</code></pre>
+<p><code>map</code>作为一个高阶函数，将运算规则抽象化，不但可以简单地求二次方，还可以计算任意复杂的函数，如把列表中的元素全都转换为字符<code>list(map(str, [1, 2, 3, 4, 5, 6, 7, 'A', 'B']))</code>。</p>
+<p><code>reduce</code>函数也是接收一个函数和一个可迭代对象。<code>reduce</code>把函数作用在可迭代对象上，这个函数必须接收两个参数，<code>reduce</code>把结果继续和序列的下一个元素做累积计算，如：<code>reduce(f, [x, y, z, k]) = f(f(f(x, y), z), k)</code>。</p>
+<p>例子：对一个列表序列求和：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> functools <span style="color:#f92672">import</span> reduce
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">add</span>(x, y):
+    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> y
+
+reduce(add, [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">5</span>])  <span style="color:#75715e"># 相当于 add(add(add(add(2, 5), 6), 7), 5)</span>
+</code></pre></div><pre><code>25
+</code></pre>
+<p>例子：将字符串转换为整数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> functools <span style="color:#f92672">import</span> reduce
+
+DIGITS <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;0&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;1&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;2&#39;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;3&#39;</span>: <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;4&#39;</span>: <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;5&#39;</span>: <span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;6&#39;</span>: <span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;7&#39;</span>: <span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;8&#39;</span>: <span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#39;9&#39;</span>: <span style="color:#ae81ff">9</span>}
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">str2int</span>(s):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fn</span>(x, y):
+        <span style="color:#66d9ef">return</span> x <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> y
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">char2num</span>(s):
+        <span style="color:#66d9ef">return</span> DIGITS[s]
+    <span style="color:#66d9ef">return</span> reduce(fn, map(char2num, s))
+
+str2int(<span style="color:#e6db74">&#39;2021111052&#39;</span>)
+</code></pre></div><pre><code>2021111052
+</code></pre>
+<p>上述<code>str2int</code>函数还可以进一步使用lambda函数简化为：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> functools <span style="color:#f92672">import</span> reduce
+
+DIGITS <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;0&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;1&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;2&#39;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;3&#39;</span>: <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;4&#39;</span>: <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;5&#39;</span>: <span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;6&#39;</span>: <span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;7&#39;</span>: <span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;8&#39;</span>: <span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#39;9&#39;</span>: <span style="color:#ae81ff">9</span>}
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">str2int</span>(s):
+    <span style="color:#66d9ef">return</span> reduce(<span style="color:#66d9ef">lambda</span> x, y: x <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> y, map(<span style="color:#66d9ef">lambda</span> x: DIGITS[x], s))  <span style="color:#75715e"># 运用lambda表达式可以简化函数</span>
+
+str2int(<span style="color:#e6db74">&#39;13579&#39;</span>)
+</code></pre></div><pre><code>13579
+</code></pre>
+<h3 id="filter">filter</h3>
+<p>Python内置的<code>filter</code>函数用于过滤可迭代对象中的元素，与上文类似，<code>filter</code>函数也接收一个函数和一个可迭代序列，将传入的函数依次作用于序列中的每个元素，根据返回值是<code>True</code>或<code>False</code>来决定保留还是丢弃该元素。例如删掉一个列表中的奇数，只保留偶数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">odd</span>(n):
+    <span style="color:#66d9ef">return</span> n <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>
+list(filter(odd, [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">9</span>]))  <span style="color:#75715e"># 结果： [2, 6, 0]</span>
+</code></pre></div><p>例子：删去一个列表中的空字符串：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">not_empty</span>(s):
+    <span style="color:#66d9ef">return</span> s <span style="color:#f92672">and</span> s<span style="color:#f92672">.</span>strip()
+
+list(filter(not_empty, [<span style="color:#e6db74">&#39;A&#39;</span>, <span style="color:#e6db74">&#39; &#39;</span>, <span style="color:#e6db74">&#39;C&#39;</span>, <span style="color:#66d9ef">None</span>]))  <span style="color:#75715e"># 与map/reduce类似，filter返回的是迭代器对象，需要用list()获得所有结果</span>
+</code></pre></div><pre><code>['A', 'C']
+</code></pre>
+<h3 id="sorted">sorted</h3>
+<p>Python内置的<code>sorted</code>函数可以对可迭代对象进行排序，与上述几种高姐函数不同，<code>sorted</code>函数<strong>直接返回一个列表</strong>。</p>
+<p><code>sorted</code>一般接收一个可迭代对象作为参数，还可以再接收一个<code>key</code>函数来实现自定义的排序，如按绝对值大小排序：<code>sorted([2, 5, 6 ,7, 9, 0, -3, -11], key = abs)</code>。<code>key</code>指定的函数将作用于列表的每一个元素上，<code>sorted</code>根据<code>key</code>指定的函数返回的结果进行排序。</p>
+<p>例子：对字符串进行排序：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">sorted([<span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#e6db74">&#39;Bob&#39;</span>, <span style="color:#e6db74">&#39;eric&#39;</span>, <span style="color:#e6db74">&#39;yiming&#39;</span>])  <span style="color:#75715e"># 默认依照ASCII的大小顺序排列，ASCII码中，&#39;J&#39; &lt; &#39;B&#39; &lt; &#39;e&#39; &lt; &#39;y&#39;</span>
+</code></pre></div><pre><code>['Bob', 'Jensen', 'eric', 'yiming']
+</code></pre>
+<p>有些时候按照<code>ASCII</code>码排序不太直观，按照字母序排序更合适：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">sorted([<span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#e6db74">&#39;Bob&#39;</span>, <span style="color:#e6db74">&#39;eric&#39;</span>, <span style="color:#e6db74">&#39;yiming&#39;</span>], key <span style="color:#f92672">=</span> str<span style="color:#f92672">.</span>lower)  <span style="color:#75715e"># 把字符串全变成小写或者大写(str.upper)即可</span>
+</code></pre></div><p>若要按照字母序逆序排列，<strong>不必改动<code>key</code>函数，仅需传入第三个参数<code>reverse = True</code>即可：</strong><code>sorted(['Jensen', 'Bob', 'eric', 'yiming'], key = str.lower, reverse = True)</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;A&#39;</span>: <span style="color:#e6db74">&#39;America&#39;</span>, <span style="color:#e6db74">&#39;C&#39;</span>: <span style="color:#e6db74">&#39;China&#39;</span>, <span style="color:#e6db74">&#39;R&#39;</span>: <span style="color:#e6db74">&#39;Russia&#39;</span>}
+sorted(d<span style="color:#f92672">.</span>values())  <span style="color:#75715e"># 对字典的值进行排序，返回列表：[&#39;America&#39;, &#39;China&#39;, &#39;Russia&#39;] </span>
+</code></pre></div><pre><code>['America', 'China', 'Russia']
+</code></pre>
+<h2 id="返回函数">返回函数</h2>
+<hr>
+<h3 id="函数作为返回值">函数作为返回值</h3>
+<p>高阶函数除了可以接受函数作为参数之外，还可以把参数作为结果值返回。通常情况下，求和函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">calc_sum</span>(<span style="color:#f92672">*</span>nums):
+    ax <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> nums:
+        ax <span style="color:#f92672">+=</span> n
+    <span style="color:#66d9ef">return</span> ax
+</code></pre></div><p>如若不需要立即求和，而是像<code>Swift</code>语言中的延迟加载，需要用到的时候再计算，则可以不返回求和的结果，而是返回求和函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">lazy_sum</span>(<span style="color:#f92672">*</span>nums):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">sum</span>():
+        ax <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> nums:
+            ax <span style="color:#f92672">+=</span> n
+        <span style="color:#66d9ef">return</span> ax
+    <span style="color:#66d9ef">return</span> sum
+
+f <span style="color:#f92672">=</span> lazy_sum(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span> ,<span style="color:#ae81ff">9</span>)  <span style="color:#75715e"># 此时调用lazy_sum函数返回的并不是求和结果，而是求和函数</span>
+f()  <span style="color:#75715e"># 执行求和函数得到结果</span>
+</code></pre></div><pre><code>29
+</code></pre>
+<p>上面的例子中需要注意，每次调用<code>lazy_sum</code>函数时都会返回一个新的独立的求和函数，它们的调用互不影响。内部函数<code>sum</code>可以引用外部函数<code>lazy_sum</code>的参数和局部变量，当<code>lazy_sum</code>函数返回<code>sum</code>时，相关参数和变量都保存在返回的<code>sum</code>函数中，这种程序结构被称为“闭包”。</p>
+<h3 id="闭包">闭包</h3>
+<p>当一个函数返回一个函数后，其内部的局部变量还被返回的函数所引用，这种模式就称为“闭包”。需要注意的是，返回的函数并没有立刻执行，而是直到被调用才执行。返回闭包时请牢记一点，即返回函数不要引用任何循环变量，或者后续会发生变化的变量：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">count</span>():
+    fs <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>):
+        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>():
+            <span style="color:#66d9ef">return</span> i <span style="color:#f92672">*</span> i
+        fs<span style="color:#f92672">.</span>append(f)
+    <span style="color:#66d9ef">return</span> fs
+
+f1, f2, f3 <span style="color:#f92672">=</span> count()  <span style="color:#75715e"># 直觉上看，f1、f2、f3应当依次返回1，4，9</span>
+f1(), f2(), f3()  <span style="color:#75715e"># 但实际上三个返回的均是9</span>
+</code></pre></div><pre><code>(9, 9, 9)
+</code></pre>
+<p>调用上述<code>f1</code>、<code>f2</code>和<code>f3</code>函数返回的结果均为<code>9</code>，其原因是返回函数引用了变量<code>i</code>，但是并没有立即执行，而是等三个函数都返回时再被调用执行，此时所引用的变量<code>i</code>已经变成了<code>3</code>，所以最终结果变成了<code>9</code>。若一定要引用循环变量，可以再在创建一个函数，用该函数的参数绑定循环变量当前的值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">count</span>():
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(j):
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">lambda</span>: j <span style="color:#f92672">*</span> j  <span style="color:#75715e"># 绑定此时的j值</span>
+    fs <span style="color:#f92672">=</span> []
+    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">4</span>):
+        fs<span style="color:#f92672">.</span>append(f(i))  <span style="color:#75715e"># f(i)立即执行，因此当前的i值被传入被绑定</span>
+    <span style="color:#66d9ef">return</span> fs
+
+f1, f2, f3 <span style="color:#f92672">=</span> count()
+f1(), f2(), f3()
+</code></pre></div><pre><code>(1, 4, 9)
+</code></pre>
+<h3 id="nonlocal">nonlocal</h3>
+<p>使用闭包时，如果内层函数只是读外层函数的局部变量，那似乎没有什么问题：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inc</span>():
+    x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fn</span>():
+        <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># 仅读取外层局部变量x</span>
+    <span style="color:#66d9ef">return</span> fn
+
+f <span style="color:#f92672">=</span> inc()
+print(f())  <span style="color:#75715e"># 输出：1</span>
+print(f())  <span style="color:#75715e"># 输出：1</span>
+</code></pre></div><p>但是如果对外层变量赋值，Python解释器会把<code>x</code>视作<code>fn</code>函数的局部变量，但又因<code>x</code>作为内层函数的局部变量并没有进行初始化，所以会报错。</p>
+<p>若对外层变量赋值，实际上是想引用外层函数的局部变量<code>x</code>，所以需要在<code>fn</code>函数内部加一个<code>nolocal x</code>的声明：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inc</span>():
+    x <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fn</span>():
+        <span style="color:#66d9ef">nonlocal</span> x  <span style="color:#75715e"># 如果注释这行，Python解释器则会将x视为fn函数内部的局部变量</span>
+        x <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">return</span> x
+    <span style="color:#66d9ef">return</span> fn
+
+f <span style="color:#f92672">=</span> inc()
+print(f())
+print(f())
+</code></pre></div><pre><code>1
+2
+</code></pre>
+<h2 id="匿名函数-lambda">匿名函数 Lambda</h2>
+<hr>
+<p>上文已经多次用到了匿名函数即<code>Lambda</code>表达式，有些时候传入函数时，不需要显式地定义函数，直接传入匿名函数更方便。比如匿名函数<code>lambda x: x * x</code>实际上就是：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">f</span>(x):
+    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">*</span> x
+</code></pre></div><p>关键字<code>lambda</code>表示匿名函数，冒号前的<code>x</code>表示函数参数。匿名函数有个限制，就是只能有一个表达式，不用写<code>return</code>，返回值就是该表达式的结果。</p>
+<p>匿名函数也是函数对象，也可以像函数一样，将匿名函数赋值给一个变量，再利用变量来调用该函数；同样，也可以把匿名函数作为返回值返回。</p>
+<h2 id="装饰器">装饰器</h2>
+<hr>
+<p>装饰器可以增强函数的功能，比如在调用某个函数前后自动打印日志，但又不希望修改函数的本体，这种在代码运行期间动态增加功能的方式被称为装饰器。例子：定义一个能打印日志的装饰器：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log</span>(func):
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wrapper</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw):
+        print(<span style="color:#e6db74">&#39;call </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">():&#39;</span> <span style="color:#f92672">%</span> func<span style="color:#f92672">.</span>__name__)  <span style="color:#75715e"># .__name__属性存储了函数的名称</span>
+        <span style="color:#66d9ef">return</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
+    <span style="color:#66d9ef">return</span> wrapper
+
+<span style="color:#a6e22e">@log</span>  <span style="color:#75715e"># 装饰器</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">date</span>():
+    print(<span style="color:#e6db74">&#39;2021-12-11&#39;</span>)
+    
+date()  <span style="color:#75715e"># 调用date函数不仅会运行函数本身，还会在函数输出前打印一行日志</span>
+</code></pre></div><pre><code>call date():
+2021-12-11
+</code></pre>
+<p>观察上面的<code>log</code>函数，因其是一个装饰器，所以接收一个函数作为参数，并返回一个函数。可以借助Python的<code>@</code>语法讲装饰器置于函数<code>date</code>的定义处，调用<code>date</code>时，不仅会允许其本身，还会在其输出前打印一行日志。</p>
+<p>把<code>@log</code>放到<code>date</code>函数的定义处相当于执行了语句<code>date = log(date)</code>。</p>
+<p><code>wrapper</code>函数的参数定义是<code>(*args, **kw)</code>，因此<code>wrapper</code>函数可以接受任意参数的调用。在<code>wrapper</code>函数内首先打印日志，再紧接着调用传入的原始函数。</p>
+<p>如果装饰器本身需要传入参数，那就要用上述提到的闭包方法返回一个装饰器函数，比如一个自定义log文本的装饰器函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log</span>(text):  <span style="color:#75715e"># 接收自定义log文本</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">decorator</span>(func):
+        <span style="color:#75715e"># @functools.wraps(func)  # 取消注释可以将原始func函数中的属性复制到wrapper函数中，下文介绍</span>
+        <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wrapper</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw):
+            print(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">(): &#39;</span> <span style="color:#f92672">%</span> (text, func<span style="color:#f92672">.</span>__name__))
+            <span style="color:#66d9ef">return</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
+        <span style="color:#66d9ef">return</span> wrapper  <span style="color:#75715e"># 闭包</span>
+    <span style="color:#66d9ef">return</span> decorator  <span style="color:#75715e"># 闭包</span>
+
+<span style="color:#a6e22e">@log</span>(<span style="color:#e6db74">&#39;excute&#39;</span>)  <span style="color:#75715e"># 传入参数的装饰器</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">date</span>():
+    print(<span style="color:#e6db74">&#39;2021-12-11&#39;</span>)
+    
+date()  <span style="color:#75715e"># 相当于执行了date = log(&#39;excute&#39;)(date)，即参数是date函数，返回wrapper函数</span>
+</code></pre></div><pre><code>excute date(): 
+2021-12-11
+</code></pre>
+<p>上述两种装饰器的定义都没有问题，上文提到<code>__name__</code>属性存储了函数的名称，但是经过装饰器装饰的函数，其<code>__name__</code>属性都发生了变化，执行<code>date.__name__</code>会发现输出不再是<code>date</code>而是<code>wrapper</code>，因为上述代码返回的是<code>wrapper</code>函数。</p>
+<p>因此，需要使用Python内置的<code>functools.wraps</code>函数把原始<code>date</code>函数的属性复制到<code>wrapper</code>函数中，否则一些依赖函数签名的代码执行就会出错：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> functools
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log</span>(func):
+    <span style="color:#a6e22e">@functools</span><span style="color:#f92672">.</span>wraps(func)  <span style="color:#75715e"># 可以将原始func函数中的属性复制到wrapper函数中</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">wrapper</span>(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw):
+        print(<span style="color:#e6db74">&#39;call </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">(): &#39;</span> <span style="color:#f92672">%</span> func<span style="color:#f92672">.</span>__name__)
+        <span style="color:#66d9ef">return</span> func(<span style="color:#f92672">*</span>args, <span style="color:#f92672">**</span>kw)
+    <span style="color:#66d9ef">return</span> wrapper
+
+<span style="color:#a6e22e">@log</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">date</span>():
+    print(<span style="color:#e6db74">&#39;2021-12-11&#39;</span>)
+    
+date<span style="color:#f92672">.</span>__name__
+</code></pre></div><pre><code>'date'
+</code></pre>
+<h2 id="偏函数">偏函数</h2>
+<hr>
+<p>所谓偏函数即把一个函数的某些参数给固定住（设置默认值），返回一个新的函数，使得函数调用更加简单，在Python中可以使用内置的<code>functools.partial</code>轻松实现。当函数的参数个数太多时，可以通过此方法固定部分参数简化调用。</p>
+<p>众所周知<code>int</code>函数可以将字符串转换为整数，当仅传入字符串时，<code>int</code>函数默认按照十进制转换。但是还可以给<code>int</code>函数传入额外的<code>base</code>参数（其默认值为10）来实现进制转换：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">int(<span style="color:#e6db74">&#39;25675&#39;</span>, base<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>)  <span style="color:#75715e"># 将‘25675’转换为十六进制整数</span>
+</code></pre></div><pre><code>153205
+</code></pre>
+<p>假如要经常使用十六进制转换，上述写法不免显得多余，可以使用<code>functools.partial</code>函数创建一个偏函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> functools
+
+int16 <span style="color:#f92672">=</span> functools<span style="color:#f92672">.</span>partial(int, base<span style="color:#f92672">=</span><span style="color:#ae81ff">16</span>)  <span style="color:#75715e"># int16函数直接可以将字符串转换为十六进制整数</span>
+int16(<span style="color:#e6db74">&#39;25675&#39;</span>)
+</code></pre></div><pre><code>153205
+</code></pre>
+<p>Python内置的<code>functools.partial</code>函数实际上可以接收函数对象、可变参数和关键字参数三种类型的参数，所以上述<code>functools.partial(int, base=16)</code>中的<code>base</code>参数实际上是关键字参数。</p>
+<p>下面是使用可变参数的<code>max</code>函数的偏函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> functools
+ 
+max2 <span style="color:#f92672">=</span> functools<span style="color:#f92672">.</span>partial(max, <span style="color:#ae81ff">10</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">11</span>)  <span style="color:#75715e"># 10和-11组成了可变参数</span>
+max2(<span style="color:#ae81ff">19</span>)  <span style="color:#75715e"># 相当于执行max(10, -11, 19)</span>
+
+<span style="color:#75715e"># 也可以如下写法，具体参考函数那一节：</span>
+<span style="color:#75715e"># nums = [10, -11]</span>
+<span style="color:#75715e"># max2 = functools.partial(max, *nums)</span>
+</code></pre></div><pre><code>19
+</code></pre>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div><h1 id="面向对象编程">面向对象编程</h1>
+<hr>
+<h2 id="类和实例">类和实例</h2>
+<hr>
+<p>面向对象最重要的概念就是类和实例，以<code>Student</code>类为例，在Python中，定义类是通过<code>class</code>关键字：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    <span style="color:#66d9ef">pass</span>
+</code></pre></div><p><code>class</code>后面紧跟着类名即<code>Student</code>，类名通常是<strong>大写开头的单词</strong>，紧接着是<code>(object)</code>，表示该类是从哪个类继承下来的。通常如果没有合适的继承类就默认继承<code>object</code>类，这是所有类最终都会继承的类。</p>
+<p>定义好一个类之后就可以根据类创建出相应的实例，创建实例是通过<code>类名+()</code>实现的：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):  <span style="color:#75715e"># 默认继承Object类</span>
+    <span style="color:#66d9ef">pass</span>
+
+stu <span style="color:#f92672">=</span> Student()  <span style="color:#75715e"># stu是Student类的一个实例</span>
+stu, Student
+</code></pre></div><pre><code>(&lt;__main__.Student at 0x7ff5c8788d30&gt;, __main__.Student)
+</code></pre>
+<p>执行上一个block语句会发现，变量<code>stu</code>指向的就是一个<code>Student</code>实例，后面的<code>0x......</code>是实例在内存中的地址，每一个实例的地址都不一样，而<code>Student</code>本身则是一个类。</p>
+<p>可以自由的给一个实例变量绑定属性如<code>stu.name = 'Jensen'</code>。通常情况下会使用<code>__init__</code>构造函数在创建实例的时候就把一些必须绑定的属性强制传入：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, name, score):  <span style="color:#75715e"># 第一个参数永远是self即代表实例本身，不需要手动传入</span>
+        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+        self<span style="color:#f92672">.</span>score <span style="color:#f92672">=</span> score
+        
+stu <span style="color:#f92672">=</span> Student(<span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#ae81ff">100</span>)  <span style="color:#75715e"># 构造实例时会自动调用构造函数，又构造函数后创建实例就不能传入空参数，必须传入构造函数匹配的参数（self不用传）</span>
+stu<span style="color:#f92672">.</span>name, stu<span style="color:#f92672">.</span>score
+</code></pre></div><pre><code>('Jensen', 100)
+</code></pre>
+<h3 id="数据封装">数据封装</h3>
+<p>面向对象编程中一个非常重要的概念就是数据封装。在上面的<code>Student</code>类中，每个实例就拥有各自的<code>name</code>和<code>score</code>这些数据，可以通过函数来访问这些数据：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_score</span>(stu):
+    print(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> (stu<span style="color:#f92672">.</span>name, stu<span style="color:#f92672">.</span>score))
+</code></pre></div><p>可以将<code>print_score</code>函数封装在<code>Student</code>内部，这样就把数据封装起来了，这些封装数据的函数和类本身是相关联的被称为累的方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, name, score):
+        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+        self<span style="color:#f92672">.</span>score <span style="color:#f92672">=</span> score
+        
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_score</span>(self):  <span style="color:#75715e"># 类的方法必须要有self参数</span>
+        print(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> (self<span style="color:#f92672">.</span>name, self<span style="color:#f92672">.</span>score))
+        
+stu <span style="color:#f92672">=</span> Student(<span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#ae81ff">20</span>)
+stu<span style="color:#f92672">.</span>print_score()
+</code></pre></div><pre><code>Jensen: 20
+</code></pre>
+<h2 id="访问限制">访问限制</h2>
+<hr>
+<p>上一个block中，虽然数据已经封装在类内部，但是外部代码还是可以直接调用实例变量修改数据的值：<code>stu.name = 'Shen Yiming'</code>，这样会使得数据变得不可靠。</p>
+<p>如果要让内部属性不可以被外部代码直接访问，可以在属性的名称前加上两个下划线<code>__</code>，使属性变成类的私有属性，只可以被类的方法访问，外部代码无法访问，通过访问限制保护，使得代码更加健壮：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, name, score):
+        self<span style="color:#f92672">.</span>__name <span style="color:#f92672">=</span> name  <span style="color:#75715e"># 属性变量名前加两个下划线__，即私有属性</span>
+        self<span style="color:#f92672">.</span>__score <span style="color:#f92672">=</span> score
+        
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">print_score</span>(self):
+        print(<span style="color:#e6db74">&#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> (self<span style="color:#f92672">.</span>__name, self<span style="color:#f92672">.</span>__score))
+        
+stu <span style="color:#f92672">=</span> Student(<span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#ae81ff">20</span>)
+<span style="color:#75715e"># stu.__name  # 若执行此代码，则会报错没有__name属性</span>
+stu<span style="color:#f92672">.</span>print_score()
+</code></pre></div><pre><code>Jensen: 20
+</code></pre>
+<p>如果此时又要允许外部代码有限制的修改内部数据，可以给<code>Student</code>类再添加一个<code>set</code>方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Student</span>(object):
+    <span style="color:#f92672">...</span>
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_name</span>(self, name):  <span style="color:#75715e"># set方法，可以在方法体里添加一些参数检查，避免传入无效参数</span>
+        self<span style="color:#f92672">.</span>__name <span style="color:#f92672">=</span> name
+        
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_score</span>(self, score):
+        self<span style="color:#f92672">.</span>__score <span style="color:#f92672">=</span> score
+</code></pre></div><p>需要注意的是，Python中还有很多变量名类似<code>__XXX__</code>，这些不是私有变量，而是特殊变量，是可以直接通过<code>类名.XXX</code>等方式直接访问的，所以不可以使用这些作为变量名。</p>
+<p>还有一些形如<code>_name</code>的变量名，这样的实例变量在外部是可以直接访问的，但这种写法希望你将其视为私有变量，不要随意访问。</p>
+<p>实际上，私有变量如<code>__name</code>在实例内部被改成了<code>_Student__name</code>，所以可以在外部通过<code>stu._Student__name</code>访问私有变量<code>__name</code>，但是强烈不建议这样做。</p>
+<p>请注意下面的错误用法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">stu <span style="color:#f92672">=</span> Student(<span style="color:#e6db74">&#39;Jensen&#39;</span>, <span style="color:#ae81ff">20</span>)
+stu<span style="color:#f92672">.</span>__name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Yiming&#39;</span>  <span style="color:#75715e"># 设置__name变量</span>
+</code></pre></div><p>上面的写法只是给实例变量<code>stu</code>绑定了一个<code>__name</code>属性，与类内部的私有变量<code>__name</code>没有任何关系，因为其已经被修改为<code>_Student__name</code>。</p>
+<h2 id="继承和多态">继承和多态</h2>
+<hr>
+<p>在面向对象的程序设计中，定义一个类可以从某个现有的类继承，新定义的类被称为子类，而被继承的类被称为基类或父类、超类。</p>
+<p>继承最主要的用处就是子类获得了父类的全部功能：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>(object):  <span style="color:#75715e"># 基类</span>
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>(self):
+        print(<span style="color:#e6db74">&#39;Animal is running...&#39;</span>)
+        
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>(Animal):  <span style="color:#75715e"># 子类，继承自Animal类，自动获得Animal类的run方法</span>
+    <span style="color:#66d9ef">pass</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Animal):
+    <span style="color:#66d9ef">pass</span>
+</code></pre></div><p>但是猫和狗继承自基类的<code>run</code>函数指代的范围太广泛了，子类可以重写基类的方法，仅需在子类中重新定义改方法即可：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>(object):
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>(self):
+        print(<span style="color:#e6db74">&#39;Animal is running...&#39;</span>)
+        
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>(Animal):
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>(self):  <span style="color:#75715e"># 重写基类的run方法</span>
+        print(<span style="color:#e6db74">&#39;Dog is running...&#39;</span>)
+        
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Animal):
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>(self):  <span style="color:#75715e"># 重写基类的run方法</span>
+        print(<span style="color:#e6db74">&#39;Cat is running...&#39;</span>)
+        
+
+dog, cat <span style="color:#f92672">=</span> Dog(), Cat()
+dog<span style="color:#f92672">.</span>run()  <span style="color:#75715e"># 子类的run方法覆盖了父类的run，代码运行时总会调用子类的run方法</span>
+cat<span style="color:#f92672">.</span>run()
+</code></pre></div><pre><code>Dog is running...
+Cat is running...
+</code></pre>
+<h3 id="多态">多态</h3>
+<p>多态即子类实例即属于子类本身，也属于子类所继承的基类：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a, b, c <span style="color:#f92672">=</span> list(), Animal(), Dog()
+
+print(isinstance(a, list))  <span style="color:#75715e"># a是list类型</span>
+print(isinstance(b, Animal))  <span style="color:#75715e"># b是Animal类型</span>
+print(isinstance(c, Dog))  <span style="color:#75715e"># c是Dog类型</span>
+print(isinstance(c, Animal))  <span style="color:#75715e"># c不仅是Dog类型，也是Animal类型</span>
+print(isinstance(b, Dog))  <span style="color:#75715e"># b不是Dog类型</span>
+</code></pre></div><pre><code>True
+True
+True
+True
+False
+</code></pre>
+<p>从上一个block的代码中可以发现，在继承关系中，如果一个实例的数据类型是某个子类，那他的数据类型也可被看作是基类。但是反过来却不行，如上面的<code>b</code>是<code>Animal</code>类型但却不是<code>Dog</code>类型。</p>
+<p>再看一个多态的例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Animal</span>(object):
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>(self):
+        print(<span style="color:#e6db74">&#39;Animal is running...&#39;</span>)
+        
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>(Animal):
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>(self):
+        print(<span style="color:#e6db74">&#39;Dog is running...&#39;</span>)
+        
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Cat</span>(Animal):
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run</span>(self):
+        print(<span style="color:#e6db74">&#39;Cat is running...&#39;</span>)
+        
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">run_twice</span>(animal):
+    animal<span style="color:#f92672">.</span>run()
+    animal<span style="color:#f92672">.</span>run()
+    
+run_twice(Animal())  <span style="color:#75715e"># 正常打印</span>
+run_twice(Dog())  <span style="color:#75715e"># 不需要对run_twice，任何依赖Animal作为参数的函数都可以不加修改正常运行，原因就在于多态</span>
+run_twice(Cat())  <span style="color:#75715e"># 实际上，任何具有run方法的类的实例都可以传入正常运行</span>
+</code></pre></div><pre><code>Animal is running...
+Animal is running...
+Dog is running...
+Dog is running...
+Cat is running...
+Cat is running...
+</code></pre>
+<p>对于一个变量，只需要知道它是<code>Animal</code>类型，无需确切地知道它的子类型就可以放心地调用<code>run</code>方法，而具体调用的<code>run</code>方法是作用在<code>Animal</code>、<code>Dog</code>还是<code>Cat</code>对象上，由运行时该对象的确切类型决定。调用方只管调用不管细节，而当新增一种<code>Animal</code>子类时，只需确保<code>run</code>方法编写正确，不用管原来的代码是如何调用的，这就是著名的开闭原则：</p>
+<ul>
+<li>对扩展开放：允许新增<code>Animal</code>子类；</li>
+<li>对修改封闭：不需要修改依赖<code>Animal</code>类型的<code>run_twice</code>等函数；</li>
+</ul>
+<p>继承还可以一级一级地继承下来，好比爷爷到爸爸、再到儿子这样的关系。而任何类最终都可以追溯到<code>object</code>类，这些继承关系看上去就像一颗倒着的树。</p>
+<h3 id="静态语言-vs-动态语言">静态语言 vs 动态语言</h3>
+<p>对于静态语言如Java来说，如果需要传入<code>Animal</code>类型，则传入的对象必须是<code>Animal</code>类型或者它的子类，否则，将无法调用<code>run</code>方法。</p>
+<p>对于Python这样的动态语言来说则不一定要传入<code>Animal</code>类型，如上文所说只需保证传入的对象有一个<code>run</code>方法就可以了。</p>
+<h2 id="获取对象信息">获取对象信息</h2>
+<hr>
+<p>可以用<code>type</code>函数来判断对象类型，基本类型都可以通过<code>type</code>函数判断：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">print(type(<span style="color:#ae81ff">123</span>))  
+print(type(<span style="color:#e6db74">&#39;Jensen&#39;</span>))
+print(type(<span style="color:#66d9ef">None</span>))
+<span style="color:#75715e"># 如果一个变量指向函数或类，也可以用type函数判断</span>
+a <span style="color:#f92672">=</span> abs
+print(type(abs))
+print(type(a))  <span style="color:#75715e"># 变量指向函数</span>
+</code></pre></div><pre><code>&lt;class 'int'&gt;
+&lt;class 'str'&gt;
+&lt;class 'NoneType'&gt;
+&lt;class 'builtin_function_or_method'&gt;
+&lt;class 'builtin_function_or_method'&gt;
+</code></pre>
+<p><code>type</code>返回的是对应的Class类型，在<code>if</code>语句中可以比较两个变量的<code>type</code>类型来进行判断：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># type返回的是对应Class的类型，如str、int</span>
+type(<span style="color:#ae81ff">123</span>) <span style="color:#f92672">==</span> type(<span style="color:#ae81ff">456</span>), type(<span style="color:#e6db74">&#39;jensen&#39;</span>) <span style="color:#f92672">==</span> str, type(<span style="color:#ae81ff">123</span>) <span style="color:#f92672">==</span> str
+</code></pre></div><pre><code>(True, True, False)
+</code></pre>
+<p>若需要判断一个对象是否是函数则可以使用Python内置的<code>types</code>模块中定义的常量：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#f92672">import</span> types
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>():
+    <span style="color:#66d9ef">pass</span>
+
+type(func) <span style="color:#f92672">==</span> types<span style="color:#f92672">.</span>FunctionType  <span style="color:#75715e"># True. 自定义函数类型</span>
+type(abs) <span style="color:#f92672">==</span> types<span style="color:#f92672">.</span>BuiltinFunctionType  <span style="color:#75715e"># True. 内置函数类型</span>
+type(<span style="color:#66d9ef">lambda</span> x: x) <span style="color:#f92672">==</span> types<span style="color:#f92672">.</span>LambdaType  <span style="color:#75715e"># True. 匿名函数类型</span>
+type((x <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">10</span>))) <span style="color:#f92672">==</span> types<span style="color:#f92672">.</span>GeneratorType  <span style="color:#75715e"># True. 生成器类型</span>
+</code></pre></div><h3 id="使用isinstance">使用isinstance()</h3>
+<p>对于类的继承关系来说，使用<code>type</code>函数就很不方便，如果要判断类的类型，可以使用<code>isinstance</code>函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">a <span style="color:#f92672">=</span> Animal()  <span style="color:#75715e"># 基类</span>
+d <span style="color:#f92672">=</span> Dog()  <span style="color:#75715e"># 子类，基类是Animal</span>
+h <span style="color:#f92672">=</span> Husky()  <span style="color:#75715e"># 子类，基类是Dog</span>
+
+isinstance(h, Dog)  <span style="color:#75715e"># True</span>
+isinstance(h, Animal)  <span style="color:#75715e"># True</span>
+isinstance(d, Animal)  <span style="color:#75715e"># True</span>
+isinstance(d, Husky)  <span style="color:#75715e"># False，子类属于基类类型，反过来不正确</span>
+</code></pre></div><p>能用<code>type</code>函数判断的基本类型也可以用<code>isinstance</code>函数判断：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">isinstance(<span style="color:#e6db74">&#39;a&#39;</span>, str)  <span style="color:#75715e"># True</span>
+isinstance(<span style="color:#ae81ff">123</span>, int)  <span style="color:#75715e"># True</span>
+isinstance(func, types<span style="color:#f92672">.</span>FunctionType)  <span style="color:#75715e"># True，（详见上一个block）</span>
+isinstance(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#39;a&#39;</span>, bytes)  <span style="color:#75715e"># True</span>
+</code></pre></div><p>还可以判断一个变量是否属于某些类型中的一种：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">isinstance([<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>], (list, tuple))  <span style="color:#75715e"># True，[1, 2 ,3]属于(list, tuple)中的list</span>
+isinstance(<span style="color:#e6db74">&#39;jensen&#39;</span>, (str, int))  <span style="color:#75715e"># True，&#39;jensen&#39;属于(str, int)中的str</span>
+</code></pre></div><pre><code>True
+</code></pre>
+<h3 id="使用dir">使用dir()</h3>
+<p>若想要获得一个对象的所有属性和方法可以使用<code>dir</code>函数，它返回一个包含字符串的list：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dir(<span style="color:#e6db74">&#39;Jensen&#39;</span>)
+</code></pre></div><pre><code>['__add__',
+ '__class__',
+ '__contains__',
+ '__delattr__',
+ '__dir__',
+ '__doc__',
+ '__eq__',
+ '__format__',
+ '__ge__',
+ '__getattribute__',
+ '__getitem__',
+ '__getnewargs__',
+ '__gt__',
+ '__hash__',
+ '__init__',
+ '__init_subclass__',
+ '__iter__',
+ '__le__',
+ '__len__',
+ '__lt__',
+ '__mod__',
+ '__mul__',
+ '__ne__',
+ '__new__',
+ '__reduce__',
+ '__reduce_ex__',
+ '__repr__',
+ '__rmod__',
+ '__rmul__',
+ '__setattr__',
+ '__sizeof__',
+ '__str__',
+ '__subclasshook__',
+ 'capitalize',
+ 'casefold',
+ 'center',
+ 'count',
+ 'encode',
+ 'endswith',
+ 'expandtabs',
+ 'find',
+ 'format',
+ 'format_map',
+ 'index',
+ 'isalnum',
+ 'isalpha',
+ 'isascii',
+ 'isdecimal',
+ 'isdigit',
+ 'isidentifier',
+ 'islower',
+ 'isnumeric',
+ 'isprintable',
+ 'isspace',
+ 'istitle',
+ 'isupper',
+ 'join',
+ 'ljust',
+ 'lower',
+ 'lstrip',
+ 'maketrans',
+ 'partition',
+ 'replace',
+ 'rfind',
+ 'rindex',
+ 'rjust',
+ 'rpartition',
+ 'rsplit',
+ 'rstrip',
+ 'split',
+ 'splitlines',
+ 'startswith',
+ 'strip',
+ 'swapcase',
+ 'title',
+ 'translate',
+ 'upper',
+ 'zfill']
+</code></pre>
+<p>前面提到形如<code>__XXX__</code>的属性和方法在Python中是有特殊用途的，比如<code>__len__</code>方法返回长度，在Python中可以使用<code>len</code>函数试图获取一个对象的长度，实际上就是调用该对象的<code>__len__</code>方法，所以<code>len('Jensen')</code>和<code>'Jensen'.__len__()</code>是等价的。</p>
+<p>当自己写类时若也想用<code>len</code>函数的话可以在类中写一个<code>__len__</code>方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestLen</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __len__(self):  <span style="color:#75715e"># 拥有这个方法后就可以使用len(TestLen)</span>
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">120</span>
+
+test <span style="color:#f92672">=</span> TestLen()
+len(test)
+</code></pre></div><pre><code>120
+</code></pre>
+<p>除此之外都是普通属性或方法，如<code>'Jensen'.upper()</code>即返回大写的字符串。</p>
+<p>可以通过<code>getattr</code>、<code>setattr</code>、<code>hasattr</code>等函数查看一个对象的状态：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestClass</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, x):
+        self<span style="color:#f92672">.</span>x <span style="color:#f92672">=</span> x
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">power</span>(self):
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>x <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>x
+    
+test <span style="color:#f92672">=</span> TestClass(<span style="color:#ae81ff">9</span>)
+hasattr(test, <span style="color:#e6db74">&#39;x&#39;</span>)  <span style="color:#75715e"># True，是否有x属性</span>
+setattr(test, <span style="color:#e6db74">&#39;y&#39;</span>, <span style="color:#ae81ff">10</span>)  <span style="color:#75715e"># True，设置一个属性y，值为10</span>
+hasattr(test, <span style="color:#e6db74">&#39;y&#39;</span>)  <span style="color:#75715e"># True，是否有y属性</span>
+getattr(test, <span style="color:#e6db74">&#39;y&#39;</span>)  <span style="color:#75715e"># 10，获得y属性的值</span>
+<span style="color:#75715e"># getattr(test, &#39;z&#39;)  # 若取消注释，则会抛出AttributeError错误</span>
+getattr(test, <span style="color:#e6db74">&#39;z&#39;</span>, <span style="color:#ae81ff">404</span>)  <span style="color:#75715e"># 404，获取z属性的值，如果没有z属性则创建z属性并赋值404，再返回z属性的值</span>
+
+hasattr(test, <span style="color:#e6db74">&#39;power&#39;</span>)  <span style="color:#75715e"># True，是否有power方法</span>
+func <span style="color:#f92672">=</span> getattr(test, <span style="color:#e6db74">&#39;power&#39;</span>)  <span style="color:#75715e"># 将power方法赋给test变量</span>
+func()  <span style="color:#75715e">#81，调用func指向的函数，等价于test.power()</span>
+</code></pre></div><pre><code>81
+</code></pre>
+<h2 id="实例属性与类属性">实例属性与类属性</h2>
+<hr>
+<p>由于Python是动态语言，所以根据类创建的实例可以任意绑定属性，可以通过实例变量或者<code>self</code>变量：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, name):
+        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name  <span style="color:#75715e"># 通过self变量绑定属性</span>
+        
+s <span style="color:#f92672">=</span> Student(<span style="color:#e6db74">&#39;Jensen&#39;</span>)  
+s<span style="color:#f92672">.</span>score <span style="color:#f92672">=</span> <span style="color:#ae81ff">99</span>  <span style="color:#75715e"># 通过实例变量绑定属性</span>
+</code></pre></div><p>如果<code>Student</code>类本身需要绑定一个属性，可以在类中直接定义属性，这种属性称为类属性，归类所有：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Students&#39;</span>
+</code></pre></div><p>类属性可以通过类名直接访问<code>Student.name</code>，当类的实例没有<code>name</code>属性时也会调用类的<code>name</code>属性。当类的实例中有了和类属性同名的属性，那么实例属性则会覆盖类属性。所以编写程序时切勿将类属性和实例属性使用相同的名字。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div><h1 id="面向对象高级编程">面向对象高级编程</h1>
+<hr>
+<p>正常情况下，创建一个类实例后可以给改实例绑定任何属性和方法，这就是动态语言的灵活性优势：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    <span style="color:#66d9ef">pass</span>
+
+s <span style="color:#f92672">=</span> Student()
+s<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Jensen&#39;</span>  <span style="color:#75715e"># 动态地给实例绑定一个属性</span>
+</code></pre></div><p>还可以给实例动态地绑定一个方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#f92672">from</span> types <span style="color:#f92672">import</span> MethodType
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_score</span>(self, score):  <span style="color:#75715e"># 定义一个函数作为实例方法</span>
+    self<span style="color:#f92672">.</span>score <span style="color:#f92672">=</span> score
+
+s<span style="color:#f92672">.</span>set_name <span style="color:#f92672">=</span> MethodType(set_name, s)  <span style="color:#75715e"># 动态地给实例绑定一个方法  </span>
+</code></pre></div><p>当时上述方法很明显存在局限性即属性和方法只是绑定在实例<code>s</code>上，对于其他<code>Student</code>的实例是不起作用的，为了给所有的实例都绑定相应地属性和方法，可以选择绑定类属性和类方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_score</span>(self, score):
+    self<span style="color:#f92672">.</span>score <span style="color:#f92672">=</span> score
+    
+Student<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;NAME&#39;</span>  <span style="color:#75715e"># 给类绑定属性</span>
+Student<span style="color:#f92672">.</span>set_score <span style="color:#f92672">=</span> set_score  <span style="color:#75715e"># 给类绑定方法</span>
+s <span style="color:#f92672">=</span> Student(), s<span style="color:#f92672">.</span>set_score(<span style="color:#ae81ff">99</span>)  <span style="color:#75715e"># 给类绑定方法和属性后，所有类的实例都可调用</span>
+s<span style="color:#f92672">.</span>name  <span style="color:#75715e"># 输出&#39;NAME&#39;</span>
+s<span style="color:#f92672">.</span>score  <span style="color:#75715e"># 输出99</span>
+</code></pre></div><p>动态语言允许在程序运行过程中动态的给类加上一些功能，这在Java等静态语言中是不可想象的。</p>
+<h3 id="使用__slots__">使用__slots__</h3>
+<p>若想要限制实例的属性如只允许<code>Student</code>实例添加<code>name</code>和<code>age</code>属性，可以在定义类的时候定义一个特殊的<code>_slots__</code>变量以限制类实例能添加的属性：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    __slots__ <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#39;name&#39;</span>, <span style="color:#e6db74">&#39;age&#39;</span>)  <span style="color:#75715e"># 用元祖定义允许绑定的属性名称</span>
+    
+s <span style="color:#f92672">=</span> Student()
+s<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Eric&#39;</span>  <span style="color:#75715e"># 绑定属性name</span>
+s<span style="color:#f92672">.</span>age <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;22&#39;</span>  <span style="color:#75715e"># 绑定属性age</span>
+<span style="color:#75715e"># s.score = 99  # 若取消注释则报AttributeError错</span>
+</code></pre></div><p>上个block中由于<code>score</code>没有被放置到<code>__slots__</code>中，所以实例无法绑定<code>score</code>属性，若强行绑定则会得到<code>AttributeError</code>错误。</p>
+<p>需要注意的是，<code>__slots__</code>定义的属性仅对当前类的实例起作用，而对于继承的子类是不起作用的，除非在子类中也定义<code>__slots__</code>，这样，子类实例允许定义的属性就是<strong>自身的<code>__slots__</code>加上基类的<code>__slots__</code></strong>。</p>
+<h2 id="使用property">使用@property</h2>
+<hr>
+<p>在绑定属性时，如果直接把属性暴露出去，虽然写起来十分的简单，但是，没有办法检查参数，比如<code>s.score = 10000</code>就显得十分不合理。可以在<code>Student</code>类的<code>set_score</code>方法中添加<code>if</code>语句来做判断，将<code>score</code>设置在0到100之间，但每次给<code>score</code>赋值都要调用<code>set_score</code>未免显得过于麻烦，不如直接给属性赋值来得方便。</p>
+<p>还记得前面提到的装饰器吗，可以使用Python内置的<code>@property</code>装饰器可以将一个方法变成属性调用：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    <span style="color:#a6e22e">@property</span>  <span style="color:#75715e"># 将一个getter方法变成属性，此时@property本身又创建了一个装饰器@score.setter</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">score</span>(self):
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_score
+    
+    <span style="color:#a6e22e">@score</span><span style="color:#f92672">.</span>setter  <span style="color:#75715e"># 将一个setter方法变成属性赋值</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">score</span>(self, value):
+        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(value, int):
+            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;Score must be an integer!&#39;</span>)
+        <span style="color:#66d9ef">if</span> value <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">or</span> value <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span>:
+            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;Score must between 0 ~ 100!&#39;</span>)
+        self<span style="color:#f92672">.</span>_score <span style="color:#f92672">=</span> value
+
+s <span style="color:#f92672">=</span> Student()
+<span style="color:#75715e"># s.score = 101  # 若取消注销，则会报错ValueError</span>
+s<span style="color:#f92672">.</span>score <span style="color:#f92672">=</span> <span style="color:#ae81ff">90</span>  <span style="color:#75715e"># 实际上转化为调用s.set_score(90)</span>
+s<span style="color:#f92672">.</span>score  <span style="color:#75715e"># 实际上转化为调用s.get_score()</span>
+</code></pre></div><pre><code>90
+</code></pre>
+<p>还可以只定义只读属性，只定义<code>getter</code>方法而不定义<code>setter</code>方法就是一个只读属性，例如下面这个例子中，<code>birth</code>是可读写属性然而<code>age</code>就是一个只读属性：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    <span style="color:#a6e22e">@property</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">birth</span>(self):
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_birth
+    
+    <span style="color:#a6e22e">@birth</span><span style="color:#f92672">.</span>setter
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">birth</span>(self, value):
+        self<span style="color:#f92672">.</span>_birth <span style="color:#f92672">=</span> value
+       
+    <span style="color:#a6e22e">@property</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">age</span>(self):
+        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2021</span> <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>birth
+</code></pre></div><p>需要注意的是，属性的方法名不要和实例变量名重名：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    <span style="color:#a6e22e">@property</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">birth</span>(self):
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>birth  <span style="color:#75715e"># 实例变量名和方法名重名</span>
+</code></pre></div><p>上面的代码会报RecursionError错，因为调用<code>s.birth</code>会默认转换为<code>s.get_birth()</code>调用，然而<code>return self.birth</code>也会转换为调用<code>get_birth</code>方法，因此会一直迭代下去，最终报错。</p>
+<h2 id="多重继承">多重继承</h2>
+<hr>
+<p>继承是面向对象编程的重要方式，因为通过继承，子类就可以拓展基类的功能。</p>
+<p>比如<code>Animal</code>类可能会有<code>Dog</code>和<code>Bird</code>等子类，但是<code>Dog</code>和<code>Bird</code>又能向下细分出好几类，<code>Dog</code>可能会有<code>Hounds</code>和<code>Herdings</code>等子类、<code>Bird</code>可能有<code>Flyable</code>和<code>Runnable</code>等子类。</p>
+<p>鸵鸟<code>Ostrich</code>既属于<code>Bird</code>类又属于<code>Runnable</code>类，若要一层一层写继承关系实在太复杂，在Python中允许有多重继承关系即<code>MixIn</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Ostrich</span>(Bird, Runnable):  <span style="color:#75715e"># Ostrich类同时继承了Bird类和Runnable类</span>
+    <span style="color:#66d9ef">pass</span>
+</code></pre></div><p>这样一来，不需要复杂而庞大的继承链，只要选择组合不同的类的功能，就可以快速构造出所需的子类。</p>
+<h2 id="定制类">定制类</h2>
+<hr>
+<p>前面已经提到了<code>__slots__</code>和<code>__len__</code>等特殊方法的用法了，除此之外，Python的类中还内置能很多其他的特殊函数可以帮助定制类。</p>
+<h3 id="__str__">__str__</h3>
+<p>正常在打印一个类的实例时，总会打印出来一串看起来不好看的字符如<code>&lt;__main__.Student object at 0xXXXXX&gt;</code>，如何才能将输出格式化，只需在类的内部定义好<code>__str__</code>方法就可以了：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, name):
+        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+     
+    <span style="color:#66d9ef">def</span> __str__(self):
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;Student object (name: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">)&#39;</span> <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>name
+
+print(Student(<span style="color:#e6db74">&#39;Jensen&#39;</span>))  <span style="color:#75715e"># 打印输出&#34;Student object (name: Jensen)&#34;</span>
+Student(<span style="color:#e6db74">&#39;Jensen&#39;</span>)  <span style="color:#75715e"># 在交互界面下打印出来的还是和之前的一样，这是因为交互界面调用的是__repr__方法</span>
+</code></pre></div><p>上述代码在交互界面下直接打印还是会和之前一样，得到的结果非常不美观，此时在类中<code>__str__</code>方法块后面加上<code>__repr__ = __str__</code>就可以了。</p>
+<h3 id="__iter__">__iter__</h3>
+<p>若想一个类被用于<code>for...in</code>循环中，类似列表那样，可以在类中实现一个<code>__iter__</code>方法，让类实例变成可迭代对象，然后Python的<code>for</code>循环就会不断调用该对象的<code>__next__</code>方法拿到循环的下一个值，直到遇到<code>StopIteration</code>退出循环，如斐波那契数列：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Fib</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>a, self<span style="color:#f92672">.</span>b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>
+        
+    <span style="color:#66d9ef">def</span> __iter__(self):
+        <span style="color:#66d9ef">return</span> self  <span style="color:#75715e"># 实例本身就是迭代对象，故返回自己</span>
+    
+    <span style="color:#66d9ef">def</span> __next__(self):
+        self<span style="color:#f92672">.</span>a, self<span style="color:#f92672">.</span>b <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>b, self<span style="color:#f92672">.</span>a <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>b  <span style="color:#75715e"># 计算后续值</span>
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>a <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100000</span>:  <span style="color:#75715e"># 退出循环的条件</span>
+            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">StopIteration</span>()
+        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>a  <span style="color:#75715e"># 返回下一个值</span>
+    
+<span style="color:#66d9ef">for</span> n <span style="color:#f92672">in</span> Fib():  <span style="color:#75715e"># 在循环中迭代Fib实例</span>
+    print(n)
+</code></pre></div><pre><code>1
+1
+2
+3
+5
+8
+13
+21
+34
+55
+89
+144
+233
+377
+610
+987
+1597
+2584
+4181
+6765
+10946
+17711
+28657
+46368
+75025
+</code></pre>
+<h3 id="__getitem__">__getitem__</h3>
+<p><code>Fib</code>实例虽然可以作用于<code>for</code>循环，看起来有点像<code>list</code>，但是<code>list</code>可以根据索引取值，然而<code>Fib</code>实例还不行，需要在类中实现<code>__getitem__</code>方法，例子：简单的可通过下标获取元素的斐波那契数列：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Fib</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __getitem__(self, n):
+        a, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>
+        <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(n):
+            a, b <span style="color:#f92672">=</span> b, a <span style="color:#f92672">+</span> b
+        <span style="color:#66d9ef">return</span> a
+
+f <span style="color:#f92672">=</span> Fib()
+f[<span style="color:#ae81ff">10</span>]  <span style="color:#75715e"># 输出89，可以通过下标索引获得第11个元素的值</span>
+</code></pre></div><p>但是上面的代码并不支持<code>list</code>中的切片语法即<code>f[5:10]</code>，因为<code>__getitem__</code>传入的参数可能是<code>int</code>也可能是<code>slice</code>，要对这两种参数做判断：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Fib</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __getitem__(self, n):
+        <span style="color:#66d9ef">if</span> isinstance(n, int):  <span style="color:#75715e"># 若参数为整型</span>
+            a, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(n):
+                a, b <span style="color:#f92672">=</span> b, a <span style="color:#f92672">+</span> b
+            <span style="color:#66d9ef">return</span> a
+        <span style="color:#66d9ef">if</span> isinstance(n, slice):  <span style="color:#75715e"># 若参数为切片</span>
+            start  <span style="color:#f92672">=</span> n<span style="color:#f92672">.</span>start  <span style="color:#75715e"># 获取切片的起点索引</span>
+            end <span style="color:#f92672">=</span> n<span style="color:#f92672">.</span>stop  <span style="color:#75715e"># 获取切片的终点索引</span>
+            <span style="color:#66d9ef">if</span> start <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+                start <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  <span style="color:#75715e"># 若起点索引为空，则设置为0</span>
+            L <span style="color:#f92672">=</span> []
+            a, b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>
+            <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(end):
+                <span style="color:#66d9ef">if</span> x <span style="color:#f92672">&gt;=</span> start:
+                    L<span style="color:#f92672">.</span>append(a)
+                a, b <span style="color:#f92672">=</span> b, a <span style="color:#f92672">+</span> b
+            <span style="color:#66d9ef">return</span> L
+
+f <span style="color:#f92672">=</span> Fib()
+f[<span style="color:#ae81ff">10</span>]  <span style="color:#75715e"># 输出 89</span>
+f[:<span style="color:#ae81ff">5</span>]  <span style="color:#75715e"># 输出 [1, 1, 2, 3, 5]</span>
+f[<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">10</span>]  <span style="color:#75715e"># 输出 [8, 13, 21, 34, 55]</span>
+</code></pre></div><pre><code>[8, 13, 21, 34, 55]
+</code></pre>
+<p>但是上面block的代码还是不够完善，比如没有对step参数作处理即<code>f[:10:2]</code>，也没有对负数索引作处理，所以要用<code>__getitem__</code>完整地复刻<code>list</code>的功能还有很多工作要做。</p>
+<p>若想把对象视为<code>dict</code>，那么<code>__getitem__</code>的参数也可能是一个作为<code>key</code>的对象如<code>str</code>，与之对应的是<code>__setitem__</code>方法，可以将对象视作<code>list</code>或<code>dict</code>来对其赋值。最后还有一个<code>__delitem__</code>方法，用于删除某个元素。</p>
+<h3 id="__getattr__">__getattr__</h3>
+<p>上文提到，当调用的类的方法或属性不存在时就会报<code>AttirbuteError</code>错，避免这个错误除了给类添加一个<code>score</code>属性之外，还可以写一个<code>__getattr__</code>方法动态地返回一个属性：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Jensen&#39;</span>
+    
+    <span style="color:#66d9ef">def</span> __getattr__(self, attr):
+        <span style="color:#66d9ef">if</span> attr <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;score&#39;</span>:  <span style="color:#75715e"># 若参数名为score</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">99</span>  <span style="color:#75715e"># 返回 99</span>
+        <span style="color:#66d9ef">if</span> attr <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;age&#39;</span>:  <span style="color:#75715e"># 若参数名为age</span>
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">lambda</span>: <span style="color:#ae81ff">22</span>  <span style="color:#75715e"># 返回匿名函数</span>
+        <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">AttributeError</span>(<span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">Student</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> object has no attribute </span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> attr)  <span style="color:#75715e"># 调用其他参数均报错</span>
+        
+s <span style="color:#f92672">=</span> Student()
+s<span style="color:#f92672">.</span>name  <span style="color:#75715e"># 输出 &#39;Jensen&#39;</span>
+s<span style="color:#f92672">.</span>score  <span style="color:#75715e"># 输出 99</span>
+s<span style="color:#f92672">.</span>age()  <span style="color:#75715e"># 输出 22，调用匿名函数</span>
+</code></pre></div><h3 id="__call__">__call__</h3>
+<p>一个对象实例可以有自己的属性和方法，可通过<code>instance.method()</code>的形式来调用，若想直接用<code>instance()</code>的形式来调用，在Python中可以在类中重写<code>__call__</code>方法来实现：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Student</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, name):
+        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+        
+    <span style="color:#66d9ef">def</span> __call__(self):
+        print(<span style="color:#e6db74">&#39;My name is </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">.&#39;</span> <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>name)
+        
+s <span style="color:#f92672">=</span> Student(<span style="color:#e6db74">&#39;Jensen&#39;</span>)
+s()<span style="color:#f92672">.</span> <span style="color:#75715e"># 打印输出 &#39;My name is Jensen.&#39;</span>
+</code></pre></div><p><code>__call__</code>方法还可以定义参数，对实例进行直接调用就像对一个函数进行调用一样，所以完全可以把对象看成函数，因为函数和对象二者之间本来就没啥根本的区别。</p>
+<p>可以通过<code>callable</code>方法判断一个变量是否是可以被调用的：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">callable(max)  <span style="color:#75715e"># True，max函数可以被调用</span>
+callable(<span style="color:#66d9ef">None</span>)  <span style="color:#75715e"># False，None不可以被调用</span>
+callable(<span style="color:#e6db74">&#39;hello&#39;</span>)  <span style="color:#75715e"># False，字符串不可以被调用</span>
+callable(Student())  <span style="color:#75715e"># True，若去掉上面Student类代码中的__call__方法后就会变成不可调用即False</span>
+</code></pre></div><h2 id="使用枚举类">使用枚举类</h2>
+<hr>
+<p>当需要定义常量时，一般会用大写变量通过整数来定义比如<code>JAN = 1, FEB = 2, ...</code>，虽然定义起来十分简单但缺点是类型依然是<code>int</code>变量。在Python中可以用内置的<code>Enum</code>类为这样的枚举类型定义一个类型，每个常量都是类的唯一实例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#f92672">from</span> enum <span style="color:#f92672">import</span> Enum
+
+Month <span style="color:#f92672">=</span> Enum(<span style="color:#e6db74">&#39;Month&#39;</span>, (<span style="color:#e6db74">&#39;Jan&#39;</span>, <span style="color:#e6db74">&#39;Feb&#39;</span>, <span style="color:#e6db74">&#39;Mar&#39;</span>, <span style="color:#e6db74">&#39;Apr&#39;</span>, <span style="color:#e6db74">&#39;May&#39;</span>, <span style="color:#e6db74">&#39;Jun&#39;</span>, <span style="color:#e6db74">&#39;Jul&#39;</span>, <span style="color:#e6db74">&#39;Aug&#39;</span>, <span style="color:#e6db74">&#39;Sep&#39;</span>, <span style="color:#e6db74">&#39;Oct&#39;</span>, <span style="color:#e6db74">&#39;Nov&#39;</span>, <span style="color:#e6db74">&#39;Dec&#39;</span>))  <span style="color:#75715e"># Month类型的枚举类，可以Month.Jan来引用一个常量</span>
+
+<span style="color:#66d9ef">for</span> name, member <span style="color:#f92672">in</span> Month<span style="color:#f92672">.</span>__members__<span style="color:#f92672">.</span>items():  <span style="color:#75715e"># 可以枚举其所有成员，value是默认自动赋给成员的int常量，默认从1开始计数</span>
+    print(name, <span style="color:#e6db74">&#39; ==&gt; &#39;</span>, member, <span style="color:#e6db74">&#39;, &#39;</span>, member<span style="color:#f92672">.</span>value)
+</code></pre></div><p>也可以从<code>Enum</code>类派生出自定义类：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> enum <span style="color:#f92672">import</span> Enum, unique
+
+<span style="color:#a6e22e">@unique</span>  <span style="color:#75715e"># @unique可以检查确保没有重复值</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Weekday</span>(Enum):
+    Sun <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  <span style="color:#75715e"># Sun的value被设置为0</span>
+    Mon <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+    Tue <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+    Wed <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+    Thu <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>
+    Fri <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+    Sat <span style="color:#f92672">=</span> <span style="color:#ae81ff">6</span>
+    
+<span style="color:#75715e"># 访问这些枚举类型有若干种方法：</span>
+day1 <span style="color:#f92672">=</span> Weekday<span style="color:#f92672">.</span>Mon
+print(day1)
+print(Weekday<span style="color:#f92672">.</span>Tue)
+print(Weekday[<span style="color:#e6db74">&#39;Wed&#39;</span>])
+print(Weekday<span style="color:#f92672">.</span>Sun<span style="color:#f92672">.</span>value)
+print(Weekday(<span style="color:#ae81ff">6</span>))
+print(day1 <span style="color:#f92672">==</span> Weekday<span style="color:#f92672">.</span>Mon)
+print(Weekday<span style="color:#f92672">.</span>Mon <span style="color:#f92672">==</span> Weekday[<span style="color:#e6db74">&#39;Fri&#39;</span>])
+<span style="color:#75715e"># Weekday(7)  # 若取消注释会报ValueError错，因为没有枚举类型的value为7</span>
+
+<span style="color:#66d9ef">for</span> name, member <span style="color:#f92672">in</span> Weekday<span style="color:#f92672">.</span>__members__<span style="color:#f92672">.</span>items():
+    print(name, <span style="color:#e6db74">&#39; ==&gt; &#39;</span>, member, <span style="color:#e6db74">&#39;, &#39;</span>, member<span style="color:#f92672">.</span>value)
+</code></pre></div><pre><code>Weekday.Mon
+Weekday.Tue
+Weekday.Wed
+0
+Weekday.Sat
+True
+False
+Sun  ==&gt;  Weekday.Sun ,  0
+Mon  ==&gt;  Weekday.Mon ,  1
+Tue  ==&gt;  Weekday.Tue ,  2
+Wed  ==&gt;  Weekday.Wed ,  3
+Thu  ==&gt;  Weekday.Thu ,  4
+Fri  ==&gt;  Weekday.Fri ,  5
+Sat  ==&gt;  Weekday.Sat ,  6
+</code></pre>
+<h2 id="使用元类">使用元类</h2>
+<hr>
+<h3 id="type">type()</h3>
+<p>动态语言和静态语言最大的区别就是函数和类的定义，不是在编译时定义的而是在运行时动态创建的。</p>
+<p>比如要定义一个<code>Hello</code>类，可以写一个<code>hello.py</code>模块：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Hello</span>(object):
+    
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello</span>(self, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;world&#39;</span>):
+        print(<span style="color:#e6db74">&#39;Hello, </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">.&#39;</span> <span style="color:#f92672">%</span> name)
+</code></pre></div><p>当Python解释器载入<code>hello</code>模块时就会依次执行该模块的所有语句，结果就是动态创建出一个<code>Hello</code>的类对象：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#f92672">from</span> hello <span style="color:#f92672">import</span> Hello
+
+h <span style="color:#f92672">=</span> Hello()
+h<span style="color:#f92672">.</span>hello()  <span style="color:#75715e"># 打印输出&#34;Hello, world.&#34;</span>
+print(type(Hello))  <span style="color:#75715e"># 打印输出&#34;&lt;class &#39;type&#39;&gt;&#34;</span>
+print(type(h))  <span style="color:#75715e"># 打印输出&#34;&lt;class &#39;hello.Hello&#39;&gt;&#34;</span>
+</code></pre></div><p>类的定义是运行时动态创建的，<code>type</code>函数除了可以查看一个类型或变量的类型，也是能在运行时动态创建类的函数。<code>type</code>函数既可以返回一个对象的类型，又可以创建出新的类型，如可以通过<code>type</code>函数创建出<code>Hello</code>类，无需通过<code>class Hello(object)...</code>的定义：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(self, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;world&#39;</span>):  <span style="color:#75715e"># 先定义类的方法</span>
+    print(<span style="color:#e6db74">&#39;Hello, </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">.&#39;</span> <span style="color:#f92672">%</span> name)
+    
+Hello <span style="color:#f92672">=</span> type(<span style="color:#e6db74">&#39;Hello&#39;</span>, (object,), dict(hello <span style="color:#f92672">=</span> func))  <span style="color:#75715e"># 创建Hello类</span>
+h <span style="color:#f92672">=</span> Hello()
+h<span style="color:#f92672">.</span>hello()
+print(type(Hello))
+print(type(h))
+</code></pre></div><pre><code>Hello, world.
+&lt;class 'type'&gt;
+&lt;class '__main__.Hello'&gt;
+</code></pre>
+<p>要创建一个类对象，<code>type</code>函数需依次传入3个参数：</p>
+<ul>
+<li>类的名称</li>
+<li>继承的基类集合，支持多重继承</li>
+<li>类的方法名与函数绑定（在上一个block中，将函数func绑定到方法名hello上）</li>
+</ul>
+<p>通过<code>type</code>函数创建的类和直接用<code>class</code>定义的类本质上是完全一样的，但正常情况下都使用<code>class</code>定义类。</p>
+<h3 id="metaclass">metaclass</h3>
+<p>除了上文提到<code>type</code>可以动态创建类之外，还可以使用<code>metaclass</code>（元类）控制类的创建行为。正常情况下都是先定义类，再根据类的定义创建相应的实例，元类的意思即：但如何创建出类，则需要根据<code>metaclass</code>创建类。</p>
+<p><code>先定义元类 ==&gt; 创建类 ==&gt; 创建实例</code></p>
+<p>所以，元类允许创建类或者修改类，也就是说可以把类看成是依据元类创建出来的“实例”。元类是Python面向对象里最难理解最难使用的魔术代码。</p>
+<p>例子：使用<code>metaclass</code>给自定义类<code>MyList</code>增加一个<code>add</code>方法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 先定义 ListMetaclass，按照默认习惯，元类的类名总是以Metaclass结尾，便于辨别</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ListMetaclass</span>(type):  <span style="color:#75715e"># metaclass是类的模板，所以必须从`type`类型派生</span>
+    
+    <span style="color:#75715e"># __new__方法接收的参数依次是：准备创建的类的对象；类的名字；类继承的基类集合，类的方法集合</span>
+    <span style="color:#66d9ef">def</span> __new__(cls, name, bases, attrs):  
+        attrs[<span style="color:#e6db74">&#39;add&#39;</span>] <span style="color:#f92672">=</span> <span style="color:#66d9ef">lambda</span> self, value: self<span style="color:#f92672">.</span>append(value)
+        <span style="color:#66d9ef">return</span> type<span style="color:#f92672">.</span>__new__(cls, name, bases, attrs)
+    
+<span style="color:#75715e"># 有了 ListMetaclass，在定义类的时候还要指示使用ListMetaclass来定制类，传入关键字参数metaclass</span>
+<span style="color:#75715e"># 当传入关键字参数metaclass时，魔术就生效了，它指示在创建MyList时通过ListMetaclass.__new__()来创建</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyList</span>(list, metaclass <span style="color:#f92672">=</span> ListMetaclass):  
+    <span style="color:#66d9ef">pass</span>
+
+L <span style="color:#f92672">=</span> MyList()
+L<span style="color:#f92672">.</span>add(<span style="color:#ae81ff">1</span>)  <span style="color:#75715e"># add方法，普通的list没有add方法</span>
+L  <span style="color:#75715e"># 输出 [1]</span>
+</code></pre></div><pre><code>[1]
+</code></pre>
+<p>正常情况下没有人会用上面这么复杂的方法，直接在<code>MyList</code>定义中写上<code>add</code>方法显然更简单。但总会遇到需要通过元类修改类定义的，<code>ORM</code>就是一个典型的例子。</p>
+<p>ORM(Object Relational Mapping 对象关系映射)，就是指将关系型数据库的一行映射为一个对象即一个类对应一个表，这种方式可可大大简化代码编写。</p>
+<p>要编写一个<code>ORM</code>框架，所有的类都只能动态定义，因为只有使用者才能根据表的结构定义出对应的类。例子：编写一个<code>ORM</code>框架：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># User接口的基类Model和属性类型StringField、IntegerField由ORM框架提供，魔法方法等如save全部由基类Model自动完成。接下来实现ORM框架</span>
+<span style="color:#75715e"># 首先定义Field类，负责保存数据库表的字段名和字段类型</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Field</span>(object):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, name, column_type):
+        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+        self<span style="color:#f92672">.</span>column_type <span style="color:#f92672">=</span> column_type
+        
+    <span style="color:#66d9ef">def</span> __str__(self):
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;&lt;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&gt;&#39;</span> <span style="color:#f92672">%</span> (self<span style="color:#f92672">.</span>__class__<span style="color:#f92672">.</span>__name__, self<span style="color:#f92672">.</span>name)
+    
+<span style="color:#75715e"># 在Field的基础上进一步定义各种类型的Field</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">StringField</span>(Field):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, name):
+        super(StringField, self)<span style="color:#f92672">.</span>__init__(name, <span style="color:#e6db74">&#39;varchar(100)&#39;</span>)
+        
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">IntegerField</span>(Field):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, name):
+        super(IntegerField, self)<span style="color:#f92672">.</span>__init__(name, <span style="color:#e6db74">&#39;bigint&#39;</span>)
+        
+<span style="color:#75715e"># 接下来编写ModelMetaclass</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ModelMetaclass</span>(type):
+    
+    <span style="color:#66d9ef">def</span> __new__(cls, name, bases, attrs):
+        <span style="color:#66d9ef">if</span> name <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Model&#39;</span>:
+            <span style="color:#66d9ef">return</span> type<span style="color:#f92672">.</span>__new__(cls, name, bases, attrs)
+        print(<span style="color:#e6db74">&#39;Found model: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> name)
+        mappings <span style="color:#f92672">=</span> dict()
+        <span style="color:#66d9ef">for</span> k, v <span style="color:#f92672">in</span> attrs<span style="color:#f92672">.</span>items():
+            <span style="color:#66d9ef">if</span> isinstance(v, Field):
+                print(<span style="color:#e6db74">&#39;Found mapping: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> ==&gt; </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> (k, v))
+                mappings[k] <span style="color:#f92672">=</span> v
+        <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> mappings<span style="color:#f92672">.</span>keys():
+            attrs<span style="color:#f92672">.</span>pop(k)  <span style="color:#75715e"># 退栈</span>
+        attrs[<span style="color:#e6db74">&#39;__mappings__&#39;</span>] <span style="color:#f92672">=</span> mappings
+        attrs[<span style="color:#e6db74">&#39;__table__&#39;</span>] <span style="color:#f92672">=</span> name
+        <span style="color:#66d9ef">return</span> type<span style="color:#f92672">.</span>__new__(cls, name, bases, attrs)
+    
+<span style="color:#75715e"># 以及基类Model</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Model</span>(dict, metaclass<span style="color:#f92672">=</span>ModelMetaclass):
+    
+    <span style="color:#66d9ef">def</span> __init__(self, <span style="color:#f92672">**</span>kw):
+        super(Model, self)<span style="color:#f92672">.</span>__init__(<span style="color:#f92672">**</span>kw)
+        
+    <span style="color:#66d9ef">def</span> __getattr__(self, key):
+        <span style="color:#66d9ef">try</span>:
+            <span style="color:#66d9ef">return</span> self[key]
+        <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">KeyError</span>:
+            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">AttributeError</span>(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#34;&#39;Model&#39; object has no attribute &#39;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;&#34;</span> <span style="color:#f92672">%</span> key)
+            
+    <span style="color:#66d9ef">def</span> __setattr__(self, key, value):
+        self[key] <span style="color:#f92672">=</span> value
+        
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">save</span>(self):
+        fields <span style="color:#f92672">=</span> []
+        params <span style="color:#f92672">=</span> []
+        args <span style="color:#f92672">=</span> []
+        <span style="color:#66d9ef">for</span> k, v <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>__mappings__<span style="color:#f92672">.</span>items():
+            fields<span style="color:#f92672">.</span>append(v<span style="color:#f92672">.</span>name)
+            params<span style="color:#f92672">.</span>append(<span style="color:#e6db74">&#39;?&#39;</span>)
+            args<span style="color:#f92672">.</span>append(getattr(self, k, <span style="color:#66d9ef">None</span>))
+        sql <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;insert into </span><span style="color:#e6db74">%s</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">) values (</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">)&#39;</span> <span style="color:#f92672">%</span> (self<span style="color:#f92672">.</span>__table__, <span style="color:#e6db74">&#39;,&#39;</span><span style="color:#f92672">.</span>join(fields), <span style="color:#e6db74">&#39;,&#39;</span><span style="color:#f92672">.</span>join(params))
+        print(<span style="color:#e6db74">&#39;SQL: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> sql)
+        print(<span style="color:#e6db74">&#39;ARGS: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> str(args))
+
+<span style="color:#75715e"># 编写接口，定义一个User类操作对应的数据库User表</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">User</span>(Model):
+    
+    <span style="color:#75715e"># 类属性到列的映射</span>
+    id <span style="color:#f92672">=</span> IntegerField(<span style="color:#e6db74">&#39;id&#39;</span>)
+    name <span style="color:#f92672">=</span> StringField(<span style="color:#e6db74">&#39;username&#39;</span>)
+    email <span style="color:#f92672">=</span> StringField(<span style="color:#e6db74">&#39;email&#39;</span>)
+    password <span style="color:#f92672">=</span> StringField(<span style="color:#e6db74">&#39;password&#39;</span>)
+        
+
+u <span style="color:#f92672">=</span> User(id <span style="color:#f92672">=</span> <span style="color:#ae81ff">12345</span>, name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;Jensen&#39;</span>, email <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;jensen.acm@gmail.com&#39;</span>, password <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;test123&#39;</span>)
+u<span style="color:#f92672">.</span>save()  <span style="color:#75715e"># 运行正常，只需真正连接到数据库上，执行SQL，就可以完成真正的功能</span>
+</code></pre></div><pre><code>Found model: User
+Found mapping: id ==&gt; &lt;IntegerField: id&gt;
+Found mapping: name ==&gt; &lt;StringField: username&gt;
+Found mapping: email ==&gt; &lt;StringField: email&gt;
+Found mapping: password ==&gt; &lt;StringField: password&gt;
+SQL: insert into User (id,username,email,password) values (?,?,?,?)
+ARGS: [12345, 'Jensen', 'jensen.acm@gmail.com', 'test123']
+</code></pre>
+<p>当定义一个<code>class User(Model)</code>时，Python解释器首先在当前类<code>User</code>的定义中查找<code>metaclass</code>，如果没有找到，就继续在基类<code>Model</code>中查找，找到后使用<code>Model</code>中定义的<code>metaclass</code>的<code>ModelMetaclass</code>来创建<code>User</code>类。</p>
+<p>在<code>ModelMetaclass</code>中，一共做了如下几件事：</p>
+<ul>
+<li>排除对<code>Model</code>类的修改；</li>
+<li>在当前类<code>User</code>中查找定义类的所有属性，如果找到一个<code>Field</code>属性就把它保存在一个<code>__mappings__</code>的字典中，同时从类属性中删除该属性，否则容易在运行时出错；</li>
+<li>把表名保存到<code>__table__</code>中，这里简化将类名作为默认表名。</li>
+</ul>
+<p>在<code>Model</code>类中可以定义各种操作数据库的方法，如<code>save</code>、<code>delete</code>、<code>find</code>、<code>update</code>等。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div><h1 id="错误调试和测试">错误、调试和测试</h1>
+<hr>
+<h2 id="错误处理">错误处理</h2>
+<hr>
+<p>在程序运行的过程中，如果发生了错误可以事先约定返回一个错误代码，这样就知道是否有错以及出错的原因。</p>
+<p>在操作系统提供的调用中，返回错误码非常常见，比如打开文件的函数<code>open</code>，成功时返回文件描述符即一个整数，出错时返回<code>-1</code>。</p>
+<p>但是用错误码表示是否出错十分麻烦，函数本身应该返回的正常结果和错误码混在一起，需要调用者编写很多代码判断是否出错。一旦出错，需要一级一级上报直到某个函数可以处理该错误。</p>
+<p>高级语言通常都内置了一套<code>try...except...finally...</code>的错误处理机制，Python也不例外。</p>
+<h3 id="try">try</h3>
+<p>先来看一个<code>try</code>的例子：被除数不可以为<code>0</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">try</span>:  <span style="color:#75715e"># 编写代码时认为某些代码可能会出错，可以用try来包裹这段代码</span>
+    print(<span style="color:#e6db74">&#39;try...&#39;</span>)
+    r <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0</span>  <span style="color:#75715e"># 被除数不可以为0，此处出错后续代码不会执行，直接跳到except处即错误处理部分</span>
+    print(<span style="color:#e6db74">&#39;result: &#39;</span>, r)
+<span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ZeroDivisionError</span> <span style="color:#66d9ef">as</span> e:  <span style="color:#75715e"># except捕获到ZeroDivisionError</span>
+    print(<span style="color:#e6db74">&#39;except: &#39;</span>, e)  <span style="color:#75715e"># 打印错误，如果后面有finally语句块则执行finally语句块，没有就结束</span>
+<span style="color:#66d9ef">finally</span>:
+    print(<span style="color:#e6db74">&#39;finally...&#39;</span>)
+print(<span style="color:#e6db74">&#39;END&#39;</span>)
+</code></pre></div><pre><code>try...
+except:  division by zero
+finally...
+END
+</code></pre>
+<p>若将上面block中的<code>r = 10 / 0</code>修改为<code>r = 10 / 2</code>，则执行结果如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">try</span><span style="color:#f92672">...</span>
+result: <span style="color:#ae81ff">5</span>
+<span style="color:#66d9ef">finally</span><span style="color:#f92672">...</span>
+END
+</code></pre></div><p>由于<code>ZeroDivisionError</code>错误没有发生，因此<code>except</code>语句块不会执行，但是无论是否出现错误，只要存在<code>finally</code>语句块，<code>finally</code>语句块就一定会被执行。</p>
+<p>错误有很多种类，如<code>ZeroDivisionError</code>、<code>ValueError</code>、<code>AttributeError</code>等，若发生了不同的错误，应由不同的<code>except</code>语句块处理即可以有多个<code>except</code>来捕获不同类型的错误：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">try</span>:
+    print(<span style="color:#e6db74">&#39;try...&#39;</span>)
+    r <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> int(<span style="color:#e6db74">&#39;a&#39;</span>)  <span style="color:#75715e"># int函数会抛出ValueError</span>
+    print(<span style="color:#e6db74">&#39;result: &#39;</span>, r)
+<span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span> <span style="color:#66d9ef">as</span> e:  <span style="color:#75715e"># except捕获ValueError</span>
+    print(<span style="color:#e6db74">&#39;ValueError: &#39;</span>, e)
+<span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ZeroDivisionError</span> <span style="color:#66d9ef">as</span> e:
+    print(<span style="color:#e6db74">&#39;ZeroDivisionError: &#39;</span>, e)
+<span style="color:#66d9ef">else</span>:  <span style="color:#75715e"># 若没有任何错误发生，则会自动执行else语句</span>
+    print(<span style="color:#e6db74">&#39;No ERROR!&#39;</span>)
+<span style="color:#66d9ef">finally</span>:
+    print(<span style="color:#e6db74">&#39;finally...&#39;</span>)
+print(<span style="color:#e6db74">&#39;END&#39;</span>)
+</code></pre></div><p>Python中的错误也是类，所有的错误类型都继承自<code>BaseException</code>，所以在使用<code>except</code>时要注意它不仅捕获该类型的错误，同时也把它的子类都捕获了：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">try</span>:
+    foo()  <span style="color:#75715e"># 会抛出UnicodeError错误</span>
+excpet <span style="color:#a6e22e">ValueError</span> <span style="color:#66d9ef">as</span> e:    <span style="color:#75715e"># 错误被该except捕获，因为UnicodeError是ValueError的子类</span>
+    print(<span style="color:#e6db74">&#39;ValueError: &#39;</span>, e)
+<span style="color:#66d9ef">except</span> <span style="color:#a6e22e">UnicodeError</span> <span style="color:#66d9ef">as</span> e:  <span style="color:#75715e"># 该except永远捕获不到UnicodeError，错误已经被上一个except捕获了</span>
+    print(<span style="color:#e6db74">&#39;UnicodeError: &#39;</span>, e)
+</code></pre></div><p>使用<code>try...except</code>结构捕获错误还有一个巨大的优势，即可以跨越多层调用，比如<code>main</code>函数调用<code>bar</code>函数，<code>bar</code>函数调用<code>foo</code>函数，若<code>foo</code>函数出错了，仅需最外层的<code>main</code>捕获到了就可以进行处理：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo</span>(s):
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> int(s)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bar</span>(s):
+    <span style="color:#66d9ef">return</span> foo(s) <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+    <span style="color:#66d9ef">try</span>:  <span style="color:#75715e"># 毋需在每个可能出错的地方捕获错误，只要在合适的层次捕获就好了，简化代码</span>
+        bar(<span style="color:#e6db74">&#39;0&#39;</span>)
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:  <span style="color:#75715e"># except会捕获到错误 division by zero</span>
+        print(<span style="color:#e6db74">&#39;Error: &#39;</span>, e)
+    <span style="color:#66d9ef">finally</span>:
+        print(<span style="color:#e6db74">&#39;finally...&#39;</span>)
+
+main()
+</code></pre></div><pre><code>Error:  division by zero
+finally...
+</code></pre>
+<h3 id="调用栈">调用栈</h3>
+<p>如果错误没有被捕获，则会一直上抛，最后被Python解释器所捕获，最后打印一个错误信息后程序退出，例如：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python">Traceback (most recent call last):
+    File <span style="color:#e6db74">&#34;error.py&#34;</span>, line <span style="color:#ae81ff">11</span>, <span style="color:#f92672">in</span> <span style="color:#f92672">&lt;</span>module<span style="color:#f92672">&gt;</span>
+      main()
+    File <span style="color:#e6db74">&#34;error.py&#34;</span>, line <span style="color:#ae81ff">9</span>, <span style="color:#f92672">in</span> main
+      bar(<span style="color:#e6db74">&#39;0&#39;</span>)
+    File <span style="color:#e6db74">&#34;error.py&#34;</span>, line <span style="color:#ae81ff">6</span>, <span style="color:#f92672">in</span> bar
+      <span style="color:#66d9ef">return</span> foo(s) <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+    File <span style="color:#e6db74">&#34;error.py&#34;</span>, line <span style="color:#ae81ff">3</span>, <span style="color:#f92672">in</span> foo
+      <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> int(s)
+<span style="color:#a6e22e">ZeroDivisionError</span>: division by zero
+</code></pre></div><p>可以根据上述错误跟踪信息依次分析，最终定位到错误的源头发生在<code>error.py</code>文件的第三行<code>return 10 / int(s)</code>，因为最后打印了<code>ZeroDivisionError: division by zero</code>，根据错误类型以及错误信息可以判断<code>int(s)</code>本身没有错，只是<code>int(s)</code>返回了<code>0</code>，在计算<code>10 / 0</code>时出了错。</p>
+<h3 id="记录错误">记录错误</h3>
+<p>若不捕获错误，Python解释器自然会打印出错误堆栈，但是程序也终止了，既然可以捕获错误，就可以把错误堆栈打印记录下来，同时让程序继续执行下去，后来再根据需要分析错误原因。Python内置的<code>logging</code>模块可以很好的实现这一点：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> logging
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo</span>(s):
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> int(s)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bar</span>(s):
+    <span style="color:#66d9ef">return</span> foo(s) <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>():
+    <span style="color:#66d9ef">try</span>:
+        bar(<span style="color:#e6db74">&#39;0&#39;</span>)
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">Exception</span> <span style="color:#66d9ef">as</span> e:
+        logging<span style="color:#f92672">.</span>exception(e)  <span style="color:#75715e"># 通过适当的配置，logging还可以把错误信息保存在日志文件里，方便日后排查</span>
+        
+main()  <span style="color:#75715e"># 同样是出错，但程序打印完错误堆栈后会继续执行，并正常退出</span>
+print(<span style="color:#e6db74">&#39;END&#39;</span>)  
+</code></pre></div><pre><code>ERROR:root:division by zero
+Traceback (most recent call last):
+  File &quot;/tmp/ipykernel_15563/3467350787.py&quot;, line 11, in main
+    bar('0')
+  File &quot;/tmp/ipykernel_15563/3467350787.py&quot;, line 7, in bar
+    return foo(s) * 2
+  File &quot;/tmp/ipykernel_15563/3467350787.py&quot;, line 4, in foo
+    return 10 / int(s)
+ZeroDivisionError: division by zero
+
+
+END
+</code></pre>
+<h3 id="抛出错误">抛出错误</h3>
+<p>错误是类，捕获错误就是捕获到该类的一个实例，Python内置函数会抛出很多的类型的错误，也可以自己编写函数抛出相应的错误。</p>
+<p>若要抛出错误，可以根据需要定义一个错误的类，选择好继承关系，最后用<code>raise</code>语句抛出错误实例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FooError</span>(<span style="color:#a6e22e">ValueError</span>):  <span style="color:#75715e"># 自定义错误类，继承自ValueError</span>
+    <span style="color:#66d9ef">pass</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo</span>(s):
+    n <span style="color:#f92672">=</span> int(s)
+    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">raise</span> FooError(<span style="color:#e6db74">&#39;invalid value: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> s)  <span style="color:#75715e"># 抛出自定义错误</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> n
+
+foo(<span style="color:#e6db74">&#39;0&#39;</span>)
+</code></pre></div><pre><code>---------------------------------------------------------------------------
+
+FooError                                  Traceback (most recent call last)
+
+/tmp/ipykernel_15563/3824456867.py in &lt;module&gt;
+      8     return 10 / n
+      9 
+---&gt; 10 foo('0')
+
+
+/tmp/ipykernel_15563/3824456867.py in foo(s)
+      5     n = int(s)
+      6     if n == 0:
+----&gt; 7         raise FooError('invalid value: %s' % s)  # 抛出自定义错误
+      8     return 10 / n
+      9 
+
+
+FooError: invalid value: 0
+</code></pre>
+<p>如果可以选择Python已有的内置错误类型，尽量使用Python内置的错误类型。只有在必要的时候才自定义错误类型。</p>
+<p>有时候底层代码不清楚如何处理错误，可以将错误上抛，抛给高层调用者处理：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">foo</span>(s):
+    n <span style="color:#f92672">=</span> int(s)
+    <span style="color:#66d9ef">if</span> n <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+        <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;invalid value: </span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">%</span> s)  <span style="color:#75715e"># 抛出ValueError</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> n
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bar</span>():
+    <span style="color:#66d9ef">try</span>:
+        foo(<span style="color:#e6db74">&#39;0&#39;</span>)
+    <span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ValueError</span> <span style="color:#66d9ef">as</span> e:  <span style="color:#75715e"># 底层调用者捕获到ValueError</span>
+        print(<span style="color:#e6db74">&#39;ValueError!&#39;</span>)  <span style="color:#75715e"># 打印错误只是单纯的记录一下</span>
+        <span style="color:#66d9ef">raise</span>  <span style="color:#75715e"># 底层调用者不知道如何处理错误，继续上抛给高层调用者处理</span>
+        
+bar()
+</code></pre></div><pre><code>ValueError!
+
+
+
+---------------------------------------------------------------------------
+
+ValueError                                Traceback (most recent call last)
+
+/tmp/ipykernel_15563/1057959981.py in &lt;module&gt;
+     12         raise  # 底层调用者不知道如何处理错误，继续上抛给高层调用者处理
+     13 
+---&gt; 14 bar()
+
+
+/tmp/ipykernel_15563/1057959981.py in bar()
+      7 def bar():
+      8     try:
+----&gt; 9         foo('0')
+     10     except ValueError as e:  # 底层调用者捕获到ValueError
+     11         print('ValueError!')  # 打印错误只是单纯的记录一下
+
+
+/tmp/ipykernel_15563/1057959981.py in foo(s)
+      2     n = int(s)
+      3     if n == 0:
+----&gt; 4         raise ValueError('invalid value: %s' % s)  # 抛出ValueError
+      5     return 10 / n
+      6 
+
+
+ValueError: invalid value: 0
+</code></pre>
+<p><code>raise</code>语句如果不带任何参数就会把当前错误原样抛出。此外，在<code>except</code>中<code>raise</code>一个错误还可以把一种类型的错误转化为另一种类型：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#66d9ef">try</span>:
+    <span style="color:#ae81ff">10</span> <span style="color:#f92672">/</span> <span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">except</span> <span style="color:#a6e22e">ZeroDivisionError</span>:  <span style="color:#75715e"># 捕获到一个ZeroDivisionError</span>
+    <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">ValueError</span>(<span style="color:#e6db74">&#39;Input Error!&#39;</span>)  <span style="color:#75715e"># 将错误转换为ValueError</span>
+</code></pre></div><p>只要是合理的转换逻辑就可以，但是，决不应该把一个<code>IOError</code>转换成毫不相干的<code>ValueError</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+</code></pre></div>
     <div class="CornerButtons">
         <div class="CornerAnimayedFlex">
             <div class="CornerButton" title="Back to the top">
@@ -125,7 +1712,19 @@
         </div>
     </div>
 
+<hr>
+
+<h1 style="color: #dc3545;">Comments</h1>
+<script defer src="https://utteranc.es/client.js" 
+repo="Jen-Jon/Jen-Jon.github.io" 
+issue-term="title" 
+theme="github-light" 
+crossorigin="anonymous" async></script>
+
+
 </div>
+
+<h5 style="text-align: center; font-size: large;">This blog is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, please indicate the source for non-commercial reposted.</h5>
 
 
         </div><strong id="footer" class="mb-5">
