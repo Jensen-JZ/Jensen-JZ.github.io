@@ -1,0 +1,283 @@
+(window.webpackJsonp_ember_auto_import_=window.webpackJsonp_ember_auto_import_||[]).push([[12],{523:function(e,t,n){"use strict"
+n.r(t),n.d(t,"ClickstreamProcessor",(function(){return Te}))
+var i=n(524),r=n(528),o=n(529),s=function(){}
+s.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},s.prototype.localStorageObject=i.j.localStorageObject,s.prototype.sessionStorageObject=i.j.sessionStorageObject
+var a=function(){this.environment=new s,this.logger=Object(o.c)("mt-client-constraints")},c={nonEmpty:function(e,t){return!!i.h.isObject(t)&&t.hasOwnProperty(e)&&i.h.isDefinedNonNullNonEmpty(t[e])},valueMatches:function(e,t,n){if(!i.h.isObject(t))return!1
+var r=t[e]
+return t.hasOwnProperty(e)&&n.indexOf(r)>-1}},p="overrideFieldValue",u=function(){}
+u.prototype.constrainedValue=function(e,t,n){var i=e&&e.hasOwnProperty(n)?e[n]:null
+return this.applyConstraintRules(i,t)},u.prototype.applyConstraintRules=function(e,t){var n=e
+return t&&t.blacklisted?n=null:t&&t.hasOwnProperty(p)&&(n=t.overrideFieldValue),n}
+var l=i.k.exceptionString,h=function(e){this._constraintsInstance=e}
+function d(e){var t,n=f(e=e||"").split("/")
+return(t=-1===e.indexOf("//")?n[0]:n[2]).substring(t.indexOf("@")+1).split(":")[0]}function f(e){return(e=e||"").split("?")[0]}function y(e,t,n,r){var o=this.storageKey(r,n,t),s=this._constraintsInstance.system.environment,a=i.j.objectFromStorage(s.localStorageObject(),o)||{}
+return a.value=this.idString(a,t),!this.rulesHaveLifespan(t)||i.h.isNumber(a.expirationTime)&&!this.timeExpired(a.expirationTime)||(a.expirationTime=this.expirationTime(t.lifespan)),i.j.saveObjectToStorage(s.localStorageObject(),o,a),a.value}h.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},h.prototype.constrainedValue=function(e,t,n,i){throw l("field_actions.Base","constrainedValue")},h.prototype.performAction=function(e,t,n){var r=t&&i.h.isDefined(t[e])?t[e]:null
+return i.h.isDefinedNonNull(n)&&!i.h.isEmptyObject(n)&&(r=this.constrainedValue(r,n,t,e)),r}
+var m={}
+function v(e,t,n,i){var r=this.storageKey(i,n,t),o=m[r]
+return o||(o=y.apply(this,arguments),m[r]=o),o}var g=function(){h.apply(this,arguments)};(g.prototype=Object.create(h.prototype)).constructor=g,g.prototype.SCOPE_STRATEGIES={ALL:"all",MAIN_DOMAIN:"mainDomain"},g.prototype.rulesHaveLifespan=function(e){return e=e||{},i.h.isNumber(e.lifespan)},g.prototype.expirationTime=function(e){return e?Date.now()+e:null},g.prototype.storageKey=function(e,t,n){var i=this.scope(t,n)
+return this.storageKeyPrefix(n,e)+(i?"_"+i:"")},g.prototype.storageKeyPrefix=function(e,t){return e&&i.h.isString(e.storageKeyPrefix)&&e.storageKeyPrefix.length>0?e.storageKeyPrefix:"mtId_"+t},g.prototype.scope=function(e,t){var n,i,r,o,s=""
+if(t&&(t.namespace&&(s+=t.namespace),t.scopeStrategy)){var a
+switch(t.scopeStrategy){case this.SCOPE_STRATEGIES.MAIN_DOMAIN:i=(n=d(e[t.scopeFieldName]).split("."))[n.length-1],r=n[n.length-2],o=2,i&&2===i.length&&r&&(2===r.length||r in{com:!0,org:!0,net:!0,edu:!0,gov:!0})&&(o=3),a=n.slice(-1*o).join(".")||"unknownDomain"
+break
+case this.SCOPE_STRATEGIES.ALL:default:a=this.SCOPE_STRATEGIES.ALL}s.length&&(s+="_"),s+=a}return s},g.prototype.idString=function(e,t){var n=e?e.value:null,r=n
+return(!n||i.h.isNumber(e.expirationTime)&&this.timeExpired(e.expirationTime))&&(r=this.generateId(t)),r},g.prototype.generateId=function(e){var t=this.rawUUID(),n=null,r=null
+return e&&(n=this.expirationTime(e.lifespan),r=e.tokenSeparator),(this.generatedIdMetadata(n)+this.idTokenSeparator()+t||"").split(this.idTokenSeparator()).map((function(e){var t=parseInt(e,16)
+return i.k.convertNumberToBaseAlphabet(t,i.k.base61Alphabet)})).join(this.generatedIdSeparator(r))||"0"},g.prototype.rawUUID=function(){return i.k.uuid()},g.prototype.generatedIdMetadata=function(e){var t=[this.generatedIdVersion()]
+return e&&t.push(e),t.map((function(e){return e.toString(16)})).join(this.idTokenSeparator())},g.prototype.generatedIdVersion=function(){return 4},g.prototype.idTokenSeparator=function(){return"-"},g.prototype.generatedIdSeparator=function(e){return e||"z"},g.prototype.timeExpired=function(e){return e<=Date.now()},g.prototype.constrainedValue=function(e,t,n,r){return n&&t&&!i.h.isEmptyObject(t)&&(e=!0===t.persistIdForSession?v.apply(this,arguments):y.apply(this,arguments)),e}
+var _=function(e,t){this._base=e,this._idAction=new g(t),this._idAction.setDelegate({storageKey:function(e,t,n){return this.storageKeyPrefix()+"_"+this.scope(t,n)}.bind(this._idAction),storageKeyPrefix:function(){return"mtClientId"}})}
+_.prototype.constrainedValue=function(e,t){var n=t
+t&&i.h.isNumber(t.expirationPeriod)&&((n=i.h.extend({},t)).lifespan=n.expirationPeriod,delete n.expirationPeriod)
+var r=this._idAction.performAction("clientId",e,n)
+return this._base.applyConstraintRules(r,t)}
+var b=function(){h.apply(this,arguments)};(b.prototype=Object.create(h.prototype)).constructor=b,b.prototype.SCOPES={HOSTNAME:"hostname",FULL:"full",FULL_WITHOUT_PARAMS:"fullWithoutParams"},b.prototype.constrainedValue=function(e,t){if(e&&t&&t.scope)switch(t.scope){case this.SCOPES.HOSTNAME:e=d(e)
+break
+case this.SCOPES.FULL_WITHOUT_PARAMS:e=f(e)
+break
+case this.SCOPES.FULL:}return e}
+var w=function(e){this._base=e,this._urlAction=new b}
+w.prototype.constrainedValue=function(e,t){var n=this._urlAction.performAction("parentPageUrl",e,t)
+return this._base.applyConstraintRules(n,t)}
+var I=function(e){this.base=new u(e),this.clientId=new _(this.base,e),this.parentPageUrl=new w(this.base,e)},D=function(e){this._fieldHandlers=new I(e)}
+function S(e,t,n,i){var r=e||{}
+if(i=i||function(e,t,n){return e[n]||{}},t&&t[n]){var o,s,a=r[n]||{}
+for(o in r[n]=a,t[n]){var c=i(a,t[n],o)
+for(s in a[o]=c,t[n][o])c[s]=t[n][o][s]}}return r}D.prototype.applyConstraints=function(e,t){return t&&t.fieldConstraints&&(e=this.applyFieldConstraints(e,t.fieldConstraints)),e},D.prototype.applyFieldConstraints=function(e,t){if(t){var n,r,o,s={}
+for(o in t)r=t[o],(e.hasOwnProperty(o)||!0===r.generateValue||r.hasOwnProperty(p))&&(n=o in this._fieldHandlers?this._fieldHandlers[o].constrainedValue(e,r):this._fieldHandlers.base.constrainedValue(e,r,o),s[o]=n)
+for(o in s)e[o]=s[o]
+e=i.e.mergeAndCleanEventFields(e)}return e}
+var T=function(e){this.treatment=new D(e)}
+T.prototype.constraintsForEvent=function(e,t,n){if(!t)return null
+var i="constraints.profiles."+t.constraintProfile(n),r=t.value(i,n),o=null
+if(r&&r.precedenceOrderedRules){var s=this
+o=r.precedenceOrderedRules.reduce((function(t,n){return s.eventMatchesRule(e,n)&&(t=s.updateRules(t,n)),t}),{})}return o},T.prototype.eventMatchesRule=function(e,t){var n=!1
+return e&&t.filters&&("any"===t.filters?n=!0:i.h.isObject(t.filters)&&(n=this.eventMatchesNonEmptyFields(e,t.filters.nonEmptyFields)&&this.eventMatchesFieldValues(e,t.filters.valueMatches))),n},T.prototype.eventMatchesNonEmptyFields=function(e,t){var n=!1
+return e&&(n=!t||!i.h.isArray(t)||t.every((function(t){return c.nonEmpty(t,e)}))),n},T.prototype.eventMatchesFieldValues=function(e,t){var n=!1
+return e&&(n=!(t&&i.h.isObject(t)&&!i.h.isEmptyObject(t))||Object.keys(t).every((function(n){var i=t[n]
+return c.valueMatches(n,e,i)}))),n},T.prototype.updateRules=function(e,t){return S(e,t,"fieldConstraints")}
+var A=function(){}
+A.prototype.performAction=function(e,t){return!0!==t?e:null}
+var N=function(){}
+N.prototype.performAction=function(e,t){return e&&i.h.isArray(t)&&!i.h.isEmptyArray(t)?(e=i.h.extend({},e),t.forEach((function(t){delete e[t]})),i.h.isEmptyObject(e)?null:e):e}
+var O=function(){}
+O.prototype.performAction=function(e,t){if(!e||!i.h.isArray(t)||i.h.isEmptyArray(t))return e
+var n={}
+return Object.keys(e).forEach((function(i){t.indexOf(i)>-1&&(n[i]=e[i])})),i.h.isEmptyObject(n)?null:n}
+var P=function(){this._actions={},this._actions.blacklisted=new A,this._actions.blacklistedFields=new N,this._actions.whitelistedFields=new O}
+P.prototype.getAction=function(e){return this._actions[e]}
+var K=function(){h.apply(this,arguments)};(K.prototype=Object.create(h.prototype)).constructor=K,K.prototype.constrainedValue=function(e,t){var n=t?t.precision:0,r=t?t.buckets:null
+if(i.h.isDefinedNonNullNonEmpty(r)){var o=(r=r.slice().sort((function(e,t){return e.start-t.start})))[function(e,t){var n=-1
+if(!i.h.isDefinedNonNull(t)||0===e.length||i.h.isDefinedNonNull(e[0])&&t<e[0].start)return-1
+if(e[e.length-1].start<t)n=e.length-1
+else for(var r=0;r<e.length;r++){var o=e[r].start
+if(o===t){n=r
+break}if(o>t){n=r-1
+break}}return n}(r,e)]
+i.h.isDefinedNonNull(o)&&(e=o.value)}else i.h.isNumber(e)&&i.h.isNumber(n)&&n>0&&(e=Math.floor(e/n)*n)
+return e}
+var F=function(e){e=e||{},this._nextRotationTime=e.nextRotationTime||Number.POSITIVE_INFINITY,this._storageKey=e.namespace||"mt_serial_number",this._initialSerialNumber=e.initialSerialNumber||0,this._rotationPeriod=e.rotationPeriod||Number.POSITIVE_INFINITY}
+F.prototype.setDelegate=function(e){i.h.attachDelegate(this,e)},F.prototype.localStorageObject=function(){return i.j.localStorageObject()},F.prototype.getNextSerialNumber=function(e){var t=this._storageKey,n=this._getCurrentSerialNumberData(t),r=n.sn
+return e=i.h.isNumber(e)?e:1,r=parseInt(r,10),isNaN(r)&&(r=this._initialSerialNumber),r=this._increaseSerialNumber(r,e),n.sn=r,i.j.saveObjectToStorage(this.localStorageObject(),this._storageKey,n),r},F.prototype.resetSerialNumber=function(){var e=i.j.objectFromStorage(this.localStorageObject(),this._storageKey)
+i.h.isDefinedNonNull(e)&&this._resetSerialNumber(e.exp)},F.prototype.getTime=function(){return Date.now()},F.prototype._increaseSerialNumber=function(e,t){return e+t},F.prototype._getCurrentSerialNumberData=function(e){var t,n,r=i.j.objectFromStorage(this.localStorageObject(),e)
+for(r?(t=r.exp,t=parseInt(t,10),r.exp=t=isNaN(t)?this._nextRotationTime:t):t=this._nextRotationTime-this._rotationPeriod;!r||this.getTime()>=t;)t=n=t+this._rotationPeriod,r=this._resetSerialNumber(n)
+return r},F.prototype._resetSerialNumber=function(e){var t={}
+return t.exp=e,t.sn=this._initialSerialNumber,i.j.saveObjectToStorage(this.localStorageObject(),this._storageKey,t),t}
+var x=function(){h.apply(this,arguments),this._storage=this._constraintsInstance.system.environment.localStorageObject(),this._precisionEndTimeCache={},this._serialNumberGenerator=null};(x.prototype=Object.create(h.prototype)).constructor=x,x.prototype.constrainedValue=function(e,t,n,r){var o=e
+if(i.h.isNumber(e)&&i.h.isObject(t)&&i.h.isNumber(t.precision)&&t.precision>0){var s=this._computePrecisionStartTime(e,t)
+this._serialNumberGenerator=new F({namespace:this._persistentStorageKey(t,r),nextRotationTime:s+t.precision,rotationPeriod:t.precision}),this._serialNumberGenerator.setDelegate(this._constraintsInstance.system.environment),this._serialNumberGenerator.setDelegate({getTime:function(){return e}})
+var a=this._serialNumberGenerator.getNextSerialNumber()
+o=this._computeTimestamp(s,a),this._serialNumberGenerator=null}return o},x.prototype._computeTimestamp=function(e,t){return e+t},x.prototype._persistentStorageKey=function(e,t){var n=e.namespace?"_"+e.namespace:""
+return(e.storageKeyPrefix||"mtTimestamp")+n+"_"+t},x.prototype._computePrecisionStartTime=function(e,t){var n=t.precision
+return Math.floor(e/n)*n}
+var E=function(e){this.actions={},this.actions.idGenerator=new g(e),this.actions.numberDeres=new K(e),this.actions.timeDeres=new x(e),this.actions.urlDeres=new b(e)}
+E.prototype.getAction=function(e){return this.actions[e]}
+var M=function(e){this._eventActions=new P,this._fieldActions=new E(e)}
+M.prototype.applyConstraints=function(e,t){var n=e
+if(t&&!i.h.isEmptyObject(t)){if(t.fieldActions&&!i.h.isEmptyObject(t.fieldActions)){var r=this,o=Object.keys(t.fieldActions).reduce((function(e,i){var o=t.fieldActions[i]
+if(o){var s=o.treatmentType,a=r._fieldActions.getAction(s)
+if(o.blacklisted)e[i]=null
+else if(o.hasOwnProperty(p))e[i]=o[p]
+else if(a){var c=a.performAction(i,n,o)
+e[i]=c}}return e}),{})
+if(!i.h.isEmptyObject(o)){var s=i.h.extend({},n,o)
+n=i.e.mergeAndCleanEventFields(s)}}t.eventActions&&!i.h.isEmptyObject(t.eventActions)&&Object.keys(t.eventActions).forEach((function(e){var i=this._eventActions.getAction(e)
+if(i){var r=t.eventActions[e]
+n=i.performAction(n,r)}}),this)}return n}
+var k=function(e){this._constraintsInstance=e,this.treatment=new M(e)}
+k.prototype._combineTreatments=function(e,t,n){var r=[]
+return i.h.isArray(e)&&e.forEach((function(e){var i="treatmentProfiles."+e,o=t.value(i,n)
+o&&o.treatments&&(r=r.concat(o.treatments))})),r},k.prototype.constraintsForEvent=function(e,t,n){if(!t)return null
+var r=this,o=t.constraintProfiles(n)
+if(!i.h.isDefinedNonNull(o)){var s=t.constraintProfile(n)
+i.h.isDefinedNonNull(s)&&(o=[s])}if(!i.h.isDefinedNonNull(o))return null
+if(!i.h.isArray(o))throw new TypeError('"constraintProfiles" should be an Array, but got: '+(o?o.constructor:o))
+var a=this._combineTreatments(o,t,n)
+if(0===a.length)throw new SyntaxError("The constraintProfiles: "+o.join(", ")+" are not found in the topic config")
+return a.reduce((function(t,n){return r.eventMatchesTreatment(e,n)&&(t=function(e,t){var n=e||{}
+return function(e,t){e.eventActions||(e.eventActions={})
+var n=e.eventActions,r=t.eventActions
+r&&Object.keys(r).reduce((function(e,t){var n=e[t],o=r[t]
+return i.h.isArray(n)?i.h.isArray(o)&&o.forEach((function(e){-1===n.indexOf(e)&&n.push(e)})):i.h.isArray(o)?e[t]=o.slice():i.h.isObject(o)||i.h.isFunction(o)||(e[t]=o),e}),n)}(n,t),function(e,t){e.fieldActions||(e.fieldActions={}),S(e,t,"fieldActions",(function(e,t,n){return e[n]&&e[n].treatmentType===t[n].treatmentType?e[n]:{}}))}(n,t),n}(t,n)),t}),null)},k.prototype.eventMatchesTreatment=function(e,t){var n=t.filters
+if(n&&i.h.isString(n))return"any"===n
+if(!i.h.isDefinedNonNull(n)||0===n.length)throw new SyntaxError("Unable to find the filter in \n"+JSON.stringify(t))
+return Object.keys(n).every((function(r){var o=n[r]
+if(o&&i.h.isString(o))return!1
+if(!o||!i.h.isObject(o)||i.h.isEmptyObject(o))throw new SyntaxError("Invalid filter object for field ("+r+") in \n"+JSON.stringify(t))
+return Object.keys(o).every((function(n){var i=o[n]
+if(c[n])return c[n](r,e,i)
+throw new SyntaxError("Unable to find the filter ("+n+") for field ("+r+")in \n"+JSON.stringify(t))}))}))}
+var C={constraintProfile:function(e){return this.value("constraints.defaultProfile",e)},constraintProfiles:function(e){return this.value("defaultTreatmentProfiles",e)}},V=function(e,t){if(n=e,r=!0,(r&=i.h.isDefinedNonNull(n))&&(r&=!i.h.isEmptyObject(n),r&=i.h.isFunction(n.initialized),r&=i.h.isFunction(n.value),r&=i.h.isFunction(n.constraintProfile)),!r)throw new Error('The topic config is not a valid instance of "mt-client-config".')
+var n,r
+this._isInitialized=!1,this._topicConfig=e,this._constraintGenerator=null,this.system=new a,i.h.setDelegates(this.system,t||{})}
+V.prototype._getConstraintGenerator=function(){var e=this._topicConfig
+return this._constraintGenerator&&this._isInitialized||(this._isInitialized=e.initialized(),function(e){return i.h.isDefinedNonNull(e.value("treatmentProfiles"))}(e)?this._constraintGenerator=new k(this):this._constraintGenerator=new T(this)),this._constraintGenerator},V.prototype.constraintsForEvent=function(e,t){return this._getConstraintGenerator().constraintsForEvent(e,this._topicConfig,t)},V.prototype.applyConstraintTreatments=function(e,t){if(void 0===t)try{t=this.constraintsForEvent(e)}catch(e){return this.system.logger.warn("An error occupied while applying constraints: "+e.message||!1),null}return this._getConstraintGenerator().treatment.applyConstraints(e,t)}
+var H=V,j="7.3.2",R={mtName:function(){return"mt-metricskit"},mtVersion:function(){return j}},B={attachDelegateInfo:function(e){i.h.extend(e,R)}},U={treatmentProfiles:{AMPWeb:{treatments:[{filters:"any",fieldActions:{clientId:{treatmentType:"idGenerator",storageKeyPrefix:"mtClientId",namespace:"AMPWeb_isSignedOut",lifespan:864e5}}},{filters:{isSignedIn:{valueMatches:[!0]}},fieldActions:{clientId:{treatmentType:"idGenerator",storageKeyPrefix:"mtClientId",namespace:"AMPWeb_isSignedIn",lifespan:15552e6}}}]},AMPFunnel:{treatments:[{filters:"any",eventActions:{blacklistedFields:["mtClientId","mtRequestId","pliIds","userAgent","screenHeight","screenWidth","windowInnerHeight","windowInnerWidth","windowOuterHeight","windowOuterWidth"]},fieldActions:{eventTime:{treatmentType:"timeDeres",precision:864e5},clientId:{treatmentType:"idGenerator",storageKeyPrefix:"mtId_clientId_unidentified",lifespan:15552e6}}}]},strict:{treatments:[{filters:"any",fieldActions:{consumerId:{blacklisted:!0},dsId:{blacklisted:!0},clientId:{treatmentType:"idGenerator",storageKeyPrefix:"mtClientId",scopeFieldName:"parentPageUrl",scopeStrategy:"mainDomain",lifespan:864e5},parentPageUrl:{treatmentType:"urlDeres",scope:"hostname"}}},{filters:{eventType:{valueMatches:["click"]},actionType:{valueMatches:["signUp"]}},fieldActions:{parentPageUrl:{treatmentType:"urlDeres",scope:"fullWithoutParams"}}},{filters:{eventType:{valueMatches:["dialog"]},dialogType:{valueMatches:["upsell"]},result:{valueMatches:["upsell"]}},fieldActions:{parentPageUrl:{treatmentType:"urlDeres",scope:"fullWithoutParams"}}},{filters:{userType:{valueMatches:["signedIn"]}},fieldActions:{clientId:{treatmentType:"idGenerator",storageKeyPrefix:"mtClientId",scopeStrategy:"all"}}},{filters:{userType:{valueMatches:["signedIn"]},eventType:{valueMatches:["click","dialog","media","search"]}},fieldActions:{clientId:{blacklisted:!0},consumerId:{blacklisted:!1},dsId:{blacklisted:!1}}},{filters:{userType:{valueMatches:["signedIn"]},eventType:{valueMatches:["page","impressions"]},pageHistory:{nonEmpty:!0}},fieldActions:{clientId:{blacklisted:!0},consumerId:{blacklisted:!1},dsId:{blacklisted:!1}}}]}}},W={xp_its_music_main:{treatmentProfiles:{AMPWeb:{treatments:[{filters:"any",fieldActions:{clientId:{treatmentType:"idGenerator",storageKeyPrefix:"mtClientId",namespace:"AMPWeb_isSignedOut",lifespan:864e5,persistIdForSession:!0},analyticsClientId:{treatmentType:"idGenerator",namespace:"AMPWeb_isSignedOut",lifespan:864e5,persistIdForSession:!0}}},{filters:{isSignedIn:{valueMatches:[!0]}},fieldActions:{clientId:{treatmentType:"idGenerator",storageKeyPrefix:"mtClientId",namespace:"AMPWeb_isSignedIn",lifespan:15552e6,persistIdForSession:!0},analyticsClientId:{treatmentType:"idGenerator",namespace:"AMPWeb_isSignedIn",lifespan:15552e6,persistIdForSession:!0}}}]}}},xp_amp_tv_main:{treatmentProfiles:{AMPWeb:{treatments:[{filters:"any",fieldActions:{clientId:{blacklisted:!0}}},{filters:{isSignedIn:{valueMatches:[!1]}},fieldActions:{clientId:{treatmentType:"idGenerator",namespace:"AMPWeb_isSignedOut",lifespan:864e5}}}]}}},xp_amp_tv_unidentified:i.h.extend({},U,{blacklistedFields:["consumerId"]}),default_constraints:U}
+i.h.attachMethods(r.a,i.b,r.a)
+function G(e,t){var n=(t=t||{}).delegates||{},o=t.configSourcesFn,s=t.onSuccessHandler,a=t.onFailureHandler,c=n.environment,p=n.network,u=n.logger
+i.h.isFunction(o)||function(e){if(!e.cachedSource()){var t=function(e){var t=W[e]
+return i.h.isDefinedNonNull(t)||(t=U),t}(e.topic())
+e.setCachedSource(t)}}(e),r.a.environment.setDelegate(c),r.a.logger.setDelegate(u),r.a.network.setDelegate(p),function(e){var t
+i.h.attachMethods(e,i.b,e),t=e,i.h.isFunction(t.constraintProfile)&&i.h.isFunction(t.constraintProfiles)||i.h.attachMethods(t,C,t),B.attachDelegateInfo(e)}(e),e.init(o,s,a)}var L={CLIENT_EVENT_ID:"clientEventId",CONSUMER_ID:"consumerId",CONSUMER_NS:"consumerNs",DELEGATE_APP:"delegateApp",EVENT_VERSION:"eventVersion",STOREFRONT_COUNTRY_CODE:"storeFrontCountryCode"},z=i.k.exceptionString,J=["app","appVersion","capacityData","capacityDataAvailable","capacityDisk","capacitySystem","capacitySystemAvailable","connectionType","dsId","hostApp","osVersion","pageUrl","pixelRatio","resourceRevNum","screenHeight","screenWidth","storeFrontHeader","userAgent","userType","windowInnerHeight","windowInnerWidth","windowOuterHeight","windowOuterWidth"],q=["consumerId","consumerNs","cookie","delegateApp","environmentInstance","hardwareBrand","hardwareFamily","hardwareModel","hostAppVersion","os","osBuildNumber","osLanguages","parentPageUrl","storeFrontCountryCode"],Y=!1,Q=function(){},X=function e(){Y||(Y=!0,J.forEach((function(t){e.prototype[t]=function(){throw z("metrics.system.environment",t)}})),q.forEach((function(t){e.prototype[t]=Q})))}
+X.prototype.setDelegate=function(e){return i.c.setDelegate(e),i.h.attachDelegate(this,e)},X.prototype.localStorageObject=i.j.localStorageObject,X.prototype.sessionStorageObject=i.j.sessionStorageObject
+var Z=function(){}
+Z.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},Z.prototype.recordEvent=function(e,t){throw i.k.exceptionString("metrics.system.event_recorder","recordEvent")},Z.prototype.sendMethod=function(){throw i.k.exceptionString("metrics.system.event_recorder","sendMethod")},Z.prototype.flushUnreportedEvents=function(e){}
+var $=Object(o.c)("mt-metricskit"),ee=function(){for(var e in this.environment=new X,this.eventRecorder=new Z,this.logger=$,this)B.attachDelegateInfo(this[e])},te=function(e){this._metricsKit=e}
+te.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},te.prototype.metricsData=function(e,t,n){return this._metricsKit.eventHandlers.base.processMetricsData.apply(this,arguments)},te.prototype.knownFields=function(){return["eventType","eventVersion","type"]},te.prototype.eventType=function(e){return"account"},te.prototype.eventVersion=function(e){return e&&e.eventVersion||1}
+var ne=L,ie=function(e){this._metricsKit=e}
+ie.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},ie.prototype.metricsData=function(e,t,n){var i=Array.prototype.slice.call(arguments),r=this._metricsKit.config.value("metricsBase")
+return r&&i.push(r),this.processMetricsData.apply(this,i)},ie.prototype.processMetricsData=function(e,t,n){var i=null,r="function"==typeof this.eventType?this.eventType():null,o=this._metricsKit.config,s=this._metricsKit.eventHandlers.base,a=this._metricsKit.utils,c=this._metricsKit._constraints
+if(!o.metricsDisabledOrBlacklistedEvent(r)){var p=this!==s,u="function"!=typeof this.mtIncludeBaseFields||this.mtIncludeBaseFields(),l=Array.prototype.slice.call(arguments,3)
+if(p&&u){var h=s.metricsData.apply(s,arguments)
+l=[h].concat(l)}i=a.eventFields.processMetricsData(this,this.knownFields(),e,t,n,l),p&&(i=c.applyConstraintTreatments(i),o.removeBlacklistedFields(i),o.applyDeRes(i))}return i},ie.prototype.knownFields=function(){return["app","appVersion","baseVersion","capacityData","capacityDataAvailable","capacityDisk","capacitySystem","capacitySystemAvailable","connection","constraintProfile","constraintProfiles",ne.CONSUMER_ID,ne.CONSUMER_NS,ne.CLIENT_EVENT_ID,"clientId",ne.DELEGATE_APP,"dsId","environmentInstance","eventTime","isSignedIn","hardwareBrand","hardwareFamily","hardwareModel","hostApp","hostAppVersion","os","osBuildNumber","osVersion","page","pageContext","pageDetails","pageId","pageType","pageUrl","parentPageUrl","pixelRatio","resourceRevNum","screenHeight","screenWidth",ne.STOREFRONT_COUNTRY_CODE,"storeFrontHeader","timezoneOffset","userAgent","userType","windowInnerHeight","windowInnerWidth","windowOuterHeight","windowOuterWidth","xpPostFrequency","xpSendMethod","xpVersionMetricsKit","xpDelegatesInfo"]},ie.prototype.app=function(e){var t=this._metricsKit.system.environment
+return e&&e.app||t.app()},ie.prototype.appVersion=function(e){var t=this._metricsKit.system.environment
+return e&&e.appVersion||t.appVersion()},ie.prototype.baseVersion=function(e){return 1},ie.prototype.capacityData=function(e){var t=this._metricsKit.system.environment
+return e&&e.capacityData||t.capacityData()},ie.prototype.capacityDataAvailable=function(e){var t=this._metricsKit.system.environment
+return e&&e.capacityDataAvailable||t.capacityDataAvailable()},ie.prototype.capacityDisk=function(e){var t=this._metricsKit.system.environment
+return e&&e.capacityDisk||t.capacityDisk()},ie.prototype.capacitySystem=function(e){var t=this._metricsKit.system.environment
+return e&&e.capacitySystem||t.capacitySystem()},ie.prototype.capacitySystemAvailable=function(e){var t=this._metricsKit.system.environment
+return e&&e.capacitySystemAvailable||t.capacitySystemAvailable()},ie.prototype.connection=function(e){var t=this._metricsKit.system.environment
+return e&&e.connection||t.connectionType()},ie.prototype.constraintProfile=function(e){var t=this._metricsKit.config
+return e&&e.constraintProfile||t.constraintProfile()},ie.prototype.constraintProfiles=function(e){var t=this._metricsKit.config
+return e&&e.constraintProfiles||t.constraintProfiles()},ie.prototype.consumerId=function(e){var t=this._metricsKit.system.environment
+return e&&e[ne.CONSUMER_ID]||t.consumerId()},ie.prototype.consumerNs=function(e){var t=this._metricsKit.system.environment
+return e&&e[ne.CONSUMER_NS]||t.consumerNs()},ie.prototype.clientEventId=function(e){var t=e&&e[ne.CLIENT_EVENT_ID]
+return t||(i.k.cryptoRandomBase62String&&(t=i.k.cryptoRandomBase62String(!0)),t||(t=i.k.uuid())),t},ie.prototype.clientId=function(e){var t,n=this._metricsKit.config
+return e&&e.clientId?t=e.clientId:n.value("ignoreClientIdCookie")||(t=i.c.get("xp_ci")),t},ie.prototype.delegateApp=function(e){var t=this._metricsKit.system.environment
+return e&&e[ne.DELEGATE_APP]||t.delegateApp()},ie.prototype.dsId=function(e){var t=this._metricsKit.system.environment
+return e&&e.dsId||t.dsId()},ie.prototype.isSignedIn=function(e){return e&&"isSignedIn"in e?e.isSignedIn:!!this.dsId(e)},ie.prototype.eventTime=function(e){return e&&e.eventTime||Date.now()},ie.prototype.hardwareBrand=function(e){var t=this._metricsKit.system.environment
+return e&&e.hardwareBrand||t.hardwareBrand()},ie.prototype.hardwareFamily=function(e){var t=this._metricsKit.system.environment
+return e&&e.hardwareFamily||t.hardwareFamily()},ie.prototype.hardwareModel=function(e){var t=this._metricsKit.system.environment
+return e&&e.hardwareModel||t.hardwareModel()},ie.prototype.hostApp=function(e){var t=this._metricsKit.system.environment
+return e&&e.hostApp||t.hostApp()},ie.prototype.hostAppVersion=function(e){var t=this._metricsKit.system.environment
+return e&&e.hostAppVersion||t.hostAppVersion()},ie.prototype.os=function(e){var t=this._metricsKit.system.environment
+return e&&e.os||t.os()},ie.prototype.osBuildNumber=function(e){var t=this._metricsKit.system.environment
+return e&&e.osBuildNumber||t.osBuildNumber()},ie.prototype.osVersion=function(e){var t=this._metricsKit.system.environment
+return e&&e.osVersion||t.osVersion()},ie.prototype.page=function(e){if(!e)throw"No data provided to event_handlers/base page function"
+if(e.page)return e.page
+if(this.pageType(e)&&this.pageId(e)){var t=this._metricsKit.config
+return this.pageType(e)+t.value("compoundSeparator")+this.pageId(e)}},ie.prototype.pageContext=function(e){return e&&e.pageContext},ie.prototype.pageDetails=function(e){return e&&e.pageDetails},ie.prototype.pageId=function(e){return e&&e.pageId},ie.prototype.pageType=function(e){return e&&e.pageType},ie.prototype.pageUrl=function(e){var t=this._metricsKit.system.environment
+return e&&e.pageUrl||t.pageUrl()},ie.prototype.parentPageUrl=function(e){var t=this._metricsKit.system.environment
+return e&&e.parentPageUrl||t.parentPageUrl()},ie.prototype.pixelRatio=function(e){var t=this._metricsKit.system.environment
+return e&&e.pixelRatio||t.pixelRatio()},ie.prototype.resourceRevNum=function(e){var t=this._metricsKit.system.environment
+return e&&e.resourceRevNum||t.resourceRevNum()},ie.prototype.screenHeight=function(e){var t=this._metricsKit.system.environment
+return e&&e.screenHeight||t.screenHeight()},ie.prototype.screenWidth=function(e){var t=this._metricsKit.system.environment
+return e&&e.screenWidth||t.screenWidth()},ie.prototype.storeFrontCountryCode=function(e){var t=this._metricsKit.system.environment
+return e&&e[ne.STOREFRONT_COUNTRY_CODE]||t.storeFrontCountryCode()},ie.prototype.storeFrontHeader=function(e){var t=this._metricsKit.system.environment
+return e&&e.storeFrontHeader||t.storeFrontHeader()},ie.prototype.timezoneOffset=function(e){return e&&e.timezoneOffset||(new Date).getTimezoneOffset()},ie.prototype.userAgent=function(e){var t=this._metricsKit.system.environment
+return e&&e.userAgent||t.userAgent()},ie.prototype.userType=function(e){var t=this._metricsKit.system.environment
+return e&&e.userType||t.userType()},ie.prototype.windowInnerHeight=function(e){var t=this._metricsKit.system.environment
+return e&&e.windowInnerHeight||t.windowInnerHeight()},ie.prototype.windowInnerWidth=function(e){var t=this._metricsKit.system.environment
+return e&&e.windowInnerWidth||t.windowInnerWidth()},ie.prototype.windowOuterHeight=function(e){var t=this._metricsKit.system.environment
+return e&&e.windowOuterHeight||t.windowOuterHeight()},ie.prototype.windowOuterWidth=function(e){var t=this._metricsKit.system.environment
+return e&&e.windowOuterWidth||t.windowOuterWidth()},ie.prototype.xpPostFrequency=function(e){var t=this._metricsKit.config
+return e&&e.xpPostFrequency||t.value("postFrequency")},ie.prototype.xpViewablePercentage=function(e){var t=this._metricsKit.config
+return e&&e.xpViewablePercentage||t.value("impressions.viewablePercentage")},ie.prototype.xpSendMethod=function(e){var t=this._metricsKit.system
+return e&&e.xpSendMethod||t.eventRecorder.sendMethod()},ie.prototype.xpVersionMetricsKit=function(){return j},ie.prototype.xpDelegatesInfo=function(){var e=i.d.getStoredDelegateObject(this)
+return e&&e.delegates||void 0}
+var re=function(e){this._metricsKit=e}
+re.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},re.prototype.metricsData=function(e,t,n){var i=this._metricsKit.eventHandlers.base
+return i.processMetricsData.apply(this,arguments)},re.prototype.knownFields=function(){return["eventType","eventVersion"]},re.prototype.eventType=function(e){return"buyConfirmed"},re.prototype.eventVersion=function(e){return e&&e.eventVersion||1},re.prototype.createClientBuyId=function(){var e=null,t=this._metricsKit.system.environment,n=t.sessionStorageObject().getItem("mtMetricsKit_previousClientBuyId")
+return e=++n,n||(this._metricsKit.system.logger.warn("Metrics: buyConfirmed.createClientBuyId: clientBuyId did not exist or was of incorrect type, reset to 1."),e=1),t.sessionStorageObject().setItem("mtMetricsKit_previousClientBuyId",e),e},re.prototype.clientBuyIdQueryParamString=function(e){return"&clientBuyId="+e},re.prototype.metricsBuyParamsString=function(e,t,n,r){var o,s,a=this._metricsKit.eventHandlers.base,c=this._metricsKit.eventHandlers.page,p=Array.prototype.slice.call(arguments,4),u=c.pageHistory(),l=a.clientId()
+return Array.isArray(u)?u.length>=2&&(o=u[u.length-2]):this._metricsKit.system.logger.warn("MetricsKit: metricsBuyParamsString: pageHistory is not an Array"),s={mtApp:a.app(),mtEventTime:Date.now(),mtHardwareBrand:a.hardwareBrand(),mtHardwareFamily:a.hardwareFamily(),mtHardwareModel:a.hardwareModel(),mtHostApp:a.hostApp(),mtHostAppVersion:a.hostAppVersion(),mtOs:a.os(),mtOsBuildNumber:a.osBuildNumber(),mtOsVersion:a.osVersion(),mtPageId:e,mtPageType:t,mtPageContext:n,mtTopic:r||"xp_its_main",mtPrevPage:o,mtRequestId:i.k.uuid(),mtClientId:l},i.h.extend.apply(i.h,[s].concat(p)),i.k.paramString(s)},re.prototype.cacheMetricsBuyData=function(e,t){var n=this._metricsKit.system.environment
+if(2!=arguments.length)this._metricsKit.system.logger.error("buyConfirmed.cacheMetricsBuyData(): function invoked with incorrect number of parameters. Perhaps you meant to retrieve cached data instead of setting it, which would be a call to uncacheMetricsBuyData(clientBuyId)?")
+else{var i=JSON.stringify(t)
+n.sessionStorageObject().setItem("mtMetricsKit_metricsBuyData_for_clientBuyId_"+e,i)}},re.prototype.uncacheMetricsBuyData=function(e){var t=null,n=this._metricsKit.system.environment
+if(1!=arguments.length)this._metricsKit.system.logger.error("buyConfirmed.uncacheMetricsBuyData(): function invoked with incorrect number of parameters. Perhaps you meant to set cached data instead of retrieving it, which would be a call to cacheMetricsBuyData(clientBuyId, metricsBuyData)?")
+else{var i=n.sessionStorageObject().getItem("mtMetricsKit_metricsBuyData_for_clientBuyId_"+e)
+i&&(t=JSON.parse(i),n.sessionStorageObject().removeItem("mtMetricsKit_metricsBuyData_for_clientBuyId_"+e))}return t},re.prototype.buyFailureOccurred=function(e){var t=this.uncacheMetricsBuyData(e)
+t&&(t.detoured=!0,this.cacheMetricsBuyData(e,t))}
+var oe=function(e){var t=null
+try{t=JSON.parse(e)}catch(e){$.error("MetricsKit: error parsing click data - "+e)}return t},se=function(e){this._metricsKit=e}
+se.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},se.prototype.metricsData=function(e,t,n,i){var r=[e,t,n],o=this._metricsKit.eventHandlers.base,s=this._metricsKit.utils
+return i&&(r.push({location:s.eventFields.buildLocationStructure(i,this.locationDataForElement)}),r.push(this.dataForElement(i)||{})),r=r.concat(Array.prototype.slice.call(arguments,4)),o.processMetricsData.apply(this,r)},se.prototype.knownFields=function(){return["actionContext","actionDetails","actionType","actionUrl","eventType","eventVersion","impressions","location","targetId","targetType","positionX","positionY","xpViewablePercentage"]},se.prototype.dataForElement=function(e){var t=null
+if(e&&i.h.isFunction(e.hasAttribute)&&i.h.isFunction(e.getAttribute)){var n=this.dataAttribute()
+e.hasAttribute(n)&&(t=oe(e.getAttribute(n)))}return t},se.prototype.dataAttribute=function(){return"data-metrics-click"},se.prototype.locationDataForElement=function(e){var t,n,i,r=e.parentNode,o=0,s=null
+if(e.hasAttribute&&e.hasAttribute("data-metrics-location")&&(s=oe(e.getAttribute("data-metrics-location"))).locationType){if(r){t=r.childNodes
+for(var a=0;a<t.length;a++)if((i=(n="function"==typeof t.item&&t.item(a)||t[a]).hasAttribute&&n.hasAttribute("data-metrics-location")?oe(n.getAttribute("data-metrics-location")):void 0)?i.locationType:void 0){if(n===e)break
+o++}}s.locationPosition=o}return s},se.prototype.eventType=function(e){return"click"},se.prototype.eventVersion=function(e){return e&&e.eventVersion||4},se.prototype.impressions=function(e){return e?e.impressions:void 0},se.prototype.xpViewablePercentage=function(e){return this._metricsKit.eventHandlers.base.xpViewablePercentage(e)}
+var ae=function(e){this._metricsKit=e}
+ae.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},ae.prototype.metricsData=function(e,t,n){var i=this._metricsKit.eventHandlers.base
+return i.processMetricsData.apply(this,arguments)},ae.prototype.knownFields=function(){return["buttons","code","details","message","type","eventType","eventVersion","type"]},ae.prototype.eventType=function(e){return"dialog"},ae.prototype.eventVersion=function(e){return e&&e.eventVersion||2}
+var ce=function(e){this._metricsKit=e}
+ce.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},ce.prototype.metricsData=function(e,t,n){var i=this._metricsKit.eventHandlers.base
+return i.processMetricsData.apply(this,arguments)},ce.prototype.knownFields=function(){return["eventType","eventVersion","extRefUrl","osLanguages","refApp","type"]},ce.prototype.eventType=function(e){return"enter"},ce.prototype.eventVersion=function(e){return e&&e.eventVersion||1},ce.prototype.osLanguages=function(e){return e&&e.osLanguages||this._metricsKit.system.environment.osLanguages()}
+var pe=function(e){this._metricsKit=e}
+pe.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},pe.prototype.metricsData=function(e,t,n){var i=this._metricsKit.eventHandlers.base
+return i.processMetricsData.apply(this,arguments)},pe.prototype.knownFields=function(){return["destinationUrl","eventType","eventVersion","type"]},pe.prototype.eventType=function(e){return"exit"},pe.prototype.eventVersion=function(e){return e&&e.eventVersion||1}
+var ue=function(e){this._metricsKit=e}
+ue.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},ue.prototype.metricsData=function(e){var t=[void 0,void 0,void 0],n=this._metricsKit.eventHandlers.base
+t.push({eventType:e})
+var i=Array.prototype.slice.call(arguments,1)
+return t=t.concat(i),n.processMetricsData.apply(this,t)},ue.prototype.knownFields=function(){return["eventTime","eventType"]},ue.prototype.mtIncludeBaseFields=function(){return!1},ue.prototype.eventTime=function(e){return e&&e.eventTime||Date.now()},ue.prototype.eventType=function(e){return e&&e.eventType||void 0}
+var le=function(e){this._metricsKit=e}
+le.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},le.prototype.metricsData=function(e,t,n){var i=this._metricsKit.eventHandlers.base
+return i.processMetricsData.apply(this,arguments)},le.prototype.knownFields=function(){return["eventType","eventVersion","impressions","xpViewablePercentage","xpViewableThreshold"]},le.prototype.eventType=function(e){return"impressions"},le.prototype.eventVersion=function(e){return e&&e.eventVersion||3},le.prototype.impressions=function(e){return e?e.impressions:void 0},le.prototype.xpViewablePercentage=function(e){return this._metricsKit.eventHandlers.base.xpViewablePercentage(e)},le.prototype.xpViewableThreshold=function(e){var t=this._metricsKit.config
+return e&&e.xpViewableThreshold||t.value("impressions.viewableThreshold")}
+var he=L,de=function(e){this._metricsKit=e}
+de.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},de.prototype.metricsData=function(e,t,n){var i=this._metricsKit.eventHandlers.base
+return i.processMetricsData.apply(this,arguments)},de.prototype.knownFields=function(){return["eventType",he.EVENT_VERSION,"id","idType","type","typeDetails","actionType","actionDetails","url","duration","position"]},de.prototype.eventType=function(e){return"media"},de.prototype.eventVersion=function(e){return e&&e.eventVersion||1}
+var fe=function(e){this._metricsKit=e,this.pageHistoryCache=[]}
+fe.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},fe.prototype.metricsData=function(e,t,n){var i=this._metricsKit.eventHandlers.base
+return i.processMetricsData.apply(this,arguments)},fe.prototype.knownFields=function(){return["eventType","eventVersion","extRefUrl","hostApp","refApp","refUrl","requestStartTime","responseStartTime","responseEndTime","pageHistory","pageLoadTime","pageRenderTime","searchFilters","searchTerm"]},fe.prototype.eventType=function(e){return"page"},fe.prototype.eventVersion=function(e){return e&&e.eventVersion||1},fe.prototype.pageHistory=function(e){var t
+if((e=e||{}).pageHistory)t=e.pageHistory
+else{t=this.pageHistoryCache.slice(0)
+var n=e.page
+n&&(this.pageHistoryCache.length>=5&&this.pageHistoryCache.shift(),this.pageHistoryCache.push(n))}return t}
+var ye=function(e){this._metricsKit=e}
+ye.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},ye.prototype.metricsData=function(e,t,n){var i=this._metricsKit.eventHandlers.base
+return i.processMetricsData.apply(this,arguments)},ye.prototype.knownFields=function(){return["actionDetails","actionType","actionUrl","eventType","eventVersion","filters","location","targetId","targetType","term"]},ye.prototype.eventType=function(e){return"search"},ye.prototype.eventVersion=function(e){return e&&e.eventVersion||2}
+var me=function(e){this._metricsKit=e}
+me.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},me.prototype.metricsData=function(e){var t=[null,null,null].concat(Array.prototype.slice.call(arguments))
+return this._metricsKit.eventHandlers.base.processMetricsData.apply(this,t)},me.prototype.knownFields=function(){return["eventType","eventVersion"]},me.prototype.eventType=function(e){return"transaction"},me.prototype.eventVersion=function(e){return e&&e.eventVersion||1}
+var ve=function(e){this.account=new te(e),this.base=new ie(e),this.buyConfirmed=new re(e),this.click=new se(e),this.dialog=new ae(e),this.enter=new ce(e),this.exit=new pe(e),this.flexible=new ue(e),this.impressions=new le(e),this.media=new de(e),this.page=new fe(e),this.search=new ye(e),this.transaction=new me(e),B.attachDelegateInfo(this.account),B.attachDelegateInfo(this.base),B.attachDelegateInfo(this.buyConfirmed),B.attachDelegateInfo(this.click),B.attachDelegateInfo(this.enter),B.attachDelegateInfo(this.exit),B.attachDelegateInfo(this.flexible),B.attachDelegateInfo(this.impressions),B.attachDelegateInfo(this.media),B.attachDelegateInfo(this.page),B.attachDelegateInfo(this.search),B.attachDelegateInfo(this.transaction)},ge=function(e){this._metricsKit=e}
+ge.prototype.getIdType=function(e){var t=this._metricsKit.config,n=e.indexOf("."),i=t.value("compoundSeparator")
+return(-1!==n?e.substring(0,n):"its")+i+"id"},ge.prototype.processMetricsData=function(e,t,n,r,o,s){var a=[{pageId:n,pageType:r,pageContext:o}]
+return i.h.isArray(s)&&(a=a.concat(s)),i.e.processMetricsData(e,t,!0,a)},ge.prototype.applyFieldsMap=function(e,t){var n,r,o,s,a=this._metricsKit.config
+if(e&&t)if(o={},n=a.value("fieldsMap")||{},r=i.f.valueForKeyPath(t,n,n.custom))if(Array.isArray(r))for(s=0;s<r.length;++s)e[r[s]]&&(o[r[s]]=e[r[s]])
+else if("object"==typeof r)for(var c in r)for(s=0;s<r[c].length;++s){var p=i.f.valueForKeyPath(r[c][s],e)
+if(p){o[c]=p
+break}}else this._metricsKit.system.logger.error("mt-metricskit: incorrect data type provided to applyFieldsMap (only accepts objects and Arrays)")
+else this._metricsKit.system.logger.error("mt-metricskit: unable to get fieldsMap from config-source")
+else e||this._metricsKit.system.logger.error("mt-metricskit: No data provided to applyFieldsMap"),t||this._metricsKit.system.logger.error("mt-metricskit: No sectionName provided to applyFieldsMap")
+return o},ge.prototype.flattenImpressions=function(e,t){var n,r,o,s,a=[],c=t||1
+if(e){e=function(e){var t,n={},i=[]
+if(e&&e[0]&&void 0!==e[0].index)for(var r=0;r<e.length;++r)n[t=e[r].index]||(n[t]=!0,i.push(e[r]))
+return i}(e)
+for(var p=0;p<e.length;p++){if("string"==typeof(n=e[p]).data)try{r=JSON.parse(n.data)}catch(e){s=decodeURIComponent(n.data)
+try{r=JSON.parse(s)}catch(t){this._metricsKit.system.logger.error("mt-metricskit: non-JSON serialized data found on impression object. Cannot parse.",e)}}else r=n
+if(r){if(r.impressionTimes=n.timestamps,r.impressionIndex=n.index,r.id&&!r.idType)if("genre"===n.kind){var u=this._metricsKit.config
+r.idType="label"+u.value("compoundSeparator")+"id"}else r.idType=this.getIdType(r.id.toString())
+n.parent&&void 0!==n.parent.impressionId&&(r.impressionParentId=n.parent.impressionId),r.impressionId=c,n.impressionId=c,++c,a.push(r),i.f.valueForKeyPath("children.length",n)>0&&(o=this.flattenImpressions(n.children,c),a=a.concat(o),c+=o.length)}}}else this._metricsKit.system.logger.warn("Fuse-Metrics: No impressions provided to to flattenImpressions")
+return a},ge.prototype.buildLocationStructure=function(e,t){for(var n,i=e,r=[];i;)(n=t.call(t,i))&&r.push(n),i=i.parentNode
+return r}
+var _e=function(){}
+_e.prototype.setDelegate=function(e){return i.h.attachDelegate(this,e)},_e.prototype.makeAjaxRequest=i.g.makeAjaxRequest
+var be={attachDelegate:function(e,t){return i.h.attachDelegate(e,t)},extend:function(e){return i.h.extend.apply(i.h,arguments)},bindFunctionsContext:function(e){if(e)for(var t in e)"function"==typeof e[t]&&(e[t]=e[t].bind(e))}},we={versionStringFromUserAgent:function(e,t){return i.k.versionStringFromUserAgent(e,t)}},Ie=function(e){this.delegateExtension=B,this.eventFields=new ge(e),be.bindFunctionsContext(this.eventFields),this.keyValue=i.f,this.network=new _e,this.reflect=be,this.string=we},De=function(e){this._metricsKit=e,this._baseEventHandler=Object.create(this._metricsKit.eventHandlers.base)}
+De.prototype.clientId=function(e){if(!this._metricsKit.config.initialized())return this._metricsKit.system.logger.error("Unable to load topic config, please invoke clientId() after MetricsKit is initialized."),null
+var t=this._baseEventHandler.metricsData(null,null,null,e)
+return t?t.clientId:null}
+var Se=function(e){this.base=new De(e)},Te=function(e,t){this._initCalled=!1,this._delegatePackage=t,this.system=new ee,this.config=r.a.getConfig(e),this.eventHandlers=new ve(this),this.eventFields=new Se(this),this.utils=new Ie(this),this._constraints=null,i.h.isDefined(e)||this.system.logger.error("No topic is provided to ClickstreamProcessor."),i.h.isDefinedNonNull(t)||this.system.logger.error("No delegate is provided to ClickstreamProcessor")}
+Te.prototype.init=function(e){this._initCalled||(this._initCalled=!0,e=function(e,t){t=t||{}
+var n={onSuccessHandler:null,onFailureHandler:null,configSourcesFn:null}
+return n.configSourcesFn=t.configSourcesFn,n.onSuccessHandler=t.onSuccessHandler,n.onFailureHandler=t.onFailureHandler,n}(0,e),G(this.config,{configSourcesFn:e.configSourcesFn,onSuccessHandler:e.onSuccessHandler,onFailureHandler:e.onFailureHandler,delegates:{environment:this.system.environment,logger:this.system.logger,network:this.utils.network}}),this._constraints=new H(this.config,{environment:this.system.environment}),this._delegatePackage&&(i.h.setDelegates(this.eventHandlers,this._delegatePackage),i.h.setDelegates(this.system,this._delegatePackage),i.h.setDelegates(this.utils,this._delegatePackage)))},Te.prototype.cleanup=function(){var e
+this._delegatePackage&&i.h.isFunction(this._delegatePackage.cleanup)&&this._delegatePackage.cleanup(),e=this.config,r.a.cleanupConfig(e.topic()),i.h.detachMethods(r.a.environment),i.h.detachMethods(r.a.logger),i.h.detachMethods(r.a.network),i.h.resetDelegates(this.eventHandlers),i.h.resetDelegates(this.system),i.h.resetDelegates(this.utils),this.config=null,this.system=null,this.eventHandlers=null,this.utils=null,this._delegatePackage=null,this._constraints=null,this._initCalled=!1}}}])
