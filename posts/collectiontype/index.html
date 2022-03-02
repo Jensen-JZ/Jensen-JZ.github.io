@@ -158,147 +158,147 @@
 </blockquote>
 <h3 id="数组的简单语法">数组的简单语法</h3>
 <p><code>Swift</code>中数组的完整写法<code>Array&lt;Element&gt;</code>，其中<code>Element</code>是这个数组中唯一允许存在的数据类型。也可以使用像<code>[Element]</code>这样简单的语法。尽管两种形式在功能上是一样的，但是推荐较短的那种，而且在文本中都会使用这种形式来创建数组。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> initArray: Array&lt;String&gt; = Array&lt;String&gt;()
-initArray.append(<span style="color:#e6db74">&#34;hello&#34;</span>)
-print(<span style="color:#e6db74">&#34;类型Array&lt;String&gt;的数组为：</span><span style="color:#e6db74">\(</span>initArray<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">类型</span>Array&lt;String&gt;<span style="color:#960050;background-color:#1e0010">的数组为：</span>[<span style="color:#e6db74">&#34;hello&#34;</span>]
-</code></pre></div><h3 id="创建一个空数组">创建一个空数组</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> initArray: Array&lt;String&gt; = Array&lt;String&gt;()
+</span></span><span style="display:flex;"><span>initArray.append(<span style="color:#e6db74">&#34;hello&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;类型Array&lt;String&gt;的数组为：</span><span style="color:#e6db74">\(</span>initArray<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">类型</span>Array&lt;String&gt;<span style="color:#960050;background-color:#1e0010">的数组为：</span>[<span style="color:#e6db74">&#34;hello&#34;</span>]
+</span></span></code></pre></div><h3 id="创建一个空数组">创建一个空数组</h3>
 <p>可以使用构造语法来创建一个由特定数据类型构成的空数组。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> someInts: [Int] = []
-print(<span style="color:#e6db74">&#34;someInts is of type [Int] with </span><span style="color:#e6db74">\(</span>someInts.count<span style="color:#e6db74">)</span><span style="color:#e6db74"> items.&#34;</span>)  <span style="color:#75715e">// 打印“someInts is of type [Int] with 0 items.”</span>
-<span style="color:#f92672">---</span>
-output: someInts <span style="color:#66d9ef">is</span> of type [Int] with <span style="color:#ae81ff">0</span> items.
-</code></pre></div><p>注意，通过构造函数的类型，<code>someInts</code>的值类型被推断为<code>[Int]</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> someInts: [Int] = []
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;someInts is of type [Int] with </span><span style="color:#e6db74">\(</span>someInts.count<span style="color:#e6db74">)</span><span style="color:#e6db74"> items.&#34;</span>)  <span style="color:#75715e">// 打印“someInts is of type [Int] with 0 items.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: someInts <span style="color:#66d9ef">is</span> of type [Int] with <span style="color:#ae81ff">0</span> items.
+</span></span></code></pre></div><p>注意，通过构造函数的类型，<code>someInts</code>的值类型被推断为<code>[Int]</code>。</p>
 <p>或者，如果代码上下文中已经提供了类型信息，例如一个函数参数或者一个已经定义好类型的常量或者变量，可以使用空数组语句创建一个空数组，它的写法很简单：[]（一对空方括号）：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">someInts.append(<span style="color:#ae81ff">3</span>)
-print(<span style="color:#e6db74">&#34;现在的someInts是：</span><span style="color:#e6db74">\(</span>someInts<span style="color:#e6db74">)</span><span style="color:#e6db74">。&#34;</span>)
-someInts = []
-print(<span style="color:#e6db74">&#34;someInts现在是</span><span style="color:#e6db74">\(</span>someInts<span style="color:#e6db74">)</span><span style="color:#e6db74">，但是依然是[Int]类型的。&#34;</span>)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">现在的</span>someInts是<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#ae81ff">3</span>]<span style="color:#960050;background-color:#1e0010">。</span>
-someInts现在是[]<span style="color:#960050;background-color:#1e0010">，但是依然是</span>[Int]<span style="color:#960050;background-color:#1e0010">类型的。</span>
-</code></pre></div><h3 id="创建一个带有默认值的数组">创建一个带有默认值的数组</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>someInts.append(<span style="color:#ae81ff">3</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;现在的someInts是：</span><span style="color:#e6db74">\(</span>someInts<span style="color:#e6db74">)</span><span style="color:#e6db74">。&#34;</span>)
+</span></span><span style="display:flex;"><span>someInts = []
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;someInts现在是</span><span style="color:#e6db74">\(</span>someInts<span style="color:#e6db74">)</span><span style="color:#e6db74">，但是依然是[Int]类型的。&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">现在的</span>someInts是<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#ae81ff">3</span>]<span style="color:#960050;background-color:#1e0010">。</span>
+</span></span><span style="display:flex;"><span>someInts现在是[]<span style="color:#960050;background-color:#1e0010">，但是依然是</span>[Int]<span style="color:#960050;background-color:#1e0010">类型的。</span>
+</span></span></code></pre></div><h3 id="创建一个带有默认值的数组">创建一个带有默认值的数组</h3>
 <p><code>Swift</code>中的<code>Array</code>类型还提供一个可以创建特定大小且所有数据都被默认的构造方法。可以把准备加入新数组的数据项数量（count）和适当类型的初始值（repeating）传入数组构造函数。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> threeDoubles = Array(repeating: <span style="color:#ae81ff">0.0</span>, count: <span style="color:#ae81ff">3</span>)  <span style="color:#75715e">// threeDoubles是一种[Double]数组，等价于[0.0, 0.0, 0.0]</span>
-print(<span style="color:#e6db74">&#34;threeDoubles is </span><span style="color:#e6db74">\(</span>threeDoubles<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: threeDoubles <span style="color:#66d9ef">is</span> [<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>]
-</code></pre></div><h3 id="通过两个数组相加创建一个数组">通过两个数组相加创建一个数组</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> threeDoubles = Array(repeating: <span style="color:#ae81ff">0.0</span>, count: <span style="color:#ae81ff">3</span>)  <span style="color:#75715e">// threeDoubles是一种[Double]数组，等价于[0.0, 0.0, 0.0]</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;threeDoubles is </span><span style="color:#e6db74">\(</span>threeDoubles<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: threeDoubles <span style="color:#66d9ef">is</span> [<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>]
+</span></span></code></pre></div><h3 id="通过两个数组相加创建一个数组">通过两个数组相加创建一个数组</h3>
 <p>可以使用加法操作符<code>+</code>来组合两个已存在的相同类型的数组。新数组的数据类型会从两个数组的数据类型中推断出来。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> anotherThreeDoubles = Array(repeating: <span style="color:#ae81ff">2.5</span>, count: <span style="color:#ae81ff">3</span>)  <span style="color:#75715e">// anotherThreeDoubles被推断为[Double]，等价于[2.5, 2.5, 2.5]</span>
-<span style="color:#66d9ef">var</span> sixDoubles = threeDoubles <span style="color:#f92672">+</span> anotherThreeDoubles  <span style="color:#75715e">// sixDoubles被推断为[Double]，等价于[0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span>
-print(<span style="color:#e6db74">&#34;sixDoubles的值为：</span><span style="color:#e6db74">\(</span>sixDoubles<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: sixDoubles的值为<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">2.5</span>, <span style="color:#ae81ff">2.5</span>, <span style="color:#ae81ff">2.5</span>]
-</code></pre></div><h3 id="从数组字面量构造数组">从数组字面量构造数组</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> anotherThreeDoubles = Array(repeating: <span style="color:#ae81ff">2.5</span>, count: <span style="color:#ae81ff">3</span>)  <span style="color:#75715e">// anotherThreeDoubles被推断为[Double]，等价于[2.5, 2.5, 2.5]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> sixDoubles = threeDoubles <span style="color:#f92672">+</span> anotherThreeDoubles  <span style="color:#75715e">// sixDoubles被推断为[Double]，等价于[0.0, 0.0, 0.0, 2.5, 2.5, 2.5]</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;sixDoubles的值为：</span><span style="color:#e6db74">\(</span>sixDoubles<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: sixDoubles的值为<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">0.0</span>, <span style="color:#ae81ff">2.5</span>, <span style="color:#ae81ff">2.5</span>, <span style="color:#ae81ff">2.5</span>]
+</span></span></code></pre></div><h3 id="从数组字面量构造数组">从数组字面量构造数组</h3>
 <p>可以使用数组字面量来进行数组构造，这是一种用一个或多个数值构造数组的简单方法。数组字面量是一系列以逗号分割并由方括号包含的数组：</p>
 <ul>
 <li><code>[value 1, value 2, value 3]</code></li>
 </ul>
 <p>下面这个例子创建了一个叫做<code>shoppingList</code>并且存储<code>String</code>的数组：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> shoppingList: [String] = [<span style="color:#e6db74">&#34;Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>]  <span style="color:#75715e">// shoppingList已经被构造且拥有两个初始项</span>
-print(<span style="color:#e6db74">&#34;shoppingList is </span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: shoppingList <span style="color:#66d9ef">is</span> [<span style="color:#e6db74">&#34;Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>]
-</code></pre></div><p><code>shoppingList</code>变量被声明为“字符串值类型的数组”，记作[String]。因为这个数组被规定只有<code>String</code>一种数据结构，所以只有<code>String</code>类型可以在其中被存取。在这里，<code>shoppingList</code>数组由两个<code>String</code>值（“Eggs”和“Milk”）构造，并由数组字面量定义。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> shoppingList: [String] = [<span style="color:#e6db74">&#34;Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>]  <span style="color:#75715e">// shoppingList已经被构造且拥有两个初始项</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;shoppingList is </span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: shoppingList <span style="color:#66d9ef">is</span> [<span style="color:#e6db74">&#34;Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>]
+</span></span></code></pre></div><p><code>shoppingList</code>变量被声明为“字符串值类型的数组”，记作[String]。因为这个数组被规定只有<code>String</code>一种数据结构，所以只有<code>String</code>类型可以在其中被存取。在这里，<code>shoppingList</code>数组由两个<code>String</code>值（“Eggs”和“Milk”）构造，并由数组字面量定义。</p>
 <blockquote>
 <p><strong>注意</strong></p>
 <p>shoppingList数组被声明为变量（var关键字创建）而不是常量（let创建）是因为之后会有更多的数据项被插入其中。</p>
 </blockquote>
 <p>在上述例子中，字面量仅仅包含两个<code>String</code>值。匹配了该数组的声明（只能包含String数组），所以可以将这个字面量的赋值过程看作用两个初始项来构造<code>shoppingList</code>的一种方式。</p>
 <p>由于<code>Swift</code>的类型推断机制，当使用字面量构造拥有相同类型值数组的时候，不必把数组的类型定义清楚，<code>shoppingList</code>的构造也可以这样写：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> shoppingLists = [<span style="color:#e6db74">&#34;Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>]
-</code></pre></div><p>因为所有的数组字面量中的值都是相同类型的，<code>Swift</code>可以推断出<code>[String]</code>是<code>shoppingList</code>中变量的正确类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> shoppingLists = [<span style="color:#e6db74">&#34;Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>]
+</span></span></code></pre></div><p>因为所有的数组字面量中的值都是相同类型的，<code>Swift</code>可以推断出<code>[String]</code>是<code>shoppingList</code>中变量的正确类型。</p>
 <h3 id="访问和修改数组">访问和修改数组</h3>
 <p>可以通过数组的方法和属性来访问和修改数组，或者使用下标语法。</p>
 <p>可以使用数组的只读属性<code>count</code>来获取数组中的数据项数量：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;The shopping list contains </span><span style="color:#e6db74">\(</span>shoppingLists.count<span style="color:#e6db74">)</span><span style="color:#e6db74"> items.&#34;</span>)
-<span style="color:#f92672">---</span>
-output: The shopping list contains <span style="color:#ae81ff">2</span> items.
-</code></pre></div><p>使用布尔属性<code>isEmpty</code>作为一个缩写形式去检查<code>count</code>属性是否为<code>0</code>：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> shoppingList.isEmpty {
-    print(<span style="color:#e6db74">&#34;The shopping list is empty.&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;The shopping list is not empty.&#34;</span>)
-}
-<span style="color:#75715e">// 打印“The shopping list is not empty.”（shoppinglist不是空的）</span>
-<span style="color:#f92672">---</span>
-output: The shopping list <span style="color:#66d9ef">is</span> not empty.
-</code></pre></div><p>也可以使用<code>append(_:)</code>方法在数组后面添加新的数据项：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">shoppingList.append(<span style="color:#e6db74">&#34;Flour&#34;</span>)  <span style="color:#75715e">// shoppingList现在有3个数据项，似乎有人在摊煎饼</span>
-print(<span style="color:#e6db74">&#34;添加‘Flour’选项后的shoppingList值为：</span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">。&#34;</span>)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">添加‘</span>Flour<span style="color:#960050;background-color:#1e0010">’选项后的</span>shoppingList值为<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>, <span style="color:#e6db74">&#34;Flour&#34;</span>]<span style="color:#960050;background-color:#1e0010">。</span>
-</code></pre></div><p>除此之外，也可以使用加法赋值运算符<code>+=</code>直接将另一个相同类型数组中的数据添加到数组后面。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">shoppingList <span style="color:#f92672">+=</span> [<span style="color:#e6db74">&#34;Baking Powder&#34;</span>]  <span style="color:#75715e">// shoppingList现在有四项了</span>
-shoppingList <span style="color:#f92672">+=</span> [<span style="color:#e6db74">&#34;Chocolate Spread&#34;</span>, <span style="color:#e6db74">&#34;Chinese&#34;</span>, <span style="color:#e6db74">&#34;Butter&#34;</span>]  <span style="color:#75715e">// shoppingList现在有七项了</span>
-</code></pre></div><p>可以直接使用下标语法来获取数组中的数据项，把所需要的数据项的索引值直接放在数组名称之后的方括号中：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> firstItem = shoppingList[<span style="color:#ae81ff">0</span>]
-print(<span style="color:#e6db74">&#34;shoppingList的第一项是：</span><span style="color:#e6db74">\(</span>firstItem<span style="color:#e6db74">)</span><span style="color:#e6db74">。&#34;</span>)
-<span style="color:#f92672">---</span>
-output: shoppingList的第一项是<span style="color:#960050;background-color:#1e0010">：</span>Eggs<span style="color:#960050;background-color:#1e0010">。</span>
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The shopping list contains </span><span style="color:#e6db74">\(</span>shoppingLists.count<span style="color:#e6db74">)</span><span style="color:#e6db74"> items.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The shopping list contains <span style="color:#ae81ff">2</span> items.
+</span></span></code></pre></div><p>使用布尔属性<code>isEmpty</code>作为一个缩写形式去检查<code>count</code>属性是否为<code>0</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> shoppingList.isEmpty {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The shopping list is empty.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The shopping list is not empty.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 打印“The shopping list is not empty.”（shoppinglist不是空的）</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The shopping list <span style="color:#66d9ef">is</span> not empty.
+</span></span></code></pre></div><p>也可以使用<code>append(_:)</code>方法在数组后面添加新的数据项：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>shoppingList.append(<span style="color:#e6db74">&#34;Flour&#34;</span>)  <span style="color:#75715e">// shoppingList现在有3个数据项，似乎有人在摊煎饼</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;添加‘Flour’选项后的shoppingList值为：</span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">。&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">添加‘</span>Flour<span style="color:#960050;background-color:#1e0010">’选项后的</span>shoppingList值为<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>, <span style="color:#e6db74">&#34;Flour&#34;</span>]<span style="color:#960050;background-color:#1e0010">。</span>
+</span></span></code></pre></div><p>除此之外，也可以使用加法赋值运算符<code>+=</code>直接将另一个相同类型数组中的数据添加到数组后面。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>shoppingList <span style="color:#f92672">+=</span> [<span style="color:#e6db74">&#34;Baking Powder&#34;</span>]  <span style="color:#75715e">// shoppingList现在有四项了</span>
+</span></span><span style="display:flex;"><span>shoppingList <span style="color:#f92672">+=</span> [<span style="color:#e6db74">&#34;Chocolate Spread&#34;</span>, <span style="color:#e6db74">&#34;Chinese&#34;</span>, <span style="color:#e6db74">&#34;Butter&#34;</span>]  <span style="color:#75715e">// shoppingList现在有七项了</span>
+</span></span></code></pre></div><p>可以直接使用下标语法来获取数组中的数据项，把所需要的数据项的索引值直接放在数组名称之后的方括号中：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> firstItem = shoppingList[<span style="color:#ae81ff">0</span>]
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;shoppingList的第一项是：</span><span style="color:#e6db74">\(</span>firstItem<span style="color:#e6db74">)</span><span style="color:#e6db74">。&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: shoppingList的第一项是<span style="color:#960050;background-color:#1e0010">：</span>Eggs<span style="color:#960050;background-color:#1e0010">。</span>
+</span></span></code></pre></div><blockquote>
 <p><strong>注意</strong></p>
 <p>第一项在数组中的索引值是0而不是1。Swift中的数组索引总是从零开始。</p>
 </blockquote>
 <p>也可以用下标来改变某个有效索引值对应的数据值：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">shoppingList[<span style="color:#ae81ff">0</span>] = <span style="color:#e6db74">&#34;Six Eggs&#34;</span>  <span style="color:#75715e">// 现在shoppingList的第一项是“Six Eggs”而不是“Eggs”</span>
-print(<span style="color:#e6db74">&#34;修改后的shoppingList值为：</span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">修改后的</span>shoppingList值为<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;Six Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>, <span style="color:#e6db74">&#34;Flour&#34;</span>, <span style="color:#e6db74">&#34;Baking Powder&#34;</span>, <span style="color:#e6db74">&#34;Chocolate Spread&#34;</span>, <span style="color:#e6db74">&#34;Chinese&#34;</span>, <span style="color:#e6db74">&#34;Butter&#34;</span>]
-</code></pre></div><p>当使用下标语法，所使用的下标必须是有效的。例如，试图通过<code>shoppingList[shoppingList.count] = &quot;Salt&quot;</code>在数组的最后添加一项，将产生一个运行时的错误。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>shoppingList[<span style="color:#ae81ff">0</span>] = <span style="color:#e6db74">&#34;Six Eggs&#34;</span>  <span style="color:#75715e">// 现在shoppingList的第一项是“Six Eggs”而不是“Eggs”</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;修改后的shoppingList值为：</span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">修改后的</span>shoppingList值为<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;Six Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>, <span style="color:#e6db74">&#34;Flour&#34;</span>, <span style="color:#e6db74">&#34;Baking Powder&#34;</span>, <span style="color:#e6db74">&#34;Chocolate Spread&#34;</span>, <span style="color:#e6db74">&#34;Chinese&#34;</span>, <span style="color:#e6db74">&#34;Butter&#34;</span>]
+</span></span></code></pre></div><p>当使用下标语法，所使用的下标必须是有效的。例如，试图通过<code>shoppingList[shoppingList.count] = &quot;Salt&quot;</code>在数组的最后添加一项，将产生一个运行时的错误。</p>
 <p>还可以利用下标来一次改变一系列数据值，<strong>即使新数据和原有数据的数量是不一样的的</strong>。下面的例子把“Chocolate Spread”、“Chese”和“Butter”替换为“Bananas”和“Apples”。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">shoppingList[<span style="color:#ae81ff">4.</span>..<span style="color:#ae81ff">6</span>] = [<span style="color:#e6db74">&#34;Bananas&#34;</span>, <span style="color:#e6db74">&#34;Apples&#34;</span>]  <span style="color:#75715e">// shoppingList现在有6项</span>
-print(<span style="color:#e6db74">&#34;shoppingList现在是：</span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#75715e">// 通过调用数组的`insert(_:at:)`方法在某个指定索引值前面添加数据项：</span>
-shoppingList.insert(<span style="color:#e6db74">&#34;Maple Syrup&#34;</span>, at: <span style="color:#ae81ff">0</span>)  <span style="color:#75715e">// shoppingList现在有7项</span>
-<span style="color:#75715e">// 现在是这个列表中的第一项是“Maple Syrup”</span>
-print(<span style="color:#e6db74">&#34;shopingList现在的第一项是：</span><span style="color:#e6db74">\(</span>shoppingList[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#75715e">// 这次`insert(_:at:)`方法调用把值为&#34;Maple Syrup&#34;的新数据项插入列表的最开始位置，并且使用`0`作为索引值。</span>
-<span style="color:#f92672">---</span>
-output: shoppingList现在是<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;Six Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>, <span style="color:#e6db74">&#34;Flour&#34;</span>, <span style="color:#e6db74">&#34;Baking Powder&#34;</span>, <span style="color:#e6db74">&#34;Bananas&#34;</span>, <span style="color:#e6db74">&#34;Apples&#34;</span>]
-shopingList现在的第一项是<span style="color:#960050;background-color:#1e0010">：</span>Maple Syrup
-</code></pre></div><p>类似的可以使用<code>remove(at:)</code>方法来移除数组的某一项。这个方法吧数组在特定索引值中存储的数据项移除并且返回这个被移除的数据项（不需要时就可以无视它）。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> mapleSyrup = shoppingList.remove(at: <span style="color:#ae81ff">0</span>)  <span style="color:#75715e">// 现在shoppingList只有6项，不包括“Maple Syrup”，常量mapleSyrup等于“Maple Syrup”</span>
-print(<span style="color:#e6db74">&#34;mapleSyrup的值等于：</span><span style="color:#e6db74">\(</span>mapleSyrup<span style="color:#e6db74">)</span><span style="color:#e6db74">，shoppingList等于：</span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
-<span style="color:#f92672">---</span>
-output: mapleSyrup的值等于<span style="color:#960050;background-color:#1e0010">：</span>Maple Syrup<span style="color:#960050;background-color:#1e0010">，</span>shoppingList等于<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;Six Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>, <span style="color:#e6db74">&#34;Flour&#34;</span>, <span style="color:#e6db74">&#34;Baking Powder&#34;</span>, <span style="color:#e6db74">&#34;Bananas&#34;</span>, <span style="color:#e6db74">&#34;Apples&#34;</span>].
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>shoppingList[<span style="color:#ae81ff">4.</span>..<span style="color:#ae81ff">6</span>] = [<span style="color:#e6db74">&#34;Bananas&#34;</span>, <span style="color:#e6db74">&#34;Apples&#34;</span>]  <span style="color:#75715e">// shoppingList现在有6项</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;shoppingList现在是：</span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 通过调用数组的`insert(_:at:)`方法在某个指定索引值前面添加数据项：</span>
+</span></span><span style="display:flex;"><span>shoppingList.insert(<span style="color:#e6db74">&#34;Maple Syrup&#34;</span>, at: <span style="color:#ae81ff">0</span>)  <span style="color:#75715e">// shoppingList现在有7项</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 现在是这个列表中的第一项是“Maple Syrup”</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;shopingList现在的第一项是：</span><span style="color:#e6db74">\(</span>shoppingList[<span style="color:#ae81ff">0</span>]<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 这次`insert(_:at:)`方法调用把值为&#34;Maple Syrup&#34;的新数据项插入列表的最开始位置，并且使用`0`作为索引值。</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: shoppingList现在是<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;Six Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>, <span style="color:#e6db74">&#34;Flour&#34;</span>, <span style="color:#e6db74">&#34;Baking Powder&#34;</span>, <span style="color:#e6db74">&#34;Bananas&#34;</span>, <span style="color:#e6db74">&#34;Apples&#34;</span>]
+</span></span><span style="display:flex;"><span>shopingList现在的第一项是<span style="color:#960050;background-color:#1e0010">：</span>Maple Syrup
+</span></span></code></pre></div><p>类似的可以使用<code>remove(at:)</code>方法来移除数组的某一项。这个方法吧数组在特定索引值中存储的数据项移除并且返回这个被移除的数据项（不需要时就可以无视它）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> mapleSyrup = shoppingList.remove(at: <span style="color:#ae81ff">0</span>)  <span style="color:#75715e">// 现在shoppingList只有6项，不包括“Maple Syrup”，常量mapleSyrup等于“Maple Syrup”</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;mapleSyrup的值等于：</span><span style="color:#e6db74">\(</span>mapleSyrup<span style="color:#e6db74">)</span><span style="color:#e6db74">，shoppingList等于：</span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: mapleSyrup的值等于<span style="color:#960050;background-color:#1e0010">：</span>Maple Syrup<span style="color:#960050;background-color:#1e0010">，</span>shoppingList等于<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;Six Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>, <span style="color:#e6db74">&#34;Flour&#34;</span>, <span style="color:#e6db74">&#34;Baking Powder&#34;</span>, <span style="color:#e6db74">&#34;Bananas&#34;</span>, <span style="color:#e6db74">&#34;Apples&#34;</span>].
+</span></span></code></pre></div><blockquote>
 <p><strong>注意</strong></p>
 <p>如果试图通过越界索引来执行访问或者修改数据的操作，会引发一个运行时的错误。此时可以使用索引值和数组的<code>count</code>属性进行比较来在使用该索引之前检验其是否有效。除了当<code>count</code>等于0时（说明这是个空数组），最大的索引一直是<code>count - 1</code>，因为数组都是零起索引。</p>
 </blockquote>
 <p>数据项被移除后数组中的空出项会被自动填补，所以现在的索引值为<code>0</code>的数据项的值再次等于“Six eggs”。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">firstItem = shoppingList[<span style="color:#ae81ff">0</span>]  <span style="color:#75715e">// firstItem现在等于&#34;Six eggs&#34;</span>
-print(<span style="color:#e6db74">&#34;此时shoppingList首位是：</span><span style="color:#e6db74">\(</span>firstItem<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#75715e">// 如果只想把数组中的最后一项移除，可以使用`removeList()`方法而不是`remove(at:)`方法来避免需要获取数组的`count`属性。就像后者一样，前者也会返回被移除的数据项。</span>
-<span style="color:#66d9ef">let</span> apples = shoppingList.removeLast()  <span style="color:#75715e">// 数组的最后一项被移除了，shoppingList现在只有5项，不包括“Apples”，常量apples现在等于字符串“Apples”</span>
-print(<span style="color:#e6db74">&#34;常量apples现在的值：</span><span style="color:#e6db74">\(</span>apples<span style="color:#e6db74">)</span><span style="color:#e6db74">，shoppingList等于：</span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
-<span style="color:#75715e">// 同样地还有`removeFirst()`方法，直接移除数组的第一项。</span>
-<span style="color:#66d9ef">let</span> sixEggs = shoppingList.removeFirst()
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">此时</span>shoppingList首位是<span style="color:#960050;background-color:#1e0010">：</span>Six Eggs
-<span style="color:#960050;background-color:#1e0010">常量</span>apples现在的值<span style="color:#960050;background-color:#1e0010">：</span>Apples<span style="color:#960050;background-color:#1e0010">，</span>shoppingList等于<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;Six Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>, <span style="color:#e6db74">&#34;Flour&#34;</span>, <span style="color:#e6db74">&#34;Baking Powder&#34;</span>, <span style="color:#e6db74">&#34;Bananas&#34;</span>].
-</code></pre></div><h3 id="数组的遍历">数组的遍历</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>firstItem = shoppingList[<span style="color:#ae81ff">0</span>]  <span style="color:#75715e">// firstItem现在等于&#34;Six eggs&#34;</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;此时shoppingList首位是：</span><span style="color:#e6db74">\(</span>firstItem<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 如果只想把数组中的最后一项移除，可以使用`removeList()`方法而不是`remove(at:)`方法来避免需要获取数组的`count`属性。就像后者一样，前者也会返回被移除的数据项。</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> apples = shoppingList.removeLast()  <span style="color:#75715e">// 数组的最后一项被移除了，shoppingList现在只有5项，不包括“Apples”，常量apples现在等于字符串“Apples”</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;常量apples现在的值：</span><span style="color:#e6db74">\(</span>apples<span style="color:#e6db74">)</span><span style="color:#e6db74">，shoppingList等于：</span><span style="color:#e6db74">\(</span>shoppingList<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 同样地还有`removeFirst()`方法，直接移除数组的第一项。</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> sixEggs = shoppingList.removeFirst()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">此时</span>shoppingList首位是<span style="color:#960050;background-color:#1e0010">：</span>Six Eggs
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">常量</span>apples现在的值<span style="color:#960050;background-color:#1e0010">：</span>Apples<span style="color:#960050;background-color:#1e0010">，</span>shoppingList等于<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;Six Eggs&#34;</span>, <span style="color:#e6db74">&#34;Milk&#34;</span>, <span style="color:#e6db74">&#34;Flour&#34;</span>, <span style="color:#e6db74">&#34;Baking Powder&#34;</span>, <span style="color:#e6db74">&#34;Bananas&#34;</span>].
+</span></span></code></pre></div><h3 id="数组的遍历">数组的遍历</h3>
 <p>可以使用<code>for-in</code>循环来遍历数组中所有的数据项：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">for</span> item <span style="color:#66d9ef">in</span> shoppingList {
-    print(item)  <span style="color:#75715e">// Six eggs; Milk; Flour; Baking Powder; Bananas</span>
-}
-<span style="color:#f92672">---</span>
-output: Milk
-Flour
-Baking Powder
-Bananas
-</code></pre></div><p>如果同时需要每个数据项的值和索引值，可以使用“enumerated()”方法来进行数组遍历。<code>enumerated()</code>返回一个有索引值和数据值组成的元组数据。索引值从零开始，并且每次增加一；如果枚举一整个数组，索引值将会和数据值一一匹配。可以把这个元组分解成临时变量或者变量来进行遍历：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">for</span> (index, value) <span style="color:#66d9ef">in</span> shoppingList.enumerated() {
-    print(<span style="color:#e6db74">&#34;Item </span><span style="color:#e6db74">\(</span>String<span style="color:#e6db74">(</span>index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#e6db74">))</span><span style="color:#e6db74">: </span><span style="color:#e6db74">\(</span>value<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// Item 1: Milk; Item 2: Flour; Item 3: Baking Powder; Item 4: Bananas</span>
-}
-<span style="color:#f92672">---</span>
-output: Item <span style="color:#ae81ff">1</span>: Milk
-Item <span style="color:#ae81ff">2</span>: Flour
-Item <span style="color:#ae81ff">3</span>: Baking Powder
-Item <span style="color:#ae81ff">4</span>: Bananas
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> item <span style="color:#66d9ef">in</span> shoppingList {
+</span></span><span style="display:flex;"><span>    print(item)  <span style="color:#75715e">// Six eggs; Milk; Flour; Baking Powder; Bananas</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Milk
+</span></span><span style="display:flex;"><span>Flour
+</span></span><span style="display:flex;"><span>Baking Powder
+</span></span><span style="display:flex;"><span>Bananas
+</span></span></code></pre></div><p>如果同时需要每个数据项的值和索引值，可以使用“enumerated()”方法来进行数组遍历。<code>enumerated()</code>返回一个有索引值和数据值组成的元组数据。索引值从零开始，并且每次增加一；如果枚举一整个数组，索引值将会和数据值一一匹配。可以把这个元组分解成临时变量或者变量来进行遍历：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (index, value) <span style="color:#66d9ef">in</span> shoppingList.enumerated() {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Item </span><span style="color:#e6db74">\(</span>String<span style="color:#e6db74">(</span>index <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#e6db74">))</span><span style="color:#e6db74">: </span><span style="color:#e6db74">\(</span>value<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// Item 1: Milk; Item 2: Flour; Item 3: Baking Powder; Item 4: Bananas</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Item <span style="color:#ae81ff">1</span>: Milk
+</span></span><span style="display:flex;"><span>Item <span style="color:#ae81ff">2</span>: Flour
+</span></span><span style="display:flex;"><span>Item <span style="color:#ae81ff">3</span>: Baking Powder
+</span></span><span style="display:flex;"><span>Item <span style="color:#ae81ff">4</span>: Bananas
+</span></span></code></pre></div><hr>
 <h2 id="集合sets">集合（Sets）</h2>
 <p>集合用来存储<strong>相同类型</strong>ß但是没有确定顺序的值。当集合元素的顺序不重要时或者希望确保每个元素只出现一次时可以使用集合而不是数组。</p>
 <blockquote>
@@ -322,87 +322,87 @@ Item <span style="color:#ae81ff">4</span>: Bananas
 <p><code>Swift</code>中的集合类型被写为<code>Set&lt;Element&gt;</code>，这里的<code>Element</code>表示集合中允许存储的类型。和数组不同的是，集合没有等价的简化形式。</p>
 <h3 id="创造和构建一个空的集合">创造和构建一个空的集合</h3>
 <p>可以通过构造器语法创建一个特定类型的空集合</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> letters = Set&lt;Character&gt;()
-print(<span style="color:#e6db74">&#34;Letters is of type Set&lt;Character&gt; with </span><span style="color:#e6db74">\(</span>letters.count<span style="color:#e6db74">)</span><span style="color:#e6db74"> items.&#34;</span>)  <span style="color:#75715e">// 打印输出“Letters is of type Set&lt;Character&gt; with 0 items.”</span>
-<span style="color:#f92672">---</span>
-output: Letters <span style="color:#66d9ef">is</span> of type Set&lt;Character&gt; with <span style="color:#ae81ff">0</span> items.
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> letters = Set&lt;Character&gt;()
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Letters is of type Set&lt;Character&gt; with </span><span style="color:#e6db74">\(</span>letters.count<span style="color:#e6db74">)</span><span style="color:#e6db74"> items.&#34;</span>)  <span style="color:#75715e">// 打印输出“Letters is of type Set&lt;Character&gt; with 0 items.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Letters <span style="color:#66d9ef">is</span> of type Set&lt;Character&gt; with <span style="color:#ae81ff">0</span> items.
+</span></span></code></pre></div><blockquote>
 <p><strong>注意</strong></p>
 <p>通过构造器，这里的letters变量的类型被推断为Set<Character>。</p>
 </blockquote>
 <p>此外，如果上下文提供了类型信息，比如作为函数的参数或者已知类型的变量或常量，可以通过一个空的数组字面量创建一个空的集合。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">letters.insert(<span style="color:#e6db74">&#34;A&#34;</span>)  <span style="color:#75715e">// letters现在含有1个Character类型的值</span>
-print(<span style="color:#e6db74">&#34;现在Letters值为：</span><span style="color:#e6db74">\(</span>letters<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-letters = []  <span style="color:#75715e">// letters现在是一个空的Set，但是它依然是Set&lt;Character&gt;类型</span>
-print(<span style="color:#e6db74">&#34;此时Letters值为：</span><span style="color:#e6db74">\(</span>letters<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">现在</span>Letters值为<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;A&#34;</span>]
-<span style="color:#960050;background-color:#1e0010">此时</span>Letters值为<span style="color:#960050;background-color:#1e0010">：</span>[]
-</code></pre></div><h3 id="用数组字面量创建集合">用数组字面量创建集合</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>letters.insert(<span style="color:#e6db74">&#34;A&#34;</span>)  <span style="color:#75715e">// letters现在含有1个Character类型的值</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;现在Letters值为：</span><span style="color:#e6db74">\(</span>letters<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>letters = []  <span style="color:#75715e">// letters现在是一个空的Set，但是它依然是Set&lt;Character&gt;类型</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;此时Letters值为：</span><span style="color:#e6db74">\(</span>letters<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">现在</span>Letters值为<span style="color:#960050;background-color:#1e0010">：</span>[<span style="color:#e6db74">&#34;A&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">此时</span>Letters值为<span style="color:#960050;background-color:#1e0010">：</span>[]
+</span></span></code></pre></div><h3 id="用数组字面量创建集合">用数组字面量创建集合</h3>
 <p>可以使用数组字面量来构造集合，相当于一种简化的形式将一个或多个值作为集合元素。</p>
 <p>下面的例子创建一个称之为<code>favoriteGenres</code>的集合来存储<code>String</code>类型的值。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> favoriteGenres: Set&lt;String&gt; = [<span style="color:#e6db74">&#34;Rock&#34;</span>, <span style="color:#e6db74">&#34;Classical&#34;</span>, <span style="color:#e6db74">&#34;Hip hop&#34;</span>]  <span style="color:#75715e">// favoriteGenres被构造成含有三个初始值的集合</span>
-</code></pre></div><p>这个<code>favoriteGenres</code>变量被声明为“一个String值的集合”，写为<code>Set&lt;String&gt;</code>。由于这个特定集合指定了值为<code>String</code>类型，所以它只允许存储<code>String</code>类型的值。这里的<code>favoriteGenres</code>变量有三个<code>String</code>类型的初始值（“Rock”，“Classical”，“Hip hop”），以数组字面量形式书写。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> favoriteGenres: Set&lt;String&gt; = [<span style="color:#e6db74">&#34;Rock&#34;</span>, <span style="color:#e6db74">&#34;Classical&#34;</span>, <span style="color:#e6db74">&#34;Hip hop&#34;</span>]  <span style="color:#75715e">// favoriteGenres被构造成含有三个初始值的集合</span>
+</span></span></code></pre></div><p>这个<code>favoriteGenres</code>变量被声明为“一个String值的集合”，写为<code>Set&lt;String&gt;</code>。由于这个特定集合指定了值为<code>String</code>类型，所以它只允许存储<code>String</code>类型的值。这里的<code>favoriteGenres</code>变量有三个<code>String</code>类型的初始值（“Rock”，“Classical”，“Hip hop”），以数组字面量形式书写。</p>
 <blockquote>
 <p><strong>注意</strong></p>
 <p>favoriteGenres被声明为一个变量（拥有var标识符）而不是一个常量（拥有let标识符），因为它里面的元素将会在之后的例子中被增加或者移除。</p>
 </blockquote>
 <p>一个集合类型不能从数组字面量中被直接推断出来，因此<code>Set</code>类型必须显式声明。然而，由于<code>Swift</code>的类型推断功能，如果想使用一个数组字面量构造一个集合并且与该数组字面量中的所有元素类型相同，那么无须写出结合的具体类型。<code>FavoriteGenres</code>的构造形式可以采用简化的方式代替。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> FavoriteGenres: Set = [<span style="color:#e6db74">&#34;Rock&#34;</span>, <span style="color:#e6db74">&#34;Classical&#34;</span>, <span style="color:#e6db74">&#34;Hip hop&#34;</span>]
-</code></pre></div><p>由于数组字面量中的所有元素类型相同均为“String”，<code>Swift</code>可以推断出<code>Set&lt;String&gt;</code>作为<code>favoriteGenres</code>变量的正确类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> FavoriteGenres: Set = [<span style="color:#e6db74">&#34;Rock&#34;</span>, <span style="color:#e6db74">&#34;Classical&#34;</span>, <span style="color:#e6db74">&#34;Hip hop&#34;</span>]
+</span></span></code></pre></div><p>由于数组字面量中的所有元素类型相同均为“String”，<code>Swift</code>可以推断出<code>Set&lt;String&gt;</code>作为<code>favoriteGenres</code>变量的正确类型。</p>
 <h3 id="访问和修改一个集合">访问和修改一个集合</h3>
 <p>可以通过集合的属性和方法来对其进行访问和修改</p>
 <p>为了获取一个集合中元素的数量，可以使用其只读属性<code>count</code>：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;I have </span><span style="color:#e6db74">\(</span>FavoriteGenres.count<span style="color:#e6db74">)</span><span style="color:#e6db74"> favorite music genres.&#34;</span>)  <span style="color:#75715e">// 打印“I have 3 favorite music genres.”</span>
-<span style="color:#f92672">---</span>
-output: I have <span style="color:#ae81ff">3</span> favorite music genres.
-</code></pre></div><p>使用布尔属性<code>isEmpty</code>作为一个缩写形式去检查<code>count</code>属性是否为0：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> FavoriteGenres.isEmpty {
-    print(<span style="color:#e6db74">&#34;As far as music goes, I&#39;m not picky.&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;I have particular music preferences.&#34;</span>)
-}  <span style="color:#75715e">// 打印“I have particular music preferences.”</span>
-<span style="color:#f92672">---</span>
-output: I have particular music preferences.
-</code></pre></div><p>可以通过调用集合的<code>insert(_:)</code>方法来添加一个新元素：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">FavoriteGenres.insert(<span style="color:#e6db74">&#34;Jazz&#34;</span>)  <span style="color:#75715e">// FavoriteGenres现在包含4个元素。</span>
-print(<span style="color:#e6db74">&#34;FavoriteGenres现在包含</span><span style="color:#e6db74">\(</span>FavoriteGenres.count<span style="color:#e6db74">)</span><span style="color:#e6db74">个元素，其值为：</span><span style="color:#e6db74">\(</span>FavoriteGenres<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: FavoriteGenres现在包含4个元素<span style="color:#960050;background-color:#1e0010">，其值为：</span>[<span style="color:#e6db74">&#34;Classical&#34;</span>, <span style="color:#e6db74">&#34;Jazz&#34;</span>, <span style="color:#e6db74">&#34;Hip hop&#34;</span>, <span style="color:#e6db74">&#34;Rock&#34;</span>]
-</code></pre></div><p>可以通过调用集合的<code>remove(_:)</code>方法去删除一个元素，如果它是该集合的一个元素则删除它并且返回它的值，若该集合不包含它，则返回<code>nil</code>。另外，集合可以通过<code>removeAll()</code>方法删除所有元素。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> removeGenre = FavoriteGenres.remove(<span style="color:#e6db74">&#34;Rock&#34;</span>) {
-    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>removeGenre<span style="color:#e6db74">)</span><span style="color:#e6db74">? I&#39;m over it!&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;I never much cared of that!&#34;</span>)
-}  <span style="color:#75715e">// 打印“Rock? I&#39;m over it!”</span>
-<span style="color:#f92672">---</span>
-output: Rock? I<span style="color:#960050;background-color:#1e0010">&#39;</span>m over it!
-</code></pre></div><p>使用<code>contains(_:)</code>方法去检查集合中是否包含一个特定的值：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> FavoriteGenres.contains(<span style="color:#e6db74">&#34;Funk&#34;</span>) {
-    print(<span style="color:#e6db74">&#34;I get up on the good foot.&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;It&#39;s too funky in here.&#34;</span>)
-}  <span style="color:#75715e">// 打印&#34;It&#39;s too funky in here.&#34;</span>
-<span style="color:#f92672">---</span>
-output: It<span style="color:#960050;background-color:#1e0010">&#39;</span>s too funky <span style="color:#66d9ef">in</span> here.
-</code></pre></div><h3 id="遍历一个集合">遍历一个集合</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;I have </span><span style="color:#e6db74">\(</span>FavoriteGenres.count<span style="color:#e6db74">)</span><span style="color:#e6db74"> favorite music genres.&#34;</span>)  <span style="color:#75715e">// 打印“I have 3 favorite music genres.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: I have <span style="color:#ae81ff">3</span> favorite music genres.
+</span></span></code></pre></div><p>使用布尔属性<code>isEmpty</code>作为一个缩写形式去检查<code>count</code>属性是否为0：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> FavoriteGenres.isEmpty {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;As far as music goes, I&#39;m not picky.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;I have particular music preferences.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 打印“I have particular music preferences.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: I have particular music preferences.
+</span></span></code></pre></div><p>可以通过调用集合的<code>insert(_:)</code>方法来添加一个新元素：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>FavoriteGenres.insert(<span style="color:#e6db74">&#34;Jazz&#34;</span>)  <span style="color:#75715e">// FavoriteGenres现在包含4个元素。</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;FavoriteGenres现在包含</span><span style="color:#e6db74">\(</span>FavoriteGenres.count<span style="color:#e6db74">)</span><span style="color:#e6db74">个元素，其值为：</span><span style="color:#e6db74">\(</span>FavoriteGenres<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: FavoriteGenres现在包含4个元素<span style="color:#960050;background-color:#1e0010">，其值为：</span>[<span style="color:#e6db74">&#34;Classical&#34;</span>, <span style="color:#e6db74">&#34;Jazz&#34;</span>, <span style="color:#e6db74">&#34;Hip hop&#34;</span>, <span style="color:#e6db74">&#34;Rock&#34;</span>]
+</span></span></code></pre></div><p>可以通过调用集合的<code>remove(_:)</code>方法去删除一个元素，如果它是该集合的一个元素则删除它并且返回它的值，若该集合不包含它，则返回<code>nil</code>。另外，集合可以通过<code>removeAll()</code>方法删除所有元素。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> removeGenre = FavoriteGenres.remove(<span style="color:#e6db74">&#34;Rock&#34;</span>) {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>removeGenre<span style="color:#e6db74">)</span><span style="color:#e6db74">? I&#39;m over it!&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;I never much cared of that!&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 打印“Rock? I&#39;m over it!”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Rock? I<span style="color:#960050;background-color:#1e0010">&#39;</span>m over it!
+</span></span></code></pre></div><p>使用<code>contains(_:)</code>方法去检查集合中是否包含一个特定的值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> FavoriteGenres.contains(<span style="color:#e6db74">&#34;Funk&#34;</span>) {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;I get up on the good foot.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;It&#39;s too funky in here.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 打印&#34;It&#39;s too funky in here.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: It<span style="color:#960050;background-color:#1e0010">&#39;</span>s too funky <span style="color:#66d9ef">in</span> here.
+</span></span></code></pre></div><h3 id="遍历一个集合">遍历一个集合</h3>
 <p>可以在一个<code>for-in</code>循环中遍历一个集合中的所有值。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">for</span> genre <span style="color:#66d9ef">in</span> FavoriteGenres {
-    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>genre<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-}  <span style="color:#75715e">// Hip hop; // Classical; // Jazz  无序排列</span>
-<span style="color:#f92672">---</span>
-output: Classical
-Jazz
-Hip hop
-</code></pre></div><p><code>Swift</code>的<code>Set</code>类型没有确定的顺序，为了按照特定顺序来遍历一个集合中的值可以使用<code>sorted()</code>方法，它将返回一个有序数组，这个数组的元素排列顺序由操作符<code>&lt;</code>对元素进行比较的结果来确定。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">for</span> genre <span style="color:#66d9ef">in</span> FavoriteGenres.sorted() {
-    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>genre<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-}  <span style="color:#75715e">// Classical; // Hip hop; // Jazz  有序排列</span>
-<span style="color:#f92672">---</span>
-output: Classical
-Hip hop
-Jazz
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> genre <span style="color:#66d9ef">in</span> FavoriteGenres {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>genre<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// Hip hop; // Classical; // Jazz  无序排列</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Classical
+</span></span><span style="display:flex;"><span>Jazz
+</span></span><span style="display:flex;"><span>Hip hop
+</span></span></code></pre></div><p><code>Swift</code>的<code>Set</code>类型没有确定的顺序，为了按照特定顺序来遍历一个集合中的值可以使用<code>sorted()</code>方法，它将返回一个有序数组，这个数组的元素排列顺序由操作符<code>&lt;</code>对元素进行比较的结果来确定。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> genre <span style="color:#66d9ef">in</span> FavoriteGenres.sorted() {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>genre<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// Classical; // Hip hop; // Jazz  有序排列</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Classical
+</span></span><span style="display:flex;"><span>Hip hop
+</span></span><span style="display:flex;"><span>Jazz
+</span></span></code></pre></div><hr>
 <h2 id="集合操作">集合操作</h2>
 <p>可以高效地完成集合的一些基本操作，比如把两个集合组合到一起，判断两个集合的共有元素，或者判断两个集合是否全包含，部分包含或者不相交。</p>
 <h3 id="基本集合操作">基本集合操作</h3>
@@ -413,20 +413,20 @@ Jazz
 <li>使用<code>union(_:)</code>方法根据两个集合的所有值创建一个新的集合</li>
 <li>使用<code>subtracting(_:)</code>方法根据不在另一个集合中的值创建一个新的集合。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> oddDigits: Set = [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">9</span>]
-<span style="color:#66d9ef">let</span> evenDigits: Set = [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>]
-<span style="color:#66d9ef">let</span> singleDigitPrimeNumbers: Set = [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>]
-
-print(<span style="color:#e6db74">&#34;Union: </span><span style="color:#e6db74">\(</span>oddDigits.union<span style="color:#e6db74">(</span>evenDigits<span style="color:#e6db74">)</span>.sorted<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
-print(<span style="color:#e6db74">&#34;InterSection: </span><span style="color:#e6db74">\(</span>oddDigits.intersection<span style="color:#e6db74">(</span>evenDigits<span style="color:#e6db74">)</span>.sorted<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// []</span>
-print(<span style="color:#e6db74">&#34;SubTracting: </span><span style="color:#e6db74">\(</span>oddDigits.subtracting<span style="color:#e6db74">(</span>singleDigitPrimeNumbers<span style="color:#e6db74">)</span>.sorted<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// [1, 9]</span>
-print(<span style="color:#e6db74">&#34;SymmetricDifference: </span><span style="color:#e6db74">\(</span>oddDigits.symmetricDifference<span style="color:#e6db74">(</span>singleDigitPrimeNumbers<span style="color:#e6db74">)</span>.sorted<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// [1, 2, 9]</span>
-<span style="color:#f92672">---</span>
-output: Union: [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>]
-InterSection: []
-SubTracting: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">9</span>]
-SymmetricDifference: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">9</span>]
-</code></pre></div><h3 id="集合成员关系和相等">集合成员关系和相等</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> oddDigits: Set = [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">9</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> evenDigits: Set = [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> singleDigitPrimeNumbers: Set = [<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Union: </span><span style="color:#e6db74">\(</span>oddDigits.union<span style="color:#e6db74">(</span>evenDigits<span style="color:#e6db74">)</span>.sorted<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;InterSection: </span><span style="color:#e6db74">\(</span>oddDigits.intersection<span style="color:#e6db74">(</span>evenDigits<span style="color:#e6db74">)</span>.sorted<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// []</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;SubTracting: </span><span style="color:#e6db74">\(</span>oddDigits.subtracting<span style="color:#e6db74">(</span>singleDigitPrimeNumbers<span style="color:#e6db74">)</span>.sorted<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// [1, 9]</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;SymmetricDifference: </span><span style="color:#e6db74">\(</span>oddDigits.symmetricDifference<span style="color:#e6db74">(</span>singleDigitPrimeNumbers<span style="color:#e6db74">)</span>.sorted<span style="color:#e6db74">())</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// [1, 2, 9]</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Union: [<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">8</span>, <span style="color:#ae81ff">9</span>]
+</span></span><span style="display:flex;"><span>InterSection: []
+</span></span><span style="display:flex;"><span>SubTracting: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">9</span>]
+</span></span><span style="display:flex;"><span>SymmetricDifference: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">9</span>]
+</span></span></code></pre></div><h3 id="集合成员关系和相等">集合成员关系和相等</h3>
 <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/setEulerDiagram.png" alt="SetEulerDiagram"></p>
 <ul>
 <li>使用“是否相等”运算符<code>==</code>来判断两个集合包含的值是否相同。</li>
@@ -435,18 +435,18 @@ SymmetricDifference: [<span style="color:#ae81ff">1</span>, <span style="color:#
 <li>使用<code>isScrictSubset(of:)</code>或者<code>isScrictSuperset(of:)</code>方法来判断一个集合是否是另外一个集合的子集或者父集合并且两个集合不相等。</li>
 <li>使用<code>isDisjoint(with:)</code>方法来判断两个集合是否不含有相同的值（是否没有交集）。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> houseAnimals: Set = [<span style="color:#e6db74">&#34;🐶&#34;</span>, <span style="color:#e6db74">&#34;🐱&#34;</span>]
-<span style="color:#66d9ef">let</span> farmAnimals: Set = [<span style="color:#e6db74">&#34;🐮&#34;</span>, <span style="color:#e6db74">&#34;🐔&#34;</span>, <span style="color:#e6db74">&#34;🐑&#34;</span>, <span style="color:#e6db74">&#34;🐶&#34;</span>, <span style="color:#e6db74">&#34;🐱&#34;</span>]
-<span style="color:#66d9ef">let</span> cityAnimals: Set = [<span style="color:#e6db74">&#34;🐦&#34;</span>, <span style="color:#e6db74">&#34;🐭&#34;</span>]
-
-print(<span style="color:#e6db74">&#34;IsSubset? </span><span style="color:#e6db74">\(</span>houseAnimals.isSubset<span style="color:#e6db74">(</span>of: farmAnimals<span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 打印输出&#34;IsSubset? true&#34;</span>
-print(<span style="color:#e6db74">&#34;IsSuperset? </span><span style="color:#e6db74">\(</span>farmAnimals.isSuperset<span style="color:#e6db74">(</span>of: houseAnimals<span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 打印输出&#34;IsSuperset? true&#34;</span>
-print(<span style="color:#e6db74">&#34;IsDisjoint? </span><span style="color:#e6db74">\(</span>farmAnimals.isDisjoint<span style="color:#e6db74">(</span>with: cityAnimals<span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 打印输出&#34;IsDisjoint? true&#34;</span>
-<span style="color:#f92672">---</span>
-output: IsSubset? <span style="color:#66d9ef">true</span>
-IsSuperset? <span style="color:#66d9ef">true</span>
-IsDisjoint? <span style="color:#66d9ef">true</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> houseAnimals: Set = [<span style="color:#e6db74">&#34;🐶&#34;</span>, <span style="color:#e6db74">&#34;🐱&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> farmAnimals: Set = [<span style="color:#e6db74">&#34;🐮&#34;</span>, <span style="color:#e6db74">&#34;🐔&#34;</span>, <span style="color:#e6db74">&#34;🐑&#34;</span>, <span style="color:#e6db74">&#34;🐶&#34;</span>, <span style="color:#e6db74">&#34;🐱&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> cityAnimals: Set = [<span style="color:#e6db74">&#34;🐦&#34;</span>, <span style="color:#e6db74">&#34;🐭&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;IsSubset? </span><span style="color:#e6db74">\(</span>houseAnimals.isSubset<span style="color:#e6db74">(</span>of: farmAnimals<span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 打印输出&#34;IsSubset? true&#34;</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;IsSuperset? </span><span style="color:#e6db74">\(</span>farmAnimals.isSuperset<span style="color:#e6db74">(</span>of: houseAnimals<span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 打印输出&#34;IsSuperset? true&#34;</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;IsDisjoint? </span><span style="color:#e6db74">\(</span>farmAnimals.isDisjoint<span style="color:#e6db74">(</span>with: cityAnimals<span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 打印输出&#34;IsDisjoint? true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: IsSubset? <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>IsSuperset? <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>IsDisjoint? <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><hr>
 <h2 id="字典">字典</h2>
 <p>字典是一种无序的集合，它存储的是键值对之间的关系，其所有的值需要是相同的类型，所有值的类型也需要相同。每个值（value）都关联唯一的键（key），键作为字典中这个值数据的标识符。和数组中的数据项不同，字典中的数据项并没有具体的顺序。在需要通过标识符（键）访问数据的时候使用字典，这种方法很大程度上和现实世界中使用字典查字义的方法一样。</p>
 <blockquote>
@@ -462,126 +462,126 @@ IsDisjoint? <span style="color:#66d9ef">true</span>
 <p>也可以使用<code>[Key: Value]</code>这样简化的形式去表示字典类型。虽然这两种形式功能上相同，但是后者是首选，并且本教程中涉及到字典类型时通篇采用后者。</p>
 <h3 id="创建一个空字典">创建一个空字典</h3>
 <p>可以像数组一样使用构造语法创建一个拥有确定类型的空字典：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> namesOfInteger: Dictionary&lt;Int, String&gt; = Dictionary&lt;Int, String&gt;()  <span style="color:#75715e">// 使用Dictionary&lt;Key, Value&gt;定义字典</span>
-print(<span style="color:#e6db74">&#34;使用Dictionary&lt;Key, Value&gt;定义字典：</span><span style="color:#e6db74">\(</span>namesOfInteger<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#66d9ef">var</span> namesOfIntegers: [Int: String] = [:]  <span style="color:#75715e">// 简化语法，首选！</span>
-print(<span style="color:#e6db74">&#34;简化语法，首选：</span><span style="color:#e6db74">\(</span>namesOfIntegers<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">使用</span>Dictionary&lt;Key, Value&gt;<span style="color:#960050;background-color:#1e0010">定义字典：</span>[:]
-<span style="color:#960050;background-color:#1e0010">简化语法，首选：</span>[:]
-</code></pre></div><p>这个例子创建了一个<code>[Int: String]</code>类型的空字典来存储整数的英语命名。它的键是<code>Int</code>型，值是<code>String</code>型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> namesOfInteger: Dictionary&lt;Int, String&gt; = Dictionary&lt;Int, String&gt;()  <span style="color:#75715e">// 使用Dictionary&lt;Key, Value&gt;定义字典</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;使用Dictionary&lt;Key, Value&gt;定义字典：</span><span style="color:#e6db74">\(</span>namesOfInteger<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> namesOfIntegers: [Int: String] = [:]  <span style="color:#75715e">// 简化语法，首选！</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;简化语法，首选：</span><span style="color:#e6db74">\(</span>namesOfIntegers<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">使用</span>Dictionary&lt;Key, Value&gt;<span style="color:#960050;background-color:#1e0010">定义字典：</span>[:]
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">简化语法，首选：</span>[:]
+</span></span></code></pre></div><p>这个例子创建了一个<code>[Int: String]</code>类型的空字典来存储整数的英语命名。它的键是<code>Int</code>型，值是<code>String</code>型。</p>
 <p>如果上下文已经提供了类型信息，可以使用空字典字面量来创建一个空字典，记作<code>[:]</code>（一对方括号中放一个冒号）：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">namesOfIntegers[<span style="color:#ae81ff">16</span>] = <span style="color:#e6db74">&#34;sixteen&#34;</span>  <span style="color:#75715e">// namesOfIntegers现在包含一个键值对</span>
-namesOfIntegers = [:]  <span style="color:#75715e">// namesOfIntegers又成为了一个[Int: String]类型的空字典</span>
-</code></pre></div><h3 id="用字典字面量创建字典">用字典字面量创建字典</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>namesOfIntegers[<span style="color:#ae81ff">16</span>] = <span style="color:#e6db74">&#34;sixteen&#34;</span>  <span style="color:#75715e">// namesOfIntegers现在包含一个键值对</span>
+</span></span><span style="display:flex;"><span>namesOfIntegers = [:]  <span style="color:#75715e">// namesOfIntegers又成为了一个[Int: String]类型的空字典</span>
+</span></span></code></pre></div><h3 id="用字典字面量创建字典">用字典字面量创建字典</h3>
 <p>可以使用字典字面量来构造字典，这和刚才介绍过的数组字面量拥有相似的语法。字典字面量是一种将一个或多个键值对写作<code>Dictionary</code>集合的快捷途径。</p>
 <p>一个键值对是一个键和一个值的结合体，在字典字面量中，每一个键值对的键和值都由冒号分割。这些键值对构成一个列表，其中这些键值对由逗号分割、并整体被包裹在一对方括号中：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#75715e">// [key 1: value 1, key 2: value 2, key 3: value 3]</span>
-</code></pre></div><p>下面的例子创建了一个存储国际机场名称的字典。在这个字典中键是三个字母的国际航空运输相关代码，值是机场名称：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> airposts: [String: String] = [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>:<span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>:<span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
-print(<span style="color:#e6db74">&#34;China Main Airpots: </span><span style="color:#e6db74">\(</span>airposts<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: China Main Airpots: [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>: <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>: <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
-</code></pre></div><p><code>airports</code>字典被声明为一种<code>[String: String]</code>类型，这意味着这个字典的键和值都是<code>String</code>类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#75715e">// [key 1: value 1, key 2: value 2, key 3: value 3]</span>
+</span></span></code></pre></div><p>下面的例子创建了一个存储国际机场名称的字典。在这个字典中键是三个字母的国际航空运输相关代码，值是机场名称：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> airposts: [String: String] = [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>:<span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>:<span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;China Main Airpots: </span><span style="color:#e6db74">\(</span>airposts<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: China Main Airpots: [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>: <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>: <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
+</span></span></code></pre></div><p><code>airports</code>字典被声明为一种<code>[String: String]</code>类型，这意味着这个字典的键和值都是<code>String</code>类型。</p>
 <blockquote>
 <p><strong>注意</strong></p>
 <p>airports字典被声明为变量（用var关键字）而不是常量（用let关键字）因为后面会有更多的机场被添加到这个字典中。</p>
 </blockquote>
 <p><code>airports</code>字典使用字典字面量初始化，包含四个键值对。它们对应<code>airports</code>变量声明的类型（一个只有String键和String值的字典），所以这个字典字面量的赋值是一种方式用来构造拥有四个初始数据项的<code>airports</code>字典。</p>
 <p>和数组一样，在用字典字面量构造字典时，如果其键和值都有各自一致的类型，那就不必写出字典的类型，<code>airports</code>字典也可以用这种简短的方式定义：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> chinaAirports = [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Luogang&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>:<span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>:<span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
-</code></pre></div><p>因为这个语句中所有的键值都各自拥有相同的数据类型，<code>Swift</code>可以推断出<code>[String: String]</code>是<code>airports</code>字典的正确类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> chinaAirports = [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Luogang&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>:<span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>:<span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
+</span></span></code></pre></div><p>因为这个语句中所有的键值都各自拥有相同的数据类型，<code>Swift</code>可以推断出<code>[String: String]</code>是<code>airports</code>字典的正确类型。</p>
 <h3 id="访问和修改字典">访问和修改字典</h3>
 <p>可以通过字典的方法和属性来访问和修改字典，或者通过使用下标语法。</p>
 <p>和数组一样，可以通过<code>Dictionary</code>的只读属性<code>count</code>来获取字典的数据项数量：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;The dictionary of chinaAirports contains </span><span style="color:#e6db74">\(</span>chinaAirports.count<span style="color:#e6db74">)</span><span style="color:#e6db74"> items.&#34;</span>)  <span style="color:#75715e">// 打印&#34;The dictionary of chinaAirports contains 4 items.&#34;</span>
-<span style="color:#f92672">---</span>
-output: The dictionary of chinaAirports contains <span style="color:#ae81ff">4</span> items.
-</code></pre></div><p>使用布尔属性<code>isEmpty</code>作为一个缩写去检查<code>count</code>属性是否为0：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> chinaAirports.isEmpty {
-    print(<span style="color:#e6db74">&#34;The chinaAirports dictionary is empty.&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;The chinaAirports dictionary is not empty.&#34;</span>)
-}  <span style="color:#75715e">// 打印&#34;The chinaAirports dictionary is not empty.&#34;</span>
-<span style="color:#f92672">---</span>
-output: The chinaAirports dictionary <span style="color:#66d9ef">is</span> not empty.
-</code></pre></div><p>可以通过下标语法来个字典添加新的数据项，可以使用一个恰当类型的键作为下标索引，并且分配恰当类型的新值：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">airposts[<span style="color:#e6db74">&#34;XIY&#34;</span>] = <span style="color:#e6db74">&#34;Xi&#39;an&#34;</span>  <span style="color:#75715e">// airports字典现在有五个数据项</span>
-print(airposts)
-<span style="color:#f92672">---</span>
-output: [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>: <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;XIY&#34;</span>: <span style="color:#e6db74">&#34;Xi</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">an&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>: <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
-</code></pre></div><p>也可以使用下标语法来改变特定键对应的值：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">airposts[<span style="color:#e6db74">&#34;XIY&#34;</span>] = <span style="color:#e6db74">&#34;Xi&#39;an Xianyang&#34;</span>  <span style="color:#75715e">// &#34;XIY&#34;对应的值被修改为&#34;Xi&#39;an Xianyang&#34;</span>
-print(airposts)
-<span style="color:#f92672">---</span>
-output: [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>: <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;XIY&#34;</span>: <span style="color:#e6db74">&#34;Xi</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">an Xianyang&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>: <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
-</code></pre></div><p>作为一种替代下标语法的方式，字典的<code>updateValue(_:forKey:)</code>方法可以设置或者更新特定键对应的值。就像上面所示的下标示例，<code>updateValue(_:forKey:)</code>方法在这个键不存在对应值的时候会设置新值或者在存在时更新已存在的值。和下标的方式不同，<code>updateValue(_:forKey:)</code>这个方法返回更新值之前的原值。这样使得可以检查更新是否成功。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The dictionary of chinaAirports contains </span><span style="color:#e6db74">\(</span>chinaAirports.count<span style="color:#e6db74">)</span><span style="color:#e6db74"> items.&#34;</span>)  <span style="color:#75715e">// 打印&#34;The dictionary of chinaAirports contains 4 items.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The dictionary of chinaAirports contains <span style="color:#ae81ff">4</span> items.
+</span></span></code></pre></div><p>使用布尔属性<code>isEmpty</code>作为一个缩写去检查<code>count</code>属性是否为0：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> chinaAirports.isEmpty {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The chinaAirports dictionary is empty.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The chinaAirports dictionary is not empty.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 打印&#34;The chinaAirports dictionary is not empty.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The chinaAirports dictionary <span style="color:#66d9ef">is</span> not empty.
+</span></span></code></pre></div><p>可以通过下标语法来个字典添加新的数据项，可以使用一个恰当类型的键作为下标索引，并且分配恰当类型的新值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>airposts[<span style="color:#e6db74">&#34;XIY&#34;</span>] = <span style="color:#e6db74">&#34;Xi&#39;an&#34;</span>  <span style="color:#75715e">// airports字典现在有五个数据项</span>
+</span></span><span style="display:flex;"><span>print(airposts)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>: <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;XIY&#34;</span>: <span style="color:#e6db74">&#34;Xi</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">an&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>: <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
+</span></span></code></pre></div><p>也可以使用下标语法来改变特定键对应的值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>airposts[<span style="color:#e6db74">&#34;XIY&#34;</span>] = <span style="color:#e6db74">&#34;Xi&#39;an Xianyang&#34;</span>  <span style="color:#75715e">// &#34;XIY&#34;对应的值被修改为&#34;Xi&#39;an Xianyang&#34;</span>
+</span></span><span style="display:flex;"><span>print(airposts)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>: <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;XIY&#34;</span>: <span style="color:#e6db74">&#34;Xi</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">an Xianyang&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>: <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
+</span></span></code></pre></div><p>作为一种替代下标语法的方式，字典的<code>updateValue(_:forKey:)</code>方法可以设置或者更新特定键对应的值。就像上面所示的下标示例，<code>updateValue(_:forKey:)</code>方法在这个键不存在对应值的时候会设置新值或者在存在时更新已存在的值。和下标的方式不同，<code>updateValue(_:forKey:)</code>这个方法返回更新值之前的原值。这样使得可以检查更新是否成功。</p>
 <p><code>updateValue(_:forKey:)</code>方法会返回对应值类型的可选类型。举例来说：对于存储<code>String</code>值的字典，这个函数会返回一个<code>String?</code>或者<code>可选String</code>类型的值。如果有值存在于更新前，则这个可选值包含了旧值，否则它将会是<code>nil</code>：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> oldValue = airposts.updateValue(<span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, forKey: <span style="color:#e6db74">&#34;HFE&#34;</span>) {
-    print(<span style="color:#e6db74">&#34;The old value for HFE was </span><span style="color:#e6db74">\(</span>oldValue<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
-}  <span style="color:#75715e">// 打印输出&#34;The old value for HFE was Hefei Xinqiao.&#34;</span>
-<span style="color:#f92672">---</span>
-output: The old value <span style="color:#66d9ef">for</span> HFE was Hefei Xinqiao.
-</code></pre></div><p>也可以使用下标语法来在字典中检索特定键对应的值。因为有可能请求的键没有对应的值存在，字典的下标访问会返回对应值的可选类型。如果这个字典包含请求键所对应的值，下标会返回一个包含这个存在值的可选类型，否则将返回<code>nil</code>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> airportName = airposts[<span style="color:#e6db74">&#34;HFE&#34;</span>] {
-    print(<span style="color:#e6db74">&#34;The name of the airport is </span><span style="color:#e6db74">\(</span>airportName<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;That airport is not in the airports dictionary.&#34;</span>)
-}  <span style="color:#75715e">// 打印&#34;The name of the airport is Hefei Xinqiao.&#34;</span>
-<span style="color:#f92672">---</span>
-output: The name of the airport <span style="color:#66d9ef">is</span> Hefei Xinqiao.
-</code></pre></div><p>还可以使用下标语法通过将某个键的对应值赋值为<code>nil</code>来从字典中移除一个键值对：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">airposts[<span style="color:#e6db74">&#34;CAN&#34;</span>] = <span style="color:#e6db74">&#34;Guangzhou Baoan&#34;</span>  <span style="color:#75715e">// Baoan机场是深圳的，所以删除它</span>
-print(airposts)
-airposts[<span style="color:#e6db74">&#34;CAN&#34;</span>] = <span style="color:#66d9ef">nil</span>  <span style="color:#75715e">// CAN现在被移除了</span>
-print(airposts)
-<span style="color:#f92672">---</span>
-output: [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>: <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;XIY&#34;</span>: <span style="color:#e6db74">&#34;Xi</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">an Xianyang&#34;</span>, <span style="color:#e6db74">&#34;CAN&#34;</span>: <span style="color:#e6db74">&#34;Guangzhou Baoan&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>: <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
-[<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>: <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;XIY&#34;</span>: <span style="color:#e6db74">&#34;Xi</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">an Xianyang&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>: <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
-</code></pre></div><p>此外，<code>removeValue(forKey:)</code>方法也可以用来在字典中移除键值对。这个方法在键值对存在的情况下会移除该键值对并且返回被移除的值或者在没有对应值的情况下返回<code>nil</code>：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> removeValue = airposts.removeValue(forKey: <span style="color:#e6db74">&#34;NKG&#34;</span>) {
-    print(<span style="color:#e6db74">&#34;The removed airport&#39;s name is </span><span style="color:#e6db74">\(</span>removeValue<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;The airports dictionary does not contain a value for NKG.&#34;</span>)
-}  <span style="color:#75715e">// 打印&#34;The removed airport&#39;s name is Nanjing Lukou.&#34;</span>
-<span style="color:#f92672">---</span>
-output: The removed airport<span style="color:#960050;background-color:#1e0010">&#39;</span>s name <span style="color:#66d9ef">is</span> Nanjing Lukou.
-</code></pre></div><h3 id="字典遍历">字典遍历</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> oldValue = airposts.updateValue(<span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, forKey: <span style="color:#e6db74">&#34;HFE&#34;</span>) {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The old value for HFE was </span><span style="color:#e6db74">\(</span>oldValue<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 打印输出&#34;The old value for HFE was Hefei Xinqiao.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The old value <span style="color:#66d9ef">for</span> HFE was Hefei Xinqiao.
+</span></span></code></pre></div><p>也可以使用下标语法来在字典中检索特定键对应的值。因为有可能请求的键没有对应的值存在，字典的下标访问会返回对应值的可选类型。如果这个字典包含请求键所对应的值，下标会返回一个包含这个存在值的可选类型，否则将返回<code>nil</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> airportName = airposts[<span style="color:#e6db74">&#34;HFE&#34;</span>] {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The name of the airport is </span><span style="color:#e6db74">\(</span>airportName<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;That airport is not in the airports dictionary.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 打印&#34;The name of the airport is Hefei Xinqiao.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The name of the airport <span style="color:#66d9ef">is</span> Hefei Xinqiao.
+</span></span></code></pre></div><p>还可以使用下标语法通过将某个键的对应值赋值为<code>nil</code>来从字典中移除一个键值对：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>airposts[<span style="color:#e6db74">&#34;CAN&#34;</span>] = <span style="color:#e6db74">&#34;Guangzhou Baoan&#34;</span>  <span style="color:#75715e">// Baoan机场是深圳的，所以删除它</span>
+</span></span><span style="display:flex;"><span>print(airposts)
+</span></span><span style="display:flex;"><span>airposts[<span style="color:#e6db74">&#34;CAN&#34;</span>] = <span style="color:#66d9ef">nil</span>  <span style="color:#75715e">// CAN现在被移除了</span>
+</span></span><span style="display:flex;"><span>print(airposts)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: [<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>: <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;XIY&#34;</span>: <span style="color:#e6db74">&#34;Xi</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">an Xianyang&#34;</span>, <span style="color:#e6db74">&#34;CAN&#34;</span>: <span style="color:#e6db74">&#34;Guangzhou Baoan&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>: <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
+</span></span><span style="display:flex;"><span>[<span style="color:#e6db74">&#34;HFE&#34;</span>: <span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;NKG&#34;</span>: <span style="color:#e6db74">&#34;Nanjing Lukou&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>: <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;XIY&#34;</span>: <span style="color:#e6db74">&#34;Xi</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">an Xianyang&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>: <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
+</span></span></code></pre></div><p>此外，<code>removeValue(forKey:)</code>方法也可以用来在字典中移除键值对。这个方法在键值对存在的情况下会移除该键值对并且返回被移除的值或者在没有对应值的情况下返回<code>nil</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> removeValue = airposts.removeValue(forKey: <span style="color:#e6db74">&#34;NKG&#34;</span>) {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The removed airport&#39;s name is </span><span style="color:#e6db74">\(</span>removeValue<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The airports dictionary does not contain a value for NKG.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 打印&#34;The removed airport&#39;s name is Nanjing Lukou.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The removed airport<span style="color:#960050;background-color:#1e0010">&#39;</span>s name <span style="color:#66d9ef">is</span> Nanjing Lukou.
+</span></span></code></pre></div><h3 id="字典遍历">字典遍历</h3>
 <p>可以使用<code>for-in</code>循环来遍历某个字典中的键值对。每一个字典中的数据项都以<code>(Key, Value)</code>元组形式返回，并且可以使用临时常量或者变量来分解这些元组。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">for</span> (airportCode, airportName) <span style="color:#66d9ef">in</span> airposts {
-    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>airportCode<span style="color:#e6db74">)</span><span style="color:#e6db74">: </span><span style="color:#e6db74">\(</span>airportName<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-}  <span style="color:#75715e">// HFE: Hefei Xinqiao; // PKX: Beijing Daxing; //SHA: Shanghao Hongqiao; // XIY: Xi&#39;an Xianyang</span>
-<span style="color:#f92672">---</span>
-output: HFE: Hefei Xinqiao
-PKX: Beijing Daxing
-XIY: Xi<span style="color:#960050;background-color:#1e0010">&#39;</span>an Xianyang
-SHA: Shanghao Hongqiao
-</code></pre></div><p>通过访问<code>keys</code>或者<code>values</code>属性，可以遍历字典的键或值：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">for</span> airportCode <span style="color:#66d9ef">in</span> airposts.keys {
-    print(<span style="color:#e6db74">&#34;Airport code: </span><span style="color:#e6db74">\(</span>airportCode<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-}
-
-<span style="color:#66d9ef">for</span> airportName <span style="color:#66d9ef">in</span> airposts.values {
-    print(<span style="color:#e6db74">&#34;Airport name: </span><span style="color:#e6db74">\(</span>airportName<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-}
-<span style="color:#f92672">---</span>
-output: Airport code: HFE
-Airport code: PKX
-Airport code: XIY
-Airport code: SHA
-Airport name: Hefei Xinqiao
-Airport name: Beijing Daxing
-Airport name: Xi<span style="color:#960050;background-color:#1e0010">&#39;</span>an Xianyang
-Airport name: Shanghao Hongqiao
-</code></pre></div><p>如果需要使用某个字典的键集合或者值集合来作为某个接受<code>Array</code>实例的API的参数，可以直接使用<code>keys</code>或者<code>values</code>属性来构造一个新数组。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> airportCodes = [String](airposts.keys)  <span style="color:#75715e">// airportCodes是[&#34;HFE&#34;, &#34;PKX&#34;, &#34;SHA&#34;, &#34;XIY&#34;]</span>
-print(airportCodes)
-<span style="color:#66d9ef">let</span> airportNames = [String](airposts.values)  <span style="color:#75715e">// airportNames是[&#34;Hefei Xinqiao&#34;, &#34;Beijing Daxing&#34;, &#34;Shanghai Hongqiao&#34;, &#34;Xi&#39;an Xianyang&#34;]</span>
-print(airportNames)
-<span style="color:#f92672">---</span>
-output: [<span style="color:#e6db74">&#34;HFE&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>, <span style="color:#e6db74">&#34;XIY&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>]
-[<span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;Xi</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">an Xianyang&#34;</span>, <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
-</code></pre></div><p><code>Swift</code>的<code>Dictionary</code>是无序集合类型。为了以特定顺序遍历字典的键或值，可以对字典的<code>keys</code>或<code>values</code>属性使用<code>sorted()</code>方法。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (airportCode, airportName) <span style="color:#66d9ef">in</span> airposts {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>airportCode<span style="color:#e6db74">)</span><span style="color:#e6db74">: </span><span style="color:#e6db74">\(</span>airportName<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// HFE: Hefei Xinqiao; // PKX: Beijing Daxing; //SHA: Shanghao Hongqiao; // XIY: Xi&#39;an Xianyang</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: HFE: Hefei Xinqiao
+</span></span><span style="display:flex;"><span>PKX: Beijing Daxing
+</span></span><span style="display:flex;"><span>XIY: Xi<span style="color:#960050;background-color:#1e0010">&#39;</span>an Xianyang
+</span></span><span style="display:flex;"><span>SHA: Shanghao Hongqiao
+</span></span></code></pre></div><p>通过访问<code>keys</code>或者<code>values</code>属性，可以遍历字典的键或值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> airportCode <span style="color:#66d9ef">in</span> airposts.keys {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Airport code: </span><span style="color:#e6db74">\(</span>airportCode<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> airportName <span style="color:#66d9ef">in</span> airposts.values {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Airport name: </span><span style="color:#e6db74">\(</span>airportName<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Airport code: HFE
+</span></span><span style="display:flex;"><span>Airport code: PKX
+</span></span><span style="display:flex;"><span>Airport code: XIY
+</span></span><span style="display:flex;"><span>Airport code: SHA
+</span></span><span style="display:flex;"><span>Airport name: Hefei Xinqiao
+</span></span><span style="display:flex;"><span>Airport name: Beijing Daxing
+</span></span><span style="display:flex;"><span>Airport name: Xi<span style="color:#960050;background-color:#1e0010">&#39;</span>an Xianyang
+</span></span><span style="display:flex;"><span>Airport name: Shanghao Hongqiao
+</span></span></code></pre></div><p>如果需要使用某个字典的键集合或者值集合来作为某个接受<code>Array</code>实例的API的参数，可以直接使用<code>keys</code>或者<code>values</code>属性来构造一个新数组。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> airportCodes = [String](airposts.keys)  <span style="color:#75715e">// airportCodes是[&#34;HFE&#34;, &#34;PKX&#34;, &#34;SHA&#34;, &#34;XIY&#34;]</span>
+</span></span><span style="display:flex;"><span>print(airportCodes)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> airportNames = [String](airposts.values)  <span style="color:#75715e">// airportNames是[&#34;Hefei Xinqiao&#34;, &#34;Beijing Daxing&#34;, &#34;Shanghai Hongqiao&#34;, &#34;Xi&#39;an Xianyang&#34;]</span>
+</span></span><span style="display:flex;"><span>print(airportNames)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: [<span style="color:#e6db74">&#34;HFE&#34;</span>, <span style="color:#e6db74">&#34;PKX&#34;</span>, <span style="color:#e6db74">&#34;XIY&#34;</span>, <span style="color:#e6db74">&#34;SHA&#34;</span>]
+</span></span><span style="display:flex;"><span>[<span style="color:#e6db74">&#34;Hefei Xinqiao&#34;</span>, <span style="color:#e6db74">&#34;Beijing Daxing&#34;</span>, <span style="color:#e6db74">&#34;Xi</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">an Xianyang&#34;</span>, <span style="color:#e6db74">&#34;Shanghao Hongqiao&#34;</span>]
+</span></span></code></pre></div><p><code>Swift</code>的<code>Dictionary</code>是无序集合类型。为了以特定顺序遍历字典的键或值，可以对字典的<code>keys</code>或<code>values</code>属性使用<code>sorted()</code>方法。</p>
 
     <div class="CornerButtons">
         <div class="CornerAnimayedFlex">

@@ -168,56 +168,56 @@
 </blockquote>
 <h3 id="类型定义语法">类型定义语法</h3>
 <p>结构体和类有着相似的定义方式，通过<code>struct</code>关键字引入结构体，通过<code>class</code>关键字引入类，并将它们的具体定义放在一对大括号中：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SomeStructure</span> {
-    <span style="color:#75715e">// 在这里定义结构体</span>
-}
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SomeClass</span> {
-    <span style="color:#75715e">// 在这里定义类</span>
-}
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SomeStructure</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 在这里定义结构体</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SomeClass</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 在这里定义类</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><blockquote>
 <p><strong>注意</strong></p>
 <p>每当定义一个新的结构体或者类时，都是定义了一个新的<code>Swift</code>类型。请使用<code>UpperCamelCase</code>这种方式来命名类型（如这里的SomeClass和SomeStructure），以便复合标准<code>Swift</code>类型的大写命名风格（如String，Int和Bool）。请使用<code>lowerCamelCase</code>这种方式来命名属性和方法（如frameRate和incrementCount），以便和类型名区分。</p>
 </blockquote>
 <p>以下是定义结构体和定义类的示例：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Resolution</span> {
-    <span style="color:#66d9ef">var</span> width = <span style="color:#ae81ff">0</span>
-    <span style="color:#66d9ef">var</span> height = <span style="color:#ae81ff">0</span>
-}
-<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VideoMode</span> {
-    <span style="color:#66d9ef">var</span> resolution = Resolution()
-    <span style="color:#66d9ef">var</span> interlaced = <span style="color:#66d9ef">false</span>
-    <span style="color:#66d9ef">var</span> frameRate = <span style="color:#ae81ff">0.0</span>
-    <span style="color:#66d9ef">var</span> name: String?
-}
-</code></pre></div><p>在上面的示例中定义了一个名为<code>Resolution</code>的结构体，用来描述基于像素的分辨率。这个结构体包含了名为<code>width</code>和<code>height</code>的两个存储属性。存储属性是与结构体或者类绑定的，并存储在常量或者变量。当这两个属性被初始化为整数0的时候，它们会被推断为<code>Int</code>类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Resolution</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> width = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> height = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VideoMode</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> resolution = Resolution()
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> interlaced = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> frameRate = <span style="color:#ae81ff">0.0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> name: String?
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>在上面的示例中定义了一个名为<code>Resolution</code>的结构体，用来描述基于像素的分辨率。这个结构体包含了名为<code>width</code>和<code>height</code>的两个存储属性。存储属性是与结构体或者类绑定的，并存储在常量或者变量。当这两个属性被初始化为整数0的时候，它们会被推断为<code>Int</code>类型。</p>
 <p>在上面的示例还定义了一个名为<code>VideoMode</code>的类，用来描述视频显示器的某个特定视频模式。这个类包含了四个可变的存储属性。第一个，<code>resolution</code>，被初始化为一个新的<code>Resolution</code>结构体实例，属性类型被推断为<code>Resolution</code>。新<code>VideoMode</code>实例同时还会初始化其它三个属性，它们分别是初始值为<code>false</code>的<code>interlaced</code>（意为“非隔行视频”），初始值为0.0的<code>frameRate</code>，以及值为可选<code>String</code>的<code>name</code>。因为<code>name</code>是一个可选类型，它会被自动赋予一个默认值<code>nil</code>，意为“没有<code>name</code>值”。</p>
 <h3 id="结构体和类的实例">结构体和类的实例</h3>
 <p><code>Resolution</code>结构体和<code>VideoMode</code>类的定义仅描述了什么是<code>Resolution</code>和<code>VideoMode</code>。它们并没有描述一个特定的分辨率（Resolution）或者视频模式（VideoMode）。为此，需要创建结构体或者类的一个实例。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> someResolution = Resolution()
-<span style="color:#66d9ef">let</span> someVideoMode = VideoMode()
-</code></pre></div><p>结构体和类都使用构造器语法来创建新的实例。构造器语法的最简单形式就是在结构体或者类的类型名称后跟随一对空括号，如<code>Resolution()</code>或<code>VideoMode()</code>。通过这种方式所创建的类或者结构体实例，其属性均会被初始化为默认值。<a href="">构造过程</a>章节将会对类和结构体的初始化进行更详细的讨论。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> someResolution = Resolution()
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> someVideoMode = VideoMode()
+</span></span></code></pre></div><p>结构体和类都使用构造器语法来创建新的实例。构造器语法的最简单形式就是在结构体或者类的类型名称后跟随一对空括号，如<code>Resolution()</code>或<code>VideoMode()</code>。通过这种方式所创建的类或者结构体实例，其属性均会被初始化为默认值。<a href="">构造过程</a>章节将会对类和结构体的初始化进行更详细的讨论。</p>
 <h3 id="属性访问">属性访问</h3>
 <p>可以通过点语法访问实例的属性，其语法规则是，实例后面紧跟属性名，两者以<code>.</code>分隔，中间不带空格。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;The width of someResolution is </span><span style="color:#e6db74">\(</span>someResolution.width<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The width of someResolution is 0.”</span>
-<span style="color:#f92672">---</span>
-output: The width of someResolution <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">0.</span>
-</code></pre></div><p>在上面的例子中，<code>someResolution.width</code>引用<code>someResolution</code>的<code>width</code>属性，返回<code>width</code>的初始值0。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The width of someResolution is </span><span style="color:#e6db74">\(</span>someResolution.width<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The width of someResolution is 0.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The width of someResolution <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">0.</span>
+</span></span></code></pre></div><p>在上面的例子中，<code>someResolution.width</code>引用<code>someResolution</code>的<code>width</code>属性，返回<code>width</code>的初始值0。</p>
 <p>也可以访问子属性，如<code>someVideoMode</code>中的<code>resolution</code>属性的<code>width</code>属性：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;The width of someVideoMode is </span><span style="color:#e6db74">\(</span>someVideoMode.resolution.width<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The width of someVideoMode is 0.”</span>
-<span style="color:#f92672">---</span>
-output: The width of someVideoMode <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">0.</span>
-</code></pre></div><p>也可以使用点语法为可变属性赋值：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">someVideoMode.resolution.width = <span style="color:#ae81ff">1280</span>
-print(<span style="color:#e6db74">&#34;Now, the width of someVideoMode is </span><span style="color:#e6db74">\(</span>someVideoMode.resolution.width<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“Now, the width of someVideoMode is 1280.”</span>
-<span style="color:#f92672">---</span>
-output: Now, the width of someVideoMode <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">1280.</span>
-</code></pre></div><h3 id="结构体类型的成员逐一构造器">结构体类型的成员逐一构造器</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The width of someVideoMode is </span><span style="color:#e6db74">\(</span>someVideoMode.resolution.width<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The width of someVideoMode is 0.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The width of someVideoMode <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">0.</span>
+</span></span></code></pre></div><p>也可以使用点语法为可变属性赋值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>someVideoMode.resolution.width = <span style="color:#ae81ff">1280</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Now, the width of someVideoMode is </span><span style="color:#e6db74">\(</span>someVideoMode.resolution.width<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“Now, the width of someVideoMode is 1280.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Now, the width of someVideoMode <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">1280.</span>
+</span></span></code></pre></div><h3 id="结构体类型的成员逐一构造器">结构体类型的成员逐一构造器</h3>
 <p>所有的结构体都有一个自动生成的成员逐一构造器，用于初始化新结构体实例中的成员属性。新实例中各个属性的初始值可以通过属性的名称传递到成员逐一构造器中：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> vga = Resolution(width: <span style="color:#ae81ff">640</span>, height: <span style="color:#ae81ff">480</span>)
-print(<span style="color:#e6db74">&#34;The width of vga is </span><span style="color:#e6db74">\(</span>vga.width<span style="color:#e6db74">)</span><span style="color:#e6db74"> and the height is </span><span style="color:#e6db74">\(</span>vga.height<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The width of vga is 640 and the height is 480.”</span>
-<span style="color:#f92672">---</span>
-output: The width of vga <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">640</span> and the height <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">480.</span>
-</code></pre></div><p>与结构体不同，类实例没有默认的成员逐一构造器。<a href="">构造过程</a>章节会对构造器进行更详细的讨论。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> vga = Resolution(width: <span style="color:#ae81ff">640</span>, height: <span style="color:#ae81ff">480</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The width of vga is </span><span style="color:#e6db74">\(</span>vga.width<span style="color:#e6db74">)</span><span style="color:#e6db74"> and the height is </span><span style="color:#e6db74">\(</span>vga.height<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The width of vga is 640 and the height is 480.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The width of vga <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">640</span> and the height <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">480.</span>
+</span></span></code></pre></div><p>与结构体不同，类实例没有默认的成员逐一构造器。<a href="">构造过程</a>章节会对构造器进行更详细的讨论。</p>
 <hr>
 <h2 id="结构体和枚举是值类型">结构体和枚举是值类型</h2>
 <p>值类型是这样一种类型，当它被赋值给了一个变量、常量或者传递给一个参数时，其值会被拷贝。</p>
@@ -228,59 +228,59 @@ output: The width of vga <span style="color:#66d9ef">is</span> <span style="colo
 <p>标准库定义的集合，如数组、字典和字符串，都对复制进行了优化以降低性能成本，新集合不会立即复制而是跟原集合共享同一份内存，共享同样的元素。在集合的某个副本要被修改之前，才会复制它的元素。而开发者在代码中看起来就像是立即发生了复制。</p>
 </blockquote>
 <p>请看下面的示例，其使用了上一个示例中的<code>Resolution</code>结构体：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> hd = Resolution(width: <span style="color:#ae81ff">1920</span>, height: <span style="color:#ae81ff">1080</span>)
-<span style="color:#66d9ef">var</span> cinema = hd
-</code></pre></div><p>在以上的示例中声明了一个名为<code>hd</code>的常量，其值初始化为全高清视频分辨率（1920像素宽，1080像素高）的<code>Resolution</code>实例。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hd = Resolution(width: <span style="color:#ae81ff">1920</span>, height: <span style="color:#ae81ff">1080</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> cinema = hd
+</span></span></code></pre></div><p>在以上的示例中声明了一个名为<code>hd</code>的常量，其值初始化为全高清视频分辨率（1920像素宽，1080像素高）的<code>Resolution</code>实例。</p>
 <p>然后示例中又声明了一个名为<code>cinema</code>的变量，并将<code>hd</code>赋值给它。因为<code>Resolution</code>是一个结构体，所以会创建一个现有实例的副本，并将副本赋值给<code>cinema</code>。尽管<code>hd</code>和<code>cinema</code>有着相同的宽（Width）和高（Height），但是在幕后这两个是完全不同的实例。</p>
 <p>下面，为了满足数码影院的放映需求（2048像素宽，1080像素高），<code>cinema</code>的<code>width</code>属性被修改为稍宽一点的<code>2K</code>标准：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">cinema.width = <span style="color:#ae81ff">2048</span>
-</code></pre></div><p>查看<code>cinema</code>的<code>width</code>属性，其值确实被改为了2048:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;The width of cinema is </span><span style="color:#e6db74">\(</span>cinema.width<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The width of cinema is 2048.”</span>
-<span style="color:#f92672">---</span>
-output: The width of cinema <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">2048.</span>
-</code></pre></div><p>然而，初始的<code>hd</code>的<code>width</code>属性值还是1920:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;The width of hd is still </span><span style="color:#e6db74">\(</span>hd.width<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The width of hd is still 1920.”</span>
-<span style="color:#f92672">---</span>
-output: The width of hd <span style="color:#66d9ef">is</span> still <span style="color:#ae81ff">1920.</span>
-</code></pre></div><p>将<code>hd</code>赋值给<code>cinema</code>时，<code>hd</code>中所存储的值会拷贝到新的<code>cinema</code>实例中。结果就是两个完全独立的实例包含了相同的数值。由于两者相互独立，因此将<code>cinema</code>的<code>width</code>修改为2048并不会影响<code>hd</code>中的<code>width</code>的值，如下图所示：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>cinema.width = <span style="color:#ae81ff">2048</span>
+</span></span></code></pre></div><p>查看<code>cinema</code>的<code>width</code>属性，其值确实被改为了2048:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The width of cinema is </span><span style="color:#e6db74">\(</span>cinema.width<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The width of cinema is 2048.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The width of cinema <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">2048.</span>
+</span></span></code></pre></div><p>然而，初始的<code>hd</code>的<code>width</code>属性值还是1920:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The width of hd is still </span><span style="color:#e6db74">\(</span>hd.width<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The width of hd is still 1920.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The width of hd <span style="color:#66d9ef">is</span> still <span style="color:#ae81ff">1920.</span>
+</span></span></code></pre></div><p>将<code>hd</code>赋值给<code>cinema</code>时，<code>hd</code>中所存储的值会拷贝到新的<code>cinema</code>实例中。结果就是两个完全独立的实例包含了相同的数值。由于两者相互独立，因此将<code>cinema</code>的<code>width</code>修改为2048并不会影响<code>hd</code>中的<code>width</code>的值，如下图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/sharedStateStruct.png" alt="SharedState Struct"></p>
 <p>枚举也遵循相同的行为准则：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">CompassPoint</span> {
-    <span style="color:#66d9ef">case</span> north, south, west, east
-    <span style="color:#66d9ef">mutating</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">turnNorth</span>() {
-        <span style="color:#66d9ef">self</span> = .north
-    }
-}
-<span style="color:#66d9ef">var</span> currentDirection = CompassPoint.west
-<span style="color:#66d9ef">let</span> rememberDirection = currentDirection
-currentDirection.turnNorth()
-
-print(<span style="color:#e6db74">&#34;The current direction is </span><span style="color:#e6db74">\(</span>currentDirection<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The current direction is north.”</span>
-print(<span style="color:#e6db74">&#34;The remember direction is </span><span style="color:#e6db74">\(</span>rememberDirection<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The remember direction is west.”</span>
-<span style="color:#f92672">---</span>
-output: The current direction <span style="color:#66d9ef">is</span> north.
-The remember direction <span style="color:#66d9ef">is</span> west.
-</code></pre></div><p>当<code>rememberDirection</code>被赋予了<code>currentDirection</code>的值，实际上它被赋予的是一个值拷贝，赋值过程结束后再修改<code>currentDirection</code>的值并不<code>rememberDirection</code>所存储的原始值的拷贝。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">CompassPoint</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> north, south, west, east
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">mutating</span> <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">turnNorth</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">self</span> = .north
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> currentDirection = CompassPoint.west
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> rememberDirection = currentDirection
+</span></span><span style="display:flex;"><span>currentDirection.turnNorth()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The current direction is </span><span style="color:#e6db74">\(</span>currentDirection<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The current direction is north.”</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The remember direction is </span><span style="color:#e6db74">\(</span>rememberDirection<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The remember direction is west.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The current direction <span style="color:#66d9ef">is</span> north.
+</span></span><span style="display:flex;"><span>The remember direction <span style="color:#66d9ef">is</span> west.
+</span></span></code></pre></div><p>当<code>rememberDirection</code>被赋予了<code>currentDirection</code>的值，实际上它被赋予的是一个值拷贝，赋值过程结束后再修改<code>currentDirection</code>的值并不<code>rememberDirection</code>所存储的原始值的拷贝。</p>
 <hr>
 <h2 id="类是引用类型">类是引用类型</h2>
 <p>与值类型不同，引用类型被赋予到一个常量、变量或者被传递到一个函数时，其值不会被拷贝。因此使用的是已存在实例的引用而不是其拷贝。</p>
 <p>请看下面这个示例，其使用了之前定义的<code>VideoMode</code>类：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> tenEighty = VideoMode()
-tenEighty.resolution = hd
-tenEighty.interlaced = <span style="color:#66d9ef">true</span>
-tenEighty.name = <span style="color:#e6db74">&#34;1080i&#34;</span>
-tenEighty.frameRate = <span style="color:#ae81ff">25.0</span>
-</code></pre></div><p>在以上示例中，声明了一个名为<code>tenEighty</code>的常量，并让其引用一个<code>VideoMode</code>类的新实例。它的视频模式（Video Mode）被赋值为之前创建的HD分辨率（1920 * 1080）的一个拷贝，然后将其设置为隔行视频，名字为“”，并将帧率设置为25.0帧每秒。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> tenEighty = VideoMode()
+</span></span><span style="display:flex;"><span>tenEighty.resolution = hd
+</span></span><span style="display:flex;"><span>tenEighty.interlaced = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>tenEighty.name = <span style="color:#e6db74">&#34;1080i&#34;</span>
+</span></span><span style="display:flex;"><span>tenEighty.frameRate = <span style="color:#ae81ff">25.0</span>
+</span></span></code></pre></div><p>在以上示例中，声明了一个名为<code>tenEighty</code>的常量，并让其引用一个<code>VideoMode</code>类的新实例。它的视频模式（Video Mode）被赋值为之前创建的HD分辨率（1920 * 1080）的一个拷贝，然后将其设置为隔行视频，名字为“”，并将帧率设置为25.0帧每秒。</p>
 <p>接下来，将<code>tenEighty</code>赋值个一个名为<code>alsoTenEighty</code>的新常量，并修改<code>alsoTenEighty</code>的帧率：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> alsoTenEighty = tenEighty
-alsoTenEighty.frameRate = <span style="color:#ae81ff">30.0</span>
-</code></pre></div><p>因为类是引用类型，所以<code>alsoTenEighty</code>和<code>tenEighty</code>引用的是同一个<code>VideoMode</code>实例。换句话说，它们是同一个实例的两种叫法，如下图所示：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> alsoTenEighty = tenEighty
+</span></span><span style="display:flex;"><span>alsoTenEighty.frameRate = <span style="color:#ae81ff">30.0</span>
+</span></span></code></pre></div><p>因为类是引用类型，所以<code>alsoTenEighty</code>和<code>tenEighty</code>引用的是同一个<code>VideoMode</code>实例。换句话说，它们是同一个实例的两种叫法，如下图所示：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/sharedStateClass.png" alt="SharedState Class"></p>
 <p>通过查看<code>tenEighty</code>的<code>frameRate</code>属性，可以看到其正确地显示了底层<code>VideoMode</code>实例的新帧率30.0：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;The frameRate property of tenEighty is now </span><span style="color:#e6db74">\(</span>tenEighty.frameRate<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The frameRate property of tenEighty is now 30.0.”</span>
-<span style="color:#f92672">---</span>
-output: The frameRate property of tenEighty <span style="color:#66d9ef">is</span> now <span style="color:#ae81ff">30.0</span>.
-</code></pre></div><p>这个例子也就显示了为何引用类型难以理解。如果<code>tenEighty</code>和<code>alsoTenEighty</code>在代码中的位置相距很远，那么就很难找到所有修改视频模式的地方。无论在哪里使用<code>tenEighty</code>都需要考虑<code>alsoTenEighty</code>的代码，反之亦然。相反，值类型就显得容易理解多了，因为源码中，同一个位置交互的代码都很近。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The frameRate property of tenEighty is now </span><span style="color:#e6db74">\(</span>tenEighty.frameRate<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出“The frameRate property of tenEighty is now 30.0.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The frameRate property of tenEighty <span style="color:#66d9ef">is</span> now <span style="color:#ae81ff">30.0</span>.
+</span></span></code></pre></div><p>这个例子也就显示了为何引用类型难以理解。如果<code>tenEighty</code>和<code>alsoTenEighty</code>在代码中的位置相距很远，那么就很难找到所有修改视频模式的地方。无论在哪里使用<code>tenEighty</code>都需要考虑<code>alsoTenEighty</code>的代码，反之亦然。相反，值类型就显得容易理解多了，因为源码中，同一个位置交互的代码都很近。</p>
 <p>需要注意的是<code>tenEighty</code>和<code>alsoTenEighty</code>被声明为常量而不是变量。然而你依然可以改变<code>tenEighty.frameRate</code>和<code>alsoTenEighty.frameRate</code>，这是因为<code>tenEighty</code>和<code>alsoTenEighty</code>这两个常量的值并未改变。它们并不“存储”这个<code>VideoMode</code>实例，而仅仅是对<code>VideoMode</code>实例的引用。所以，改变的是底层<code>VideoMode</code>实例的<code>frameRate</code>属性，而不是指向<code>VideoMode</code>的常量引用的值。</p>
 <h3 id="恒等运算符">恒等运算符</h3>
 <p>因为类是引用类型，所以多个常量和变量可能在幕后同时引用同一个类实例。（对于结构体和枚举来说，这并不成立。因为它们作为值类型，在被赋予给常量、变量或者传递到函数时，其值总是会拷贝。）</p>
@@ -290,12 +290,12 @@ output: The frameRate property of tenEighty <span style="color:#66d9ef">is</span
 <li>不同（!==）</li>
 </ul>
 <p>使用这两个运算符检测两个常量和变量是否引用了同一个实例：</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> tenEighty === alsoTenEighty {
-    print(<span style="color:#e6db74">&#34;tenEighty and alsoTenEighty refer to the same VideoMode instance.&#34;</span>)  <span style="color:#75715e">// 打印输出“tenEighty and alsoTenEighty refer to the same VideoMode instance.”</span>
-}
-<span style="color:#f92672">---</span>
-output: tenEighty and alsoTenEighty refer to the same VideoMode instance.
-</code></pre></div><p>请注意，“相同”（用三个等号表示，===）与“等于”（用两个等号表示，==）不同，“相同”表示两个类类型（class type）的常量或变量引用同一个类实例。“等于”表示两个实例的值“相等”或“等价“，判定时要遵循设计者定义的评判标准。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> tenEighty === alsoTenEighty {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;tenEighty and alsoTenEighty refer to the same VideoMode instance.&#34;</span>)  <span style="color:#75715e">// 打印输出“tenEighty and alsoTenEighty refer to the same VideoMode instance.”</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: tenEighty and alsoTenEighty refer to the same VideoMode instance.
+</span></span></code></pre></div><p>请注意，“相同”（用三个等号表示，===）与“等于”（用两个等号表示，==）不同，“相同”表示两个类类型（class type）的常量或变量引用同一个类实例。“等于”表示两个实例的值“相等”或“等价“，判定时要遵循设计者定义的评判标准。</p>
 <p>当在定义自定义结构体和类时，开发者有义务来决定判定两个实例“相等”的标准。在章节<a href="https://jen-jon.663lab.com/posts/advancedop/">高级运算符</a>中将会详细介绍实现自定义<code>==</code>和<code>!=</code>运算符的流程。</p>
 <h3 id="指针">指针</h3>
 <p>如果有<code>C</code>、<code>C++、</code>和<code>Objective-C</code>语言的开发经验，那么大家也许会知道这些语言使用指针来引用内存中的地址。<code>Swift</code>中引用了某个引用类型实例的常量或变量，与<code>C</code>语言中的指针类似，不过它并不直接指向某个内存地址，也不要求使用<code>*</code>来表明正在创建一个引用。相反，<code>Swift</code>中引用的定义方式与其他常量和变量的一样。如果需要直接与指针交互，可以使用标准库提供的指针和缓冲区类型&ndash;参见<a href="https://developer.apple.com/documentation/swift/swift_standard_library/manual_memory_management">手动内存管理</a>。</p>

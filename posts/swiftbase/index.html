@@ -145,83 +145,83 @@
 <p>常量和变量把一个名字（如testVal）和一个指定类型的值（如“Jensen”）关联起来。常量的值一旦设定就不能再改变，而变量的值可以随意地更改。</p>
 <h3 id="声明常量和变量">声明常量和变量</h3>
 <p>常量和变量必须在使用前声明，用<code>let</code>来声明常量，用<code>var</code>来声明变量。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> maximumNumberOfLoginAttempts = <span style="color:#ae81ff">10</span>  <span style="color:#75715e">// 常量记录一共可以进行的登录尝试次数</span>
-<span style="color:#66d9ef">var</span> currentLoginAttempt = <span style="color:#ae81ff">0</span>  <span style="color:#75715e">// 变量记录当前登陆尝试次数</span>
-</code></pre></div><p>上述两行代码可以被理解为：“声明一个名字是maximumNumberOfLoginAttempts的新常量，并给它一个值10 。然后，声明一个名字是currentLoginAttempt的变量并将它的值初始化为0”。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> maximumNumberOfLoginAttempts = <span style="color:#ae81ff">10</span>  <span style="color:#75715e">// 常量记录一共可以进行的登录尝试次数</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> currentLoginAttempt = <span style="color:#ae81ff">0</span>  <span style="color:#75715e">// 变量记录当前登陆尝试次数</span>
+</span></span></code></pre></div><p>上述两行代码可以被理解为：“声明一个名字是maximumNumberOfLoginAttempts的新常量，并给它一个值10 。然后，声明一个名字是currentLoginAttempt的变量并将它的值初始化为0”。</p>
 <p>可以在一行中声明多个常量或者多个变量，用逗号隔开。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> x = <span style="color:#ae81ff">0.0</span>, y = <span style="color:#ae81ff">0.0</span>, z = <span style="color:#ae81ff">0.0</span>
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> x = <span style="color:#ae81ff">0.0</span>, y = <span style="color:#ae81ff">0.0</span>, z = <span style="color:#ae81ff">0.0</span>
+</span></span></code></pre></div><blockquote>
 <p><strong>注意</strong></p>
 <p>如果代码中有不需要改变的值，请使用let关键字将它声明为常量。只将需要改变的值声明为变量即可。</p>
 </blockquote>
 <h3 id="类型注解">类型注解</h3>
 <p>当声明常量或者变量的时候可以加上类型注解（Type Annotation），说明常量或者变量中要存储的值的类型。如果要添加类型注解，需要在常量或者变量名后面加上一个冒号和空格，然后加上类型名称。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> welcomeMessage: String <span style="color:#75715e">// 给welcomeMessage变量增加了类型注解，表示这个变量可以存储String类型的值</span>
-<span style="color:#75715e">// 上述声明中的冒号代表着“是 ... 类型”，welcomeMessage变量现在可以被设置成任意字符串。</span>
-welcomeMessage = <span style="color:#e6db74">&#34;Hello!&#34;</span>
-</code></pre></div><p>甚至可以在一行中定义多个同样类型的变量，用逗号分隔，并在最后一个变量名之后添加类型注解。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> red, green, yellow: Double
-</code></pre></div><h3 id="常量和变量的命名">常量和变量的命名</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> welcomeMessage: String <span style="color:#75715e">// 给welcomeMessage变量增加了类型注解，表示这个变量可以存储String类型的值</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 上述声明中的冒号代表着“是 ... 类型”，welcomeMessage变量现在可以被设置成任意字符串。</span>
+</span></span><span style="display:flex;"><span>welcomeMessage = <span style="color:#e6db74">&#34;Hello!&#34;</span>
+</span></span></code></pre></div><p>甚至可以在一行中定义多个同样类型的变量，用逗号分隔，并在最后一个变量名之后添加类型注解。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> red, green, yellow: Double
+</span></span></code></pre></div><h3 id="常量和变量的命名">常量和变量的命名</h3>
 <p>常量和变量名几乎可以包含所有的字符，包括<code>Unicode</code>字符。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> <span style="color:#960050;background-color:#1e0010">π</span> = <span style="color:#ae81ff">3.141592654</span>
-<span style="color:#66d9ef">let</span> <span style="color:#960050;background-color:#1e0010">你好</span> = <span style="color:#e6db74">&#34;你好世界！&#34;</span>
-<span style="color:#66d9ef">let</span> <span style="color:#960050;background-color:#1e0010">🐮🍺</span> = <span style="color:#e6db74">&#34;666&#34;</span>
-</code></pre></div><p>但是也存在例外，常量与变量名不能包含数学符号，箭头，保留的（或者非法的）<code>Unicode</code>码位，连线与制表符。也不能以数字开头，但是可以在常量与变量名的其他地方包含数字。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#960050;background-color:#1e0010">π</span> = <span style="color:#ae81ff">3.141592654</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#960050;background-color:#1e0010">你好</span> = <span style="color:#e6db74">&#34;你好世界！&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#960050;background-color:#1e0010">🐮🍺</span> = <span style="color:#e6db74">&#34;666&#34;</span>
+</span></span></code></pre></div><p>但是也存在例外，常量与变量名不能包含数学符号，箭头，保留的（或者非法的）<code>Unicode</code>码位，连线与制表符。也不能以数字开头，但是可以在常量与变量名的其他地方包含数字。</p>
 <p>一旦给常量或者变量添加了类型注解，就不可以使用相同的名字再次进行声明，或者改变其存储的值的类型。同时，<code>Swift</code>也不允许将变量与变量进行互转。</p>
 <blockquote>
 <p><strong>注意</strong></p>
 <p>如果需要使用与Swift保留关键字相同的名称作为常量或者变量名，可以使用反引号(`)将关键字包围的方式将其作为名字使用。无论如何，开发者都应当避免使用保留关键字作为常量或变量名，除非别无选择。</p>
 </blockquote>
 <p>可以更改现有的变量值为其他同类型的值。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> friendlyWelcome = <span style="color:#e6db74">&#34;Hello!&#34;</span>
-friendlyWelcome = <span style="color:#e6db74">&#34;Benjour!&#34;</span>  <span style="color:#75715e">// friendlyWelcome现在是“Bonjour!”</span>
-friendlyWelcome = <span style="color:#e6db74">&#34;你好！&#34;</span> <span style="color:#75715e">// friendlyWelcome现在是“欢迎！”</span>
-<span style="color:#75715e">// 与变量不同，常量的值一旦被确定就不能更改了。尝试这样做会导致变异时报错。</span>
-<span style="color:#66d9ef">let</span> languageName = <span style="color:#e6db74">&#34;Swift&#34;</span>
-<span style="color:#75715e">//languageName = &#34;C++&#34;  // 取消这行注释编译器会报Cannot assign to value: &#39;languageName&#39; is a &#39;let&#39; constant错误</span>
-</code></pre></div><h3 id="输出常量和变量">输出常量和变量</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(friendlyWelcome)  <span style="color:#75715e">// 输出：你好！</span>
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">你好！</span>
-</code></pre></div><p><code>separator</code>和<code>terminator</code>参数具有默认值，因此调用这个函数的时候可以忽略它们。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> friendlyWelcome = <span style="color:#e6db74">&#34;Hello!&#34;</span>
+</span></span><span style="display:flex;"><span>friendlyWelcome = <span style="color:#e6db74">&#34;Benjour!&#34;</span>  <span style="color:#75715e">// friendlyWelcome现在是“Bonjour!”</span>
+</span></span><span style="display:flex;"><span>friendlyWelcome = <span style="color:#e6db74">&#34;你好！&#34;</span> <span style="color:#75715e">// friendlyWelcome现在是“欢迎！”</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 与变量不同，常量的值一旦被确定就不能更改了。尝试这样做会导致变异时报错。</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> languageName = <span style="color:#e6db74">&#34;Swift&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//languageName = &#34;C++&#34;  // 取消这行注释编译器会报Cannot assign to value: &#39;languageName&#39; is a &#39;let&#39; constant错误</span>
+</span></span></code></pre></div><h3 id="输出常量和变量">输出常量和变量</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(friendlyWelcome)  <span style="color:#75715e">// 输出：你好！</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">你好！</span>
+</span></span></code></pre></div><p><code>separator</code>和<code>terminator</code>参数具有默认值，因此调用这个函数的时候可以忽略它们。</p>
 <p>默认情况下，输出函数通过添加换行符来结束当前行。如果不想换行，可以传递一个空字符串给<code>terminator</code>参数。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;Line1&#34;</span>, terminator: <span style="color:#e6db74">&#34;&#34;</span>)
-print(<span style="color:#e6db74">&#34;Line2&#34;</span>)
-<span style="color:#f92672">---</span>
-output: Line1Line2
-</code></pre></div><p><code>Swift</code>用字符串插值（String interpolation）的方式把常量名或者变量名当做占位符加入到长字符串中。<code>Swift</code>会用当前常量或者变量的值替换这些占位符。将常量或者变量名放入圆括号中，并在开括号钱使用反斜杠将其转义。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;The current login attempt is </span><span style="color:#e6db74">\(</span>currentLoginAttempt<span style="color:#e6db74">)</span><span style="color:#e6db74">, you have </span><span style="color:#e6db74">\(</span>maximumNumberOfLoginAttempts<span style="color:#e6db74">)</span><span style="color:#e6db74"> login attempts in total.&#34;</span>)
-<span style="color:#f92672">---</span>
-output: The current login attempt <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">0</span>, you have <span style="color:#ae81ff">10</span> login attempts <span style="color:#66d9ef">in</span> total.
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Line1&#34;</span>, terminator: <span style="color:#e6db74">&#34;&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Line2&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Line1Line2
+</span></span></code></pre></div><p><code>Swift</code>用字符串插值（String interpolation）的方式把常量名或者变量名当做占位符加入到长字符串中。<code>Swift</code>会用当前常量或者变量的值替换这些占位符。将常量或者变量名放入圆括号中，并在开括号钱使用反斜杠将其转义。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The current login attempt is </span><span style="color:#e6db74">\(</span>currentLoginAttempt<span style="color:#e6db74">)</span><span style="color:#e6db74">, you have </span><span style="color:#e6db74">\(</span>maximumNumberOfLoginAttempts<span style="color:#e6db74">)</span><span style="color:#e6db74"> login attempts in total.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The current login attempt <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">0</span>, you have <span style="color:#ae81ff">10</span> login attempts <span style="color:#66d9ef">in</span> total.
+</span></span></code></pre></div><hr>
 <h3 id="注释">注释</h3>
 <p><code>Swift</code>中的注释与<code>C</code>语言的注释十分相似，单行注释以双正斜杠<code>//</code>作为起始标记。</p>
 <p>也可以进行多行注释，其起始标记为单个正斜杠后跟随一个星号<code>/*</code>，终止标记为一个星号后跟单个正斜杠<code>*/</code>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#75715e">/* 这是一个注释
-</span><span style="color:#75715e"> 但是是多行注释 */</span>
-</code></pre></div><p>与<code>C</code>语言不同的是，<code>Swift</code>的多行注释可以嵌套在其它的多行注释之中。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#75715e">/* 这是外层注释的第一行
-</span><span style="color:#75715e"> /* 这是内层注释 */
-</span><span style="color:#75715e"> 这是外层注释的最后一行 */</span>
-</code></pre></div><p>通过运用嵌套多行注释，能够快速方便的注释掉一大段代码，即便这段代码之中已经含有了多行注释块。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#75715e">/* 这是一个注释
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> 但是是多行注释 */</span>
+</span></span></code></pre></div><p>与<code>C</code>语言不同的是，<code>Swift</code>的多行注释可以嵌套在其它的多行注释之中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#75715e">/* 这是外层注释的第一行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> /* 这是内层注释 */
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> 这是外层注释的最后一行 */</span>
+</span></span></code></pre></div><p>通过运用嵌套多行注释，能够快速方便的注释掉一大段代码，即便这段代码之中已经含有了多行注释块。</p>
 <hr>
 <h2 id="分号">分号</h2>
 <p>与其他大部分编程语言不同，<code>Swift</code>并不强制要求开发者在每条语句的结尾处使用分号<code>;</code>。当然，开发者也可以根据自己的习惯添加分号，但是有一种情况下必须要使用分号，即在同一行内写多条独立语句。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> pig = <span style="color:#e6db74">&#34;🐷&#34;</span>; print(pig)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">🐷</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> pig = <span style="color:#e6db74">&#34;🐷&#34;</span>; print(pig)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">🐷</span>
+</span></span></code></pre></div><hr>
 <h2 id="整数">整数</h2>
 <p>整数就是没有小数部分的数字，比如43和-23。<code>Swift</code>提供了8、16、32和64位的有符号和无符号整数类型。这些整数类型和<code>C</code>语言的命名方式很像，比如8位无符号整数类型是<code>UInt8</code>，32位有符号整数类型是<code>Int32</code>。就像<code>Swift</code>的其他类型一样，整数类型采用大写命名法。</p>
 <h3 id="整数范围">整数范围</h3>
 <p>可以访问不同整数类型的<code>min</code>和<code>max</code>属性来获取对应类型的最小值和最大值。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> minValue = UInt8.min
-<span style="color:#66d9ef">let</span> maxValue = UInt8.max
-print(<span style="color:#e6db74">&#34;UInt8类型的最小值是：</span><span style="color:#e6db74">\(</span>minValue<span style="color:#e6db74">)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">UInt8类型的最大值是：</span><span style="color:#e6db74">\(</span>maxValue<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: UInt8类型的最小值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">0</span>
-UInt8类型的最大值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">255</span>
-</code></pre></div><p><code>min</code>和<code>max</code>所传回值的类型正是其所对的整数类型，如上例<code>UInt8</code>，所传回的值的类型也是<code>UInt8</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> minValue = UInt8.min
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> maxValue = UInt8.max
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;UInt8类型的最小值是：</span><span style="color:#e6db74">\(</span>minValue<span style="color:#e6db74">)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">UInt8类型的最大值是：</span><span style="color:#e6db74">\(</span>maxValue<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: UInt8类型的最小值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>UInt8类型的最大值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">255</span>
+</span></span></code></pre></div><p><code>min</code>和<code>max</code>所传回值的类型正是其所对的整数类型，如上例<code>UInt8</code>，所传回的值的类型也是<code>UInt8</code>。</p>
 <h3 id="int">Int</h3>
 <p>一般来说，不需要专门指定整数的长度。<code>Swift</code>提供了一个特殊的整数类型<code>Int</code>，长度与当前平台的原生字长相同:</p>
 <blockquote>
@@ -256,11 +256,11 @@ UInt8类型的最大值是<span style="color:#960050;background-color:#1e0010">�
 <p>由于<code>Swift</code>是类型安全的，所以它在编译代码时会进行类型检查（Type Checks），并把不匹配的类型标记为错误。能够让开发者尽早地发现错误。</p>
 <p>当要处理不同类型的值时，类型检查可以帮助避免错误。然而，这并不是说每次声明常量和变量的时候都需要显式指定类型。如果没有显式指定类型，<code>Swift</code>会使用类型推断（Type Inference）来选择合适的类型。有了类型推断，编译器可以在编译代码的时候自动推断出表达式的类型。原理很简单，只要检查赋的值即可。</p>
 <p>当声明常量或者变量并赋初值的时候类型推断非常有用。声明常量或者变量的时候赋给它们一个字面量（Literal Value或Literal）即可触发类型推断。（字面量就是在代码中直接出现的值，比如0.1和3.141592654等等）</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> meaningOfLife = <span style="color:#ae81ff">42</span>  <span style="color:#75715e">// meaningOfLife会被类型推断推测为Int类型</span>
-<span style="color:#66d9ef">let</span> pi = <span style="color:#ae81ff">3.141592654</span>  <span style="color:#75715e">// pi会被类型推断推测为Double类型，当推断浮点数类型时，Swift总是会选择Double而不是Float</span>
-</code></pre></div><p>如果表达式中同时出现了整数和浮点数，总是会被推断为<code>Double</code>类型。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> anotherPi = <span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.141592654</span>  <span style="color:#75715e">// 原始值3没有显式地声明类型，而后又出现了一个浮点字面量，所以表达式被推断为Double类型</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> meaningOfLife = <span style="color:#ae81ff">42</span>  <span style="color:#75715e">// meaningOfLife会被类型推断推测为Int类型</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> pi = <span style="color:#ae81ff">3.141592654</span>  <span style="color:#75715e">// pi会被类型推断推测为Double类型，当推断浮点数类型时，Swift总是会选择Double而不是Float</span>
+</span></span></code></pre></div><p>如果表达式中同时出现了整数和浮点数，总是会被推断为<code>Double</code>类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> anotherPi = <span style="color:#ae81ff">3</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.141592654</span>  <span style="color:#75715e">// 原始值3没有显式地声明类型，而后又出现了一个浮点字面量，所以表达式被推断为Double类型</span>
+</span></span></code></pre></div><hr>
 <h2 id="数值型字面量">数值型字面量</h2>
 <p>整数字面量可以被写作：</p>
 <blockquote>
@@ -268,50 +268,50 @@ UInt8类型的最大值是<span style="color:#960050;background-color:#1e0010">�
 <p>一个二进制数，前缀是0b； 一个八进制数，前缀是0o；一个十六进制数，前缀是0x</p>
 </blockquote>
 <p>下面所有的整数字面量的十进制值都是17:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> decimalInteger = <span style="color:#ae81ff">17</span>
-<span style="color:#66d9ef">let</span> binaryInteger = <span style="color:#ae81ff">0b10001</span>  <span style="color:#75715e">// 二进制的17</span>
-<span style="color:#66d9ef">let</span> octalInteger = <span style="color:#ae81ff">0o21</span>  <span style="color:#75715e">// 八进制的17</span>
-<span style="color:#66d9ef">let</span> hexadecimalInteger = <span style="color:#ae81ff">0x11</span>  <span style="color:#75715e">// 十六进制的17</span>
-</code></pre></div><p>小数点两边必须至少要有一个十进制数字或者是十六进制的数字。十进制浮点数也可以有一个可选的指数（Exponent），通过大写或者小写的<code>e</code>来指定；十六进制浮点数必须有一个指数，通过大写或者小写的<code>p</code>来指定。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> decimalInteger = <span style="color:#ae81ff">17</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> binaryInteger = <span style="color:#ae81ff">0b10001</span>  <span style="color:#75715e">// 二进制的17</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> octalInteger = <span style="color:#ae81ff">0o21</span>  <span style="color:#75715e">// 八进制的17</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hexadecimalInteger = <span style="color:#ae81ff">0x11</span>  <span style="color:#75715e">// 十六进制的17</span>
+</span></span></code></pre></div><p>小数点两边必须至少要有一个十进制数字或者是十六进制的数字。十进制浮点数也可以有一个可选的指数（Exponent），通过大写或者小写的<code>e</code>来指定；十六进制浮点数必须有一个指数，通过大写或者小写的<code>p</code>来指定。</p>
 <p>十进制：1.25e2表示1.25<em>10^2，等于125.0； 八进制：0xFp-2表示15</em>2^-2，等于3.75</p>
 <p>下面的这些浮点字面量都等于十进制的12.1875。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> decimalDouble = <span style="color:#ae81ff">12.1875</span>
-<span style="color:#66d9ef">let</span> exponentDouble = <span style="color:#ae81ff">1.21875e1</span>
-<span style="color:#66d9ef">let</span> hexadecimalDouble = <span style="color:#ae81ff">0xC</span>.<span style="color:#ae81ff">3</span>p0
-</code></pre></div><p>数值类字面量可以包括额外的格式来增强可读性。整数和浮点数都可以添加额外的零并且包含下划线，并不影响字面量的值。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> paddedDouble = <span style="color:#ae81ff">000123.456</span>
-<span style="color:#66d9ef">let</span> oneMillion = <span style="color:#ae81ff">1_000_000</span>
-<span style="color:#66d9ef">let</span> justOverOneMillion = <span style="color:#ae81ff">1_000_000.000_000_1</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> decimalDouble = <span style="color:#ae81ff">12.1875</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> exponentDouble = <span style="color:#ae81ff">1.21875e1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hexadecimalDouble = <span style="color:#ae81ff">0xC</span>.<span style="color:#ae81ff">3</span>p0
+</span></span></code></pre></div><p>数值类字面量可以包括额外的格式来增强可读性。整数和浮点数都可以添加额外的零并且包含下划线，并不影响字面量的值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> paddedDouble = <span style="color:#ae81ff">000123.456</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> oneMillion = <span style="color:#ae81ff">1_000_000</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> justOverOneMillion = <span style="color:#ae81ff">1_000_000.000_000_1</span>
+</span></span></code></pre></div><hr>
 <h2 id="数值型类型转换">数值型类型转换</h2>
 <p>通常来讲，即使代码中的整数常量和变量已知非负，也请使用Int类型。只有在必要的时候才使用其他整数类型，比如要处理外部的长度明确的数据或者为了优化性能、内存占用等等。使用显式指定长度的类型可以及时发现值溢出并且可以暗示正在处理特殊数据。</p>
 <h3 id="整数转换">整数转换</h3>
 <p>不同整数类型的变量和常量可以存储不同范围的数字。<code>Int8</code>类型的常量或者变量可以存储的数字范围为-128～127；而<code>UInt8</code>类型的常量或者变量能够存储的数字范围是0～255。如果数字超出了常量或者变量可存储的范围，编译的时候会报错。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#75715e">// let cannotBeNegative: UInt8 = -1  // 取消该行注释后，会报错：Negative integer &#39;-1&#39; overflows when stored into unsigned type &#39;UInt8&#39;</span>
-<span style="color:#75715e">// let tooBig: Int8 = Int8.max + 1  // 取消该行注释后，会报错：Arithmetic operation &#39;127 + 1&#39; (on type &#39;Int8&#39;) results in an overflow</span>
-</code></pre></div><p>开发者需要根据不同情况选择使用数值型类型转换，这种选择性使用方式，可以预防隐式转换的错误并让代码中的类型转换意图变得清晰。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> twoThousand: UInt16 = <span style="color:#ae81ff">2_000</span>
-<span style="color:#66d9ef">let</span> one: UInt8 = <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">let</span> twoThousandAndOne = twoThousand <span style="color:#f92672">+</span> UInt16(one)  <span style="color:#75715e">// 该代码中UInt16(one)来创建一个新的UInt16数字并用one的值来初始化它，然后便可以使得两个无符号16位值相加</span>
-print(<span style="color:#e6db74">&#34;UInt8转换至UInt16: &#34;</span>, twoThousandAndOne)
-<span style="color:#f92672">---</span>
-output: UInt8转换至UInt16:  <span style="color:#ae81ff">2001</span>
-</code></pre></div><p><code>SomeType(ofInitialValue)</code>是调用Swift构造器并传入一个初始值的默认方法。在语言内部，<code>UInt16</code>有一个构造器，可以接受一个<code>UInt8</code>类型的值，所以这个构造器可以用现有的<code>UInt8</code>来创建一个新的<code>UInt16</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#75715e">// let cannotBeNegative: UInt8 = -1  // 取消该行注释后，会报错：Negative integer &#39;-1&#39; overflows when stored into unsigned type &#39;UInt8&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// let tooBig: Int8 = Int8.max + 1  // 取消该行注释后，会报错：Arithmetic operation &#39;127 + 1&#39; (on type &#39;Int8&#39;) results in an overflow</span>
+</span></span></code></pre></div><p>开发者需要根据不同情况选择使用数值型类型转换，这种选择性使用方式，可以预防隐式转换的错误并让代码中的类型转换意图变得清晰。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> twoThousand: UInt16 = <span style="color:#ae81ff">2_000</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> one: UInt8 = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> twoThousandAndOne = twoThousand <span style="color:#f92672">+</span> UInt16(one)  <span style="color:#75715e">// 该代码中UInt16(one)来创建一个新的UInt16数字并用one的值来初始化它，然后便可以使得两个无符号16位值相加</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;UInt8转换至UInt16: &#34;</span>, twoThousandAndOne)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: UInt8转换至UInt16:  <span style="color:#ae81ff">2001</span>
+</span></span></code></pre></div><p><code>SomeType(ofInitialValue)</code>是调用Swift构造器并传入一个初始值的默认方法。在语言内部，<code>UInt16</code>有一个构造器，可以接受一个<code>UInt8</code>类型的值，所以这个构造器可以用现有的<code>UInt8</code>来创建一个新的<code>UInt16</code>。</p>
 <h3 id="整数和浮点数转换">整数和浮点数转换</h3>
 <p>整数和浮点数的转换必须显式指定类型。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> three = <span style="color:#ae81ff">3</span>
-<span style="color:#66d9ef">let</span> pointOneFourOneFiveNine = <span style="color:#ae81ff">0.14159</span>
-<span style="color:#66d9ef">let</span> simplePi = Double(three) <span style="color:#f92672">+</span> pointOneFourOneFiveNine  <span style="color:#75715e">// pi等于3.14159，所以被类型推断为Double类型</span>
-print(<span style="color:#e6db74">&#34;整数和浮点数转换：&#34;</span>, simplePi)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">整数和浮点数转换：</span> <span style="color:#ae81ff">3.14159</span>
-</code></pre></div><p>在上述例子中，常量<code>three</code>的值被用来创建一个<code>Double</code>类型的值，否则加号两边的数类型不同，无法相加。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> three = <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> pointOneFourOneFiveNine = <span style="color:#ae81ff">0.14159</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> simplePi = Double(three) <span style="color:#f92672">+</span> pointOneFourOneFiveNine  <span style="color:#75715e">// pi等于3.14159，所以被类型推断为Double类型</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;整数和浮点数转换：&#34;</span>, simplePi)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">整数和浮点数转换：</span> <span style="color:#ae81ff">3.14159</span>
+</span></span></code></pre></div><p>在上述例子中，常量<code>three</code>的值被用来创建一个<code>Double</code>类型的值，否则加号两边的数类型不同，无法相加。</p>
 <p>浮点数到整数的反向转换同样行，整数类型可以用<code>Double</code>或者<code>Float</code>类型来初始化。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> roundPi = Int(simplePi)  <span style="color:#75715e">// roundPi等于3，所以被推断为Int类型</span>
-print(<span style="color:#e6db74">&#34;浮点数转换至整数：&#34;</span>, roundPi)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">浮点数转换至整数：</span> <span style="color:#ae81ff">3</span>
-</code></pre></div><p>当用这种方式来初始化一个新的整数值时，浮点值会被截断，也就是说4.75会变成4，-3.9会变成-3。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> roundPi = Int(simplePi)  <span style="color:#75715e">// roundPi等于3，所以被推断为Int类型</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;浮点数转换至整数：&#34;</span>, roundPi)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">浮点数转换至整数：</span> <span style="color:#ae81ff">3</span>
+</span></span></code></pre></div><p>当用这种方式来初始化一个新的整数值时，浮点值会被截断，也就是说4.75会变成4，-3.9会变成-3。</p>
 <blockquote>
 <p><strong>注意</strong></p>
 <p>结合数字类常量和变量不同于结合数字类字面量。字面量3可以直接和字面量0.14159相加，因为数字字面量本身没有明确的类型。它们的类型只在编译器需要求值的时候被预测。</p>
@@ -320,141 +320,141 @@ output: <span style="color:#960050;background-color:#1e0010">浮点数转换至�
 <p>类型别名（Type Aliases）就是给现有类型定义另一个名字。开发者可以使用<code>Typealias</code>关键字来定义类型别名。</p>
 <p>当想要给现有类型起一个更具有意义的名字时，类型别名非常有用。</p>
 <p>假设现在正在处理特定长度的外部资源的数据，定义了一个类型别名后，可以在任何使用原始名的地方使用别名。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">typealias</span> AudioSample = UInt16
-<span style="color:#66d9ef">var</span> maxAmplitudeFound = AudioSample.min  <span style="color:#75715e">// maxAmplitudeFound现在是0</span>
-print(<span style="color:#e6db74">&#34;maxAmplitudeFound现在的值是：&#34;</span>, maxAmplitudeFound)
-<span style="color:#f92672">---</span>
-output: maxAmplitudeFound现在的值是<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">0</span>
-</code></pre></div><p>上述例子中，<code>AudioSample</code>被定义为<code>UInt16</code>的一个别名，因为是别名，所以<code>AudioSample.min</code>实际上是<code>UInt16.min</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">typealias</span> AudioSample = UInt16
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> maxAmplitudeFound = AudioSample.min  <span style="color:#75715e">// maxAmplitudeFound现在是0</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;maxAmplitudeFound现在的值是：&#34;</span>, maxAmplitudeFound)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: maxAmplitudeFound现在的值是<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>上述例子中，<code>AudioSample</code>被定义为<code>UInt16</code>的一个别名，因为是别名，所以<code>AudioSample.min</code>实际上是<code>UInt16.min</code>。</p>
 <h3 id="布尔值">布尔值</h3>
 <p><code>Swift</code>有一个基本的布尔（Boolean）类型，叫做<code>Bool</code>。布尔值指的是逻辑上的值，因为其只能是真或者假。<code>Swift</code>有两个布尔值常量，<code>true</code>和<code>false</code>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> orangesAreOrange = <span style="color:#66d9ef">true</span>
-<span style="color:#66d9ef">let</span> turnipsAreDelicious = <span style="color:#66d9ef">false</span>
-</code></pre></div><p><code>orangesAreOrange</code>和<code>turnipsAreDelicious</code>的类型会被推断为<code>Bool</code>，因为它们的初值是布尔字面量。就像之前提到的<code>Int</code>和<code>Double</code>一样，如果创建常/变量的时候就赋予<code>true</code>或<code>false</code>，就不需要将常/变量声明为<code>Bool</code>类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> orangesAreOrange = <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> turnipsAreDelicious = <span style="color:#66d9ef">false</span>
+</span></span></code></pre></div><p><code>orangesAreOrange</code>和<code>turnipsAreDelicious</code>的类型会被推断为<code>Bool</code>，因为它们的初值是布尔字面量。就像之前提到的<code>Int</code>和<code>Double</code>一样，如果创建常/变量的时候就赋予<code>true</code>或<code>false</code>，就不需要将常/变量声明为<code>Bool</code>类型。</p>
 <p>编写条件语句特别是<code>if</code>条件语句时，布尔值就非常有用。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> turnipsAreDelicious {
-    print(<span style="color:#e6db74">&#34;Haha, turnips are decilious!&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;Oh shit! Turnips are horrible!&#34;</span>)
-}
-<span style="color:#f92672">---</span>
-output: Oh shit! Turnips are horrible!
-</code></pre></div><p>如果在需要使用<code>Bool</code>类型的地方使用了非布尔值，<code>Swift</code>的安全机制会报错。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> test = <span style="color:#ae81ff">1</span>
-<span style="color:#75715e">//if test {}  // 如果取消该行注释，则编译器会报错：Type &#39;Int&#39; cannot be used as a boolean; test for &#39;!= 0&#39; instead</span>
-</code></pre></div><p>同样的，下述例子是合法的。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> i = <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">if</span> i == <span style="color:#ae81ff">1</span> {}  <span style="color:#75715e">// i == 1的结果是Bool类型，所以可以通过Swift的类型检查</span>
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> turnipsAreDelicious {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Haha, turnips are decilious!&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Oh shit! Turnips are horrible!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Oh shit! Turnips are horrible!
+</span></span></code></pre></div><p>如果在需要使用<code>Bool</code>类型的地方使用了非布尔值，<code>Swift</code>的安全机制会报错。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> test = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//if test {}  // 如果取消该行注释，则编译器会报错：Type &#39;Int&#39; cannot be used as a boolean; test for &#39;!= 0&#39; instead</span>
+</span></span></code></pre></div><p>同样的，下述例子是合法的。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> i = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> i == <span style="color:#ae81ff">1</span> {}  <span style="color:#75715e">// i == 1的结果是Bool类型，所以可以通过Swift的类型检查</span>
+</span></span></code></pre></div><hr>
 <h2 id="元组">元组</h2>
 <p>元组（Tuples）把多个值组合成一个复合值。元组内的值可以是任意类型，并不要求是相同类型。</p>
 <p>下述例子，(404, &ldquo;Not Found&rdquo;) 是一个描述<code>HTTP</code>状态码（HTTP status code）的元组。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> http404Error = (<span style="color:#ae81ff">404</span>, <span style="color:#e6db74">&#34;Not Found&#34;</span>)  <span style="color:#75715e">// http404Error的类型是(Int, String)</span>
-</code></pre></div><p>(404, &ldquo;Not Found&rdquo;)元组把一个<code>Int</code>值和一个<code>String</code>值组合起来表示<code>HTTP</code>状态码的两部分。这个元组可以被描述成“一个类型为(Int, String)的元组”。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> http404Error = (<span style="color:#ae81ff">404</span>, <span style="color:#e6db74">&#34;Not Found&#34;</span>)  <span style="color:#75715e">// http404Error的类型是(Int, String)</span>
+</span></span></code></pre></div><p>(404, &ldquo;Not Found&rdquo;)元组把一个<code>Int</code>值和一个<code>String</code>值组合起来表示<code>HTTP</code>状态码的两部分。这个元组可以被描述成“一个类型为(Int, String)的元组”。</p>
 <p>可以把任意顺序的类型组合成一个元组，这个元组可以包含所有类型。还可以将一个元组的内容分解（Decompose）成单独的常量和变量，然后就可以正常使用它们了。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> (statusCode, statusMessage) = http404Error
-print(<span style="color:#e6db74">&#34;The http status code is </span><span style="color:#e6db74">\(</span>statusCode<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
-print(<span style="color:#e6db74">&#34;The http status message is </span><span style="color:#e6db74">\(</span>statusMessage<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
-<span style="color:#f92672">---</span>
-output: The http status code <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">404.</span>
-The http status message <span style="color:#66d9ef">is</span> Not Found.
-</code></pre></div><p>如果只需要一部分元组值，分解的时候可以吧要忽略的部分用下划线(_)标记，类似于<code>Python</code>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> (httpStatusCode, <span style="color:#66d9ef">_</span>) = http404Error
-print(<span style="color:#e6db74">&#34;The temp http status code is </span><span style="color:#e6db74">\(</span>httpStatusCode<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
-<span style="color:#f92672">---</span>
-output: The temp http status code <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">404.</span>
-</code></pre></div><p>还可以通过下标来访问元组中的单个元素，下标从零开始。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">print(<span style="color:#e6db74">&#34;通过下标访问元组中的第一个元素：&#34;</span>, http404Error.<span style="color:#ae81ff">0</span>)
-print(<span style="color:#e6db74">&#34;通过下标访问元组中的第二个元素：</span><span style="color:#e6db74">\(</span>http404Error.<span style="color:#ae81ff">1</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">通过下标访问元组中的第一个元素：</span> <span style="color:#ae81ff">404</span>
-<span style="color:#960050;background-color:#1e0010">通过下标访问元组中的第二个元素：</span>Not Found
-</code></pre></div><p>可以在定义元组的时候给耽搁元素命名，然后通过名字来获取这些元素的值。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> http500Status = (statusCode: <span style="color:#ae81ff">500</span>, description: <span style="color:#e6db74">&#34;Server Error&#34;</span>)
-print(<span style="color:#e6db74">&#34;通过元组元素命名方式访问第一个元素：</span><span style="color:#e6db74">\(</span>http500Status.statusCode<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-print(<span style="color:#e6db74">&#34;通过元组元素命名方式访问第二个元素：</span><span style="color:#e6db74">\(</span>http500Status.description<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">通过元组元素命名方式访问第一个元素：</span><span style="color:#ae81ff">500</span>
-<span style="color:#960050;background-color:#1e0010">通过元组元素命名方式访问第二个元素：</span>Server Error
-</code></pre></div><p>当函数中需要返回多个值时，元组很有用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> (statusCode, statusMessage) = http404Error
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The http status code is </span><span style="color:#e6db74">\(</span>statusCode<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The http status message is </span><span style="color:#e6db74">\(</span>statusMessage<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The http status code <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">404.</span>
+</span></span><span style="display:flex;"><span>The http status message <span style="color:#66d9ef">is</span> Not Found.
+</span></span></code></pre></div><p>如果只需要一部分元组值，分解的时候可以吧要忽略的部分用下划线(_)标记，类似于<code>Python</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> (httpStatusCode, <span style="color:#66d9ef">_</span>) = http404Error
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The temp http status code is </span><span style="color:#e6db74">\(</span>httpStatusCode<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The temp http status code <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">404.</span>
+</span></span></code></pre></div><p>还可以通过下标来访问元组中的单个元素，下标从零开始。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;通过下标访问元组中的第一个元素：&#34;</span>, http404Error.<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;通过下标访问元组中的第二个元素：</span><span style="color:#e6db74">\(</span>http404Error.<span style="color:#ae81ff">1</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">通过下标访问元组中的第一个元素：</span> <span style="color:#ae81ff">404</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">通过下标访问元组中的第二个元素：</span>Not Found
+</span></span></code></pre></div><p>可以在定义元组的时候给耽搁元素命名，然后通过名字来获取这些元素的值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> http500Status = (statusCode: <span style="color:#ae81ff">500</span>, description: <span style="color:#e6db74">&#34;Server Error&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;通过元组元素命名方式访问第一个元素：</span><span style="color:#e6db74">\(</span>http500Status.statusCode<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;通过元组元素命名方式访问第二个元素：</span><span style="color:#e6db74">\(</span>http500Status.description<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">通过元组元素命名方式访问第一个元素：</span><span style="color:#ae81ff">500</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">通过元组元素命名方式访问第二个元素：</span>Server Error
+</span></span></code></pre></div><p>当函数中需要返回多个值时，元组很有用。</p>
 <hr>
 <h2 id="可选类型">可选类型</h2>
 <p>使用可选类型（Optionals）来处理值可能缺失的情况。可选类型表示有两种可能：</p>
 <p>或者有值，开发者可以选择可选类型访问这个值；或者可能根本没有值</p>
 <p>一个例子，<code>Swift</code>的<code>Int</code>类型有一种构造器，作用是将一个<code>String</code>值转换成一个<code>Int</code>值。然而，不是所有的字符串都可以转换成一个整数。字符串“123”可以被转换成数字123，但是字符串“Hello， world”不行。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> possibleNumber = <span style="color:#e6db74">&#34;123&#34;</span>
-<span style="color:#66d9ef">var</span> convertedNumber = Int(possibleNumber)
-print(<span style="color:#e6db74">&#34;convertedNumber被推测为类型“Int?”，或者类型“optional Int”：&#34;</span>, convertedNumber!)
-<span style="color:#66d9ef">let</span> possibleName = <span style="color:#e6db74">&#34;Jensen&#34;</span>
-convertedNumber = Int(possibleName)
-print(<span style="color:#e6db74">&#34;字符串</span><span style="color:#e6db74">\(</span>possibleName<span style="color:#e6db74">)</span><span style="color:#e6db74">转成数字后有问题：&#34;</span>, convertedNumber)
-<span style="color:#f92672">---</span>
-output: convertedNumber被推测为类型<span style="color:#960050;background-color:#1e0010">“</span>Int?<span style="color:#960050;background-color:#1e0010">”，或者类型“</span><span style="color:#66d9ef">optional</span> Int<span style="color:#960050;background-color:#1e0010">”：</span> <span style="color:#ae81ff">123</span>
-<span style="color:#960050;background-color:#1e0010">字符串</span>Jensen转成数字后有问题<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#66d9ef">nil</span>
-<span style="color:#f92672">---</span>
-warning: Expression implicitly coerced from <span style="color:#960050;background-color:#1e0010">&#39;</span>Int?<span style="color:#960050;background-color:#1e0010">&#39;</span> to <span style="color:#960050;background-color:#1e0010">&#39;</span>Any<span style="color:#960050;background-color:#1e0010">&#39;</span>
-</code></pre></div><p>由于该构造器可能会失效，所以<code>Int(xxx)</code>返回的是一个可选类型（optional）的<code>Int</code>，而不是一个<code>Int</code>。可选的<code>Int</code>被写作<code>Int?</code>，问号暗示包含的值时可选类型，但不能包含其他任何值比如<code>Bool``值或者</code>String<code>值，只能是</code>Int`或者是什么都没有。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> possibleNumber = <span style="color:#e6db74">&#34;123&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> convertedNumber = Int(possibleNumber)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;convertedNumber被推测为类型“Int?”，或者类型“optional Int”：&#34;</span>, convertedNumber!)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> possibleName = <span style="color:#e6db74">&#34;Jensen&#34;</span>
+</span></span><span style="display:flex;"><span>convertedNumber = Int(possibleName)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;字符串</span><span style="color:#e6db74">\(</span>possibleName<span style="color:#e6db74">)</span><span style="color:#e6db74">转成数字后有问题：&#34;</span>, convertedNumber)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: convertedNumber被推测为类型<span style="color:#960050;background-color:#1e0010">“</span>Int?<span style="color:#960050;background-color:#1e0010">”，或者类型“</span><span style="color:#66d9ef">optional</span> Int<span style="color:#960050;background-color:#1e0010">”：</span> <span style="color:#ae81ff">123</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">字符串</span>Jensen转成数字后有问题<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>warning: Expression implicitly coerced from <span style="color:#960050;background-color:#1e0010">&#39;</span>Int?<span style="color:#960050;background-color:#1e0010">&#39;</span> to <span style="color:#960050;background-color:#1e0010">&#39;</span>Any<span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span></code></pre></div><p>由于该构造器可能会失效，所以<code>Int(xxx)</code>返回的是一个可选类型（optional）的<code>Int</code>，而不是一个<code>Int</code>。可选的<code>Int</code>被写作<code>Int?</code>，问号暗示包含的值时可选类型，但不能包含其他任何值比如<code>Bool``值或者</code>String<code>值，只能是</code>Int`或者是什么都没有。</p>
 <h3 id="nil">nil</h3>
 <p>可以给可选变量赋值为nil来表示没有值。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> serverResponseCode: Int? = <span style="color:#ae81ff">404</span>  <span style="color:#75715e">// serverResponseCode包含一个可选的Int值404</span>
-serverResponseCode = <span style="color:#66d9ef">nil</span>  <span style="color:#75715e">// serverResponseCode现在不包含值</span>
-print(<span style="color:#e6db74">&#34;可选值serverResponseCode：&#34;</span>, serverResponseCode)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">可选值</span>serverResponseCode<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#66d9ef">nil</span>
-<span style="color:#f92672">---</span>
-warning: Expression implicitly coerced from <span style="color:#960050;background-color:#1e0010">&#39;</span>Int?<span style="color:#960050;background-color:#1e0010">&#39;</span> to <span style="color:#960050;background-color:#1e0010">&#39;</span>Any<span style="color:#960050;background-color:#1e0010">&#39;</span>
-</code></pre></div><p>请注意，<code>nil</code>不能用于非可选的常量和变量，如果代码中有常量或者变量需要处理缺失值的情况，请把它们声明成对应的可选类型。如果声明一个可选常量或者变量但是没有赋值，它们会自动被设置为<code>nil</code>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> surveyAnswer: String?
-print(<span style="color:#e6db74">&#34;没有赋值的可选常/变量的值为：&#34;</span>, surveyAnswer)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">没有赋值的可选常</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">变量的值为：</span> <span style="color:#66d9ef">nil</span>
-<span style="color:#f92672">---</span>
-warning: Expression implicitly coerced from <span style="color:#960050;background-color:#1e0010">&#39;</span>String?<span style="color:#960050;background-color:#1e0010">&#39;</span> to <span style="color:#960050;background-color:#1e0010">&#39;</span>Any<span style="color:#960050;background-color:#1e0010">&#39;</span>
-</code></pre></div><h3 id="if语句以及强制解析">if语句以及强制解析</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> serverResponseCode: Int? = <span style="color:#ae81ff">404</span>  <span style="color:#75715e">// serverResponseCode包含一个可选的Int值404</span>
+</span></span><span style="display:flex;"><span>serverResponseCode = <span style="color:#66d9ef">nil</span>  <span style="color:#75715e">// serverResponseCode现在不包含值</span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;可选值serverResponseCode：&#34;</span>, serverResponseCode)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">可选值</span>serverResponseCode<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>warning: Expression implicitly coerced from <span style="color:#960050;background-color:#1e0010">&#39;</span>Int?<span style="color:#960050;background-color:#1e0010">&#39;</span> to <span style="color:#960050;background-color:#1e0010">&#39;</span>Any<span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span></code></pre></div><p>请注意，<code>nil</code>不能用于非可选的常量和变量，如果代码中有常量或者变量需要处理缺失值的情况，请把它们声明成对应的可选类型。如果声明一个可选常量或者变量但是没有赋值，它们会自动被设置为<code>nil</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> surveyAnswer: String?
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;没有赋值的可选常/变量的值为：&#34;</span>, surveyAnswer)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">没有赋值的可选常</span><span style="color:#f92672">/</span><span style="color:#960050;background-color:#1e0010">变量的值为：</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>warning: Expression implicitly coerced from <span style="color:#960050;background-color:#1e0010">&#39;</span>String?<span style="color:#960050;background-color:#1e0010">&#39;</span> to <span style="color:#960050;background-color:#1e0010">&#39;</span>Any<span style="color:#960050;background-color:#1e0010">&#39;</span>
+</span></span></code></pre></div><h3 id="if语句以及强制解析">if语句以及强制解析</h3>
 <p>可以使用<code>if</code>语句和<code>nil</code>比较来判断一个可选值是否包含值，可以使用“相等”(==)或“不等”(!=)来执行比较。</p>
 <p>如果可选类型有值，它将不等于<code>nil</code>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> convertedNumber <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-    print(<span style="color:#e6db74">&#34;convertedNumber contains some integer value.&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;convertedNumber is nil.&#34;</span>)
-}
-<span style="color:#f92672">---</span>
-output: convertedNumber <span style="color:#66d9ef">is</span> <span style="color:#66d9ef">nil</span>.
-</code></pre></div><p>当确定可选类型确实包含值之后，可以在可选的名字后面加上一个感叹号<code>!</code>来获取值。这个操作被称为可选值的强制解析（Forced Unwrapping）。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> optionalInteger: Int? = <span style="color:#ae81ff">10086</span>
-<span style="color:#66d9ef">if</span> optionalInteger <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-    print(<span style="color:#e6db74">&#34;The optional integer value is </span><span style="color:#e6db74">\(</span>optionalInteger!<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 来获取一个不存在的可选值会导致运行错误，使用！来强制解析值之前，一定要确定可选包含一个非nil的值。</span>
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;The optional value is Nil.&#34;</span>)
-}
-<span style="color:#f92672">---</span>
-output: The <span style="color:#66d9ef">optional</span> integer value <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">10086</span>
-</code></pre></div><h3 id="可选绑定">可选绑定</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> convertedNumber <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;convertedNumber contains some integer value.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;convertedNumber is nil.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: convertedNumber <span style="color:#66d9ef">is</span> <span style="color:#66d9ef">nil</span>.
+</span></span></code></pre></div><p>当确定可选类型确实包含值之后，可以在可选的名字后面加上一个感叹号<code>!</code>来获取值。这个操作被称为可选值的强制解析（Forced Unwrapping）。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> optionalInteger: Int? = <span style="color:#ae81ff">10086</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> optionalInteger <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The optional integer value is </span><span style="color:#e6db74">\(</span>optionalInteger!<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 来获取一个不存在的可选值会导致运行错误，使用！来强制解析值之前，一定要确定可选包含一个非nil的值。</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The optional value is Nil.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The <span style="color:#66d9ef">optional</span> integer value <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">10086</span>
+</span></span></code></pre></div><h3 id="可选绑定">可选绑定</h3>
 <p>可选绑定（Optional Binding）来判断可选类型是否包含值，如果包含就把值赋给一个临时常量或者变量。可选绑定可以用在<code>if</code>和<code>while</code>语句中。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> actualNumber = Int(possibleNumber) {
-    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">\(</span>possibleNumber<span style="color:#e6db74">)</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> has an integer value of </span><span style="color:#e6db74">\(</span>actualNumber<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">\(</span>possibleNumber<span style="color:#e6db74">)</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> could not be converted to an Integer.&#34;</span>)
-}
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">123</span><span style="color:#960050;background-color:#1e0010">&#39;</span> has an integer value of <span style="color:#ae81ff">123.</span>
-</code></pre></div><p>上述代码可以被理解为“如果Int(possibleNumber)返回的可选Int包含一个值，创建一个叫做actualNumber的新常量并将可选Int包含的值赋给它。actualNumber已经被可选类型包含的值初始化过，所以不需要再使用！后缀来获取它的值”。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> actualNumber = Int(possibleNumber) {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">\(</span>possibleNumber<span style="color:#e6db74">)</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> has an integer value of </span><span style="color:#e6db74">\(</span>actualNumber<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">\(</span>possibleNumber<span style="color:#e6db74">)</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74"> could not be converted to an Integer.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#ae81ff">123</span><span style="color:#960050;background-color:#1e0010">&#39;</span> has an integer value of <span style="color:#ae81ff">123.</span>
+</span></span></code></pre></div><p>上述代码可以被理解为“如果Int(possibleNumber)返回的可选Int包含一个值，创建一个叫做actualNumber的新常量并将可选Int包含的值赋给它。actualNumber已经被可选类型包含的值初始化过，所以不需要再使用！后缀来获取它的值”。</p>
 <p>可以包含多个可选绑定或多个布尔条件在一个<code>if</code>语句中，只要使用逗号分开就行。只要有一个可选绑定的值为<code>nil</code>或者任意一个布尔条件为<code>false</code>，则整个<code>if</code>条件判断为<code>false</code>。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> firstNumber = Int(<span style="color:#e6db74">&#34;4&#34;</span>), <span style="color:#66d9ef">let</span> secondNumber = Int(<span style="color:#e6db74">&#34;42&#34;</span>), firstNumber <span style="color:#f92672">&lt;</span> secondNumber <span style="color:#f92672">&amp;&amp;</span> secondNumber <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span> {
-    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>firstNumber<span style="color:#e6db74">)</span><span style="color:#e6db74"> &gt; </span><span style="color:#e6db74">\(</span>secondNumber<span style="color:#e6db74">)</span><span style="color:#e6db74"> &lt; 100&#34;</span>)
-}
-<span style="color:#75715e">// 等同下面的代码</span>
-<span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> firstNumber = Int(<span style="color:#e6db74">&#34;4&#34;</span>) {
-    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> secondNumber = Int(<span style="color:#e6db74">&#34;42&#34;</span>) {
-        <span style="color:#66d9ef">if</span> firstNumber <span style="color:#f92672">&lt;</span> secondNumber <span style="color:#f92672">&amp;&amp;</span> secondNumber <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span> {
-            print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>firstNumber<span style="color:#e6db74">)</span><span style="color:#e6db74"> &gt; </span><span style="color:#e6db74">\(</span>secondNumber<span style="color:#e6db74">)</span><span style="color:#e6db74"> &lt; 100&#34;</span>)
-        }
-    }
-}
-<span style="color:#f92672">---</span>
-output: <span style="color:#ae81ff">4</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">42</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>
-<span style="color:#ae81ff">4</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">42</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> firstNumber = Int(<span style="color:#e6db74">&#34;4&#34;</span>), <span style="color:#66d9ef">let</span> secondNumber = Int(<span style="color:#e6db74">&#34;42&#34;</span>), firstNumber <span style="color:#f92672">&lt;</span> secondNumber <span style="color:#f92672">&amp;&amp;</span> secondNumber <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>firstNumber<span style="color:#e6db74">)</span><span style="color:#e6db74"> &gt; </span><span style="color:#e6db74">\(</span>secondNumber<span style="color:#e6db74">)</span><span style="color:#e6db74"> &lt; 100&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 等同下面的代码</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> firstNumber = Int(<span style="color:#e6db74">&#34;4&#34;</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> secondNumber = Int(<span style="color:#e6db74">&#34;42&#34;</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> firstNumber <span style="color:#f92672">&lt;</span> secondNumber <span style="color:#f92672">&amp;&amp;</span> secondNumber <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span> {
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>firstNumber<span style="color:#e6db74">)</span><span style="color:#e6db74"> &gt; </span><span style="color:#e6db74">\(</span>secondNumber<span style="color:#e6db74">)</span><span style="color:#e6db74"> &lt; 100&#34;</span>)
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#ae81ff">4</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">42</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">42</span> <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">100</span>
+</span></span></code></pre></div><blockquote>
 <p><strong>注意</strong></p>
 <p>在if条件语句中使用常量和变量来创建一个可选绑定，仅在if语句的句中（body）中才能获取到值。相反，在guard语句中使用常量和变量来创建一个可选绑定，仅在guard语句外且在语句后才能获取到值。</p>
 </blockquote>
@@ -462,33 +462,33 @@ output: <span style="color:#ae81ff">4</span> <span style="color:#f92672">&gt;</s
 <p>有时候在程序架构中，第一次被赋值后，可以确定一个可选类型总会有值。在这种情况下， 每次进行判断和解析可选值是非常低效的。这种类型可选状态被定义为隐式解析可选类型（Implicitly Unwrappered Optionals）。把想要用作可选的类型的后面的问号<code>String?</code>改成感叹号<code>String!</code>来声明一个隐式解析可选类型。与其在使用时把感叹号放在可选类型的名称的后面，可以在定义它时，就直接把感叹号放在可选类型的后面。</p>
 <p>当可选类型被第一次赋值之后就可以确定之后一直有值的时候，隐式解析可选类型非常有用。隐式解析可选类型主要被用在<code>Swift</code>中类的构造的过程中。</p>
 <p>一个隐式解析可选类型其实就是一个普通的可选类型，但是可以被当成非可选类型来使用，并不需要每次都使用解析来获取可选值。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> possibleString: String? = <span style="color:#e6db74">&#34;An optional String.&#34;</span>
-<span style="color:#66d9ef">let</span> forcedString = possibleString!
-print(<span style="color:#e6db74">&#34;显式解析可选类型：&#34;</span>, forcedString)
-
-<span style="color:#66d9ef">let</span> assumedString: String! = <span style="color:#e6db74">&#34;An implicitly unwrapped optional String.&#34;</span>
-<span style="color:#66d9ef">let</span> implicitString: String = assumedString
-print(<span style="color:#e6db74">&#34;隐式解析可选类型：&#34;</span>, implicitString)
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">显式解析可选类型：</span> An <span style="color:#66d9ef">optional</span> String.
-<span style="color:#960050;background-color:#1e0010">隐式解析可选类型：</span> An implicitly unwrapped <span style="color:#66d9ef">optional</span> String.
-</code></pre></div><p>可以把隐式解析可选类型当做一个可以自动解析的可选类型。当使用一个隐式解析可选值时，<code>Swift</code>首先会把它当作普通的可选值。如果它不能被当成可选类型使用，<code>Swift</code>会强制解析可选值。在上述的代码中，可选值<code>assumedString</code>在把自己的值赋给<code>implicitString</code>之前会被强制解析，原因是因为<code>implicit</code>本身的类型就是非可选类型的<code>String</code>。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> possibleString: String? = <span style="color:#e6db74">&#34;An optional String.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> forcedString = possibleString!
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;显式解析可选类型：&#34;</span>, forcedString)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> assumedString: String! = <span style="color:#e6db74">&#34;An implicitly unwrapped optional String.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> implicitString: String = assumedString
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;隐式解析可选类型：&#34;</span>, implicitString)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">显式解析可选类型：</span> An <span style="color:#66d9ef">optional</span> String.
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">隐式解析可选类型：</span> An implicitly unwrapped <span style="color:#66d9ef">optional</span> String.
+</span></span></code></pre></div><p>可以把隐式解析可选类型当做一个可以自动解析的可选类型。当使用一个隐式解析可选值时，<code>Swift</code>首先会把它当作普通的可选值。如果它不能被当成可选类型使用，<code>Swift</code>会强制解析可选值。在上述的代码中，可选值<code>assumedString</code>在把自己的值赋给<code>implicitString</code>之前会被强制解析，原因是因为<code>implicit</code>本身的类型就是非可选类型的<code>String</code>。</p>
 <p>下述代码<code>optionalString</code>并没有显示的数据类型，那么根据类型推断，其就是一个普通的可选类型。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> optionalString = assumedString
-</code></pre></div><p>如果在隐式解析可选类型没有值的时候尝试取值，会触发错误。与在没有值的普通可选类型后面加一个感叹号一样。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> optionalString = assumedString
+</span></span></code></pre></div><p>如果在隐式解析可选类型没有值的时候尝试取值，会触发错误。与在没有值的普通可选类型后面加一个感叹号一样。</p>
 <p>可以吧隐式解析可选类型当做普通可选类型来判断其是否包含值。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> assumedString <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
-    print(<span style="color:#e6db74">&#34;隐式解析可选类型取值：&#34;</span>, assumedString!)
-}
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">隐式解析可选类型取值：</span> An implicitly unwrapped <span style="color:#66d9ef">optional</span> String.
-</code></pre></div><p>也可以在可选绑定中使用隐式解析可选类型来检查病解析其值。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> definiteString = assumedString {
-    print(<span style="color:#e6db74">&#34;隐式解析可选类型取值：&#34;</span>, definiteString)
-}
-<span style="color:#f92672">---</span>
-output: <span style="color:#960050;background-color:#1e0010">隐式解析可选类型取值：</span> An implicitly unwrapped <span style="color:#66d9ef">optional</span> String.
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> assumedString <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;隐式解析可选类型取值：&#34;</span>, assumedString!)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">隐式解析可选类型取值：</span> An implicitly unwrapped <span style="color:#66d9ef">optional</span> String.
+</span></span></code></pre></div><p>也可以在可选绑定中使用隐式解析可选类型来检查病解析其值。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> definiteString = assumedString {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;隐式解析可选类型取值：&#34;</span>, definiteString)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">隐式解析可选类型取值：</span> An implicitly unwrapped <span style="color:#66d9ef">optional</span> String.
+</span></span></code></pre></div><blockquote>
 <p><strong>注意</strong></p>
 <p>如果一个变量之后可能变成nil的话请不要使用隐式解析可选类型。如果需要在变量的生命周期中判断是否是nil的话，请使用普通可选类型。</p>
 </blockquote>
@@ -497,38 +497,38 @@ output: <span style="color:#960050;background-color:#1e0010">隐式解析可选�
 <p>可以使用错误处理（Error Handling）来应对程序执行中可能会遇到的错误条件。</p>
 <p>相较于可选类型中运用值的存在与否来表达函数的成功与失败，错误处理可以推断失败的原因，并传播至程序的其他部分。</p>
 <p>当一个函数遇到错误条件，它能报错。调用函数的地方能抛出错误消息并合理处理。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">canThrowAnError</span>() <span style="color:#66d9ef">throws</span> {
-    <span style="color:#75715e">// 这个函数内部可能会抛出错误</span>
-}
-</code></pre></div><p>一个函数可以通过在声明中添加<code>throws</code>关键词来抛出错误信息。当函数能够抛出错误消息时，应该在表达式中前置<code>try</code>关键词。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">do</span> {
-    <span style="color:#66d9ef">try</span> canThrowAnError()
-    <span style="color:#75715e">// 没有错误消息抛出则执行后面代码</span>
-} <span style="color:#66d9ef">catch</span> {
-    <span style="color:#75715e">// 有错误消息抛出则执行后面代码</span>
-}
-</code></pre></div><p>一个<code>do</code>语句创建了一个新的包含作用域，使得错误能被传播到一个或多个<code>catch</code>从句。下述伪代码展示了错误处理如何用来应对不同错误条件的例子。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeASandwich</span>() <span style="color:#66d9ef">throws</span> {
-    <span style="color:#75715e">// function body</span>
-}
-
-<span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">SandwichError</span>: Error {
-    <span style="color:#66d9ef">case</span> outOfCleanDishes
-    <span style="color:#66d9ef">case</span> missingIngredients(ingredients: String)
-}
-
-<span style="color:#66d9ef">do</span> {
-    <span style="color:#66d9ef">try</span> makeASandwich()
-    <span style="color:#75715e">// eatASandwich()</span>
-} <span style="color:#66d9ef">catch</span> SandwichError.outOfCleanDishes {
-    <span style="color:#75715e">// washDishes()</span>
-} <span style="color:#66d9ef">catch</span> SandwichError.missingIngredients(<span style="color:#66d9ef">let</span> ingredients) {
-    <span style="color:#75715e">// 如果匹配missingIngredients的错误被抛出，buyGroceries(_:)函数会被调用，并且使用catch所捕捉到的关联值[ingredients]作为参数。</span>
-    <span style="color:#75715e">// buyGroceries(ingredients)</span>
-}
-<span style="color:#f92672">---</span>
-warning: Immutable value <span style="color:#960050;background-color:#1e0010">&#39;</span>ingredients<span style="color:#960050;background-color:#1e0010">&#39;</span> was never used; consider replacing with <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#66d9ef">_</span><span style="color:#960050;background-color:#1e0010">&#39;</span> or removing it
-</code></pre></div><p>上述例子中，<code>makeASandwich()</code>（做一个三明治）函数会抛出一个错误消息如果没有干净的盘子或者某个原料缺失。因为<code>makeASandwich()</code>抛出错误，函数调用被包裹在<code>try</code>表达式中。将函数包裹在一个<code>do</code>语句中，任何被抛出的错误会被传播到提供的<code>catch</code>从句中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">canThrowAnError</span>() <span style="color:#66d9ef">throws</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 这个函数内部可能会抛出错误</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>一个函数可以通过在声明中添加<code>throws</code>关键词来抛出错误信息。当函数能够抛出错误消息时，应该在表达式中前置<code>try</code>关键词。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">do</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> canThrowAnError()
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 没有错误消息抛出则执行后面代码</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 有错误消息抛出则执行后面代码</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>一个<code>do</code>语句创建了一个新的包含作用域，使得错误能被传播到一个或多个<code>catch</code>从句。下述伪代码展示了错误处理如何用来应对不同错误条件的例子。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeASandwich</span>() <span style="color:#66d9ef">throws</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// function body</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">enum</span> <span style="color:#a6e22e">SandwichError</span>: Error {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> outOfCleanDishes
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> missingIngredients(ingredients: String)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">try</span> makeASandwich()
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// eatASandwich()</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> SandwichError.outOfCleanDishes {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// washDishes()</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">catch</span> SandwichError.missingIngredients(<span style="color:#66d9ef">let</span> ingredients) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 如果匹配missingIngredients的错误被抛出，buyGroceries(_:)函数会被调用，并且使用catch所捕捉到的关联值[ingredients]作为参数。</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// buyGroceries(ingredients)</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>warning: Immutable value <span style="color:#960050;background-color:#1e0010">&#39;</span>ingredients<span style="color:#960050;background-color:#1e0010">&#39;</span> was never used; consider replacing with <span style="color:#960050;background-color:#1e0010">&#39;</span><span style="color:#66d9ef">_</span><span style="color:#960050;background-color:#1e0010">&#39;</span> or removing it
+</span></span></code></pre></div><p>上述例子中，<code>makeASandwich()</code>（做一个三明治）函数会抛出一个错误消息如果没有干净的盘子或者某个原料缺失。因为<code>makeASandwich()</code>抛出错误，函数调用被包裹在<code>try</code>表达式中。将函数包裹在一个<code>do</code>语句中，任何被抛出的错误会被传播到提供的<code>catch</code>从句中。</p>
 <hr>
 <h2 id="断言和先决条件">断言和先决条件</h2>
 <p>断言和先决条件是在运行时所做的检查。可以用它们来检查在执行后续代码之前是否一个必要的条件被满足了。如果断言或者先决条件中的布尔条件评估的结果为<code>true</code>（真），则代码像往常一样继续执行。如果布尔条件评估结果为假（false），程序的当前状态是无效的，则代码执行结束，应用程序中止。</p>
@@ -540,25 +540,25 @@ warning: Immutable value <span style="color:#960050;background-color:#1e0010">&#
 <p>断言和先决条件的不同点是，它们什么时候进行状态检测：断言仅在调试环境运行，而先决条件则在调试环境和生产环境中运行。在生产环境中，断言的条件将不会进行评估。这个意味着可以使用很多断言在程序的开发阶段，但是这些断言在生产环境中不会产生任何影响。</p>
 <h3 id="使用断言进行调试">使用断言进行调试</h3>
 <p>可以调用<code>Swift</code>标准库的<code>assert(_:_:file:line:)</code>函数来写一个断言。向这个函数传入一个结果为<code>true</code>或者<code>false</code>的表达式以及一条信息，当表达式的结果为<code>false</code>的时候这条信息会被显示。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">let</span> age = <span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>
-assert(age <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;A person&#39;s age cannot be less than zero.&#34;</span>)  <span style="color:#75715e">// 因为age &lt; 0，所以断言会被触发</span>
-</code></pre></div><p>上述代码中，如果<code>age</code>的值是负数，就像代码中那样，<code>age &gt;= 0</code>为<code>false</code>，断言被触发，终止应用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> age = <span style="color:#f92672">-</span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>assert(age <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;A person&#39;s age cannot be less than zero.&#34;</span>)  <span style="color:#75715e">// 因为age &lt; 0，所以断言会被触发</span>
+</span></span></code></pre></div><p>上述代码中，如果<code>age</code>的值是负数，就像代码中那样，<code>age &gt;= 0</code>为<code>false</code>，断言被触发，终止应用。</p>
 <p>如果不需要断言信息，可以就想下述这样忽略掉。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift">assert(age <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>)
-</code></pre></div><p>如果代码已经检查了条件，可以使用<code>assertionFailure(_:file:line:)</code>函数来表明断言失败了。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">if</span> age <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">10</span> {
-    print(<span style="color:#e6db74">&#34;You can ride the roller-coaster or the ferris wheel.&#34;</span>)
-} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> age <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> {
-    print(<span style="color:#e6db74">&#34;You can ride the ferris wheel.&#34;</span>)
-} <span style="color:#66d9ef">else</span> {
-    assertionFailure(<span style="color:#e6db74">&#34;A person&#39;s age can&#39;t be less than zero.&#34;</span>)
-}
-</code></pre></div><h3 id="强制执行先决条件">强制执行先决条件</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>assert(age <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>)
+</span></span></code></pre></div><p>如果代码已经检查了条件，可以使用<code>assertionFailure(_:file:line:)</code>函数来表明断言失败了。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> age <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">10</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;You can ride the roller-coaster or the ferris wheel.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> age <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;You can ride the ferris wheel.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    assertionFailure(<span style="color:#e6db74">&#34;A person&#39;s age can&#39;t be less than zero.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="强制执行先决条件">强制执行先决条件</h3>
 <p>当一个条件可能为假，但是继续执行代码要求条件必须为真的时候，需要使用先决条件。例如使用先决条件来检查是否下标越界，或者来检查是否将一个正确的参数传给函数。</p>
 <p>可以使用全局<code>precondition(_:_:file:line:)</code>函数来写一个先决条件。向这个函数传入一个结果为<code>true</code>或者<code>false</code>的表达式以及一条信息，当表达式的结果为<code>false</code>的时候这条信息会被显示。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Swift" data-lang="Swift"><span style="color:#66d9ef">var</span> index = <span style="color:#ae81ff">0</span>
-precondition(index <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;Index must be greater than zero.&#34;</span>)  <span style="color:#75715e">// 索引需要从1开始</span>
-</code></pre></div><p>可以调用<code>preconditionFailure(_:file:line:)</code>方法来表明出现了一个错误，例如，<code>switch</code>进入了<code>default</code>分支，但是所有的有效值应该被任意一个其他分支（非default分支）处理。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> index = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>precondition(index <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;Index must be greater than zero.&#34;</span>)  <span style="color:#75715e">// 索引需要从1开始</span>
+</span></span></code></pre></div><p>可以调用<code>preconditionFailure(_:file:line:)</code>方法来表明出现了一个错误，例如，<code>switch</code>进入了<code>default</code>分支，但是所有的有效值应该被任意一个其他分支（非default分支）处理。</p>
 <blockquote>
 <p><strong>注意</strong></p>
 <p>如果使用unchecked模式编译代码，先决条件将不会进行检查。编译器假设所有的先决条件总是为true（真），它将优化编写的代码。然而fatalError(_:file:line)函数总是中断执行，无论您怎么进行优化设定。</p>
