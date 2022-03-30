@@ -187,7 +187,7 @@
 </span></span><span style="display:flex;"><span>output: Watch out <span style="color:#66d9ef">for</span> penguins.
 </span></span></code></pre></div><p>可以这样理解这段代码：</p>
 <p>“判断directionToHead的值。当它等于.north，打印‘Lots of planets have a north.’。当它等于.south，打印‘Watch out for penguins.’” &hellip;&hellip;以此类推</p>
-<p>正如在<a href="https://jen-jon.663lab.com/posts/controlflow/">控制流</a>中介绍的那样，在判断一个枚举类型的值时，<code>switch</code>语句必须穷举所有的情况。如果忽略了<code>.west</code>这种情况，上面那段代码将无法通过编译，因为其没有考虑到<code>CompassPoint</code>的全部成员。强制穷举确保了枚举成员不会被意外遗漏。</p>
+<p>正如在<a href="https://jen-jon.github.io/posts/controlflow/">控制流</a>中介绍的那样，在判断一个枚举类型的值时，<code>switch</code>语句必须穷举所有的情况。如果忽略了<code>.west</code>这种情况，上面那段代码将无法通过编译，因为其没有考虑到<code>CompassPoint</code>的全部成员。强制穷举确保了枚举成员不会被意外遗漏。</p>
 <p>当不需要匹配每个枚举成员的时候，可以提供一个<code>default</code>分支来涵盖所有未明确处理的枚举成员：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> somePlanet = Planet.earth
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> somePlanet {
@@ -269,7 +269,7 @@
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> lineFeed = <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> carriageReturn = <span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\r</span><span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>枚举类型<code>ASCIIControlCharacter</code>的原始值类型被定义为<code>Character</code>，并设置了一些比较常见的<code>ASCII</code>控制字符。<code>Character</code>的描述详见<a href="https://jen-jon.663lab.com/posts/stringschars/">字符串和字符</a>部分。</p>
+</span></span></code></pre></div><p>枚举类型<code>ASCIIControlCharacter</code>的原始值类型被定义为<code>Character</code>，并设置了一些比较常见的<code>ASCII</code>控制字符。<code>Character</code>的描述详见<a href="https://jen-jon.github.io/posts/stringschars/">字符串和字符</a>部分。</p>
 <p>原始值可以是字符串、字符，或者任意类型值或浮点型值。每个原始值在枚举声明中必须是唯一的。</p>
 <blockquote>
 <p><strong>注意</strong></p>

@@ -223,7 +223,7 @@
 <h3 id="运算符方法">运算符方法</h3>
 <p>实际上还有一种更简短的方式来编写上面的闭包表达式。<code>Swift</code>的<code>String</code>类型定义了关于大于号<code>&gt;</code>的字符串实现，其作为一个函数接受两个<code>String</code>类型的参数并返回<code>Bool</code>类型的值。而这正好与<code>sorted(by:)</code>方法的参数需要的函数类型相符合。因此，可以简单地传递一个大于号，<code>Swift</code>可以自动推断找到系统自带的那个字符串函数的实现：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>reversedNames = names.sorted(by: <span style="color:#f92672">&gt;</span>)
-</span></span></code></pre></div><p>更多关于运算符方法的内容请查看<a href="https://jen-jon.663lab.com/posts/advancedop/">运算符方法</a></p>
+</span></span></code></pre></div><p>更多关于运算符方法的内容请查看<a href="https://jen-jon.github.io/posts/advancedop/">运算符方法</a></p>
 <hr>
 <h2 id="尾随闭包">尾随闭包</h2>
 <p>如果需要将一个很长的闭包表达式作为最后一个参数传递给函数，将这个闭包替换成尾随闭包的形式很有用。尾随闭包是一个书写在函数圆括号之后的闭包表达式，函数支持将其作为最后一个参数调用。在使用尾随闭包时，不用写出它的参数标签：</p>
@@ -240,7 +240,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">     // 闭包主体部分
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> }
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
-</span></span></code></pre></div><p>在<a href="https://jen-jon.663lab.com/posts/closures/">闭包表达式语法</a>上章节的字符串排序闭包可以作为尾随闭包的形式改写在<code>sorted(by:)</code>方法圆括号的外面：</p>
+</span></span></code></pre></div><p>在<a href="https://jen-jon.github.io/posts/closures/">闭包表达式语法</a>上章节的字符串排序闭包可以作为尾随闭包的形式改写在<code>sorted(by:)</code>方法圆括号的外面：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>reversedNames = names.sorted() { $0 <span style="color:#f92672">&gt;</span> $1 }
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;尾随闭包：</span><span style="color:#e6db74">\(</span>reversedNames<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
@@ -302,7 +302,7 @@
 </span></span><span style="display:flex;"><span>print(testIncrementer())  <span style="color:#75715e">// 打印输出20， 10 + 10</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
 </span></span><span style="display:flex;"><span>output: <span style="color:#ae81ff">20</span>
-</span></span></code></pre></div><p><code>makeIncrementer</code>返回类型为<code>() -&gt; Int</code>。这意味着其返回的是一个函数，而非一个简单类型的值。该函数在每次调用时不接受参数，只返回一个<code>Int</code>类型的值。关于函数返回其他函数的内容，请查看<a href="https://jen-jon.663lab.com/posts/function/">函数类型作为返回类型</a>。</p>
+</span></span></code></pre></div><p><code>makeIncrementer</code>返回类型为<code>() -&gt; Int</code>。这意味着其返回的是一个函数，而非一个简单类型的值。该函数在每次调用时不接受参数，只返回一个<code>Int</code>类型的值。关于函数返回其他函数的内容，请查看<a href="https://jen-jon.github.io/posts/function/">函数类型作为返回类型</a>。</p>
 <p><code>makeIncrementer(forIncrement:)</code>函数定义了一个初始值为0的整型变量<code>runningTotal</code>，用来存储当前总计数值。该值为<code>incrementer</code>的返回值。</p>
 <p><code>makeIncrementer(forIncrementer:)</code>有一个<code>Int</code>类型的参数，其外部参数名为<code>forIncrement</code>，内部参数名为<code>amount</code>，该参数表示每次<code>incrementer</code>被调用时<code>runningTotal</code>将要增加的量。<code>makeIncrementer</code>函数还定义了一个嵌套函数<code>incrementer</code>，用来执行实际的增加操作。该函数简单地使<code>runningTotal</code>增加<code>amount</code>，并将其返回。</p>
 <p>如果我们单独考虑嵌套函数<code>incrementer()</code>，会发现它有些不同寻常：</p>
