@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang=""><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Cython教程</title>
+    <meta name="description" content="A simple homepage of Jensen Zhang.">
+    <meta name="author" content='Jensen Zhang'>
+
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/buttonsstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/busuanzi.pure.mini.js"></script>
+
+    
+    <script>
+        WIDGET = {
+        "CONFIG": {
+            "modules": "0124",
+            "background": "5",
+            "tmpColor": "fff",
+            "tmpSize": "16",
+            "tmpPadding": "10px",
+            "cityColor": "000",
+            "citySize": "16",
+            "aqiColor": "fff",
+            "aqiSize": "16",
+            "weatherIconSize": "24",
+            "alertIconSize": "18",
+            "padding": "0px",
+            
+            "language": "en",
+            "key": "06a49925209149af84e325a6c7e5c521"
+        }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/he-simple-common-v2.0.js"></script>
+    
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?a4cacad7bf6ee4f58534d26d5b23ad14";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="/sass/researcher.min.css">
+
+    
+        <link rel="icon" type="image/ico" href="https://jen-jon.github.io/images/favicon.ico">
+    
+
+    
+        
+    
+</head>
+
+    <body><div id="ukraine" style="background-color: #e14859; ">
+    <a class="cba fas fa-window-close" onclick="test()" style="display:block; float:right; width:30px; height:29px;" href="#"></a>
+    <div style="height: 50px; display: flex; text-align: center; justify-content: center; align-items: center;">
+        <div style="margin: 0 10px;">
+            <div style="font-size: 45px;">🇺🇦</div>
+        </div>
+        <div style="margin: 0 10px;">
+            <a style="color: white;" href="/we-stand-with-ukraine">
+                <div style="color: white; font-weight: bold; font-size: large;">We stand with Ukraine!</div>
+                <div style="color: white; font-weight: bold; font-size: large;">我们支持乌克兰！</div>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    function test() {
+        document.getElementById("ukraine").parentElement.removeChild(document.getElementById("ukraine"));
+    }
+</script>
+
+<div class="container mt-5" style="text-align: right;">
+    
+    <div style="display: inline-flex; background-color: #e14859;">
+        <div id="he-plugin-simple"></div>
+    </div>
+    
+    <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
+        <a class="navbar-brand mx-0 mr-sm-auto" href="https://jen-jon.github.io/" title="Jensen&#39;s Homepage">
+          
+          <i class="fas fa-home"></i>
+          Jensen&#39;s Homepage
+        </a>
+        <div class="navbar-nav flex-row flex-wrap justify-content-center">
+            
+                
+                
+                    <a class="nav-item nav-link" href="/about" title="About">
+                        About
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/posts" title="Posts">
+                        Posts
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/contact" title="Contact">
+                        Contact
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/tools" title="Tools">
+                        Tools
+                    </a>
+                    
+                
+            
+        </div>
+    </nav>
+</div>
+<hr><div id="content">
+<div class="container">
+    
+    <h1 style="color: #dc3545;">Cython教程</h1>
+    
+    <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>May 11, 2022</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
+    
+    <h5>This article is about <em>3265</em> words and may take <em>7</em> minutes to read.</h5>
+    <hr>
+    
+    
+    
+    <blockquote>
+        <p><strong>Type: technology blog</strong></p>
+        <p><strong>Tags: Cython; Python</strong></p>
+    </blockquote>
+    <hr>
+    
+    
+    <h1 style="color: #dc3545;">Content</h1>
+    <br>
+    
+    <h1 id="入门教程">入门教程</h1>
+<hr>
+<h2 id="cython概念">Cython概念</h2>
+<hr>
+<p><code>Cython</code>本质上就是具有C数据类型的Python。</p>
+<p>除了极少数例外，几乎所有的Python代码都是有效的Cython代码。Cython的编译器会把代码转换成等效于调用<code>Python/C API</code>的C代码。</p>
+<p>由于Cython的参数和变量可以背声明为具有C数据类型，因此可以自由地混用操作Python值和C值的代码，而Cython会自动转换需要转换的地方。此外，Python中的引用计数保存和错误检查也是自动的，而且Python的异常处理机制，包括<code>try-except</code>和<code>try-finally</code>同样可行，即使是在操作C数据时。</p>
+<hr>
+<h2 id="cython的第一个程序">Cython的第一个程序</h2>
+<hr>
+<p>Cython可以接受几乎所有有效的Python源文件，因此在Cython的启程之路上最大的拦路虎之一就是如何去编译拓展文件。</p>
+<p>首先从标准的Python Hello, World开始：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Hello, World&#34;</span>)
+</span></span></code></pre></div><p>将这段代码保存为<code>helloworld.pyx</code>。现在需要创建一个<code>setup.py</code>，这就像是一个Python的Makefile，因此<code>setup.py</code>应该像这样：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> distutils.core <span style="color:#f92672">import</span> setup
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> Cython.Build <span style="color:#f92672">import</span> cythonize
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>setup(
+</span></span><span style="display:flex;"><span>    ext_modules <span style="color:#f92672">=</span> cythonize(<span style="color:#e6db74">&#34;helloworld.pyx&#34;</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>接着使用下面的命令行来建立Cython文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python setup.py build_ext --inplace
+</span></span></code></pre></div><p>在类Unix系统中，这行命令会在你的本地文件夹中创建一个叫做<code>helloworld*.so</code>的文件。在Windows系统中，它叫<code>helloworld*.pyd</code>。现在运行Python解释器，然后把这个文件当成一个普通的Python模块简单的import它就可以使用了：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> helloworld
+</span></span></code></pre></div><pre tabindex="0"><code>Hello, World
+</code></pre><p>恭喜！此时你已经知道如何去创建一个Cython拓展了，但是这个例子会给人一种不知道Cython有何优势的感觉，所以接下来介绍更有现实意义的例子。</p>
+<h2 id="pyximport模块">Pyximport模块</h2>
+<hr>
+<p>如果Cython模块不需要任何外部的C库或者特殊的安装方式，那便可以直接使用<code>pyximport</code>模块。该模块由<code>Paul Prescod</code>开发，用来直接使用import来载入<code>*.pyx</code>文件，而不需要在每次更改代码的时候都重新运行一遍<code>setup.py</code>文件。<code>pyximport</code>模块的使用方式如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pyximport; pyximport<span style="color:#f92672">.</span>install()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> helloworld
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>Hello, World
+</span></span></code></pre></div><p><code>pyximport</code>模块也支持对普通Python模块的实验性编译，这可以使得在Python导入每个<code>*.pyx</code>和<code>*.py</code>模块上自动运行Cython，包括标准库和被安装的包。Cython在编译大量Python模块的时候也会经常失败，此时import机制将会回溯，转而去载入Python源模块：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pyximport; pyximport<span style="color:#f92672">.</span>install(pyimport<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span></code></pre></div><p>（注意，这种方式现已不推荐！）</p>
+<h3 id="例子字符串转整数">例子：字符串转整数</h3>
+<hr>
+<p>在之前Python基础中有一个简单的字符串转整数的例子：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> functools <span style="color:#f92672">import</span> reduce
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DIGITS <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;0&#39;</span>: <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#39;1&#39;</span>: <span style="color:#ae81ff">1</span>, <span style="color:#e6db74">&#39;2&#39;</span>: <span style="color:#ae81ff">2</span>, <span style="color:#e6db74">&#39;3&#39;</span>: <span style="color:#ae81ff">3</span>, <span style="color:#e6db74">&#39;4&#39;</span>: <span style="color:#ae81ff">4</span>, <span style="color:#e6db74">&#39;5&#39;</span>: <span style="color:#ae81ff">5</span>, <span style="color:#e6db74">&#39;6&#39;</span>: <span style="color:#ae81ff">6</span>, <span style="color:#e6db74">&#39;7&#39;</span>: <span style="color:#ae81ff">7</span>, <span style="color:#e6db74">&#39;8&#39;</span>: <span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#39;9&#39;</span>: <span style="color:#ae81ff">9</span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">str2int</span>(s):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">fn</span>(x, y):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> x <span style="color:#f92672">*</span> <span style="color:#ae81ff">10</span> <span style="color:#f92672">+</span> y
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">char2num</span>(s):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> DIGITS[s]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> reduce(fn, map(char2num, s))
+</span></span></code></pre></div><p>现在可以跟着上面<code>Hello, World</code>的例子照葫芦画瓢。首先将文件拓展名更改为<code>str2int.pyx</code>，接下来创建<code>setup.py</code>文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> distutils.core <span style="color:#f92672">import</span> setup
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> Cython.Build <span style="color:#f92672">import</span> cythonize
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>setup(
+</span></span><span style="display:flex;"><span>    ext_modules<span style="color:#f92672">=</span>cythonize(<span style="color:#e6db74">&#34;str2int.pyx&#34;</span>),
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>创建拓展的命令与<code>helloworld.pyx</code>的例子相同:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Shell" data-lang="Shell"><span style="display:flex;"><span>python setup.py build_ext --inplace
+</span></span></code></pre></div><p>使用拓展的方式也很简单：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> str2int
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>str2int<span style="color:#f92672">.</span>str2int(<span style="color:#e6db74">&#39;2021111052&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>2021111052
+</code></pre><p>也可以使用<code>pyximport</code>模块来导入拓展：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pyximport; pyximport<span style="color:#f92672">.</span>install()
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> str2int
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>str2int<span style="color:#f92672">.</span>str2int(<span style="color:#e6db74">&#39;2021111052&#39;</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>2021111052
+</code></pre><h2 id="cython特性">Cython特性</h2>
+<hr>
+<p>下面通过一个小例子来介绍Cython的特性。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># 加载Cython扩展</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%</span>load_ext Cython
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%%</span>cython
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">primes</span>(int nb_primes):
+</span></span><span style="display:flex;"><span>    cdef int n, i, len_p
+</span></span><span style="display:flex;"><span>    cdef int p[<span style="color:#ae81ff">1000</span>]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> nb_primes <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1000</span>:
+</span></span><span style="display:flex;"><span>        nb_primes <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    len_p <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#75715e"># p中当前元素的数量</span>
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> len_p <span style="color:#f92672">&lt;</span> nb_primes:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 是否是质数？</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> p[:len_p]:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:  <span style="color:#75715e"># 存在一个因数则跳过，不是质数</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:  <span style="color:#75715e"># 一个因数都没有，是质数</span>
+</span></span><span style="display:flex;"><span>            p[len_p] <span style="color:#f92672">=</span> n
+</span></span><span style="display:flex;"><span>            len_p <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        n <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    result_as_list <span style="color:#f92672">=</span> [prime <span style="color:#66d9ef">for</span> prime <span style="color:#f92672">in</span> p[:len_p]]
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> result_as_list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>primes(<span style="color:#ae81ff">10</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>[2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
+</code></pre><p>可以发现，函数的开始部分就像普通的Python函数定义，除了参数<code>nb_primes</code>被声明为<code>int</code>类型，这意味着这个参数被传入时会被转换为C的整数类型（如果转换失败则是<code>TypeError</code>）。</p>
+<p>在函数体中，使用了<code>cdef</code>语句来定义一些局部的C变量：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>cdef int n, i, len_p  <span style="color:#75715e"># 定义一些局部的C变量</span>
+</span></span><span style="display:flex;"><span>cdef int p[<span style="color:#ae81ff">1000</span>]
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><p>在处理过程中，结果被保存在一个C数组<code>p</code>中，并且最后被复制到一个Python列表中：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>p[len_p] <span style="color:#f92672">=</span> n  <span style="color:#75715e"># 结果被保存在C数组中</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>result_as_list <span style="color:#f92672">=</span> [prime <span style="color:#66d9ef">for</span> prime <span style="color:#f92672">in</span> p[:len_p]]  <span style="color:#75715e"># 复制到Python列表中</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><ul>
+<li>注意，在上述例子中，不能创建太大的数组，因为数组是被分配在C函数调用的栈上的，而这些栈资源是有限的。如果需要更大的数组或者这些数组的长度只有在程序运行时才能被确定，可以使用Cython对C内存进行分配或者使用Numpy数组等等进行提高效率。</li>
+</ul>
+<p>在C中声明一个静态数组需要在编译时确定数组的大小，所以程序中需要确保传入的参数不得大于数组的大小，否则会抛出类似C中的段错误：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> nb_primes <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1000</span>:
+</span></span><span style="display:flex;"><span>    nb_primes <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>  <span style="color:#75715e"># 防止传入的参数超过数组大小</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><p>值得注意的是下面这段代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> p[:len_p]:
+</span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">if</span> n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>       <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><p>这段代码使用候选数字依次除以已经找到的每一个质数来判断候选数字数不是质数。因为这里面没有Python对象被引用，循环被整体翻译成了C代码，所以运行速度大幅提高。请注意迭代C数组<code>p</code>的方式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> p[:len_p]:  <span style="color:#75715e"># 虽然循环被翻译成C代码，但依然可以像操作Python列表一样使用切片，提高运行效率</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><p>在返回结果之前，需要先将C数组复制到一个Python列表里，因为Python不能读取C数组。Cython可以自动将很多C类型转换为Python类型：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>result_as_list <span style="color:#f92672">=</span> [prime <span style="color:#66d9ef">for</span> prime <span style="color:#f92672">in</span> p[:len_p]]  <span style="color:#75715e"># 复制到Python列表中</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span></code></pre></div><p>请注意，正如Python声明一个Python列表的形式，<code>result_as_list</code>没有被显式声明，因此它会被视为一个Python对象。</p>
+<p>至此，Cython的基本用法已经明了，但Cython究竟帮我们节省了多少工作量还是值得探究的。可以在<code>cythonize()</code>中传入参数<code>annotate=True</code>生成一个HTML文件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">from</span> distutils.core <span style="color:#f92672">import</span> setup
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> Cython.Build <span style="color:#f92672">import</span> cythonize
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>setup(
+</span></span><span style="display:flex;"><span>    ext_modules <span style="color:#f92672">=</span> cythonize(<span style="color:#e6db74">&#34;primes.pyx&#34;</span>, annotate<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>在HTML文件中可以发现，黄色行代表改行与Python进行交互，交互的越多颜色就越深。白色行则表示没有与Python进行交互，该部分代码被完全翻译成C代码。</p>
+<p>这些黄色行会操作Python对象、生成异常或是做一些其他更高级的操作，因此都不能被翻译成简单快速的C代码，函数声明和返回使用了Python的解释器所以这些行也是黄色的。
+<img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/cython/cython_01.png" alt=""></p>
+<p>此外，按照逻辑<code>if n % i == 0:</code>这行语句可以直接通过C代码实现，为什么会标黄呢？可以发现Cython在这里默认使用Python在运行时的除法检查。可以使用<a href="http://docs.cython.org/en/latest/src/userguide/source_files_and_compilation.html#compiler-directives">编译器指令</a><code>cdivision=True</code>禁止这种检查。</p>
+<h2 id="性能对比">性能对比</h2>
+<hr>
+<p>针对上述<code>primes</code>的例子，下面是一个Python版的相同程序：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">primes_python</span>(nb_primes):
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> len(p) <span style="color:#f92672">&lt;</span> nb_primes:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 是否是质数？</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> p:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>                
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 如果循环中未发生break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            p<span style="color:#f92672">.</span>append(n)
+</span></span><span style="display:flex;"><span>        n <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">%%</span>time
+</span></span><span style="display:flex;"><span>cython <span style="color:#f92672">=</span> primes(<span style="color:#ae81ff">1000</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>CPU times: user 1.62 ms, sys: 0 ns, total: 1.62 ms
+Wall time: 1.62 ms
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">%%</span>time
+</span></span><span style="display:flex;"><span>python <span style="color:#f92672">=</span> primes_python(<span style="color:#ae81ff">1000</span>)
+</span></span></code></pre></div><pre tabindex="0"><code>CPU times: user 24.6 ms, sys: 0 ns, total: 24.6 ms
+Wall time: 23.7 ms
+</code></pre><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span>cython <span style="color:#f92672">==</span> python
+</span></span></code></pre></div><pre tabindex="0"><code>True
+</code></pre><p>从上述对比中可以发现，Cython的速度几乎数十倍优于Python。很明显C比Python对于CPU的缓存的支持性更好，Python中一切皆对象，均以字典的形式存在，对于CPU缓存是不友好的。一般来说Cython的速度会是Python的2倍到1000倍之间，具体取决于调用Python解释器的次数。</p>
+<h2 id="c版本的primes">C++版本的Primes</h2>
+<hr>
+<p>上面的Cython调用的都是C API，当然Cython也可以调用C++（部分C++的标准库可以在Cython代码中被直接导入）。下面是使用C++标准库中<code>vector</code>后的<code>primes</code>函数：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#75715e"># distutils: language=c++</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> libcpp.vector cimport vector
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">primes</span>(unsigned int nb_primes):
+</span></span><span style="display:flex;"><span>    cdef int n, i
+</span></span><span style="display:flex;"><span>    cdef vector[int] p
+</span></span><span style="display:flex;"><span>    p<span style="color:#f92672">.</span>reserve(nb_primes)  <span style="color:#75715e"># allocate memory for &#39;nb_primes&#39; elements.</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    n <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> p<span style="color:#f92672">.</span>size() <span style="color:#f92672">&lt;</span> nb_primes:  <span style="color:#75715e"># vector的size()和len()类似</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> p:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> n <span style="color:#f92672">%</span> i <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            p<span style="color:#f92672">.</span>push_back(n)  <span style="color:#75715e"># push_back is similar to append()</span>
+</span></span><span style="display:flex;"><span>        n <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p  <span style="color:#75715e"># 在转换到Python对象时，vector可以被自动转换为Python列表 </span>
+</span></span></code></pre></div><p>第一行<code># distutils: language=c++</code>是编译器指令，告诉Cython把代码编译成C++，这样就可以使用C++的特性和C++标准库(注意，<code>pyximport</code>无法把Cython代码编译成C++，需要使用<code>setup.py</code>)。</p>
+<p>可以看到，C++的<code>vector</code> API和Python的列表API非常相似，在Cython中经常可以做替换。</p>
+<p>更多在Cython中使用C++的细节请参阅<a href="http://docs.cython.org/en/latest/src/userguide/wrapping_CPlusPlus.html#wrapping-cplusplus">在Cython中使用C++</a>。</p>
+<p>更多Cython语言基础请参阅<a href="http://docs.cython.org/en/latest/src/userguide/language_basics.html#language-basics">语言基础</a>。</p>
+<p>中文Cython文档请参阅<a href="https://www.bookstack.cn/read/cython-doc-zh/README.md">Cython中文文档</a>。</p>
+
+    <div class="CornerButtons">
+        <div class="CornerAnimayedFlex">
+            <div class="CornerButton" title="Back to the top">
+                <a href="#top" class="cba fas fa-hand-middle-finger" ></a>
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<h1 style="color: #dc3545;">Comments</h1>
+<script defer src="https://utteranc.es/client.js" 
+repo="Jen-Jon/Jen-Jon.github.io" 
+issue-term="title" 
+theme="github-light" 
+crossorigin="anonymous" async></script>
+
+
+</div>
+
+<h5 style="text-align: center; font-size: large;">This blog is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, please indicate the source for non-commercial reposted.</h5>
+
+
+        </div><strong id="footer" class="mb-5">
+    <hr>
+    
+    <div class="container text-center">
+        
+            <a href="https://github.com/Jen-Jon/" class="fab fa-github fa-1x" title="Github" style="text-decoration: none;"></a>
+        
+            <a href="https://hub.docker.com/u/ijerry22" class="fab fa-docker fa-1x" title="DockerHub" style="text-decoration: none;"></a>
+        
+            <a href="https://www.researchgate.net/profile/Jingyao-Zhang-4" class="fab fa-researchgate fa-1x" title="researchgate" style="text-decoration: none;"></a>
+        
+            <a href="mailto:jensen.acm@gmail.com" class="fas fa-envelope fa-1x" title="E-mail" style="text-decoration: none;"></a>
+        
+    </div>
+    
+        <div class="container text-center">
+            <h5 class="text-center" style="font-size: small;">Copyright © 2020-2022 <a href="https://github.com/Jen-Jon/" style="color: #dc3545;" title="Jensen-Jon">Jensen-Jon</a>. All rights reserved.</h5>
+        </div>
+    
+</div>
+</body>
+</html>

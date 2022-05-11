@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 02 Mar 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cython教程</title>
+      <link>https://jen-jon.github.io/posts/cython_01/</link>
+      <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/cython_01/</guid>
+      <description>入门教程 Cython概念 Cython本质上就是具有C数据类型的Python。 除了极少数例外，几乎所有的Python代码都是有效的Cython</description>
+    </item>
+    
     <item>
       <title>别了，Mriya！</title>
       <link>https://jen-jon.github.io/posts/20220302/</link>
