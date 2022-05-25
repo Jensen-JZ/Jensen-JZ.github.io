@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 11 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 25 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>内容预告</title>
+      <link>https://jen-jon.github.io/posts/20220525/</link>
+      <pubDate>Wed, 25 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/20220525/</guid>
+      <description>发现想要保持博文的更新频率和内容质量是一件让人特别头疼的事情。至少，在我毕业之前都是很难保证的，每天会被各种各样的事情各种各样的任务（老板的</description>
+    </item>
+    
     <item>
       <title>Cython教程</title>
       <link>https://jen-jon.github.io/posts/cython_01/</link>
