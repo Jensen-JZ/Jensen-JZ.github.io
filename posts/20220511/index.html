@@ -293,7 +293,7 @@
 </span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><p>在HTML文件中可以发现，黄色行代表改行与Python进行交互，交互的越多颜色就越深。白色行则表示没有与Python进行交互，该部分代码被完全翻译成C代码。</p>
 <p>这些黄色行会操作Python对象、生成异常或是做一些其他更高级的操作，因此都不能被翻译成简单快速的C代码，函数声明和返回使用了Python的解释器所以这些行也是黄色的。
-<img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/cython/cython_01.png" alt=""></p>
+<img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220511/001.png" alt="001"></p>
 <p>此外，按照逻辑<code>if n % i == 0:</code>这行语句可以直接通过C代码实现，为什么会标黄呢？可以发现Cython在这里默认使用Python在运行时的除法检查。可以使用<a href="http://docs.cython.org/en/latest/src/userguide/source_files_and_compilation.html#compiler-directives">编译器指令</a><code>cdivision=True</code>禁止这种检查。</p>
 <h2 id="性能对比">性能对比</h2>
 <hr>

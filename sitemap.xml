@@ -3,15 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jen-jon.github.io/</loc>
-    <lastmod>2022-05-25T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://jen-jon.github.io/posts/20220608/</loc>
+    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jen-jon.github.io/posts/</loc>
-    <lastmod>2022-05-25T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jen-jon.github.io/posts/20220525/</loc>
     <lastmod>2022-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jen-jon.github.io/posts/cython_01/</loc>
+    <loc>https://jen-jon.github.io/posts/20220511/</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jen-jon.github.io/we-stand-with-ukraine/</loc>
@@ -41,7 +44,7 @@
     <loc>https://jen-jon.github.io/posts/collectiontype/</loc>
     <lastmod>2021-08-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jen-jon.github.io/posts/ml-peach-rgbd-dataset/</loc>
+    <loc>https://jen-jon.github.io/posts/20210817/</loc>
     <lastmod>2021-08-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jen-jon.github.io/posts/stringschars/</loc>
@@ -59,7 +62,7 @@
     <loc>https://jen-jon.github.io/posts/swiftfirst/</loc>
     <lastmod>2021-08-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jen-jon.github.io/posts/dockerproxy/</loc>
+    <loc>https://jen-jon.github.io/posts/20210629/</loc>
     <lastmod>2021-06-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jen-jon.github.io/mediatest/</loc>
@@ -71,10 +74,10 @@
     <loc>https://jen-jon.github.io/posts/20210610/</loc>
     <lastmod>2021-06-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jen-jon.github.io/posts/rosinstall/</loc>
+    <loc>https://jen-jon.github.io/posts/20210525/</loc>
     <lastmod>2021-05-25T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jen-jon.github.io/posts/adm-pv-rcnn/</loc>
+    <loc>https://jen-jon.github.io/posts/20210523/</loc>
     <lastmod>2021-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jen-jon.github.io/types/</loc>
@@ -89,7 +92,7 @@
     <loc>https://jen-jon.github.io/types/technology/</loc>
     <lastmod>2021-05-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jen-jon.github.io/posts/jdmall/</loc>
+    <loc>https://jen-jon.github.io/posts/20210521/</loc>
     <lastmod>2021-05-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://jen-jon.github.io/about/</loc>

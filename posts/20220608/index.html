@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang=""><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>NVIDIA DALI踩坑教程</title>
+    <meta name="description" content="A simple homepage of Jensen Zhang.">
+    <meta name="author" content='Jensen Zhang'>
+
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/buttonsstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/busuanzi.pure.mini.js"></script>
+
+    
+    <script>
+        WIDGET = {
+        "CONFIG": {
+            "modules": "0124",
+            "background": "5",
+            "tmpColor": "fff",
+            "tmpSize": "16",
+            "tmpPadding": "10px",
+            "cityColor": "000",
+            "citySize": "16",
+            "aqiColor": "fff",
+            "aqiSize": "16",
+            "weatherIconSize": "24",
+            "alertIconSize": "18",
+            "padding": "0px",
+            
+            "language": "en",
+            "key": "06a49925209149af84e325a6c7e5c521"
+        }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/he-simple-common-v2.0.js"></script>
+    
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?a4cacad7bf6ee4f58534d26d5b23ad14";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    
+    <link rel="stylesheet" href="/sass/researcher.min.css">
+
+    
+        <link rel="icon" type="image/ico" href="https://jen-jon.github.io/images/favicon.ico">
+    
+
+    
+        
+    
+</head>
+
+    <body><div id="ukraine" style="background-color: #e14859; ">
+    <a class="cba fas fa-window-close" onclick="test()" style="display:block; float:right; width:30px; height:29px;" href="#"></a>
+    <div style="height: 50px; display: flex; text-align: center; justify-content: center; align-items: center;">
+        <div style="margin: 0 10px;">
+            <div style="font-size: 45px;">🇺🇦</div>
+        </div>
+        <div style="margin: 0 10px;">
+            <a style="color: white;" href="/we-stand-with-ukraine">
+                <div style="color: white; font-weight: bold; font-size: large;">We stand with Ukraine!</div>
+                <div style="color: white; font-weight: bold; font-size: large;">我们支持乌克兰！</div>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    function test() {
+        document.getElementById("ukraine").parentElement.removeChild(document.getElementById("ukraine"));
+    }
+</script>
+
+<div class="container mt-5" style="text-align: right;">
+    
+    <div style="display: inline-flex; background-color: #e14859;">
+        <div id="he-plugin-simple"></div>
+    </div>
+    
+    <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
+        <a class="navbar-brand mx-0 mr-sm-auto" href="https://jen-jon.github.io/" title="Jensen&#39;s Homepage">
+          
+          <i class="fas fa-home"></i>
+          Jensen&#39;s Homepage
+        </a>
+        <div class="navbar-nav flex-row flex-wrap justify-content-center">
+            
+                
+                
+                    <a class="nav-item nav-link" href="/about" title="About">
+                        About
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/posts" title="Posts">
+                        Posts
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/contact" title="Contact">
+                        Contact
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/tools" title="Tools">
+                        Tools
+                    </a>
+                    
+                
+            
+        </div>
+    </nav>
+</div>
+<hr><div id="content">
+<div class="container">
+    
+    <h1 style="color: #dc3545;">NVIDIA DALI踩坑教程</h1>
+    
+    <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>June 8, 2022</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
+    
+    <h5>This article is about <em>3641</em> words and may take <em>8</em> minutes to read.</h5>
+    <hr>
+    
+    
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/title.png" alt="Logo"/></p>
+    <hr>
+    
+    
+    <blockquote>
+        <p><strong>Type: technology blog</strong></p>
+        <p><strong>Tags: NVIDIA DALI; Deep Learning</strong></p>
+    </blockquote>
+    <hr>
+    
+    
+    <h1 style="color: #dc3545;">Content</h1>
+    <br>
+    
+    <h2 id="初见">初见</h2>
+<p>事情的起因还要追溯到很久之前看了一篇论文，论文的核心就是讨论预训练策略在低层视觉任务中的作用。既然是预训练策略，那就不可避免的要用规模大一点的数据集，之所以预训练这些年在低层视觉任务中鲜被应用的，其主要的原因就是缺乏大规模数据集。这篇论文主要针对低层视觉任务中的SR（超分辨率）、DeRain（去雨）和DeNoise（去噪）三个任务，作者利用ImageNet中的图像作为基准图像，并在此基础上利用双三次插值得到低分辨率图像用于SR任务，将雨纹和高斯噪声直接加入到干净的基准图像中用于DeRain和DeNoise任务。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/001.png" alt="001"></p>
+<p>但是论文中却忽略了低层视觉中一个非常重要的问题，即低光增强任务（Low-light Image Enhancement）。我觉得主要问题就是低光增强任务中所用到的配对图像数据集是很难获得的，特别是用ImageNet来生成，更是难上加难。其一，低光环境是个很复杂的环境，不是简单调低图像的亮度就能实现的，在低光环境下拍摄的图像往往是有的地方暗有的地方亮；其二，低光环境下摄得的图像往往伴随着各种复杂的噪声，简单的往图像上叠加噪声可能并不真实。前不久我克服了这两个问题，成功从ImageNet/VOC/COCO/IAPR/StreetScenes这五个数据集中挑选一些合适的图像构造了一个大规模配对的暗光图像数据集，其中共包含了153,856对暗光/正常光图像（具体数据集是如何构造的今天就不赘述了，等论文发表后我会详细跟大家解释）。我们知道，PyTorch中提供了<code>torch.utils.data.Dataset(*args, **kwds)</code>和<code>torch.utils.data.DataLoader(dataset, ...)</code>这两个类来实现数据集的构建和数据的加载，但是这两个类都是作用在CPU上的。然而我们的预训练数据集的规模达到了153,856*2张，用CPU来加载速度实在太慢了，在后续训练的过程中可能会导致模型等待数据传入的情况，即模型已经训练完一个batch的数据了，但是下一个batch的数据还在加载，没能及时传到模型中，这样会导致GPU的利用率显著下降。也就是说不仅会降低模型训练的速度，同时也没能完全压榨出显卡等硬件的性能，是一件性价比极低的事情。下面举个🌰（例子）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch.nn <span style="color:#66d9ef">as</span> nn
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> PIL <span style="color:#f92672">import</span> Image
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> torchvision <span style="color:#f92672">import</span> transforms
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> torch.utils.data <span style="color:#f92672">import</span> Dataset, DataLoader, random_split
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>__version__
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DATA_DIR <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/home/jensen/workspace/DATASETS/SYNTHETIC_DATA&#34;</span>
+</span></span><span style="display:flex;"><span>BATCH_SIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">128</span>
+</span></span><span style="display:flex;"><span>IMAGE_SIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">192</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>syn_trans <span style="color:#f92672">=</span> transforms<span style="color:#f92672">.</span>Compose([
+</span></span><span style="display:flex;"><span>    transforms<span style="color:#f92672">.</span>Resize((IMAGE_SIZE, IMAGE_SIZE)), 
+</span></span><span style="display:flex;"><span>    transforms<span style="color:#f92672">.</span>ToTensor(),
+</span></span><span style="display:flex;"><span>])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Syn_Dataset</span>(nn<span style="color:#f92672">.</span>Module):
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, low_path, high_path, transforms<span style="color:#f92672">=</span><span style="color:#66d9ef">None</span>):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>low_path <span style="color:#f92672">=</span> low_path
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>high_path <span style="color:#f92672">=</span> high_path
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>transforms <span style="color:#f92672">=</span> transforms
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __getitem__(self, idx):
+</span></span><span style="display:flex;"><span>        low_files <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>listdir(self<span style="color:#f92672">.</span>low_path)
+</span></span><span style="display:flex;"><span>        high_files <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>listdir(self<span style="color:#f92672">.</span>high_path)
+</span></span><span style="display:flex;"><span>        low_image <span style="color:#f92672">=</span> Image<span style="color:#f92672">.</span>open(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(self<span style="color:#f92672">.</span>low_path, low_files[idx]))
+</span></span><span style="display:flex;"><span>        high_image <span style="color:#f92672">=</span> Image<span style="color:#f92672">.</span>open(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(self<span style="color:#f92672">.</span>low_path, high_files[idx]))
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>transforms:
+</span></span><span style="display:flex;"><span>            low_image <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>transforms(low_image)
+</span></span><span style="display:flex;"><span>            high_image <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>transforms(high_image)
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> low_image, high_image
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __len__(self):
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> len(os<span style="color:#f92672">.</span>listdir(self<span style="color:#f92672">.</span>low_path))
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>dataset <span style="color:#f92672">=</span> Syn_Dataset(low_path<span style="color:#f92672">=</span>os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(DATA_DIR, <span style="color:#e6db74">&#34;low&#34;</span>), high_path<span style="color:#f92672">=</span>os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(DATA_DIR, <span style="color:#e6db74">&#34;low&#34;</span>), transforms<span style="color:#f92672">=</span>syn_trans)
+</span></span><span style="display:flex;"><span>train_data, val_data <span style="color:#f92672">=</span> random_split(dataset, (<span style="color:#ae81ff">152000</span>, <span style="color:#ae81ff">1856</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>val_loader <span style="color:#f92672">=</span> DataLoader(val_data, batch_size<span style="color:#f92672">=</span>BATCH_SIZE, shuffle<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, num_workers<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%%</span>time
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, data <span style="color:#f92672">in</span> enumerate(val_loader):
+</span></span><span style="display:flex;"><span>    X, Y <span style="color:#f92672">=</span> data
+</span></span><span style="display:flex;"><span>    print(X<span style="color:#f92672">.</span>shape)
+</span></span></code></pre></div><p>上面这个例子使用PyTorch内置的DataLoader类以<code>batch_size = 128</code>遍历了一遍<code>val_dataset</code>，并打印每个batch的尺寸。使用<code>jupyter</code>的<code>%%time</code>魔法语言来计算遍历一遍所花费的时间，从下图可以直观看到，一共花费近两分钟完成一次遍历。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/002.png" alt="002"></p>
+<p>接下来再举个🌰：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> torchvision <span style="color:#f92672">import</span> models
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>model <span style="color:#f92672">=</span> models<span style="color:#f92672">.</span>alexnet(pretrained<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)<span style="color:#f92672">.</span>cuda()
+</span></span><span style="display:flex;"><span>criterion <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>CrossEntropyLoss()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, data <span style="color:#f92672">in</span> enumerate(val_loader):
+</span></span><span style="display:flex;"><span>  	X, Y <span style="color:#f92672">=</span> data
+</span></span><span style="display:flex;"><span>    output <span style="color:#f92672">=</span> model(X<span style="color:#f92672">.</span>cuda())
+</span></span><span style="display:flex;"><span>    loss <span style="color:#f92672">=</span> criterion(out<span style="color:#f92672">.</span>cpu(), torch<span style="color:#f92672">.</span>empty(out<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>], dtype<span style="color:#f92672">=</span>torch<span style="color:#f92672">.</span>long)<span style="color:#f92672">.</span>random_(<span style="color:#ae81ff">1000</span>))
+</span></span><span style="display:flex;"><span>    loss<span style="color:#f92672">.</span>backward()
+</span></span></code></pre></div><p>上面这个例子是模拟将数据输入AlexNet中处理，从下图中可以看到GPU的利用率很低（大多数时间都是0%）。主要原因是模型处理数据的时间比数据加载的时间更快，也就意味着模型通常要等待DataLoader将新的batch的数据传过来，导致GPU的利用率大多数时间都处于较低的状态甚至是空闲，严重拖慢模型训练的效率。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/003.png" alt="003"></p>
+<p>要是数据规模小的话，这点时间也不算什么，但是我的数据规模是数十万级别的，每一分一秒都可以说是十分珍贵的，于是我找到了一个非常nice的加速工具：<a href="https://github.com/NVIDIA/DALI">NVIDIA DALI</a>库。</p>
+<h2 id="单卡环境下的nvidia-dali使用">单卡环境下的NVIDIA DALI使用</h2>
+<p>（NVIDIA DALI的具体使用方式请参阅<a href="https://docs.nvidia.com/deeplearning/dali/user-guide/docs/">官方文档</a>）</p>
+<h3 id="安装">安装</h3>
+<p>首先需要确定自己的cuda版本，可以在命令行中输入<code>nvcc -V</code>来查询，如下图，cuda版本为10.2。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/004.png" alt="004"></p>
+<p>紧接着在命令行中输入<code>pip install nvidia-pyindex &amp;&amp; pip install nvidia-dali-cuda102</code>，请注意，这里的<code>cuda102</code>正是对应了上面查询的cuda版本10.2。</p>
+<h3 id="单卡环境下使用">单卡环境下使用</h3>
+<p>所谓单卡环境下使用即训练的过程中只使用一张卡，这是最简单的形式。可以自己定义数据的迭代方式，数据的Pipeline以及加载方式。详细细节请看代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> numpy <span style="color:#66d9ef">as</span> np
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> random <span style="color:#f92672">import</span> shuffle
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> nvidia.dali.fn <span style="color:#66d9ef">as</span> fn
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> nvidia.dali.types <span style="color:#66d9ef">as</span> types
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> torch.utils.data <span style="color:#f92672">import</span> random_split
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> nvidia.dali.pipeline <span style="color:#f92672">import</span> Pipeline
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> nvidia.dali.plugin.pytorch <span style="color:#f92672">import</span> DALIGenericIterator, LastBatchPolicy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>torch<span style="color:#f92672">.</span>__version__
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExternalInputIterator</span>(object):
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, batch_size, files, data_dir):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>low_dir <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(data_dir, <span style="color:#e6db74">&#39;low&#39;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>high_dir <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(data_dir, <span style="color:#e6db74">&#39;high&#39;</span>)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>batch_size <span style="color:#f92672">=</span> batch_size
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>files <span style="color:#f92672">=</span> list(files)
+</span></span><span style="display:flex;"><span>        shuffle(self<span style="color:#f92672">.</span>files)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __len__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> len(self<span style="color:#f92672">.</span>files)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __iter__(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>n <span style="color:#f92672">=</span> len(self<span style="color:#f92672">.</span>files)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __next__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>i <span style="color:#f92672">&gt;=</span> self<span style="color:#f92672">.</span>n:
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>__iter__()
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">raise</span> <span style="color:#a6e22e">StopIteration</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        low <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        high <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        leave_num <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>n <span style="color:#f92672">-</span> self<span style="color:#f92672">.</span>i
+</span></span><span style="display:flex;"><span>        current_batch_size <span style="color:#f92672">=</span> min(self<span style="color:#f92672">.</span>batch_size, leave_num)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> _ <span style="color:#f92672">in</span> range(current_batch_size):
+</span></span><span style="display:flex;"><span>            filename <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>files[self<span style="color:#f92672">.</span>i]
+</span></span><span style="display:flex;"><span>            l <span style="color:#f92672">=</span> open(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(self<span style="color:#f92672">.</span>low_dir, filename), <span style="color:#e6db74">&#39;rb&#39;</span>)
+</span></span><span style="display:flex;"><span>            h <span style="color:#f92672">=</span> open(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(self<span style="color:#f92672">.</span>high_dir, filename), <span style="color:#e6db74">&#39;rb&#39;</span>)
+</span></span><span style="display:flex;"><span>            low<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>frombuffer(l<span style="color:#f92672">.</span>read(), dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>uint8))
+</span></span><span style="display:flex;"><span>            high<span style="color:#f92672">.</span>append(np<span style="color:#f92672">.</span>frombuffer(h<span style="color:#f92672">.</span>read(), dtype<span style="color:#f92672">=</span>np<span style="color:#f92672">.</span>uint8))
+</span></span><span style="display:flex;"><span>            self<span style="color:#f92672">.</span>i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (low, high)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    next <span style="color:#f92672">=</span> __next__
+</span></span><span style="display:flex;"><span>    len <span style="color:#f92672">=</span> __len__
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ExternalSourcePipeline</span>(Pipeline):
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, data_iterator, batch_size, num_threads, device_id, img_size):
+</span></span><span style="display:flex;"><span>        super(ExternalSourcePipeline, self)<span style="color:#f92672">.</span>__init__(batch_size, num_threads, device_id, exec_async<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>, exec_pipelined<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>img_size <span style="color:#f92672">=</span> img_size
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>batch <span style="color:#f92672">=</span> batch_size
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>data_iterator <span style="color:#f92672">=</span> data_iterator
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>lows, self<span style="color:#f92672">.</span>highs <span style="color:#f92672">=</span> fn<span style="color:#f92672">.</span>external_source(source<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>data_iterator, num_outputs<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, dtype<span style="color:#f92672">=</span>types<span style="color:#f92672">.</span>UINT8)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __len__(self):
+</span></span><span style="display:flex;"><span>        length <span style="color:#f92672">=</span> len(self<span style="color:#f92672">.</span>data_iterator) 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (length <span style="color:#f92672">//</span> self<span style="color:#f92672">.</span>batch <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">if</span> (length <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>batch <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">else</span> (length <span style="color:#f92672">//</span> self<span style="color:#f92672">.</span>batch) 
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">define_graph</span>(self):
+</span></span><span style="display:flex;"><span>        low_decode <span style="color:#f92672">=</span> fn<span style="color:#f92672">.</span>decoders<span style="color:#f92672">.</span>image(self<span style="color:#f92672">.</span>lows, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mixed&#34;</span>)
+</span></span><span style="display:flex;"><span>        high_decode <span style="color:#f92672">=</span> fn<span style="color:#f92672">.</span>decoders<span style="color:#f92672">.</span>image(self<span style="color:#f92672">.</span>highs, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mixed&#34;</span>)
+</span></span><span style="display:flex;"><span>        low_resize <span style="color:#f92672">=</span> fn<span style="color:#f92672">.</span>resize(low_decode, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpu&#34;</span>, resize_x<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>img_size, resize_y<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>img_size, interp_type<span style="color:#f92672">=</span>types<span style="color:#f92672">.</span>INTERP_TRIANGULAR)
+</span></span><span style="display:flex;"><span>        high_resize <span style="color:#f92672">=</span> fn<span style="color:#f92672">.</span>resize(high_decode, device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpu&#34;</span>, resize_x<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>img_size, resize_y<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>img_size, interp_type<span style="color:#f92672">=</span>types<span style="color:#f92672">.</span>INTERP_TRIANGULAR)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>low <span style="color:#f92672">=</span> fn<span style="color:#f92672">.</span>transpose(low_resize, perm<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">255.0</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>high <span style="color:#f92672">=</span> fn<span style="color:#f92672">.</span>transpose(high_resize, perm<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">255.0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (self<span style="color:#f92672">.</span>low, self<span style="color:#f92672">.</span>high)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iter_setup</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>set_outputs(self<span style="color:#f92672">.</span>low, self<span style="color:#f92672">.</span>high)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CustomDALIGenericIterator</span>(DALIGenericIterator):
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, pipelines, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        output_maps <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;lows&#39;</span>, <span style="color:#e6db74">&#39;highs&#39;</span>]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> isinstance(pipelines, list):
+</span></span><span style="display:flex;"><span>            pipelines <span style="color:#f92672">=</span> [pipelines]
+</span></span><span style="display:flex;"><span>        super(CustomDALIGenericIterator, self)<span style="color:#f92672">.</span>__init__(pipelines, output_maps, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>pipelines <span style="color:#f92672">=</span> pipelines  <span style="color:#75715e"># devices &gt; 1 ==&gt; pipelines &gt; 1</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __next__(self):
+</span></span><span style="display:flex;"><span>        batch <span style="color:#f92672">=</span> super(CustomDALIGenericIterator, self)<span style="color:#f92672">.</span>__next__()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>parse_batch(batch)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __len__(self):
+</span></span><span style="display:flex;"><span>        lengths <span style="color:#f92672">=</span> [len(i) <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>pipelines]
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> sum(lengths)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">parse_batch</span>(self, batch):
+</span></span><span style="display:flex;"><span>        lows, highs <span style="color:#f92672">=</span> batch[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;lows&#39;</span>], batch[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;highs&#39;</span>] 
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> lows, highs
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>DATA_DIR <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/home/jensen/workspace/SYNTHESIS_DATA&#34;</span>
+</span></span><span style="display:flex;"><span>BATCH_SIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">128</span>
+</span></span><span style="display:flex;"><span>IMAGE_SIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">192</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>files <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>listdir(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(DATA_DIR, <span style="color:#e6db74">&#39;low&#39;</span>))
+</span></span><span style="display:flex;"><span>train_files, val_files <span style="color:#f92672">=</span> random_split(files, (<span style="color:#ae81ff">152000</span>, <span style="color:#ae81ff">1856</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>val_iter <span style="color:#f92672">=</span> ExternalInputIterator(batch_size<span style="color:#f92672">=</span>BATCH_SIZE, files<span style="color:#f92672">=</span>val_files, data_dir<span style="color:#f92672">=</span>DATA_DIR)
+</span></span><span style="display:flex;"><span>val_pipe <span style="color:#f92672">=</span> ExternalSourcePipeline(val_iter, batch_size<span style="color:#f92672">=</span>BATCH_SIZE, num_threads<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, device_id<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, img_size<span style="color:#f92672">=</span>IMAGE_SIZE)
+</span></span><span style="display:flex;"><span>val_loader <span style="color:#f92672">=</span> CustomDALIGenericIterator(val_pipe)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">%%</span>time
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, data <span style="color:#f92672">in</span> enumerate(val_loader):
+</span></span><span style="display:flex;"><span>    X, Y <span style="color:#f92672">=</span> data
+</span></span><span style="display:flex;"><span>    print(X<span style="color:#f92672">.</span>shape)
+</span></span></code></pre></div><p>上面的例子使用NVIDIA DALI自定义了数据的迭代方式以及加载方式，同样使用<code>jupyter</code>的<code>%%time</code>魔法函数来计算遍历一遍所花费的时间，如下图所示，整个过程仅花费了不到3秒钟。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/005.png" alt="005"></p>
+<p>此外，可以模拟将数据输入AlexNet中处理，GPU的利用率也会一直稳定在85%以上，表明GPU的性能被充分利用。</p>
+<h2 id="多卡环境下的nvidia-dali使用">多卡环境下的NVIDIA DALI使用</h2>
+<p>本文中所指的多卡环境是单机多卡环境，即在一台机器的多个GPU上进行分布式训练，然而多机多卡的情况并不在本文的讨论范畴之内，我也确实没有用过这种训练方式。有关多卡环境下的使用方式也可以参考<a href="https://docs.nvidia.com/deeplearning/dali/user-guide/docs/examples/general/multigpu.html">官方文档</a>。下面直接放出我的例子吧：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> nvidia.dali.fn <span style="color:#66d9ef">as</span> fn
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> nvidia.dali.types <span style="color:#66d9ef">as</span> types
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> torch.utils.data <span style="color:#f92672">import</span> random_split
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> nvidia.dali.pipeline <span style="color:#f92672">import</span> Pipeline
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> nvidia.dali.plugin.pytorch <span style="color:#f92672">import</span> DALIGenericIterator, LastBatchPolicy
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SyntheicDataPipeline</span>(Pipeline):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    An extended Pipeline class based on the Nvidia DALI library for low-light image enhancement.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    The effect of the Pipeline class is somewhat similar to the Dataset class in Pytorch and 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    the transforms function in torchvision. Mainly is to carry on some simple preprocessing to the input data.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        batch_size (int): batch_size.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        data_dir (str): the folder path of the paired image. (excluding the &#39;low&#39; and&#39; high&#39; folders)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        files (list): A list of paired image filenames.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        image_size (int | tuple): image size after resize operation.  Default: 192
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        num_threads (int): number of CPU threads used by the pipeline.  Default: 2
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        device_id (int): id of GPU used by the pipeline.  Default: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        seed (int): seed used for random number generation.  Default: -1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        shard_id (int): index of the shard to read.  Default: 0
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        num_shards (int): partitions the data into the specified number of parts (shards).  Default: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        random_shuffle (bool): determines whether to randomly shuffle data.  Default: True
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Examples:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        When you have a GPU, device_id and shard_id should be set to 0 and num_shards should be set to 1.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        When you have four GPU, the value range for device_id and shard_id is [0-3] (device_id and shard_id 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        values are usually the same), and num_shards should be set to 4.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    For details, please refer to the official DALI documentation: https://docs.nvidia.com/deeplearning/dali/user-guide/docs/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    or my blog (which will be updated in the near future): https://jensen.dlab.ac.cn/ .
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, batch_size, data_dir, files, 
+</span></span><span style="display:flex;"><span>                 image_size<span style="color:#f92672">=</span><span style="color:#ae81ff">192</span>, num_threads<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>, device_id<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, seed<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>, 
+</span></span><span style="display:flex;"><span>                 shard_id<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, num_shards<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, random_shuffle<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        super(SyntheicDataPipeline, self)<span style="color:#f92672">.</span>__init__(batch_size<span style="color:#f92672">=</span>batch_size, num_threads<span style="color:#f92672">=</span>num_threads, 
+</span></span><span style="display:flex;"><span>                                                   device_id<span style="color:#f92672">=</span>device_id, seed<span style="color:#f92672">=</span>seed, <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>types <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;low&#39;</span>, <span style="color:#e6db74">&#39;high&#39;</span>]
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>data_dir <span style="color:#f92672">=</span> [os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(data_dir, name) <span style="color:#66d9ef">for</span> name <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>types]
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>files <span style="color:#f92672">=</span> list(files)
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>image_size <span style="color:#f92672">=</span> image_size
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>shard_id <span style="color:#f92672">=</span> shard_id
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>num_shards <span style="color:#f92672">=</span> num_shards
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>random_shuffle <span style="color:#f92672">=</span> random_shuffle
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">define_graph</span>(self):
+</span></span><span style="display:flex;"><span>        low_inputs, _ <span style="color:#f92672">=</span> fn<span style="color:#f92672">.</span>readers<span style="color:#f92672">.</span>file(file_root<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>data_dir[<span style="color:#ae81ff">0</span>], files<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>files, seed<span style="color:#f92672">=</span><span style="color:#ae81ff">1234</span>, 
+</span></span><span style="display:flex;"><span>                                        shard_id<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>shard_id, num_shards<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>num_shards, 
+</span></span><span style="display:flex;"><span>                                        random_shuffle<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>random_shuffle, pad_last_batch<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, 
+</span></span><span style="display:flex;"><span>                                        name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;main_reader&#34;</span>)
+</span></span><span style="display:flex;"><span>        high_inputs, _ <span style="color:#f92672">=</span> fn<span style="color:#f92672">.</span>readers<span style="color:#f92672">.</span>file(file_root<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>data_dir[<span style="color:#ae81ff">1</span>], files<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>files, seed<span style="color:#f92672">=</span><span style="color:#ae81ff">1234</span>,
+</span></span><span style="display:flex;"><span>                                         shard_id<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>shard_id, num_shards<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>num_shards, 
+</span></span><span style="display:flex;"><span>                                         random_shuffle<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>random_shuffle, pad_last_batch<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
+</span></span><span style="display:flex;"><span>        inputs <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;low&#39;</span>: low_inputs, <span style="color:#e6db74">&#39;high&#39;</span>: high_inputs}
+</span></span><span style="display:flex;"><span>        images <span style="color:#f92672">=</span> {x: fn<span style="color:#f92672">.</span>decoders<span style="color:#f92672">.</span>image(inputs[x], device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;mixed&#34;</span>) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>types}
+</span></span><span style="display:flex;"><span>        resizes <span style="color:#f92672">=</span> {x: fn<span style="color:#f92672">.</span>resize(images[x], device<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;gpu&#34;</span>, resize_x<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>image_size, 
+</span></span><span style="display:flex;"><span>                                resize_y<span style="color:#f92672">=</span>self<span style="color:#f92672">.</span>image_size, interp_type<span style="color:#f92672">=</span>types<span style="color:#f92672">.</span>INTERP_TRIANGULAR) 
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>types}
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>tensors <span style="color:#f92672">=</span> {x: fn<span style="color:#f92672">.</span>transpose(resizes[x], perm<span style="color:#f92672">=</span>[<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>]) <span style="color:#f92672">/</span> <span style="color:#ae81ff">255.0</span> <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> self<span style="color:#f92672">.</span>types}
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> (self<span style="color:#f92672">.</span>tensors[<span style="color:#e6db74">&#39;low&#39;</span>], self<span style="color:#f92672">.</span>tensors[<span style="color:#e6db74">&#39;high&#39;</span>])
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">iter_setup</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>set_outputs(self<span style="color:#f92672">.</span>tensors[<span style="color:#e6db74">&#39;low&#39;</span>], self<span style="color:#f92672">.</span>tensors[<span style="color:#e6db74">&#39;high&#39;</span>])
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SyntheicDataIterator</span>(DALIGenericIterator):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    An extended Iterator class based on the Nvidia DALI library for low-light image enhancement.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    The effect of the Iterator class is somewhat similar to the Dataloader class in Pytorch.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        pipelines (nvidia.dali.Pipeline): pipelines.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        reader_name (str): name of the reader which will be queried to the shard size, 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                           number of shards and all other properties necessary to count 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                           properly the number of relevant and padded samples that iterator 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                           needs to deal with.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        last_batch_policy (int): strategy for processing the last batch data. (especially if the
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">                              size of the last batch data is smaller than batch_size)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        output_map (list): list of strings which maps consecutive outputs of DALI pipelines to user specified name.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Example:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        loader = SyntheicDataIterator(...)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        for idx, data in enumerate(loader):
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            low, high = data
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            ...
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    For details, please refer to the official DALI documentation: https://docs.nvidia.com/deeplearning/dali/user-guide/docs/
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    or my blog (which will be updated in the near future): https://jensen.dlab.ac.cn/ .
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self, pipelines, reader_name, last_batch_policy, 
+</span></span><span style="display:flex;"><span>                 output_map<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;low&#39;</span>, <span style="color:#e6db74">&#39;high&#39;</span>], <span style="color:#f92672">**</span>kwargs):
+</span></span><span style="display:flex;"><span>        super(SyntheicDataIterator, self)<span style="color:#f92672">.</span>__init__(pipelines<span style="color:#f92672">=</span>pipelines, output_map<span style="color:#f92672">=</span>output_map, 
+</span></span><span style="display:flex;"><span>                                                   reader_name<span style="color:#f92672">=</span>reader_name, last_batch_policy<span style="color:#f92672">=</span>last_batch_policy, 
+</span></span><span style="display:flex;"><span>                                                   <span style="color:#f92672">**</span>kwargs)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">_parse_data</span>(self, data):
+</span></span><span style="display:flex;"><span>        low_data, high_data <span style="color:#f92672">=</span> data[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;low&#39;</span>], data[<span style="color:#ae81ff">0</span>][<span style="color:#e6db74">&#39;high&#39;</span>]
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> low_data, high_data
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __next__(self):
+</span></span><span style="display:flex;"><span>        data <span style="color:#f92672">=</span> super(SyntheicDataIterator, self)<span style="color:#f92672">.</span>__next__()
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>_parse_data(data)
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __len__(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> super(SyntheicDataIterator, self)<span style="color:#f92672">.</span>__len__()
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>DATA_DIR <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/home/jensen/workspace/SYNTHESIS_DATA&#34;</span>
+</span></span><span style="display:flex;"><span>BATCH_SIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">128</span>
+</span></span><span style="display:flex;"><span>IMAGE_SIZE <span style="color:#f92672">=</span> <span style="color:#ae81ff">192</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>files <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>listdir(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>join(DATA_DIR, <span style="color:#e6db74">&#39;low&#39;</span>))
+</span></span><span style="display:flex;"><span>train_files, val_files <span style="color:#f92672">=</span> random_split(files, (<span style="color:#ae81ff">152000</span>, <span style="color:#ae81ff">1856</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pipe <span style="color:#f92672">=</span> SyntheicDataPipeline(batch_size<span style="color:#f92672">=</span>BATCH_SIZE, num_threads<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>, device_id<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, 
+</span></span><span style="display:flex;"><span>                            seed<span style="color:#f92672">=</span><span style="color:#ae81ff">1234</span>, data_dir<span style="color:#f92672">=</span>DATA_DIR, files<span style="color:#f92672">=</span>val_files, 
+</span></span><span style="display:flex;"><span>                            image_size<span style="color:#f92672">=</span>IMAGE_SIZE, shard_id<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, num_shards<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>val_loader <span style="color:#f92672">=</span> SyntheicDataIterator(pipe, reader_name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;main_reader&#34;</span>, auto_reset<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>, 
+</span></span><span style="display:flex;"><span>                                  last_batch_policy<span style="color:#f92672">=</span>LastBatchPolicy<span style="color:#f92672">.</span>PARTIAL)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> idx, data <span style="color:#f92672">in</span> enumerate(val_loader):
+</span></span><span style="display:flex;"><span>    X, Y <span style="color:#f92672">=</span> data
+</span></span><span style="display:flex;"><span>    print(X<span style="color:#f92672">.</span>shape)
+</span></span></code></pre></div><p>上面的例子其实还是单机单卡的环境，但是只要稍微修改一下就可以实现单机多卡。即将<code>SyntheicDataPipeline</code>类中的<code>device_id</code>和<code>shard_id</code>以及<code>num_shards</code>这三个参数稍作修改。<code>device_id</code>很好理解了，例如一台机器有四张GPU，则<code>device_id</code>分别为<code>0</code>、<code>1</code>、<code>2</code>、<code>3</code>。假如在第二张GPU上进行运算，则<code>device_id</code>就是<code>2</code>，此外<code>shard_id</code>一般与<code>device_id</code>保持一致，它是指第几个分片（分布式训练的实质就是将一个大batch的数据均分到每个GPU上来并行运算，因此第一张GPU上输入的数据应当就是均分数据得到的第一个分片）。<code>num_shards</code>这个参数也很好理解，它的意思即一共有多少张GPU。虽然看起来很简单，但是还是有三个参数需要修改，似乎还是有点麻烦，但是不用担心，实际上这些参数都是不需要人为去设定。因为通常分布式训练都需要从命令行传入一个参数<code>--nproc_per_node</code>，通过这一个参数都能自适应的完成上述参数的修改，在实际训练的时候，只需做如下修改即可：<code>device_id=args.local_rank</code>、<code>shard_id=args.local_rank</code>、<code>num_shards=args.world_size</code>。</p>
+<p>好了，本篇博客到这里就应该要结束了，本文中提到的方法通常都能适用于各种深度学习任务，只是不同的任务在数据读取上可能会有一些异同，但我相信这些问题都可以通过参阅官方文档中的<code>nvidia.dali.fn</code>使用说明来解决。接下来如果有时间的话我会再介绍一下如何使用NVIDIA APEX库来实现分布式训练以及如何将NVIDIA DALI和APEX库结合起来使用。</p>
+
+    <div class="CornerButtons">
+        <div class="CornerAnimayedFlex">
+            <div class="CornerButton" title="Back to the top">
+                <a href="#top" class="cba fas fa-hand-middle-finger" ></a>
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<h1 style="color: #dc3545;">Comments</h1>
+<script defer src="https://utteranc.es/client.js" 
+repo="Jen-Jon/Jen-Jon.github.io" 
+issue-term="title" 
+theme="github-light" 
+crossorigin="anonymous" async></script>
+
+
+</div>
+
+<h5 style="text-align: center; font-size: large;">This blog is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, please indicate the source for non-commercial reposted.</h5>
+
+
+        </div><strong id="footer" class="mb-5">
+    <hr>
+    
+    <div class="container text-center">
+        
+            <a href="https://github.com/Jen-Jon/" class="fab fa-github fa-1x" title="Github" style="text-decoration: none;"></a>
+        
+            <a href="https://hub.docker.com/u/ijerry22" class="fab fa-docker fa-1x" title="DockerHub" style="text-decoration: none;"></a>
+        
+            <a href="https://www.researchgate.net/profile/Jingyao-Zhang-4" class="fab fa-researchgate fa-1x" title="researchgate" style="text-decoration: none;"></a>
+        
+            <a href="mailto:jensen.acm@gmail.com" class="fas fa-envelope fa-1x" title="E-mail" style="text-decoration: none;"></a>
+        
+    </div>
+    
+        <div class="container text-center">
+            <h5 class="text-center" style="font-size: small;">Copyright © 2020-2022 <a href="https://github.com/Jen-Jon/" style="color: #dc3545;" title="Jensen-Jon">Jensen-Jon</a>. All rights reserved.</h5>
+        </div>
+    
+</div>
+</body>
+</html>
