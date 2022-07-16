@@ -137,7 +137,7 @@
     
     <h5><a href="https://arthurchiao.art/blog/how-nat-traversal-works-zh/">Reposted</a> by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>July 7, 2022</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>19503</em> words and may take <em>39</em> minutes to read.</h5>
+    <h5>This article is about <em>19501</em> words and may take <em>39</em> minutes to read.</h5>
     <hr>
     
     
@@ -562,7 +562,7 @@
 <p>不过要注意：我们只有在无法直连时才会选择中继方式。实际场景中，</p>
 <ol>
 <li>对于大部分网络，我们都能通过前面介绍的方式实现直连，</li>
-<li>剩下的长尾用中继方式来解决，并不算一个很糟的方式。</li>
+<li>剩下的 Tailscale 用中继方式来解决，并不算一个很糟的方式。</li>
 </ol>
 <p>此外，某些网络会阻止 NAT 穿透，其影响比这种 hard NAT 大多了。例如，我们观察到 UC Berkeley guest WiFi 禁止除 DNS 流量之外的所有 outbound UDP 流量。 不管用什么 NAT 黑科技，都无法绕过这个拦截。因此我们终归还是需要一些可靠的 fallback 机制。</p>
 <h2 id="62-中继协议turnderp">6.2 中继协议：TURN、DERP</h2>
@@ -902,7 +902,7 @@
 <li>但出于谨慎考虑，最好还是对路径发现的包也做认证和加密。具体如何做可以咨询你们的应用安全工程师。</li>
 </ul>
 <p>我们终于完成了 NAT 穿透的目标！</p>
-<p>如果实现了以上提到的所有技术，你将得到一个业内领先的 NAT 穿透软件，能在绝大多数场景下实现端到端直连。 如果直连不了，还可以降级到保底的中继模式（对于长尾来说只能靠中继了）。</p>
+<p>如果实现了以上提到的所有技术，你将得到一个业内领先的 NAT 穿透软件，能在绝大多数场景下实现端到端直连。 如果直连不了，还可以降级到保底的中继模式（对于 Tailscale 来说只能靠中继了）。</p>
 <p>但这些工作相当复杂！其中一些问题研究起来很有意思，但很难做到完全正确，尤其是那些 非常边边角角的场景，真正出现的概率极小，但解决它们所需花费的经历又极大。 不过，这种工作只需要做一次，一旦解决了，你就具备了某种超级能力： 探索令人激动的、相对还比较崭新的<strong>端到端应用</strong>（peer-to-peer applications）世界。</p>
 <h2 id="81-跨公网-端到端直连">8.1 跨公网 端到端直连</h2>
 <p><strong>去中心化软件</strong>领域中的许多有趣想法，简化之后其实都变成了 <strong>跨过公网（互联网）实现端到端直连</strong> 这一问题，开始时可能觉得很简单，但真正做才 发现比想象中难多了。现在知道如何解决这个问题了，动手开做吧！</p>
