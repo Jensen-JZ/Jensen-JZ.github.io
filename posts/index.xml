@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>科学上网</title>
+      <link>https://jen-jon.github.io/posts/20220915/</link>
+      <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/20220915/</guid>
+      <description>这篇文章可以写的更好，欢迎到 https://github.com/haoel/haoel.github.io 更新 科学上网 0. 序 1. 英文能力 2. 购买 VPS 2.1 常规 VPS 2.2 CN2 线路 2.3 NCP 线路 3. 搭建相关代理服务 3.1 设置 Docker 服务 3.2 开启 TCP BBR 拥塞控制算法</description>
+    </item>
+    
     <item>
       <title>NAT穿透是如何工作的（Tailscale）</title>
       <link>https://jen-jon.github.io/posts/20220707/</link>
