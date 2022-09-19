@@ -6,7 +6,16 @@
     <description>Recent content in Jensen-Jon | Home on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 15 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>TorchScript教程（译）</title>
+      <link>https://jen-jon.github.io/posts/20220919/</link>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://jen-jon.github.io/posts/20220919/</guid>
+      <description>import torch torch.__version__ &#39;1.8.2&#39; 编写PyTorch模型的基本知识 我们首先来定义一个简单的Module。Module是PyTorch模型的基本组成单位。其中包含： 一个</description>
+    </item>
+    
     <item>
       <title>科学上网</title>
       <link>https://jen-jon.github.io/posts/20220915/</link>
