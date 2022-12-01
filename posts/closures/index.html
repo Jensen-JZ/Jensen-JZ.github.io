@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=""><head>
+<html lang="" style="filter: grayscale(1);"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -367,7 +367,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> alsoIncrementByTen = incrementByTen
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;alsoIncrementByTen的值是：</span><span style="color:#e6db74">\(</span>alsoIncrementByTen<span style="color:#e6db74">())</span><span style="color:#e6db74">.&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: alsoIncrementByTen的值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">50.</span>
+</span></span><span style="display:flex;"><span>output: alsoIncrementByTen<span style="color:#960050;background-color:#1e0010">的值是：</span><span style="color:#ae81ff">50.</span>
 </span></span></code></pre></div><hr>
 <h2 id="逃逸闭包">逃逸闭包</h2>
 <p>当一个闭包作为参数传到一个函数中，但是这个闭包在函数返回后才被执行，我们称该闭包从函数中逃逸。当定义接受闭包作为参数的函数时，可以在参数类型前标注<code>@escaping</code>来指明这个闭包是允许“逃逸”出这个函数的。</p>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=""><head>
+<html lang="" style="filter: grayscale(1);"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -236,9 +236,9 @@
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;pink中蓝色分量为：</span><span style="color:#e6db74">\(</span>blueComponent<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
 </span></span><span style="display:flex;"><span>output: <span style="color:#ae81ff">13395609</span>
-</span></span><span style="display:flex;"><span>pink中红色分量为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">204</span>
-</span></span><span style="display:flex;"><span>pink中绿色分量为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">102</span>
-</span></span><span style="display:flex;"><span>pink中蓝色分量为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">153</span>
+</span></span><span style="display:flex;"><span>pink<span style="color:#960050;background-color:#1e0010">中红色分量为：</span><span style="color:#ae81ff">204</span>
+</span></span><span style="display:flex;"><span>pink<span style="color:#960050;background-color:#1e0010">中绿色分量为：</span><span style="color:#ae81ff">102</span>
+</span></span><span style="display:flex;"><span>pink<span style="color:#960050;background-color:#1e0010">中蓝色分量为：</span><span style="color:#ae81ff">153</span>
 </span></span></code></pre></div><p>在上述示例中，使用了一个命名为<code>pink</code>的<code>UInt32</code>型常量来存储<code>Cascading Style Sheets (CSS)</code>中粉色的颜色值。该<code>CSS</code>的颜色值<code>#CC6699</code>，在<code>Swift</code>中表示为十六进制的<code>0xCC6699</code>。然后利用按位与运算符<code>&amp;</code>和按位右移运算符<code>&gt;&gt;</code>从这个颜色中分解出红（CC）、绿（66）蓝（99）三个部分。</p>
 <p>红色部分（redComponent）是通过对<code>0xCC6699</code>和<code>0xFF0000</code>进行按位与运算后得到的。<code>0xFF0000</code>中的0部分“掩盖”了<code>0xCC6699</code>中的第二第三个字节，只留下<code>0xCC0000</code>。然后将这个数向右移16位后就变成<code>0x0000CC</code>，也就是十进制数值的204。</p>
 <h4 id="有符号整数的移位运算">有符号整数的移位运算</h4>
@@ -274,7 +274,7 @@
 </span></span><span style="display:flex;"><span>unsignedOverFlow = unsignedOverFlow <span style="color:#f92672">&amp;+</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e">// 此时unsignedOverFlow等于0</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;UInt8上溢后的值：</span><span style="color:#e6db74">\(</span>unsignedOverFlow<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: UInt8上溢后的值<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>output: UInt8<span style="color:#960050;background-color:#1e0010">上溢后的值：</span><span style="color:#ae81ff">0</span>
 </span></span></code></pre></div><p><code>unsignedOverFlow</code>被初始化为<code>UInt8</code>所能容纳的最大整数（255，以二进制表示即11111111），然后使用溢出加法运算符<code>&amp;+</code>对其进行加1运算。使得它的二进制表示正好超出<code>UInt8</code>所能容纳的位数，也就导致了数值的溢出。数值溢出后，仍然留在<code>UInt8</code>边界内的值是<code>00000000</code>，也就是十进制数值0。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/overflowAddition.png" alt="Over flow addition"></p>
 <p>当允许对一个无符号整数进行下溢运算时也会产生类似的情况。这里有一个使用溢出减法运算符<code>&amp;-</code>的例子。</p>
@@ -282,7 +282,7 @@
 </span></span><span style="display:flex;"><span>unsignedOverFlow = unsignedOverFlow <span style="color:#f92672">&amp;-</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e">// 此时unsignedOverFlow等于255</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;UInt8下溢后的值：</span><span style="color:#e6db74">\(</span>unsignedOverFlow<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: UInt8下溢后的值<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">255</span>
+</span></span><span style="display:flex;"><span>output: UInt8<span style="color:#960050;background-color:#1e0010">下溢后的值：</span><span style="color:#ae81ff">255</span>
 </span></span></code></pre></div><p><code>UInt8</code>型整数能够容纳的最小值是0，以二进制表示即为00000000。当使用溢出减法运算符对其进行减1运算时，数值会产生下溢并被截断为11111111，也就是十进制数值的255。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/overflowUnsignedSubtraction.png" alt="Over flow unsigned subtraction"></p>
 <p>溢出也会发生在有符号整型上。针对有符号整型的所有溢出加法或者减法运算都是按位运算的方式执行的。符号位也要参与计算，正如按位左移、右移运算符所描述的那样。</p>
@@ -290,7 +290,7 @@
 </span></span><span style="display:flex;"><span>signedOverFlow = signedOverFlow <span style="color:#f92672">&amp;-</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e">// 此时signedOverFlow等于127</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Int8下溢后的值：</span><span style="color:#e6db74">\(</span>signedOverFlow<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: Int8下溢后的值<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">127</span>
+</span></span><span style="display:flex;"><span>output: Int8<span style="color:#960050;background-color:#1e0010">下溢后的值：</span><span style="color:#ae81ff">127</span>
 </span></span></code></pre></div><p><code>Int8</code>型整数能容纳的最小值是-128，以二进制形式表示即10000000。当使用溢出减法运算符对其进行减1运算时，符号位被翻转，得到二进制数值01111111，也就是十进制数值的127，这个值也是<code>Int8</code>型整数所能容纳的最大值。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/overflowSignedSubtraction.png" alt="Over flow signed subtraction"></p>
 <p>对于无符号和有符号整型数值来说，当出现上溢时，它们会从数值所能容纳的最大数变成最小数。同样地，当发生下溢时，它们会从数值的最小数变成数值的最大数。</p>
@@ -332,7 +332,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> combinedVector = vector <span style="color:#f92672">+</span> anotherVector  <span style="color:#75715e">// combinedVector是一个新的Vector2D实例，值为(5.0， 5.0)</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;两个Vector2D类型的向量相加后的值为：</span><span style="color:#e6db74">\(</span>combinedVector<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">两个</span>Vector2D类型的向量相加后的值为<span style="color:#960050;background-color:#1e0010">：</span>Vector2D(x: <span style="color:#ae81ff">5.0</span>, y: <span style="color:#ae81ff">5.0</span>)
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">两个</span>Vector2D<span style="color:#960050;background-color:#1e0010">类型的向量相加后的值为：</span>Vector2D(x: <span style="color:#ae81ff">5.0</span>, y: <span style="color:#ae81ff">5.0</span>)
 </span></span></code></pre></div><h3 id="前缀和后缀运算符">前缀和后缀运算符</h3>
 <p>上个例子演示了一个二元中缀运算符的自定义实现，类与结构体也能提供标准的一元运算符的实现。一元运算符只运算一个值。当运算符出现在值之前时，它就是前缀的（例如-a），而当它出现在值之后时，它就是后缀的（例如b!）。</p>
 <p>要实现前缀或者后缀运算符，需要在声明运算符函数的时候在<code>func</code>关键字之前指定<code>prefix</code>或者<code>postfix</code>修饰符。</p>
@@ -349,8 +349,8 @@
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;-positive的值为：</span><span style="color:#e6db74">\(</span>negative<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;-negative的值为：</span><span style="color:#e6db74">\(</span>alsoPositive<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: <span style="color:#f92672">-</span>positive的值为<span style="color:#960050;background-color:#1e0010">：</span>Vector2D(x: <span style="color:#f92672">-</span><span style="color:#ae81ff">3.0</span>, y: <span style="color:#f92672">-</span><span style="color:#ae81ff">4.0</span>)
-</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span>negative的值为<span style="color:#960050;background-color:#1e0010">：</span>Vector2D(x: <span style="color:#ae81ff">3.0</span>, y: <span style="color:#ae81ff">4.0</span>)
+</span></span><span style="display:flex;"><span>output: <span style="color:#f92672">-</span>positive<span style="color:#960050;background-color:#1e0010">的值为：</span>Vector2D(x: <span style="color:#f92672">-</span><span style="color:#ae81ff">3.0</span>, y: <span style="color:#f92672">-</span><span style="color:#ae81ff">4.0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">-</span>negative<span style="color:#960050;background-color:#1e0010">的值为：</span>Vector2D(x: <span style="color:#ae81ff">3.0</span>, y: <span style="color:#ae81ff">4.0</span>)
 </span></span></code></pre></div><h3 id="复合赋值运算符">复合赋值运算符</h3>
 <p>复合赋值运算符将赋值运算符<code>=</code>与其它运算符进行结合。例如，将加法与赋值结合成加法赋值运算符<code>+=</code>。在实现的时候，需要把运算符的左参数设置成<code>inout</code>类型，因为这个参数的值会在运算符函数内直接被修改。</p>
 <p>下面的例子中，对<code>Vector2D</code>实例实现了一个加法赋值运算符函数。</p>
@@ -365,7 +365,7 @@
 </span></span><span style="display:flex;"><span>original <span style="color:#f92672">+=</span> vectorToAdd  <span style="color:#75715e">// original的值现在是(4.0, 6.0)</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Vector2D类型的加法赋值运算之后的值为：</span><span style="color:#e6db74">\(</span>original<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: Vector2D类型的加法赋值运算之后的值为<span style="color:#960050;background-color:#1e0010">：</span>Vector2D(x: <span style="color:#ae81ff">4.0</span>, y: <span style="color:#ae81ff">6.0</span>)
+</span></span><span style="display:flex;"><span>output: Vector2D<span style="color:#960050;background-color:#1e0010">类型的加法赋值运算之后的值为：</span>Vector2D(x: <span style="color:#ae81ff">4.0</span>, y: <span style="color:#ae81ff">6.0</span>)
 </span></span></code></pre></div><blockquote>
 <p><strong>注意</strong></p>
 <p>不能对默认的赋值运算符<code>=</code>进行重载。只有复合赋值运算可以被重载。同样地，也无法对三元条件运算符（a ? b : c）进行重载。</p>
@@ -410,8 +410,8 @@
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;toBeDoubled的值为：</span><span style="color:#e6db74">\(</span>toBeDoubled<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;afterDoubling的值为：</span><span style="color:#e6db74">\(</span>afterDoubling<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: toBeDoubled的值为<span style="color:#960050;background-color:#1e0010">：</span>Vector2D(x: <span style="color:#ae81ff">2.0</span>, y: <span style="color:#ae81ff">8.0</span>)
-</span></span><span style="display:flex;"><span>afterDoubling的值为<span style="color:#960050;background-color:#1e0010">：</span>Vector2D(x: <span style="color:#ae81ff">2.0</span>, y: <span style="color:#ae81ff">8.0</span>)
+</span></span><span style="display:flex;"><span>output: toBeDoubled<span style="color:#960050;background-color:#1e0010">的值为：</span>Vector2D(x: <span style="color:#ae81ff">2.0</span>, y: <span style="color:#ae81ff">8.0</span>)
+</span></span><span style="display:flex;"><span>afterDoubling<span style="color:#960050;background-color:#1e0010">的值为：</span>Vector2D(x: <span style="color:#ae81ff">2.0</span>, y: <span style="color:#ae81ff">8.0</span>)
 </span></span></code></pre></div><h3 id="自定义中缀运算符的优先级">自定义中缀运算符的优先级</h3>
 <p>每个自定义中缀运算符都属于某个优先级组。优先级组指定了这个运算符相对于其他中缀运算符的优先级和结合性。</p>
 <p>而没有明确放入某个优先级组的自定义中缀运算符将会被放到一个默认的优先级组内，其优先级高于三元运算符。</p>
@@ -427,7 +427,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> plusMinusVector = firstVector <span style="color:#f92672">+-</span> secondVector  <span style="color:#75715e">// plusMinusVector是一个Vector2D实例，并且它的值为(4.0, -2.0)</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;plusMinusVector的值为：</span><span style="color:#e6db74">\(</span>plusMinusVector<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: plusMinusVector的值为<span style="color:#960050;background-color:#1e0010">：</span>Vector2D(x: <span style="color:#ae81ff">4.0</span>, y: <span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>)
+</span></span><span style="display:flex;"><span>output: plusMinusVector<span style="color:#960050;background-color:#1e0010">的值为：</span>Vector2D(x: <span style="color:#ae81ff">4.0</span>, y: <span style="color:#f92672">-</span><span style="color:#ae81ff">2.0</span>)
 </span></span></code></pre></div><p>这个运算符把两个向量的<code>x</code>值相加，同时从第一个向量的<code>y</code>值中减去第二个向量的<code>y</code>。因为它本质上是属于“相加型”运算符，所以将它放置在<code>+</code>和<code>-</code>等默认中缀“相加型”运算符相同的优先级组（AdditionPrecedence)中。</p>
 <blockquote>
 <p><strong>注意</strong></p>
