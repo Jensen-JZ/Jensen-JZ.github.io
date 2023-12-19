@@ -52,6 +52,32 @@
     </script>
     
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+
+    
+    <script id="search-result-template" type="text/x-js-template">
+        <article id="summary-${key}">
+            <header>
+                <h3><i class="fas fa-file-alt"></i> <a href="${link}">${title}</a></h3>
+                <h4>${date} | ${type} blog | ${tags}</h4>
+            </header>
+            <div>
+                <div>${snippet}...</div>
+                
+                <div class="ReadButton">
+                    <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/stringschars/">
+                        <strong style="color: #fff;">Read More</strong>
+                    </a>
+                </div>
+                
+            </div>
+            <hr>
+        </article>
+    </script>
+
     
     <link rel="stylesheet" href="/sass/researcher.min.css">
 
@@ -114,15 +140,15 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/contact" title="Contact">
-                        Contact
+                    <a class="nav-item nav-link" href="/mediatest" title="Media">
+                        Media
                     </a>
                     
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/tools" title="Tools">
-                        Tools
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                        Resume/CV
                     </a>
                     
                 
@@ -137,7 +163,7 @@
     
     <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 13, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>11672</em> words and may take <em>24</em> minutes to read.</h5>
+    <h5>This article is about <em style="color: #1f71e0;">11672</em> words and may take <em style="color: #1f71e0;">24</em> minutes to read.</h5>
     <hr>
     
     
@@ -405,13 +431,13 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> combinedEAcute = <span style="color:#e6db74">&#34;\u{65}\u{301}&#34;</span>  <span style="color:#75715e">// é 代表一个可扩展的字形群，该字形群包含两个标量</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;eAcute is </span><span style="color:#e6db74">\(</span>eAcute<span style="color:#e6db74">)</span><span style="color:#e6db74"> and combinedEAcute is </span><span style="color:#e6db74">\(</span>combinedEAcute<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: eAcute <span style="color:#66d9ef">is</span> <span style="color:#960050;background-color:#1e0010">é</span> and combinedEAcute <span style="color:#66d9ef">is</span> e<span style="color:#960050;background-color:#1e0010">́</span>
+</span></span><span style="display:flex;"><span>output: eAcute <span style="color:#66d9ef">is</span> <span style="color:#960050;background-color:#1e0010">é</span> and combinedEAcute <span style="color:#66d9ef">is</span> é
 </span></span></code></pre></div><p>可扩展的字形集是一个将许多复杂的脚本字符表示为单个字符值的灵活方式。例如，来自朝鲜字母表的韩语音节能表示为组合或分解的有序排列。在<code>Swift</code>都会表示位同一个单一的<code>Character</code>值。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> precomposed: Character = <span style="color:#e6db74">&#34;\u{D55C}&#34;</span>  <span style="color:#75715e">// 한</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> decomposed: Character = <span style="color:#e6db74">&#34;\u{1112}\u{1161}\u{11AB}&#34;</span>  <span style="color:#75715e">// ᄒ, ᅡ, ᆫ</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;precomposed的值是</span><span style="color:#e6db74">\(</span>precomposed<span style="color:#e6db74">)</span><span style="color:#e6db74">，decomposed的值是</span><span style="color:#e6db74">\(</span>decomposed<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: precomposed<span style="color:#960050;background-color:#1e0010">的值是한，</span>decomposed<span style="color:#960050;background-color:#1e0010">的值是한</span>
+</span></span><span style="display:flex;"><span>output: precomposed的值是한<span style="color:#960050;background-color:#1e0010">，</span>decomposed的值是한
 </span></span></code></pre></div><p>可扩展的字符群集可以使包围记号（例如COMBINING ENCLOSING CIRCLE或者U+20DD）的标量包围其他<code>Unicode</code>标量，作为一个单一的<code>Character</code>值。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> enclosedEAcute: Character = <span style="color:#e6db74">&#34;\u{E9}\u{20DD}&#34;</span>  <span style="color:#75715e">// enclosedEAcute是é⃝</span>
 </span></span><span style="display:flex;"><span>print(enclosedEAcute)
@@ -438,7 +464,7 @@
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;The number of characters in </span><span style="color:#e6db74">\(</span>word<span style="color:#e6db74">)</span><span style="color:#e6db74"> is </span><span style="color:#e6db74">\(</span>word.count<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 打印输出”The number of characters in café is 4.“</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
 </span></span><span style="display:flex;"><span>output: The number of characters <span style="color:#66d9ef">in</span> cafe <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">4.</span>
-</span></span><span style="display:flex;"><span>The number of characters <span style="color:#66d9ef">in</span> cafe<span style="color:#960050;background-color:#1e0010">́</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">4.</span>
+</span></span><span style="display:flex;"><span>The number of characters <span style="color:#66d9ef">in</span> café <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">4.</span>
 </span></span></code></pre></div><blockquote>
 <p><strong>注意</strong></p>
 <p>可扩展的字形群可以由多个Unicode标量组成。这意味着不同的字符以及相同字符的不同表示方式可能需要不同数量的内存空间来存储。所以Swift中的字符在一个字符串中并不一定占用相同的内存空间。因此在没有获取字符串的可扩展的字符群的范围时候，就不能计算出字符串的字符数量。如果正在处理一个长字符串，需要注意<code>count</code>属性必须遍历全部的<code>Unicode</code>标量，来确定字符串的字符数量。</p>

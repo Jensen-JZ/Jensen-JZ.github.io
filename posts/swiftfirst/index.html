@@ -52,6 +52,32 @@
     </script>
     
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+
+    
+    <script id="search-result-template" type="text/x-js-template">
+        <article id="summary-${key}">
+            <header>
+                <h3><i class="fas fa-file-alt"></i> <a href="${link}">${title}</a></h3>
+                <h4>${date} | ${type} blog | ${tags}</h4>
+            </header>
+            <div>
+                <div>${snippet}...</div>
+                
+                <div class="ReadButton">
+                    <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/swiftfirst/">
+                        <strong style="color: #fff;">Read More</strong>
+                    </a>
+                </div>
+                
+            </div>
+            <hr>
+        </article>
+    </script>
+
     
     <link rel="stylesheet" href="/sass/researcher.min.css">
 
@@ -114,15 +140,15 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/contact" title="Contact">
-                        Contact
+                    <a class="nav-item nav-link" href="/mediatest" title="Media">
+                        Media
                     </a>
                     
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/tools" title="Tools">
-                        Tools
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                        Resume/CV
                     </a>
                     
                 
@@ -137,7 +163,7 @@
     
     <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 4, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>9057</em> words and may take <em>19</em> minutes to read.</h5>
+    <h5>This article is about <em style="color: #1f71e0;">9057</em> words and may take <em style="color: #1f71e0;">19</em> minutes to read.</h5>
     <hr>
     
     
@@ -346,7 +372,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;interestingNumbers字典中的最大值是：&#34;</span>, largest)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: interestingNumbers<span style="color:#960050;background-color:#1e0010">字典中的最大值是：</span> <span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span>output: interestingNumbers字典中的最大值是<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">25</span>
 </span></span></code></pre></div><blockquote>
 <p><strong>小练习</strong>:</p>
 <p>将_替换成变量名，以确定哪种类型的值是最大的</p>
@@ -472,7 +498,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;经过嵌套函数处理后的y值是：&#34;</span>, returnFifteen())
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">经过嵌套函数处理后的</span>y<span style="color:#960050;background-color:#1e0010">值是：</span> <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">经过嵌套函数处理后的</span>y值是<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">15</span>
 </span></span></code></pre></div><p>函数是第一等类型，这意味着函数可以作为另一个函数的返回值。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">makeIncrementer</span>() -&gt; ((Int) -&gt; Int) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">func</span> <span style="color:#a6e22e">addOne</span>(number: Int) -&gt; Int {
@@ -571,7 +597,7 @@
 </span></span><span style="display:flex;"><span>shape.numberOfSides = <span style="color:#ae81ff">7</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;shape对象已创建：&#34;</span>, shape.simpleDescription())
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: shape<span style="color:#960050;background-color:#1e0010">对象已创建：</span> A shape with <span style="color:#ae81ff">7</span> sides.
+</span></span><span style="display:flex;"><span>output: shape对象已创建<span style="color:#960050;background-color:#1e0010">：</span> A shape with <span style="color:#ae81ff">7</span> sides.
 </span></span></code></pre></div><p>述的<code>Shape/Shapes</code>类还缺少了一个非常重要的东西：一个构造函数来初始化实例。可以使用<code>init</code>来创建一个构造器。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">NamedShape</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> numberOfSides: Int = <span style="color:#ae81ff">0</span>
@@ -667,7 +693,7 @@
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Setter后的新值：&#34;</span>, triangle.sideLength)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
 </span></span><span style="display:flex;"><span>output: An equilateral triangle with sides of length <span style="color:#ae81ff">3.1</span>.
-</span></span><span style="display:flex;"><span>Setter<span style="color:#960050;background-color:#1e0010">后的新值：</span> <span style="color:#ae81ff">3.3000000000000003</span>
+</span></span><span style="display:flex;"><span>Setter后的新值<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">3.3000000000000003</span>
 </span></span></code></pre></div><p>在<code>perimeter</code>的<code>setter</code>中，新值的名字时<code>newValue</code>，可以在<code>set</code>之后的圆括号中显式地设置一个名字。注意，<code>EquilateralTriangle</code>类的构造器执行了三个步骤：</p>
 <blockquote>
 <p>设置子类声明的属性值</p>
@@ -779,7 +805,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;具有较大的原始值的Rank是：&#34;</span>, compareRanks(rankVal1: Rank1.ace.rawValue, rankVal2: Rank2.ace.rawValue))
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">具有较大的原始值的</span>Rank<span style="color:#960050;background-color:#1e0010">是：</span> Rank2
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">具有较大的原始值的</span>Rank是<span style="color:#960050;background-color:#1e0010">：</span> Rank2
 </span></span></code></pre></div><p>默认情况下，<code>Swift</code>按照从0开始每次加1的方式为原始值进行赋值，原始值可以通过显式赋值来修改。当然了，也可以选择使用字符串或者浮点数作为枚举的原始值，使用<code>rawValue</code>属性来访问一个枚举成员的原始值。</p>
 <p>使用<code>init?(rawValue:)</code>初始化构造器从原始值创近啊一个枚举实例。如果存在于原始值相应的枚举成员就返回该枚举成员，否则就返回<code>nil</code>。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> convertedRank = Rank(rawValue: <span style="color:#ae81ff">11</span>) {

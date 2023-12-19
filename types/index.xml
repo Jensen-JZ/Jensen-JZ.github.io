@@ -6,33 +6,28 @@
     <description>Recent content on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 22 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/types/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 22 May 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jen-jon.github.io/types/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lifestyle Blogs</title>
       <link>https://jen-jon.github.io/types/lifestyle/</link>
       <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/types/lifestyle/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Summary Blogs</title>
       <link>https://jen-jon.github.io/types/summary/</link>
       <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/types/summary/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Technology Blogs</title>
       <link>https://jen-jon.github.io/types/technology/</link>
       <pubDate>Sat, 22 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/types/technology/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

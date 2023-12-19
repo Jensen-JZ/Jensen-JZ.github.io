@@ -52,6 +52,26 @@
     </script>
     
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+
+    
+    <script id="search-result-template" type="text/x-js-template">
+        <article id="summary-${key}">
+            <header>
+                <h3><i class="fas fa-file-alt"></i> <a href="${link}">${title}</a></h3>
+                <h4>${date} | ${type} blog | ${tags}</h4>
+            </header>
+            <div>
+                <div>${snippet}...</div>
+                
+            </div>
+            <hr>
+        </article>
+    </script>
+
     
     <link rel="stylesheet" href="/sass/researcher.min.css">
 
@@ -114,15 +134,15 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/contact" title="Contact">
-                        Contact
+                    <a class="nav-item nav-link" href="/mediatest" title="Media">
+                        Media
                     </a>
                     
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/tools" title="Tools">
-                        Tools
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                        Resume/CV
                     </a>
                     
                 
@@ -143,11 +163,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/20220919/">TorchScript教程（译）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/20220919/">TorchScript教程（译）</a></h3>
             <h4>September 19, 2022 | technology blog | PyTorch；JIT</h4>
         </header>
         <div>
-            <div>import torch torch.__version__ '1.8.2' 编写PyTorch模型的基本知识 我们首先来定义一个简单的Module。Module是PyTorch模型的基本组成单位。其中包含： 一个...</div>
+            <div>import torch torch.__version__ '1.8.2' 编写PyTorch模型的基本知识 我们首先来定义一个简单的Module。Module是PyTorch模型的基本组成单位。其中包含： 一个构造函数，为模块的调用作准备； 一组参数和子模块，它们由构造函...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/20220919/">
@@ -164,11 +184,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/20220915/">科学上网</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/20220915/">科学上网</a></h3>
             <h4>September 15, 2022 | technology blog | 科学上网；飞越重洋</h4>
         </header>
         <div>
-            <div>这篇文章可以写的更好，欢迎到 https://github.com/haoel/haoel.github.io 更新 科学上网 0. 序 1. 英文能力 2. 购买 VPS 2.1 常规 VPS 2.2 CN2 线路 2.3 NCP 线路 3. 搭建相关代理服务 3.1 设置 Docker 服务 3.2 开启 TCP BBR 拥塞控制算法...</div>
+            <div>这篇文章可以写的更好，欢迎到 https://github.com/haoel/haoel.github.io 更新 科学上网 0. 序 1. 英文能力 2. 购买 VPS 2.1 常规 VPS 2.2 CN2 线路 2.3 NCP 线路 3. 搭建相关代理服务 3.1 设置 Docker 服务 3.2 开启 TCP BBR 拥塞控制算法 3.3 用 Gost 设置 HTTPS 服务 3.4 设置 ShadowSocks 服务 3.5 设置 L2TP/IPSec 服务 3.6 设置 PPTP 服务 4. 客户端...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/20220915/">
@@ -185,11 +205,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/20220707/">NAT穿透是如何工作的（Tailscale）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/20220707/">NAT穿透是如何工作的（Tailscale）</a></h3>
             <h4>July 7, 2022 | technology blog | NAT; 内网穿透</h4>
         </header>
         <div>
-            <div>译者序 本文翻译自 2020 年的一篇英文博客： How NAT traversal works。 设想这样一个问题：在北京和上海各有一台局域网的机器（例如一台是家里的台式机，一 台是连接...</div>
+            <div>译者序 本文翻译自 2020 年的一篇英文博客： How NAT traversal works。 设想这样一个问题：在北京和上海各有一台局域网的机器（例如一台是家里的台式机，一 台是连接到星巴克 WiFi 的笔记本），二者都是私网 IP 地址，但可以访问公网， 如...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/20220707/">
@@ -206,11 +226,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/20220608/">NVIDIA DALI踩坑教程</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/20220608/">NVIDIA DALI踩坑教程</a></h3>
             <h4>June 8, 2022 | technology blog | NVIDIA DALI; Deep Learning</h4>
         </header>
         <div>
-            <div>初见 事情的起因还要追溯到很久之前看了一篇论文，论文的核心就是讨论预训练策略在低层视觉任务中的作用。既然是预训练策略，那就不可避免的要用规模大...</div>
+            <div>初见 事情的起因还要追溯到很久之前看了一篇论文，论文的核心就是讨论预训练策略在低层视觉任务中的作用。既然是预训练策略，那就不可避免的要用规模大一点的数据集，之所以预训练这些年在低层视觉任务中鲜被应用的，...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/20220608/">
@@ -229,11 +249,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/20220511/">Cython教程</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/20220511/">Cython教程</a></h3>
             <h4>May 11, 2022 | technology blog | Cython; Python</h4>
         </header>
         <div>
-            <div>入门教程 Cython概念 Cython本质上就是具有C数据类型的Python。 除了极少数例外，几乎所有的Python代码都是有效的Cython...</div>
+            <div>入门教程 Cython概念 Cython本质上就是具有C数据类型的Python。 除了极少数例外，几乎所有的Python代码都是有效的Cython代码。Cython的编译器会把代码转换成等效于调用Pytho...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/20220511/">
@@ -252,11 +272,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/pythonbasic/">Python基础</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/pythonbasic/">Python基础</a></h3>
             <h4>December 29, 2021 | technology blog | Python</h4>
         </header>
         <div>
-            <div>函数知识点汇总 调用函数 Python内置了很多有用的函数可以直接调用。 要掉用一个函数需要知道函数的名称与参数，可以从Python的官方网站查看...</div>
+            <div>函数知识点汇总 调用函数 Python内置了很多有用的函数可以直接调用。 要掉用一个函数需要知道函数的名称与参数，可以从Python的官方网站查看文档，也可以通过help函数查询帮助信息，如help(abs...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/pythonbasic/">
@@ -273,11 +293,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/structclasses/">Swift学习(11)-类和结构体（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/structclasses/">Swift学习(11)-类和结构体（代码完善版）</a></h3>
             <h4>August 30, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>结构体和类作为一种通用而又灵活的结构，成为了人们构建代码的基础。可以使用定义常量、变量和函数的语法，从而为结构体和类定义属性、添加方法。 与其...</div>
+            <div>结构体和类作为一种通用而又灵活的结构，成为了人们构建代码的基础。可以使用定义常量、变量和函数的语法，从而为结构体和类定义属性、添加方法。 与其他编程语言所不同的是，Swift并不要求为自定义的结构体和类...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/structclasses/">
@@ -294,11 +314,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/enumerations/">Swift学习(10)-枚举（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/enumerations/">Swift学习(10)-枚举（代码完善版）</a></h3>
             <h4>August 25, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>枚举为一组相关的值定义了一个共同的类型。使得能够在代码中以类型安全的方式来使用这些值。 如果熟悉C语言，会知道在C语言中，枚举会为一组整型值分...</div>
+            <div>枚举为一组相关的值定义了一个共同的类型。使得能够在代码中以类型安全的方式来使用这些值。 如果熟悉C语言，会知道在C语言中，枚举会为一组整型值分配相关联的名称。Swift中的枚举更加灵活，不必给每一个枚举...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/enumerations/">
@@ -315,11 +335,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/closures/">Swift学习(9)-闭包（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/closures/">Swift学习(9)-闭包（代码完善版）</a></h3>
             <h4>August 23, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift中的闭包与C和Objective-C中的代码块（blocks）以及Python...</div>
+            <div>闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift中的闭包与C和Objective-C中的代码块（blocks）以及Python语言中的匿名函数（Lambdas）比较相似。 闭包可以捕获和存...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/closures/">
@@ -336,11 +356,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/function/">Swift学习(8)-函数（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/function/">Swift学习(8)-函数（代码完善版）</a></h3>
             <h4>August 22, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>函数是一段完成特定任务的独立代码片段。可以通过函数命名来标识某个函数的功能，这个名字可以被用来在需要的时候“调用”这个函数来玩成它的任务。 S...</div>
+            <div>函数是一段完成特定任务的独立代码片段。可以通过函数命名来标识某个函数的功能，这个名字可以被用来在需要的时候“调用”这个函数来玩成它的任务。 Swift统一的函数语法非常灵活，可以用来表示任何函数，包括从...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/function/">
@@ -357,11 +377,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/controlflow/">Swift学习(7)-控制流（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/controlflow/">Swift学习(7)-控制流（代码完善版）</a></h3>
             <h4>August 21, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>Swift提供了多种流程控制结构，包括可以多次执行任务的while循环，基于特定条件选择执行不同代码分支的if、guard和switch语句...</div>
+            <div>Swift提供了多种流程控制结构，包括可以多次执行任务的while循环，基于特定条件选择执行不同代码分支的if、guard和switch语句，还有控制流程跳转到其他代码位置的break和continu...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/controlflow/">
@@ -378,11 +398,11 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/collectiontype/">Swift学习(6)-集合类型（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/collectiontype/">Swift学习(6)-集合类型（代码完善版）</a></h3>
             <h4>August 20, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>Swift语言提供数组（Array）、集合（Set）和字典（Dictionary）三种基本的集合类型来存储集合数据。数组是有序数据的集。集合...</div>
+            <div>Swift语言提供数组（Array）、集合（Set）和字典（Dictionary）三种基本的集合类型来存储集合数据。数组是有序数据的集。集合是无序无重复数据的集。字典是无序的键值对的集。 Swift中的...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/collectiontype/">
@@ -399,13 +419,14 @@
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/20210817/">ML Peach RGB-D Dataset</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/20210817/">ML Peach RGB-D Dataset</a></h3>
             <h4>August 17, 2021 | technology blog | Dataset; RGB-D</h4>
         </header>
         <div>
             <div>Multi-label peach RGB-D dataset (Including RGB images, depth images, infrared images)
 Authors: Rao Yuan / Luo Qing / Huo Peilin / Li Yipu / Zhang Jingyao The ML Peach RGB-D Dataset is composed by 2050 multi-modal images of peach on tree filelds captured using Microsoft Azure Kinect DK. Each images contains 3 different modalities, including RGB images, Depth images and Infrared images.
-All images were aligned with the RGB image and manually labelled in 4 classes: unobstructed, obscured by foliage, obscured by branches and obscured by fruit....</div>
+All images were aligned with the RGB image and manually labelled in 4 classes: unobstructed, obscured by foliage, obscured by branches and obscured by fruit.
+Find annotations in “.txt” format inside “annotation_yolo” folder. The camera parameters for each image taken are saved in “....</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/20210817/">
@@ -422,11 +443,11 @@ All images were aligned with the RGB image and manually labelled in 4 classes: u
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/stringschars/">Swift学习(5)-字符串和字符（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/stringschars/">Swift学习(5)-字符串和字符（代码完善版）</a></h3>
             <h4>August 13, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>字符串是一系列字符的集合，例如“Hello, world”，“albatross”。Swift的字符串通过String类型来表示。而Strin...</div>
+            <div>字符串是一系列字符的集合，例如“Hello, world”，“albatross”。Swift的字符串通过String类型来表示。而String内容的访问方式有多种，例如以Character值的集合。 S...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/stringschars/">
@@ -443,11 +464,11 @@ All images were aligned with the RGB image and manually labelled in 4 classes: u
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/advancedop/">Swift学习(4)-高级运算符（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/advancedop/">Swift学习(4)-高级运算符（代码完善版）</a></h3>
             <h4>August 12, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>除了之前介绍过的基本运算符，Swift还提供了数种可以对数值进行复杂运算的高级运算符。它们包含了在C和Objective-C中已经被大家所熟...</div>
+            <div>除了之前介绍过的基本运算符，Swift还提供了数种可以对数值进行复杂运算的高级运算符。它们包含了在C和Objective-C中已经被大家所熟知的位运算符和移位运算符。 自定义结构体、类和枚举时，如果也为...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/advancedop/">
@@ -464,11 +485,11 @@ All images were aligned with the RGB image and manually labelled in 4 classes: u
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/swiftbasicop/">Swift学习(3)-基本运算符（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/swiftbasicop/">Swift学习(3)-基本运算符（代码完善版）</a></h3>
             <h4>August 10, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>运算符是检查、改变、合并值的特殊符号或短语。例如，加号+将两个数组相加（如let i = 1 + 2）。更复杂的运算例子包括逻辑与运算符&amp;&a...</div>
+            <div>运算符是检查、改变、合并值的特殊符号或短语。例如，加号+将两个数组相加（如let i = 1 + 2）。更复杂的运算例子包括逻辑与运算符&amp;&amp;（如if enteredDoorCode &amp;&amp; passedRetinaScan）。 Swi...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/swiftbasicop/">
@@ -485,11 +506,11 @@ All images were aligned with the RGB image and manually labelled in 4 classes: u
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/swiftbase/">Swift学习(2)-基础部分（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/swiftbase/">Swift学习(2)-基础部分（代码完善版）</a></h3>
             <h4>August 7, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>Swift包含了C和Objective-C上所有基础数据类型，Int表示整型值；Double和Float表示浮点值；Bool是布尔型值；St...</div>
+            <div>Swift包含了C和Objective-C上所有基础数据类型，Int表示整型值；Double和Float表示浮点值；Bool是布尔型值；String是文本型数据。Swift还提供了三个基本的集合类型，...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/swiftbase/">
@@ -506,11 +527,11 @@ All images were aligned with the RGB image and manually labelled in 4 classes: u
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/swiftfirst/">Swift学习(1)-初•见（代码完善版）</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/swiftfirst/">Swift学习(1)-初•见（代码完善版）</a></h3>
             <h4>August 4, 2021 | technology blog | iOS; Swift; Apple</h4>
         </header>
         <div>
-            <div>Swift简介 Swift是美国苹果公司推出的编程语言，专门针对苹果桌面操作系统macOS和苹果移动操作系统iOS、iPadOS以及watc...</div>
+            <div>Swift简介 Swift是美国苹果公司推出的编程语言，专门针对苹果桌面操作系统macOS和苹果移动操作系统iOS、iPadOS以及watchOS和tvOS的应用开发。Swift 在各个方面优于 Obje...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/swiftfirst/">
@@ -527,11 +548,11 @@ All images were aligned with the RGB image and manually labelled in 4 classes: u
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/20210629/">在Docker中配置代理实现“科学”开发</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/20210629/">在Docker中配置代理实现“科学”开发</a></h3>
             <h4>June 29, 2021 | technology blog | Docker; Proxy; Linux</h4>
         </header>
         <div>
-            <div>0. 测试0 这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！ 1. 测试1 这里是测试1...</div>
+            <div>0. 测试0 这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！ 1. 测试1 这里是测试1，文章暂未上传！这里是测试1，文章暂未上传！这里是测试1，文...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/20210629/">
@@ -550,11 +571,11 @@ All images were aligned with the RGB image and manually labelled in 4 classes: u
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/20210525/">在Ubuntu18.04系统中安装ROS(Robot Operate System)</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/20210525/">在Ubuntu18.04系统中安装ROS(Robot Operate System)</a></h3>
             <h4>May 25, 2021 | technology blog | ROS; Ubuntu</h4>
         </header>
         <div>
-            <div>0. 装前须知 ROS官方发行了许多版本，它们与Ubuntu的发行版本存在对应关如下表： ROS版本 Ubuntu版本 ROS Kinetic Kame Ubuntu 16.04 ROS Melodic Morenia Ubuntu 18.04 ROS Noetic Ninjemys Ubuntu 20.04 因...</div>
+            <div>0. 装前须知 ROS官方发行了许多版本，它们与Ubuntu的发行版本存在对应关如下表： ROS版本 Ubuntu版本 ROS Kinetic Kame Ubuntu 16.04 ROS Melodic Morenia Ubuntu 18.04 ROS Noetic Ninjemys Ubuntu 20.04 因此本文介绍与Ubuntu18.04对应的ROS Melodic Moreni...</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/20210525/">
@@ -571,12 +592,13 @@ All images were aligned with the RGB image and manually labelled in 4 classes: u
     
     <article>
         <header>
-            <h3><i class="fas fa-link"></i> <a href="https://jen-jon.github.io/posts/20210523/">The Usage of ADM PV-RCNN</a></h3>
+            <h3><i class="fas fa-file-alt"></i> <a href="https://jen-jon.github.io/posts/20210523/">The Usage of ADM PV-RCNN</a></h3>
             <h4>May 23, 2021 | technology blog | Docker; LiDAR; 3D CV</h4>
         </header>
         <div>
             <div>Note This document mainly introduces the use of ADM PV-RCNN Docker container, details can be seen here.
-This Docker container contains a complete pipline working files from LiDAR to algorithm model. This Docker container can process the Pcap format data packets collected by LiDAR. Currently, it only supports data collected by four types of LiDAR produced by Robosense: RS-LiDAR-16, RS-LiDAR-32, RS-LiDAR-64 and RS-LiDAR-128. More brands and types of lidar will be supported in the future....</div>
+This Docker container contains a complete pipline working files from LiDAR to algorithm model. This Docker container can process the Pcap format data packets collected by LiDAR. Currently, it only supports data collected by four types of LiDAR produced by Robosense: RS-LiDAR-16, RS-LiDAR-32, RS-LiDAR-64 and RS-LiDAR-128. More brands and types of lidar will be supported in the future.
+Description ADM PV-RCNN full name is Adaptive Deformable Module PV-RCNN, is a new Point-based and Voxel-based 3D object detection model designed based on PV-RCNN (See github....</div>
             
             <div class="ReadButton">
                 <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/20210523/">

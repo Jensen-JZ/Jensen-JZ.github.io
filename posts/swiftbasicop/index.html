@@ -52,6 +52,32 @@
     </script>
     
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+
+    
+    <script id="search-result-template" type="text/x-js-template">
+        <article id="summary-${key}">
+            <header>
+                <h3><i class="fas fa-file-alt"></i> <a href="${link}">${title}</a></h3>
+                <h4>${date} | ${type} blog | ${tags}</h4>
+            </header>
+            <div>
+                <div>${snippet}...</div>
+                
+                <div class="ReadButton">
+                    <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/swiftbasicop/">
+                        <strong style="color: #fff;">Read More</strong>
+                    </a>
+                </div>
+                
+            </div>
+            <hr>
+        </article>
+    </script>
+
     
     <link rel="stylesheet" href="/sass/researcher.min.css">
 
@@ -114,15 +140,15 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/contact" title="Contact">
-                        Contact
+                    <a class="nav-item nav-link" href="/mediatest" title="Media">
+                        Media
                     </a>
                     
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/tools" title="Tools">
-                        Tools
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                        Resume/CV
                     </a>
                     
                 
@@ -137,7 +163,7 @@
     
     <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 10, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>6588</em> words and may take <em>14</em> minutes to read.</h5>
+    <h5>This article is about <em style="color: #1f71e0;">6588</em> words and may take <em style="color: #1f71e0;">14</em> minutes to read.</h5>
     <hr>
     
     
@@ -176,12 +202,12 @@
 </span></span><span style="display:flex;"><span>a = b  <span style="color:#75715e">// a现在就等于b的值，10</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;将b的值赋给a，现在a的值为：</span><span style="color:#e6db74">\(</span>a<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">将</span>b<span style="color:#960050;background-color:#1e0010">的值赋给</span>a<span style="color:#960050;background-color:#1e0010">，现在</span>a<span style="color:#960050;background-color:#1e0010">的值为：</span><span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">将</span>b的值赋给a<span style="color:#960050;background-color:#1e0010">，现在</span>a的值为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">10</span>
 </span></span></code></pre></div><p>如果赋值的右边是一个多元组，它的元素可以马上被分解成多个常量或变量。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> (x, y) = (<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>)  <span style="color:#75715e">// 现在x等于2，y等于5</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;元组(2, 5)被分解后，现在x等于：</span><span style="color:#e6db74">\(</span>x<span style="color:#e6db74">)</span><span style="color:#e6db74">，y等于：</span><span style="color:#e6db74">\(</span>y<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">元组</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>)<span style="color:#960050;background-color:#1e0010">被分解后，现在</span>x<span style="color:#960050;background-color:#1e0010">等于：</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">，</span>y<span style="color:#960050;background-color:#1e0010">等于：</span><span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">元组</span>(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>)<span style="color:#960050;background-color:#1e0010">被分解后，现在</span>x等于<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">，</span>y等于<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">5</span>
 </span></span></code></pre></div><p>和<code>C</code>语言和<code>Ojective-C</code>语言不同，<code>Swift</code>的赋值操作并不返回任何值，所以下面的语句是无效的：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#75715e">// if x = y {</span>
 </span></span><span style="display:flex;"><span>     <span style="color:#75715e">// 此结构错误，因为x = y并不返回任何值，报错Use of &#39;=&#39; in a boolean context, did you mean &#39;==&#39;?</span>
@@ -249,7 +275,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> alsoMinusSix = <span style="color:#f92672">+</span>minusSix
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;正号运算符啥都不会改变，所以alsoMinusSix的值为：</span><span style="color:#e6db74">\(</span>alsoMinusSix<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">正号运算符啥都不会改变，所以</span>alsoMinusSix<span style="color:#960050;background-color:#1e0010">的值为：</span><span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">正号运算符啥都不会改变，所以</span>alsoMinusSix的值为<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#f92672">-</span><span style="color:#ae81ff">6</span>
 </span></span></code></pre></div><p>虽然一元正好运算符啥都不会改变，但是当使用一元负号运算符来表达负数时，可以同时使用一元正号运算符来表达整数，这样会保持代码的对称美。</p>
 <hr>
 <h2 id="组合赋值运算符">组合赋值运算符</h2>
@@ -258,7 +284,7 @@
 </span></span><span style="display:flex;"><span>c <span style="color:#f92672">+=</span> <span style="color:#ae81ff">2</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;c经过组合加运算后的值是：</span><span style="color:#e6db74">\(</span>c<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// c现在是3</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: c<span style="color:#960050;background-color:#1e0010">经过组合加运算后的值是：</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>output: c经过组合加运算后的值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">4</span>
 </span></span></code></pre></div><p>表达式<code>a += 2</code>是<code>a = a + 2</code>的简写，一个组合加运算就是把加法运算和赋值运算组合成进一个运算符里，同时完成两个运算任务。</p>
 <blockquote>
 <p><strong>注意</strong></p>
@@ -314,7 +340,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;String和Int类型元素是可以被比较的：</span><span style="color:#e6db74">\((</span><span style="color:#e6db74">&#34;blue&#34;</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">)</span> <span style="color:#f92672">&lt;</span> <span style="color:#e6db74">(</span><span style="color:#e6db74">&#34;purple&#34;</span>, <span style="color:#ae81ff">1</span><span style="color:#e6db74">))</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 正常，比较的结果为true</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">//(&#34;blue&#34;, false) &lt; (&#34;purple&#34;, true)  // 错误，因为 &lt; 不能比较布尔类型值，若取消注释，则报错Binary operator &#39;&lt;&#39; cannot be applied to two &#39;(String, Bool)&#39; operands</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: String<span style="color:#960050;background-color:#1e0010">和</span>Int<span style="color:#960050;background-color:#1e0010">类型元素是可以被比较的：</span><span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>output: String和Int类型元素是可以被比较的<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#66d9ef">true</span>
 </span></span></code></pre></div><blockquote>
 <p><strong>注意</strong></p>
 <p>Swift标准库只能比较七个以内元素的元组的比较，如果元组中的元素个数超过六个，则需要自己实现比较运算符。</p>
@@ -334,14 +360,14 @@
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
 </span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">三元运算符的结果：</span><span style="color:#ae81ff">3</span>
-</span></span><span style="display:flex;"><span>answer1<span style="color:#960050;background-color:#1e0010">的结果是：</span><span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>answer1的结果是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">3</span>
 </span></span></code></pre></div><p>这里有个计算表格里行高的例子，如果有表头，那行高应该比内容高度要高出50点；如果没有表头，只需要高出20点。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> contentHeight = <span style="color:#ae81ff">40</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hasHeader = <span style="color:#66d9ef">true</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> rowHeight = contentHeight <span style="color:#f92672">+</span> (hasHeader ? <span style="color:#ae81ff">50</span> : <span style="color:#ae81ff">20</span>)  <span style="color:#75715e">// rowHeight现在是90</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;rowHeight现在的值是：</span><span style="color:#e6db74">\(</span>rowHeight<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: rowHeight<span style="color:#960050;background-color:#1e0010">现在的值是：</span><span style="color:#ae81ff">90</span>
+</span></span><span style="display:flex;"><span>output: rowHeight现在的值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">90</span>
 </span></span></code></pre></div><p>上面的写法比下面的代码更加简洁。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> contentHeights = <span style="color:#ae81ff">40</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hasHeaders = <span style="color:#66d9ef">true</span>
@@ -377,14 +403,14 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> colorNameToUse = userDefinedColorName ?? defaultColorName  <span style="color:#75715e">// userDefinedColorName的值为Nil，所以colorNameToUse的值为“red”</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;colorNameToUse的颜色是：</span><span style="color:#e6db74">\(</span>colorNameToUse<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: colorNameToUse<span style="color:#960050;background-color:#1e0010">的颜色是：</span>red
+</span></span><span style="display:flex;"><span>output: colorNameToUse的颜色是<span style="color:#960050;background-color:#1e0010">：</span>red
 </span></span></code></pre></div><p>由于<code>userDefinedColorName</code>值为空，因此表达式<code>userDefinedColorName ?? defaultColorName</code>返回<code>defaultColorName</code>的值，即<code>red</code>。</p>
 <p>如果分配一个非空值（non-nil）给<code>userDefinedColorName</code>，再次执行空合运算，运算结果为封包在<code>userDefinedColorName</code>中的值。而非默认值。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>userDefinedColorName = <span style="color:#e6db74">&#34;green&#34;</span>
 </span></span><span style="display:flex;"><span>colorNameToUse = userDefinedColorName ?? defaultColorName
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;colorNameToUse的颜色是：</span><span style="color:#e6db74">\(</span>colorNameToUse<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// userDefinedColorName非空，因此colorNameToUse的值为“green”</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: colorNameToUse<span style="color:#960050;background-color:#1e0010">的颜色是：</span>green
+</span></span><span style="display:flex;"><span>output: colorNameToUse的颜色是<span style="color:#960050;background-color:#1e0010">：</span>green
 </span></span></code></pre></div><hr>
 <h2 id="区间运算符range-operators">区间运算符（Range Operators）</h2>
 <p><code>Swift</code>提供了集中方便表达一个区间的值的区间运算符。</p>

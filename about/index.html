@@ -52,6 +52,32 @@
     </script>
     
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+
+    
+    <script id="search-result-template" type="text/x-js-template">
+        <article id="summary-${key}">
+            <header>
+                <h3><i class="fas fa-file-alt"></i> <a href="${link}">${title}</a></h3>
+                <h4>${date} | ${type} blog | ${tags}</h4>
+            </header>
+            <div>
+                <div>${snippet}...</div>
+                
+                <div class="ReadButton">
+                    <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/about/">
+                        <strong style="color: #fff;">Read More</strong>
+                    </a>
+                </div>
+                
+            </div>
+            <hr>
+        </article>
+    </script>
+
     
     <link rel="stylesheet" href="/sass/researcher.min.css">
 
@@ -114,15 +140,15 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/contact" title="Contact">
-                        Contact
+                    <a class="nav-item nav-link" href="/mediatest" title="Media">
+                        Media
                     </a>
                     
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/tools" title="Tools">
-                        Tools
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                        Resume/CV
                     </a>
                     
                 
@@ -148,48 +174,51 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;__main__&#34;</span>:
 </span></span><span style="display:flex;"><span>    welcome()
 </span></span></code></pre></div><p>Hello everyone! Welcome to visit my homepage! I&rsquo;m a postgraduate of <strong>CS</strong> in the <strong>Lab for Media Computing</strong> of <strong>HFUT (Hefei University of Technology)</strong>. I&rsquo;m mainly engaged in the reasearch of <strong>Low-light Image Enhancement algorithms</strong> and <strong>Computational Photography</strong>. Some research has also been done on Few-shot Learning and 3D Object Detection based on Lidar. The blogs in my homepage were divided into three content sections, <a href="https://jen-jon.github.io/types/technology/">Technology</a>, <a href="https://jen-jon.github.io/types/lifestyle/">Lifestyle</a> and <a href="https://jen-jon.github.io/types/summary/">Summary</a>. I will share my insights and interesting things in my life and work from time to time.</p>
+<p>Hello everyone! Thank you for visiting my homepage. I am currently pursuing my postgraduate studies in <strong>Computer Science</strong> at the <strong>Laboratory for Media Computing</strong>, <strong>Hefei University of Technology</strong>. My primary research focus is on <strong>Low-light Image Enhancement algorithms</strong> and <strong>Computational Photography</strong>. I have also explored Few-shot Learning and 3D Object Detection using Lidar technology.</p>
+<p>This website serves as a platform where I categorize my blogs into three main sections: <a href="https://jen-jon.github.io/types/technology/">Technology</a>, <a href="https://jen-jon.github.io/types/lifestyle/">Lifestyle</a> and <a href="https://jen-jon.github.io/types/summary/">Summary</a>. In the Technology section, I delve into the latest advancements and my own research in the field of Computer Science. The Lifestyle section is where I share intriguing aspects of my daily life and experiences. Lastly, the Summary section provides an overview of my thoughts and reflections on various topics.</p>
+<p>Stay tuned for updates where I will share more about my professional journey and personal experiences!</p>
 <hr>
 <h2 id="hobbies">Hobbies</h2>
 <ul>
 <li>Lego, Astronomy and Photography</li>
 <li>Snowboard, Mountain cycling</li>
-<li>Shooting (with my Glock 19X)</li>
+<li>All interesting things are worth exploring&hellip;</li>
 </ul>
 <hr>
 <h2 id="education-experiences">Education Experiences</h2>
-<p>In chronological order:</p>
+<p>My academic background is outlined below, presented in chronological order:</p>
 <table>
 <thead>
 <tr>
 <th>Period</th>
-<th>College/University</th>
-<th>Major/Degree</th>
+<th>Institution</th>
+<th>Degree/Course</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>2017.08 - 2021.06</td>
+<td>August 2017 - June 2021</td>
 <td>School of Information and Computer Sciences, Anhui Agricultural University</td>
-<td><strong>CS, Bachelor of Engineering</strong></td>
+<td><strong>Bachelor of Engineering in Computer Science (CS)</strong></td>
 </tr>
 <tr>
-<td>2021.07 - Present</td>
-<td>Lab for Media Computing, Hefei University of Technology</td>
-<td><strong>Computer Science</strong></td>
+<td>July 2021 - Present</td>
+<td>Laboratory for Media Computing, Hefei University of Technology</td>
+<td><strong>Postgraduate Studies in Computer Science</strong></td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h2 id="research-interests">Research Interests</h2>
 <ul>
-<li>Low-light image enhancement algorithms and Computational photography <strong>(Main)</strong></li>
-<li>Behavior analysis and identification of captive animals[^1]</li>
-<li>Few-shot Learning approach for plant disease identifaction[^2]</li>
-<li>Orchard fruit identification and localization based on 3D point cloud</li>
+<li>Low-Light Image Enhancement Algorithms and Computational Photography <strong>(Main Research Area)</strong></li>
+<li>Behavioral Analysis and Identification of Captive Animals</li>
+<li>Few-Shot Learning for Plant Disease Identification</li>
+<li>Fruit Identification and Localization in Orchards Using 3D Point Clouds</li>
 </ul>
 <hr>
 <h2 id="publications">Publications</h2>
-<p>[<strong>Citations: 88 | h-index: 3</strong>] Source: <a href="https://scholar.google.com/citations?user=pv0VyUkAAAAJ&amp;hl=en-US">Google Scholar</a> | <a href="https://www.researchgate.net/profile/Jingyao-Zhang-4">ResearchGate</a></p>
+<p>[<strong>Citations: 114 | h-index: 3</strong>] Source: <a href="https://scholar.google.com/citations?user=pv0VyUkAAAAJ&amp;hl=en-US">Google Scholar</a> | <a href="https://www.researchgate.net/profile/Jingyao-Zhang-4">ResearchGate</a></p>
 <p>In chronological order:</p>
 <!-- 1. 苏军,饶元,**张敬尧**,李绍稳.[基于GA优化SVM的干制红枣品种分类方法[J]](http://www.cnki.com.cn/Article/CJFDTotal-LYGY201804012.htm).洛阳理工学院学报(自然科学版),2018,28(04):65-69+93.
 1. 姜敏,沈一鸣,**张敬尧**,饶元,董伟.[基于深度学习的水稻病虫害诊断方法研究[J]](http://www.cnki.com.cn/Article/CJFDTotal-LYGY201904014.htm).洛阳理工学院学报(自然科学版),2019,29(04):78-83.
@@ -211,12 +240,12 @@
 </ol>
 <hr>
 <h2 id="major-awardshonors">Major Awards/Honors</h2>
-<p>There are many awards and honorary titles I have received during my undergraduate years. Here are a few important ones listed in chronological order:</p>
+<p>Throughout my undergraduate studies, I have been fortunate to receive several prestigious awards and honors. Below is a selection of these recognitions, presented in chronological order:</p>
 <table>
 <thead>
 <tr>
 <th>Year</th>
-<th>Collaborator</th>
+<th>Collaborator(s)</th>
 <th>Award/Honor</th>
 </tr>
 </thead>
@@ -224,28 +253,28 @@
 <tr>
 <td>2018</td>
 <td>Yu Xiaoyu; Ma Junxiang</td>
-<td>Network and distributed system innovation contest in Anhui province, <strong>First prize</strong></td>
+<td><strong>First Prize</strong> in Anhui Province Network and Distributed System Innovation Contest</td>
 </tr>
 <tr>
 <td>2019</td>
 <td>Ma Junxiang; <a href="https://shenyimingdada.github.io/">Shen Yiming</a></td>
-<td>Chinese undergraduate computer design contest, <strong>First prize</strong> of Anhui province, <strong>Second prize</strong> of China</td>
+<td><strong>First Prize</strong> in Anhui Province, <strong>Second Prize</strong> Nationally in Chinese Undergraduate Computer Design Contest</td>
 </tr>
 <tr>
 <td>2020</td>
-<td>/</td>
-<td>Anhui Agricultural University recommends outstanding fresh graduates to study for a master&rsquo;s degree without examination</td>
+<td>-</td>
+<td>Recommended for Direct Admission to Master’s Degree Program as an Outstanding Graduate, Anhui Agricultural University</td>
 </tr>
 <tr>
 <td>2021</td>
-<td>/</td>
-<td><strong>First-Class Scholarship</strong> of Hefei University of Technology</td>
+<td>-</td>
+<td><strong>First-Class Scholarship</strong> at Hefei University of Technology</td>
 </tr>
 </tbody>
 </table>
 <hr>
 <h2 id="work-experiences">Work Experiences</h2>
-<p>In chronological order:</p>
+<p>My professional journey, in chronological order, reflects a diverse range of roles and responsibilities in the field of technology and research:</p>
 <table>
 <thead>
 <tr>
@@ -256,32 +285,68 @@
 </thead>
 <tbody>
 <tr>
-<td>2017.10 - 2018.03</td>
-<td>Network Department of Information Center of Anhui Agricultural University</td>
-<td>Operation and maintenance engineer</td>
+<td>Oct 2017 - Mar 2018</td>
+<td>Network Department, Information Center, Anhui Agricultural University</td>
+<td>Operation and Maintenance Engineer</td>
 </tr>
 <tr>
-<td>2018.03 - 2019.12</td>
-<td>Key Laboratory of Internet of things Technology Integration and Application, Ministry of Agriculture and Village, PRC</td>
-<td>Trainee software engineer</td>
+<td>Mar 2018 - Dec 2019</td>
+<td>Key Laboratory of IoT Technology Integration and Application, Ministry of Agriculture and Village, PRC</td>
+<td>Trainee Software Engineer</td>
 </tr>
 <tr>
-<td>2020.01 - 2021.08</td>
+<td>Jan 2020 - Aug 2021</td>
 <td>Anhui Provincial Key Laboratory of Smart Agricultural Technology and Equipment, PRC</td>
-<td>Computer vision algorithm researcher</td>
+<td>Computer Vision Algorithm Researcher</td>
 </tr>
 <tr>
-<td>2021.09 - Present</td>
-<td>Lab for Media Computing, Hefei University of Technology</td>
-<td>Apple Developer &amp; AI algorithm researcher</td>
+<td>Sep 2021 - Present</td>
+<td>Present	Laboratory for Media Computing, Hefei University of Technology</td>
+<td>Apple Developer &amp; AI Algorithm Researcher</td>
 </tr>
 </tbody>
 </table>
 <hr>
-<h2 id="references">References</h2>
-<p>[<a href="#paper1">1</a>] Rao Y, Zhao G, Wang W, <strong>Zhang Jingyao</strong>, et al. <a href="https://www.mdpi.com/1424-8220/19/12/2654">Adaptive data acquisition with energy efficiency and critical-sensing guarantee for wireless sensor networks[J]</a>. Sensors, 2019, 19(12): 2654.</p>
-<p>[<a href="#paper2">2</a>] Jiang M, Rao Y, <strong>Zhang Jingyao</strong>, et al. <a href="https://www.sciencedirect.com/science/article/pii/S0168169920314344">Automatic behavior recognition of group-housed goats using deep learning[J]</a>. Computers and Electronics in Agriculture, 2020, 177: 105706.</p>
-<p>[<a href="#paper3">3</a>] <strong>Zhang Jingyao</strong>, Rao Y, Man C, et al. <a href="https://journals.sagepub.com/doi/full/10.1177/15501477211007407">Identification of cucumber leaf diseases using deep learning and small sample size for agricultural Internet of Things[J]</a>. International Journal of Distributed Sensor Networks, 2021, 17(4): 15501477211007407.</p>
+<h2 id="contact-me">Contact Me</h2>
+<ul>
+<li>Email: jensen.acm(AT)gmail.com (Please replace (AT) with @ when sending email)</li>
+<li>WeChat: Jensen-Jon</li>
+<li>WeChat QR Code:</li>
+</ul>
+<!-- ![Wechat ID](https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/wechat.png) -->
+<h2 id="heading"><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/wechat.png" alt="Wechat ID" style="
+width: 75%;
+"></h2>
+<h2 id="mailing-address">Mailing Address</h2>
+<!-- > Room 903, Lab for Media Computing
+> 
+> Block A, Feicui Kejiao Building, Hefei University of Technology
+>
+> 485 Danxia Xi Road, Shushan District
+>
+> Hefei City, Anhui Province, P.R.China
+>  -->
+<blockquote>
+<p>
+    Room 903, Lab for Media Computing
+    <img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/lmclogo.png" alt="LMC" style="display: inline;width: 1.25rem;margin: 0">
+</p>
+<p>Block A, Feicui Kejiao Building, Hefei University of Technology</p>
+<p>485 DanxiaXi Rd., Shushan District</p>
+<p>Hefei City, Anhui Province, P.R.China</p>
+</blockquote>
+<ul>
+<li>Digital Map:</li>
+</ul>
+<iframe class="container" width="720" height="348" frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src="https://surl.amap.com/292ij2t1b9RA"></iframe>
+<hr>
+<h2 id="social">Social</h2>
+<ol>
+<li><a href="https://github.com/Jen-Jon/">Github</a></li>
+<li><a href="https://space.bilibili.com/35557898">Bilibili</a></li>
+<li><a href="https://hub.docker.com/u/ijerry22">DockerHub</a></li>
+<li><a href="https://www.researchgate.net/profile/Jingyao-Zhang-4">ResearchGate</a></li>
+</ol>
 
     <div class="CornerButtons">
         <div class="CornerAnimayedFlex">

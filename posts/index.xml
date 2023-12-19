@@ -6,243 +6,189 @@
     <description>Recent content in Posts on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 28 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jen-jon.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>隔离日寄</title>
       <link>https://jen-jon.github.io/posts/20221028/</link>
       <pubDate>Fri, 28 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20221028/</guid>
-      <description>最近奥密克戎袭卷合肥，造成了这座千万级人口的城市进入近似半停摆的状态。整天都能在外面看到所谓的“大白”，和数不清的救护车。也能在各种社交媒体</description>
+      <description>最近奥密克戎袭卷合肥，造成了这座千万级人口的城市进入近似半停摆的状态。整天都能在外面看到所谓的“大白”，和数不清的救护车。也能在各种社交媒体上刷到类似“某个小区被封控”/“某栋楼的住户被整车整车地拉去</description>
     </item>
-    
     <item>
       <title>TorchScript教程（译）</title>
       <link>https://jen-jon.github.io/posts/20220919/</link>
       <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20220919/</guid>
-      <description>import torch torch.__version__ &#39;1.8.2&#39; 编写PyTorch模型的基本知识 我们首先来定义一个简单的Module。Module是PyTorch模型的基本组成单位。其中包含： 一个</description>
+      <description>import torch torch.__version__ &#39;1.8.2&#39; 编写PyTorch模型的基本知识 我们首先来定义一个简单的Module。Module是PyTorch模型的基本组成单位。其中包含： 一个构造函数，为模块的调用作准备； 一组参数和子模块，它们由构造函</description>
     </item>
-    
     <item>
       <title>科学上网</title>
       <link>https://jen-jon.github.io/posts/20220915/</link>
       <pubDate>Thu, 15 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20220915/</guid>
-      <description>这篇文章可以写的更好，欢迎到 https://github.com/haoel/haoel.github.io 更新 科学上网 0. 序 1. 英文能力 2. 购买 VPS 2.1 常规 VPS 2.2 CN2 线路 2.3 NCP 线路 3. 搭建相关代理服务 3.1 设置 Docker 服务 3.2 开启 TCP BBR 拥塞控制算法</description>
+      <description>这篇文章可以写的更好，欢迎到 https://github.com/haoel/haoel.github.io 更新 科学上网 0. 序 1. 英文能力 2. 购买 VPS 2.1 常规 VPS 2.2 CN2 线路 2.3 NCP 线路 3. 搭建相关代理服务 3.1 设置 Docker 服务 3.2 开启 TCP BBR 拥塞控制算法 3.3 用 Gost 设置 HTTPS 服务 3.4 设置 ShadowSocks 服务 3.5 设置 L2TP/IPSec 服务 3.6 设置 PPTP 服务 4. 客户端</description>
     </item>
-    
     <item>
       <title>NAT穿透是如何工作的（Tailscale）</title>
       <link>https://jen-jon.github.io/posts/20220707/</link>
       <pubDate>Thu, 07 Jul 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20220707/</guid>
-      <description>译者序 本文翻译自 2020 年的一篇英文博客： How NAT traversal works。 设想这样一个问题：在北京和上海各有一台局域网的机器（例如一台是家里的台式机，一 台是连接</description>
+      <description>译者序 本文翻译自 2020 年的一篇英文博客： How NAT traversal works。 设想这样一个问题：在北京和上海各有一台局域网的机器（例如一台是家里的台式机，一 台是连接到星巴克 WiFi 的笔记本），二者都是私网 IP 地址，但可以访问公网， 如</description>
     </item>
-    
     <item>
       <title>NVIDIA DALI踩坑教程</title>
       <link>https://jen-jon.github.io/posts/20220608/</link>
       <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20220608/</guid>
-      <description>初见 事情的起因还要追溯到很久之前看了一篇论文，论文的核心就是讨论预训练策略在低层视觉任务中的作用。既然是预训练策略，那就不可避免的要用规模大</description>
+      <description>初见 事情的起因还要追溯到很久之前看了一篇论文，论文的核心就是讨论预训练策略在低层视觉任务中的作用。既然是预训练策略，那就不可避免的要用规模大一点的数据集，之所以预训练这些年在低层视觉任务中鲜被应用的，</description>
     </item>
-    
     <item>
       <title>内容预告</title>
       <link>https://jen-jon.github.io/posts/20220525/</link>
       <pubDate>Wed, 25 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20220525/</guid>
-      <description>发现想要保持博文的更新频率和内容质量是一件让人特别头疼的事情。至少，在我毕业之前都是很难保证的，每天会被各种各样的事情各种各样的任务（老板的</description>
+      <description>发现想要保持博文的更新频率和内容质量是一件让人特别头疼的事情。至少，在我毕业之前都是很难保证的，每天会被各种各样的事情各种各样的任务（老板的任务罢了）绑架，根本没有时间去总结&amp;hellip;&amp;hell</description>
     </item>
-    
     <item>
       <title>Cython教程</title>
       <link>https://jen-jon.github.io/posts/20220511/</link>
       <pubDate>Wed, 11 May 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20220511/</guid>
-      <description>入门教程 Cython概念 Cython本质上就是具有C数据类型的Python。 除了极少数例外，几乎所有的Python代码都是有效的Cython</description>
+      <description>入门教程 Cython概念 Cython本质上就是具有C数据类型的Python。 除了极少数例外，几乎所有的Python代码都是有效的Cython代码。Cython的编译器会把代码转换成等效于调用Pytho</description>
     </item>
-    
     <item>
       <title>别了，Mriya！</title>
       <link>https://jen-jon.github.io/posts/20220302/</link>
       <pubDate>Wed, 02 Mar 2022 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20220302/</guid>
-      <description>最近俄罗斯与乌克兰之间的冲突愈演愈烈，似乎没有要停下来的意思。国内的社交媒体上，我看到大多数的国人言语上都是支持俄罗斯的，当下中国和俄罗斯的</description>
+      <description>最近俄罗斯与乌克兰之间的冲突愈演愈烈，似乎没有要停下来的意思。国内的社交媒体上，我看到大多数的国人言语上都是支持俄罗斯的，当下中国和俄罗斯的关系非常铁，所以国人这种态度其实可以理解的。 但是我觉得吧，战</description>
     </item>
-    
     <item>
       <title>Python基础</title>
       <link>https://jen-jon.github.io/posts/pythonbasic/</link>
       <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/pythonbasic/</guid>
-      <description>函数知识点汇总 调用函数 Python内置了很多有用的函数可以直接调用。 要掉用一个函数需要知道函数的名称与参数，可以从Python的官方网站查看</description>
+      <description>函数知识点汇总 调用函数 Python内置了很多有用的函数可以直接调用。 要掉用一个函数需要知道函数的名称与参数，可以从Python的官方网站查看文档，也可以通过help函数查询帮助信息，如help(abs</description>
     </item>
-    
     <item>
       <title>Swift学习(11)-类和结构体（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/structclasses/</link>
       <pubDate>Mon, 30 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/structclasses/</guid>
-      <description>结构体和类作为一种通用而又灵活的结构，成为了人们构建代码的基础。可以使用定义常量、变量和函数的语法，从而为结构体和类定义属性、添加方法。 与其</description>
+      <description>结构体和类作为一种通用而又灵活的结构，成为了人们构建代码的基础。可以使用定义常量、变量和函数的语法，从而为结构体和类定义属性、添加方法。 与其他编程语言所不同的是，Swift并不要求为自定义的结构体和类</description>
     </item>
-    
     <item>
       <title>Swift学习(10)-枚举（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/enumerations/</link>
       <pubDate>Wed, 25 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/enumerations/</guid>
-      <description>枚举为一组相关的值定义了一个共同的类型。使得能够在代码中以类型安全的方式来使用这些值。 如果熟悉C语言，会知道在C语言中，枚举会为一组整型值分</description>
+      <description>枚举为一组相关的值定义了一个共同的类型。使得能够在代码中以类型安全的方式来使用这些值。 如果熟悉C语言，会知道在C语言中，枚举会为一组整型值分配相关联的名称。Swift中的枚举更加灵活，不必给每一个枚举</description>
     </item>
-    
     <item>
       <title>Swift学习(9)-闭包（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/closures/</link>
       <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/closures/</guid>
-      <description>闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift中的闭包与C和Objective-C中的代码块（blocks）以及Python</description>
+      <description>闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift中的闭包与C和Objective-C中的代码块（blocks）以及Python语言中的匿名函数（Lambdas）比较相似。 闭包可以捕获和存</description>
     </item>
-    
     <item>
       <title>Swift学习(8)-函数（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/function/</link>
       <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/function/</guid>
-      <description>函数是一段完成特定任务的独立代码片段。可以通过函数命名来标识某个函数的功能，这个名字可以被用来在需要的时候“调用”这个函数来玩成它的任务。 S</description>
+      <description>函数是一段完成特定任务的独立代码片段。可以通过函数命名来标识某个函数的功能，这个名字可以被用来在需要的时候“调用”这个函数来玩成它的任务。 Swift统一的函数语法非常灵活，可以用来表示任何函数，包括从</description>
     </item>
-    
     <item>
       <title>Swift学习(7)-控制流（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/controlflow/</link>
       <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/controlflow/</guid>
-      <description>Swift提供了多种流程控制结构，包括可以多次执行任务的while循环，基于特定条件选择执行不同代码分支的if、guard和switch语句</description>
+      <description>Swift提供了多种流程控制结构，包括可以多次执行任务的while循环，基于特定条件选择执行不同代码分支的if、guard和switch语句，还有控制流程跳转到其他代码位置的break和continu</description>
     </item>
-    
     <item>
       <title>Swift学习(6)-集合类型（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/collectiontype/</link>
       <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/collectiontype/</guid>
-      <description>Swift语言提供数组（Array）、集合（Set）和字典（Dictionary）三种基本的集合类型来存储集合数据。数组是有序数据的集。集合</description>
+      <description>Swift语言提供数组（Array）、集合（Set）和字典（Dictionary）三种基本的集合类型来存储集合数据。数组是有序数据的集。集合是无序无重复数据的集。字典是无序的键值对的集。 Swift中的</description>
     </item>
-    
     <item>
       <title>ML Peach RGB-D Dataset</title>
       <link>https://jen-jon.github.io/posts/20210817/</link>
       <pubDate>Tue, 17 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20210817/</guid>
-      <description>Multi-label peach RGB-D dataset (Including RGB images, depth images, infrared images)
-Authors: Rao Yuan / Luo Qing / Huo Peilin / Li Yipu / Zhang Jingyao The ML Peach RGB-D Dataset is composed by 2050 multi-modal images of peach on tree filelds captured using Microsoft Azure Kinect DK. Each images contains 3 different modalities, including RGB images, Depth images and Infrared images.
-All images were aligned with the RGB image and manually labelled in 4 classes: unobstructed, obscured by foliage, obscured by branches and obscured by fruit.</description>
+      <description>Multi-label peach RGB-D dataset (Including RGB images, depth images, infrared images)&#xA;Authors: Rao Yuan / Luo Qing / Huo Peilin / Li Yipu / Zhang Jingyao The ML Peach RGB-D Dataset is composed by 2050 multi-modal images of peach on tree filelds captured using Microsoft Azure Kinect DK. Each images contains 3 different modalities, including RGB images, Depth images and Infrared images.&#xA;All images were aligned with the RGB image and manually labelled in 4 classes: unobstructed, obscured by foliage, obscured by branches and obscured by fruit.&#xA;Find annotations in “.txt” format inside “annotation_yolo” folder. The camera parameters for each image taken are saved in “.</description>
     </item>
-    
     <item>
       <title>Swift学习(5)-字符串和字符（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/stringschars/</link>
       <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/stringschars/</guid>
-      <description>字符串是一系列字符的集合，例如“Hello, world”，“albatross”。Swift的字符串通过String类型来表示。而Strin</description>
+      <description>字符串是一系列字符的集合，例如“Hello, world”，“albatross”。Swift的字符串通过String类型来表示。而String内容的访问方式有多种，例如以Character值的集合。 S</description>
     </item>
-    
     <item>
       <title>Swift学习(4)-高级运算符（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/advancedop/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/advancedop/</guid>
-      <description>除了之前介绍过的基本运算符，Swift还提供了数种可以对数值进行复杂运算的高级运算符。它们包含了在C和Objective-C中已经被大家所熟</description>
+      <description>除了之前介绍过的基本运算符，Swift还提供了数种可以对数值进行复杂运算的高级运算符。它们包含了在C和Objective-C中已经被大家所熟知的位运算符和移位运算符。 自定义结构体、类和枚举时，如果也为</description>
     </item>
-    
     <item>
       <title>Swift学习(3)-基本运算符（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/swiftbasicop/</link>
       <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/swiftbasicop/</guid>
-      <description>运算符是检查、改变、合并值的特殊符号或短语。例如，加号+将两个数组相加（如let i = 1 + 2）。更复杂的运算例子包括逻辑与运算符&amp;amp;&amp;a</description>
+      <description>运算符是检查、改变、合并值的特殊符号或短语。例如，加号+将两个数组相加（如let i = 1 + 2）。更复杂的运算例子包括逻辑与运算符&amp;amp;&amp;amp;（如if enteredDoorCode &amp;amp;&amp;amp; passedRetinaScan）。 Swi</description>
     </item>
-    
     <item>
       <title>Swift学习(2)-基础部分（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/swiftbase/</link>
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/swiftbase/</guid>
-      <description>Swift包含了C和Objective-C上所有基础数据类型，Int表示整型值；Double和Float表示浮点值；Bool是布尔型值；St</description>
+      <description>Swift包含了C和Objective-C上所有基础数据类型，Int表示整型值；Double和Float表示浮点值；Bool是布尔型值；String是文本型数据。Swift还提供了三个基本的集合类型，</description>
     </item>
-    
     <item>
       <title>Swift学习(1)-初•见（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/swiftfirst/</link>
       <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/swiftfirst/</guid>
-      <description>Swift简介 Swift是美国苹果公司推出的编程语言，专门针对苹果桌面操作系统macOS和苹果移动操作系统iOS、iPadOS以及watc</description>
+      <description>Swift简介 Swift是美国苹果公司推出的编程语言，专门针对苹果桌面操作系统macOS和苹果移动操作系统iOS、iPadOS以及watchOS和tvOS的应用开发。Swift 在各个方面优于 Obje</description>
     </item>
-    
     <item>
       <title>在Docker中配置代理实现“科学”开发</title>
       <link>https://jen-jon.github.io/posts/20210629/</link>
       <pubDate>Tue, 29 Jun 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20210629/</guid>
-      <description>0. 测试0 这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！ 1. 测试1 这里是测试1</description>
+      <description>0. 测试0 这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！这里是测试0，文章暂未上传！ 1. 测试1 这里是测试1，文章暂未上传！这里是测试1，文章暂未上传！这里是测试1，文</description>
     </item>
-    
     <item>
       <title>那些五六月的思绪，意难平</title>
       <link>https://jen-jon.github.io/posts/20210610/</link>
       <pubDate>Thu, 10 Jun 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20210610/</guid>
-      <description>也许是因为到了快要离别的季节，最近总感觉丧气爆满！也许是鸣宝回家了，最近我每天都一个人来来往往了？也许是学校里有什么令我不舍的事情？具体是什</description>
+      <description>也许是因为到了快要离别的季节，最近总感觉丧气爆满！也许是鸣宝回家了，最近我每天都一个人来来往往了？也许是学校里有什么令我不舍的事情？具体是什么我也不知道了，其实我挺舍不得663实验室的这群小伙伴的，回</description>
     </item>
-    
     <item>
       <title>在Ubuntu18.04系统中安装ROS(Robot Operate System)</title>
       <link>https://jen-jon.github.io/posts/20210525/</link>
       <pubDate>Tue, 25 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20210525/</guid>
-      <description>0. 装前须知 ROS官方发行了许多版本，它们与Ubuntu的发行版本存在对应关如下表： ROS版本 Ubuntu版本 ROS Kinetic Kame Ubuntu 16.04 ROS Melodic Morenia Ubuntu 18.04 ROS Noetic Ninjemys Ubuntu 20.04 因</description>
+      <description>0. 装前须知 ROS官方发行了许多版本，它们与Ubuntu的发行版本存在对应关如下表： ROS版本 Ubuntu版本 ROS Kinetic Kame Ubuntu 16.04 ROS Melodic Morenia Ubuntu 18.04 ROS Noetic Ninjemys Ubuntu 20.04 因此本文介绍与Ubuntu18.04对应的ROS Melodic Moreni</description>
     </item>
-    
     <item>
       <title>The Usage of ADM PV-RCNN</title>
       <link>https://jen-jon.github.io/posts/20210523/</link>
       <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20210523/</guid>
-      <description>Note This document mainly introduces the use of ADM PV-RCNN Docker container, details can be seen here.
-This Docker container contains a complete pipline working files from LiDAR to algorithm model. This Docker container can process the Pcap format data packets collected by LiDAR. Currently, it only supports data collected by four types of LiDAR produced by Robosense: RS-LiDAR-16, RS-LiDAR-32, RS-LiDAR-64 and RS-LiDAR-128. More brands and types of lidar will be supported in the future.</description>
+      <description>Note This document mainly introduces the use of ADM PV-RCNN Docker container, details can be seen here.&#xA;This Docker container contains a complete pipline working files from LiDAR to algorithm model. This Docker container can process the Pcap format data packets collected by LiDAR. Currently, it only supports data collected by four types of LiDAR produced by Robosense: RS-LiDAR-16, RS-LiDAR-32, RS-LiDAR-64 and RS-LiDAR-128. More brands and types of lidar will be supported in the future.&#xA;Description ADM PV-RCNN full name is Adaptive Deformable Module PV-RCNN, is a new Point-based and Voxel-based 3D object detection model designed based on PV-RCNN (See github.</description>
     </item>
-    
     <item>
       <title>逛合肥京东电气超级体验店</title>
       <link>https://jen-jon.github.io/posts/20210521/</link>
       <pubDate>Fri, 21 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://jen-jon.github.io/posts/20210521/</guid>
-      <description>听闻最近京东的全球第二家电器超级体验店开业了，居然在合肥。打开地图搜了搜，发现也不远，坐地铁经过五站就可以到达，目测骑车也就十来分钟的事。 下</description>
+      <description>听闻最近京东的全球第二家电器超级体验店开业了，居然在合肥。打开地图搜了搜，发现也不远，坐地铁经过五站就可以到达，目测骑车也就十来分钟的事。 下地铁后，远处就能看到超体外玻璃幕墙上“爬”着一个巨大的“狗东</description>
     </item>
-    
   </channel>
 </rss>

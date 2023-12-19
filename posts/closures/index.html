@@ -52,6 +52,32 @@
     </script>
     
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+
+    
+    <script id="search-result-template" type="text/x-js-template">
+        <article id="summary-${key}">
+            <header>
+                <h3><i class="fas fa-file-alt"></i> <a href="${link}">${title}</a></h3>
+                <h4>${date} | ${type} blog | ${tags}</h4>
+            </header>
+            <div>
+                <div>${snippet}...</div>
+                
+                <div class="ReadButton">
+                    <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/closures/">
+                        <strong style="color: #fff;">Read More</strong>
+                    </a>
+                </div>
+                
+            </div>
+            <hr>
+        </article>
+    </script>
+
     
     <link rel="stylesheet" href="/sass/researcher.min.css">
 
@@ -114,15 +140,15 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/contact" title="Contact">
-                        Contact
+                    <a class="nav-item nav-link" href="/mediatest" title="Media">
+                        Media
                     </a>
                     
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/tools" title="Tools">
-                        Tools
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                        Resume/CV
                     </a>
                     
                 
@@ -137,7 +163,7 @@
     
     <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 23, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>9164</em> words and may take <em>19</em> minutes to read.</h5>
+    <h5>This article is about <em style="color: #1f71e0;">9164</em> words and may take <em style="color: #1f71e0;">19</em> minutes to read.</h5>
     <hr>
     
     
@@ -367,7 +393,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> alsoIncrementByTen = incrementByTen
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;alsoIncrementByTen的值是：</span><span style="color:#e6db74">\(</span>alsoIncrementByTen<span style="color:#e6db74">())</span><span style="color:#e6db74">.&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: alsoIncrementByTen<span style="color:#960050;background-color:#1e0010">的值是：</span><span style="color:#ae81ff">50.</span>
+</span></span><span style="display:flex;"><span>output: alsoIncrementByTen的值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">50.</span>
 </span></span></code></pre></div><hr>
 <h2 id="逃逸闭包">逃逸闭包</h2>
 <p>当一个闭包作为参数传到一个函数中，但是这个闭包在函数返回后才被执行，我们称该闭包从函数中逃逸。当定义接受闭包作为参数的函数时，可以在参数类型前标注<code>@escaping</code>来指明这个闭包是允许“逃逸”出这个函数的。</p>

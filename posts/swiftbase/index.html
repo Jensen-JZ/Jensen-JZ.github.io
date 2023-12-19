@@ -52,6 +52,32 @@
     </script>
     
 
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+
+    
+    <script id="search-result-template" type="text/x-js-template">
+        <article id="summary-${key}">
+            <header>
+                <h3><i class="fas fa-file-alt"></i> <a href="${link}">${title}</a></h3>
+                <h4>${date} | ${type} blog | ${tags}</h4>
+            </header>
+            <div>
+                <div>${snippet}...</div>
+                
+                <div class="ReadButton">
+                    <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/swiftbase/">
+                        <strong style="color: #fff;">Read More</strong>
+                    </a>
+                </div>
+                
+            </div>
+            <hr>
+        </article>
+    </script>
+
     
     <link rel="stylesheet" href="/sass/researcher.min.css">
 
@@ -114,15 +140,15 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/contact" title="Contact">
-                        Contact
+                    <a class="nav-item nav-link" href="/mediatest" title="Media">
+                        Media
                     </a>
                     
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="/tools" title="Tools">
-                        Tools
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                        Resume/CV
                     </a>
                     
                 
@@ -137,7 +163,7 @@
     
     <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 7, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
     
-    <h5>This article is about <em>11280</em> words and may take <em>23</em> minutes to read.</h5>
+    <h5>This article is about <em style="color: #1f71e0;">11280</em> words and may take <em style="color: #1f71e0;">23</em> minutes to read.</h5>
     <hr>
     
     
@@ -239,8 +265,8 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> maxValue = UInt8.max
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;UInt8类型的最小值是：</span><span style="color:#e6db74">\(</span>minValue<span style="color:#e6db74">)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">UInt8类型的最大值是：</span><span style="color:#e6db74">\(</span>maxValue<span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: UInt8<span style="color:#960050;background-color:#1e0010">类型的最小值是：</span><span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>UInt8<span style="color:#960050;background-color:#1e0010">类型的最大值是：</span><span style="color:#ae81ff">255</span>
+</span></span><span style="display:flex;"><span>output: UInt8类型的最小值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>UInt8类型的最大值是<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">255</span>
 </span></span></code></pre></div><p><code>min</code>和<code>max</code>所传回值的类型正是其所对的整数类型，如上例<code>UInt8</code>，所传回的值的类型也是<code>UInt8</code>。</p>
 <h3 id="int">Int</h3>
 <p>一般来说，不需要专门指定整数的长度。<code>Swift</code>提供了一个特殊的整数类型<code>Int</code>，长度与当前平台的原生字长相同:</p>
@@ -315,7 +341,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> twoThousandAndOne = twoThousand <span style="color:#f92672">+</span> UInt16(one)  <span style="color:#75715e">// 该代码中UInt16(one)来创建一个新的UInt16数字并用one的值来初始化它，然后便可以使得两个无符号16位值相加</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;UInt8转换至UInt16: &#34;</span>, twoThousandAndOne)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: UInt8<span style="color:#960050;background-color:#1e0010">转换至</span>UInt16:  <span style="color:#ae81ff">2001</span>
+</span></span><span style="display:flex;"><span>output: UInt8转换至UInt16:  <span style="color:#ae81ff">2001</span>
 </span></span></code></pre></div><p><code>SomeType(ofInitialValue)</code>是调用Swift构造器并传入一个初始值的默认方法。在语言内部，<code>UInt16</code>有一个构造器，可以接受一个<code>UInt8</code>类型的值，所以这个构造器可以用现有的<code>UInt8</code>来创建一个新的<code>UInt16</code>。</p>
 <h3 id="整数和浮点数转换">整数和浮点数转换</h3>
 <p>整数和浮点数的转换必须显式指定类型。</p>
@@ -344,7 +370,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> maxAmplitudeFound = AudioSample.min  <span style="color:#75715e">// maxAmplitudeFound现在是0</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;maxAmplitudeFound现在的值是：&#34;</span>, maxAmplitudeFound)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: maxAmplitudeFound<span style="color:#960050;background-color:#1e0010">现在的值是：</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>output: maxAmplitudeFound现在的值是<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#ae81ff">0</span>
 </span></span></code></pre></div><p>上述例子中，<code>AudioSample</code>被定义为<code>UInt16</code>的一个别名，因为是别名，所以<code>AudioSample.min</code>实际上是<code>UInt16.min</code>。</p>
 <h3 id="布尔值">布尔值</h3>
 <p><code>Swift</code>有一个基本的布尔（Boolean）类型，叫做<code>Bool</code>。布尔值指的是逻辑上的值，因为其只能是真或者假。<code>Swift</code>有两个布尔值常量，<code>true</code>和<code>false</code>。</p>
@@ -409,8 +435,8 @@
 </span></span><span style="display:flex;"><span>convertedNumber = Int(possibleName)
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;字符串</span><span style="color:#e6db74">\(</span>possibleName<span style="color:#e6db74">)</span><span style="color:#e6db74">转成数字后有问题：&#34;</span>, convertedNumber)
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
-</span></span><span style="display:flex;"><span>output: convertedNumber<span style="color:#960050;background-color:#1e0010">被推测为类型“</span>Int?<span style="color:#960050;background-color:#1e0010">”，或者类型“</span><span style="color:#66d9ef">optional</span> Int<span style="color:#960050;background-color:#1e0010">”：</span> <span style="color:#ae81ff">123</span>
-</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">字符串</span>Jensen<span style="color:#960050;background-color:#1e0010">转成数字后有问题：</span> <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>output: convertedNumber被推测为类型<span style="color:#960050;background-color:#1e0010">“</span>Int?<span style="color:#960050;background-color:#1e0010">”，或者类型“</span><span style="color:#66d9ef">optional</span> Int<span style="color:#960050;background-color:#1e0010">”：</span> <span style="color:#ae81ff">123</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">字符串</span>Jensen转成数字后有问题<span style="color:#960050;background-color:#1e0010">：</span> <span style="color:#66d9ef">nil</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
 </span></span><span style="display:flex;"><span>warning: Expression implicitly coerced from <span style="color:#960050;background-color:#1e0010">&#39;</span>Int?<span style="color:#960050;background-color:#1e0010">&#39;</span> to <span style="color:#960050;background-color:#1e0010">&#39;</span>Any<span style="color:#960050;background-color:#1e0010">&#39;</span>
 </span></span></code></pre></div><p>由于该构造器可能会失效，所以<code>Int(xxx)</code>返回的是一个可选类型（optional）的<code>Int</code>，而不是一个<code>Int</code>。可选的<code>Int</code>被写作<code>Int?</code>，问号暗示包含的值时可选类型，但不能包含其他任何值比如<code>Bool``值或者</code>String<code>值，只能是</code>Int`或者是什么都没有。</p>
