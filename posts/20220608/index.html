@@ -7,13 +7,13 @@
     <meta name="description" content="A simple homepage of Jensen Zhang.">
     <meta name="author" content='Jensen Zhang'>
 
-    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/homepage_css2.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/buttonsstyle.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/buttonsstyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
 
-    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/backbutton.js"></script>
-    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/busuanzi.pure.mini.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/busuanzi.pure.mini.js"></script>
 
     
     <script>
@@ -37,7 +37,7 @@
         }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/he-simple-common-v2.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/qweather/he-simple-common-v2.0.2.js"></script>
     
 
     
@@ -55,7 +55,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/search-v1.3.js"></script>
 
     
     <script id="search-result-template" type="text/x-js-template">
@@ -113,7 +113,7 @@
 <div class="container mt-5" style="text-align: right;">
     
     <div style="display: inline-flex; background-color: #1f71e0;">
-        <div id="he-plugin-simple"></div>
+        <div style="z-index: 9999;"><div id="he-plugin-simple"></div></div>
     </div>
     
     <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
@@ -147,7 +147,7 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resumes/Resume_of_Jensen.pdf" title="Resume/CV">
                         Resume/CV
                     </a>
                     
@@ -167,7 +167,7 @@
     <hr>
     
     
-    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/title.png" alt="Logo"/></p>
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220608/title.png" alt="Logo"/></p>
     <hr>
     
     
@@ -183,7 +183,7 @@
     
     <h2 id="初见">初见</h2>
 <p>事情的起因还要追溯到很久之前看了一篇论文，论文的核心就是讨论预训练策略在低层视觉任务中的作用。既然是预训练策略，那就不可避免的要用规模大一点的数据集，之所以预训练这些年在低层视觉任务中鲜被应用的，其主要的原因就是缺乏大规模数据集。这篇论文主要针对低层视觉任务中的SR（超分辨率）、DeRain（去雨）和DeNoise（去噪）三个任务，作者利用ImageNet中的图像作为基准图像，并在此基础上利用双三次插值得到低分辨率图像用于SR任务，将雨纹和高斯噪声直接加入到干净的基准图像中用于DeRain和DeNoise任务。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/001.png" alt="001"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220608/001.png" alt="001"></p>
 <p>但是论文中却忽略了低层视觉中一个非常重要的问题，即低光增强任务（Low-light Image Enhancement）。我觉得主要问题就是低光增强任务中所用到的配对图像数据集是很难获得的，特别是用ImageNet来生成，更是难上加难。其一，低光环境是个很复杂的环境，不是简单调低图像的亮度就能实现的，在低光环境下拍摄的图像往往是有的地方暗有的地方亮；其二，低光环境下摄得的图像往往伴随着各种复杂的噪声，简单的往图像上叠加噪声可能并不真实。前不久我克服了这两个问题，成功从ImageNet/VOC/COCO/IAPR/StreetScenes这五个数据集中挑选一些合适的图像构造了一个大规模配对的暗光图像数据集，其中共包含了153,856对暗光/正常光图像（具体数据集是如何构造的今天就不赘述了，等论文发表后我会详细跟大家解释）。我们知道，PyTorch中提供了<code>torch.utils.data.Dataset(*args, **kwds)</code>和<code>torch.utils.data.DataLoader(dataset, ...)</code>这两个类来实现数据集的构建和数据的加载，但是这两个类都是作用在CPU上的。然而我们的预训练数据集的规模达到了153,856*2张，用CPU来加载速度实在太慢了，在后续训练的过程中可能会导致模型等待数据传入的情况，即模型已经训练完一个batch的数据了，但是下一个batch的数据还在加载，没能及时传到模型中，这样会导致GPU的利用率显著下降。也就是说不仅会降低模型训练的速度，同时也没能完全压榨出显卡等硬件的性能，是一件性价比极低的事情。下面举个🌰（例子）：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
 </span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> torch
@@ -237,7 +237,7 @@
 </span></span><span style="display:flex;"><span>    X, Y <span style="color:#f92672">=</span> data
 </span></span><span style="display:flex;"><span>    print(X<span style="color:#f92672">.</span>shape)
 </span></span></code></pre></div><p>上面这个例子使用PyTorch内置的DataLoader类以<code>batch_size = 128</code>遍历了一遍<code>val_dataset</code>，并打印每个batch的尺寸。使用<code>jupyter</code>的<code>%%time</code>魔法语言来计算遍历一遍所花费的时间，从下图可以直观看到，一共花费近两分钟完成一次遍历。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/002.png" alt="002"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220608/002.png" alt="002"></p>
 <p>接下来再举个🌰：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> torchvision <span style="color:#f92672">import</span> models
 </span></span><span style="display:flex;"><span>
@@ -250,13 +250,13 @@
 </span></span><span style="display:flex;"><span>    loss <span style="color:#f92672">=</span> criterion(out<span style="color:#f92672">.</span>cpu(), torch<span style="color:#f92672">.</span>empty(out<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>], dtype<span style="color:#f92672">=</span>torch<span style="color:#f92672">.</span>long)<span style="color:#f92672">.</span>random_(<span style="color:#ae81ff">1000</span>))
 </span></span><span style="display:flex;"><span>    loss<span style="color:#f92672">.</span>backward()
 </span></span></code></pre></div><p>上面这个例子是模拟将数据输入AlexNet中处理，从下图中可以看到GPU的利用率很低（大多数时间都是0%）。主要原因是模型处理数据的时间比数据加载的时间更快，也就意味着模型通常要等待DataLoader将新的batch的数据传过来，导致GPU的利用率大多数时间都处于较低的状态甚至是空闲，严重拖慢模型训练的效率。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/003.png" alt="003"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220608/003.png" alt="003"></p>
 <p>要是数据规模小的话，这点时间也不算什么，但是我的数据规模是数十万级别的，每一分一秒都可以说是十分珍贵的，于是我找到了一个非常nice的加速工具：<a href="https://github.com/NVIDIA/DALI">NVIDIA DALI</a>库。</p>
 <h2 id="单卡环境下的nvidia-dali使用">单卡环境下的NVIDIA DALI使用</h2>
 <p>（NVIDIA DALI的具体使用方式请参阅<a href="https://docs.nvidia.com/deeplearning/dali/user-guide/docs/">官方文档</a>）</p>
 <h3 id="安装">安装</h3>
 <p>首先需要确定自己的cuda版本，可以在命令行中输入<code>nvcc -V</code>来查询，如下图，cuda版本为10.2。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/004.png" alt="004"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220608/004.png" alt="004"></p>
 <p>紧接着在命令行中输入<code>pip install nvidia-pyindex &amp;&amp; pip install nvidia-dali-cuda102</code>，请注意，这里的<code>cuda102</code>正是对应了上面查询的cuda版本10.2。</p>
 <h3 id="单卡环境下使用">单卡环境下使用</h3>
 <p>所谓单卡环境下使用即训练的过程中只使用一张卡，这是最简单的形式。可以自己定义数据的迭代方式，数据的Pipeline以及加载方式。详细细节请看代码：</p>
@@ -380,7 +380,7 @@
 </span></span><span style="display:flex;"><span>    X, Y <span style="color:#f92672">=</span> data
 </span></span><span style="display:flex;"><span>    print(X<span style="color:#f92672">.</span>shape)
 </span></span></code></pre></div><p>上面的例子使用NVIDIA DALI自定义了数据的迭代方式以及加载方式，同样使用<code>jupyter</code>的<code>%%time</code>魔法函数来计算遍历一遍所花费的时间，如下图所示，整个过程仅花费了不到3秒钟。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220608/005.png" alt="005"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220608/005.png" alt="005"></p>
 <p>此外，可以模拟将数据输入AlexNet中处理，GPU的利用率也会一直稳定在85%以上，表明GPU的性能被充分利用。</p>
 <h2 id="多卡环境下的nvidia-dali使用">多卡环境下的NVIDIA DALI使用</h2>
 <p>本文中所指的多卡环境是单机多卡环境，即在一台机器的多个GPU上进行分布式训练，然而多机多卡的情况并不在本文的讨论范畴之内，我也确实没有用过这种训练方式。有关多卡环境下的使用方式也可以参考<a href="https://docs.nvidia.com/deeplearning/dali/user-guide/docs/examples/general/multigpu.html">官方文档</a>。下面直接放出我的例子吧：</p>

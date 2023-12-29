@@ -7,13 +7,13 @@
     <meta name="description" content="A simple homepage of Jensen Zhang.">
     <meta name="author" content='Jensen Zhang'>
 
-    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/homepage_css2.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/buttonsstyle.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/buttonsstyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
 
-    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/backbutton.js"></script>
-    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/busuanzi.pure.mini.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/busuanzi.pure.mini.js"></script>
 
     
     <script>
@@ -37,7 +37,7 @@
         }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/he-simple-common-v2.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/qweather/he-simple-common-v2.0.2.js"></script>
     
 
     
@@ -55,7 +55,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/search-v1.3.js"></script>
 
     
     <script id="search-result-template" type="text/x-js-template">
@@ -113,7 +113,7 @@
 <div class="container mt-5" style="text-align: right;">
     
     <div style="display: inline-flex; background-color: #1f71e0;">
-        <div id="he-plugin-simple"></div>
+        <div style="z-index: 9999;"><div id="he-plugin-simple"></div></div>
     </div>
     
     <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
@@ -147,7 +147,7 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resumes/Resume_of_Jensen.pdf" title="Resume/CV">
                         Resume/CV
                     </a>
                     
@@ -167,7 +167,7 @@
     <hr>
     
     
-    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/advancedop.png" alt="Logo"/></p>
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/advancedop.png" alt="Logo"/></p>
     <hr>
     
     
@@ -190,7 +190,7 @@
 <p><code>Swift</code>支持<code>C</code>语言中的全部位运算符，接下来会一一介绍。</p>
 <h3 id="bitwise-not-operator按位取反运算符">Bitwise NOT Operator（按位取反运算符）</h3>
 <p>按位取反运算符<code>~</code>对一个数值的全部比特位进行取反。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitwiseNOT.png" alt="Bitwise NOT OP"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/bitwiseNOT.png" alt="Bitwise NOT OP"></p>
 <p>按位取反运算符是一个前缀运算符，直接放在运算数之前，并且运算符与运算数之间不能添加任何空格。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> initialBits: UInt8 = <span style="color:#ae81ff">0b00001111</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> invertedBits = <span style="color:#f92672">~</span>initialBits  <span style="color:#75715e">// 等于0b11110000</span>
@@ -201,7 +201,7 @@
 <p>接着使用按位取反运算符创建了一个名为<code>invertedBits</code>的常量，这个常量的值域全部位取反后的<code>initialBits</code>相等。即所有的0都变成了1，同时所有的1都变成0。<code>invertedBits</code>的二进制值位11110000，等价于无符号的十进制数240。</p>
 <h3 id="bitwise-and-operator按位与运算符">Bitwise AND Operator（按位与运算符）</h3>
 <p>按位与运算符<code>&amp;</code>对两个数的比特位进行合并。它返回一个新的数，只有当两个数的对应位都为1的时候，新数的对应位才为1。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitwiseAND.png" alt="Bitwise AND OP"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/bitwiseAND.png" alt="Bitwise AND OP"></p>
 <p>在下面的示例中，<code>firstSixBits</code>和<code>lastSixBits</code>中间4个位的值都为1。使用按位与运算符之后，得到二进制数值00111100，等价与无符号十进制数的60。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> firstSixBits: UInt8 = <span style="color:#ae81ff">0b11111100</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> lastSixBits: UInt8 = <span style="color:#ae81ff">0b00111111</span>
@@ -211,7 +211,7 @@
 </span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">值</span><span style="color:#ae81ff">252</span><span style="color:#960050;background-color:#1e0010">和值</span><span style="color:#ae81ff">63</span><span style="color:#960050;background-color:#1e0010">按位与后的结果为：</span><span style="color:#ae81ff">60</span>
 </span></span></code></pre></div><h3 id="bitwise-or-operator按位或运算符">Bitwise OR Operator（按位或运算符）</h3>
 <p>按位或运算符<code>/</code>可以对两个数的比特位进行比较。它返回一个新的数，只要两个数的对应位中有任意一个为1时，新数的对应位就为1。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitwiseOROP.png" alt="Bitwise OR OP"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/bitwiseOROP.png" alt="Bitwise OR OP"></p>
 <p>在下面的示例中，<code>someBits</code>和<code>moreBits</code>存在不同的位被设置为1。使用按位或运算符之后，得到二进制数值11111110，等价于无符号十进制的254。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> someBits: UInt8 = <span style="color:#ae81ff">0b10110010</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> moreBits: UInt8 = <span style="color:#ae81ff">0b01011110</span>
@@ -221,7 +221,7 @@
 </span></span><span style="display:flex;"><span>output: <span style="color:#960050;background-color:#1e0010">值</span><span style="color:#ae81ff">178</span><span style="color:#960050;background-color:#1e0010">和值</span><span style="color:#ae81ff">94</span><span style="color:#960050;background-color:#1e0010">按位或后的结果为：</span><span style="color:#ae81ff">254</span>
 </span></span></code></pre></div><h3 id="bitwise-xor-operator按位异或运算符">Bitwise XOR Operator（按位异或运算符）</h3>
 <p>按位异或运算符，或称“排外的或运算符”<code>^</code>，可以对两个数的比特位进行比较。它返回一个新的数，当两个数的对应位不相同时，新数的对应位就为1，并且对应位相同时则为0。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitwiseXOR.png" alt="Bitwise XOR OP"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/bitwiseXOR.png" alt="Bitwise XOR OP"></p>
 <p>在下面的示例当中，<code>firstBits</code>和<code>otherBits</code>都有一个自己为1而对方为0的位。按位异或运算符将新数的这两个位设置为1。在其余的位上<code>firstBits</code>和<code>otherBits</code>是相同的，所以设置为0。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> firstBits: UInt8 = <span style="color:#ae81ff">0b00010100</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> otherBits: UInt8 = <span style="color:#ae81ff">0b00000101</span>
@@ -238,7 +238,7 @@
 <p> <strong>2.</strong> 任何因移动而超出整型存储范围的位都会被丢弃</p>
 <p> <strong>3.</strong> 用0来填充移位后产生的空白位</p>
 <p>上述方法被称为<em>逻辑移位</em>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitshiftUnsigned.png" alt="Bit shift unsigned"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/bitshiftUnsigned.png" alt="Bit shift unsigned"></p>
 <p>下面的代码演示了<code>Swift</code>中的移位运算。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> shiftBits: UInt8 = <span style="color:#ae81ff">0b00000100</span>
 </span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>shiftBits<span style="color:#e6db74">)</span><span style="color:#e6db74">向左移1位：</span><span style="color:#e6db74">\(</span>shiftBits <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">1</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)  <span style="color:#75715e">// 0b00001000</span>
@@ -271,10 +271,10 @@
 <p>对比无符号整数，有符号整数的移位运算相对复杂得多，这种复杂性源于有符号整数的二进制表现形式。（为了简单起见，以下的示例都是基于8比特的有符号整数，但是其中的原理对于任何位数的有符号整数都是通用的。）</p>
 <p>有符号整数使用第一个比特位（通常被称为符号位）来表示这个数的正负。符号位为0代表正数，符号位为1代表负数。</p>
 <p>其余的比特位（通常被称为数值位）存储了实际的值。有符号正整数和无符号数的存储方式都是一样的，都是从0开始算起。这是值为 4 的 Int8 型整数的二进制位表现形式：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitshiftSignedFour.png" alt="Bit shift signed four"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/bitshiftSignedFour.png" alt="Bit shift signed four"></p>
 <p>符号位为0（代表这是一个“正数”），另外7位则代表了十进制数值4的二进制表示。</p>
 <p>负数的存储方式略有不同，它存储2的<code>n</code>次方减去实际值的绝对值，这里的<code>n</code>是数值位的位数。一个8比特位的数有七个比特位是数值位，所以是2的7次方，即128。这是值为 -4 的 Int8 型整数的二进制表现形式：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/bitshiftSignedMinusFour.png" alt="Bit shift signed minus four"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/bitshiftSignedMinusFour.png" alt="Bit shift signed minus four"></p>
 <p>这次的符号位为1，说明这是一个负数，另外7个位则代表了数值124（即<code>2^7 - |-4| = 124</code>）的二进制表示。</p>
 <p>负数的表示通常被称为二进制补码。用这种方式来表示负数乍一看有点奇怪，但是它却有几个优点。</p>
 <p>首先，如果想对-1和-4进行加法运算，只需要对这两个数的全部8个比特位执行标准的二进制相加（包括符号位），并且将计算结果中超出8位的数值丢弃。</p>
@@ -302,7 +302,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
 </span></span><span style="display:flex;"><span>output: UInt8上溢后的值<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">0</span>
 </span></span></code></pre></div><p><code>unsignedOverFlow</code>被初始化为<code>UInt8</code>所能容纳的最大整数（255，以二进制表示即11111111），然后使用溢出加法运算符<code>&amp;+</code>对其进行加1运算。使得它的二进制表示正好超出<code>UInt8</code>所能容纳的位数，也就导致了数值的溢出。数值溢出后，仍然留在<code>UInt8</code>边界内的值是<code>00000000</code>，也就是十进制数值0。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/overflowAddition.png" alt="Over flow addition"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/overflowAddition.png" alt="Over flow addition"></p>
 <p>当允许对一个无符号整数进行下溢运算时也会产生类似的情况。这里有一个使用溢出减法运算符<code>&amp;-</code>的例子。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>unsignedOverFlow = UInt8.min  <span style="color:#75715e">// unsignedOverFlow等于UInt8所能容纳的最小整数0</span>
 </span></span><span style="display:flex;"><span>unsignedOverFlow = unsignedOverFlow <span style="color:#f92672">&amp;-</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e">// 此时unsignedOverFlow等于255</span>
@@ -310,7 +310,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
 </span></span><span style="display:flex;"><span>output: UInt8下溢后的值<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">255</span>
 </span></span></code></pre></div><p><code>UInt8</code>型整数能够容纳的最小值是0，以二进制表示即为00000000。当使用溢出减法运算符对其进行减1运算时，数值会产生下溢并被截断为11111111，也就是十进制数值的255。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/overflowUnsignedSubtraction.png" alt="Over flow unsigned subtraction"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/overflowUnsignedSubtraction.png" alt="Over flow unsigned subtraction"></p>
 <p>溢出也会发生在有符号整型上。针对有符号整型的所有溢出加法或者减法运算都是按位运算的方式执行的。符号位也要参与计算，正如按位左移、右移运算符所描述的那样。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> signedOverFlow = Int8.min  <span style="color:#75715e">// signedOverFlow等于Int8所能容纳的最小整数-128</span>
 </span></span><span style="display:flex;"><span>signedOverFlow = signedOverFlow <span style="color:#f92672">&amp;-</span> <span style="color:#ae81ff">1</span>  <span style="color:#75715e">// 此时signedOverFlow等于127</span>
@@ -318,7 +318,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
 </span></span><span style="display:flex;"><span>output: Int8下溢后的值<span style="color:#960050;background-color:#1e0010">：</span><span style="color:#ae81ff">127</span>
 </span></span></code></pre></div><p><code>Int8</code>型整数能容纳的最小值是-128，以二进制形式表示即10000000。当使用溢出减法运算符对其进行减1运算时，符号位被翻转，得到二进制数值01111111，也就是十进制数值的127，这个值也是<code>Int8</code>型整数所能容纳的最大值。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/overflowSignedSubtraction.png" alt="Over flow signed subtraction"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/overflowSignedSubtraction.png" alt="Over flow signed subtraction"></p>
 <p>对于无符号和有符号整型数值来说，当出现上溢时，它们会从数值所能容纳的最大数变成最小数。同样地，当发生下溢时，它们会从数值的最小数变成数值的最大数。</p>
 <hr>
 <h2 id="优先级和结合性">优先级和结合性</h2>

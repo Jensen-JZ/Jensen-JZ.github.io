@@ -7,13 +7,13 @@
     <meta name="description" content="A simple homepage of Jensen Zhang.">
     <meta name="author" content='Jensen Zhang'>
 
-    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/homepage_css2.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/buttonsstyle.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/buttonsstyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
 
-    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/backbutton.js"></script>
-    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/busuanzi.pure.mini.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/busuanzi.pure.mini.js"></script>
 
     
     <script>
@@ -37,7 +37,7 @@
         }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/he-simple-common-v2.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/qweather/he-simple-common-v2.0.2.js"></script>
     
 
     
@@ -55,7 +55,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/search-v1.3.js"></script>
 
     
     <script id="search-result-template" type="text/x-js-template">
@@ -113,7 +113,7 @@
 <div class="container mt-5" style="text-align: right;">
     
     <div style="display: inline-flex; background-color: #1f71e0;">
-        <div id="he-plugin-simple"></div>
+        <div style="z-index: 9999;"><div id="he-plugin-simple"></div></div>
     </div>
     
     <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
@@ -147,7 +147,7 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resumes/Resume_of_Jensen.pdf" title="Resume/CV">
                         Resume/CV
                     </a>
                     
@@ -167,7 +167,7 @@
     <hr>
     
     
-    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/title.png" alt="Logo"/></p>
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/title.png" alt="Logo"/></p>
     <hr>
     
     
@@ -293,7 +293,7 @@
 <p>以上是本文所讨论问题的<strong>基本背景</strong>。</p>
 <h2 id="12-需求两台经过-nat-的机器建立点对点连接">1.2 需求：两台经过 NAT 的机器建立点对点连接</h2>
 <p>在以上所描述的 NAT 背景下，我们从最简单的问题开始：如何在两台经过 NAT 的机器之间建立 <strong>点对点连接</strong>（直连）。如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/001.png" alt="001"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/001.png" alt="001"></p>
 <p>直接用机器的 IP 互连显然是不行的，因为它们都是私有 IP（例如 <code>192.168.1.x</code>）。 在 Tailscale 中，我们会建立一个 <strong>WireGuard® 隧道</strong> 来解决这个问题 —— 但这并不是太重要，因为我们将<strong>过去几代人努力</strong>都整合到了一个工具集， <strong>这些技术广泛适用于各种场景</strong>。例如，</p>
 <ol>
 <li><a href="https://webrtc.org/">WebRTC</a> 使用这些技术在浏览器之间完成 peer-to-peer 语音、视频和数据传输，</li>
@@ -313,7 +313,7 @@
 <p>对收发包的 <strong>socket 有直接控制权</strong>。</p>
 <p>例如，从经验上来说，无法基于某个现有的网络库实现 NAT 穿透，因为我们 <strong>必须在使用的 “主要” 协议之外，发送和接收额外的数据包</strong>。</p>
 <p>某些协议（例如 WebRTC）将 NAT 穿透与其他部分紧密集成。但如果你在构建自己的协议， <strong>建议将 NAT 穿透作为一个独立实体，与主协议并行运行</strong>，二者仅 仅是共享 socket 的关系，如下图所示，这将带来很大帮助：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/002.png" alt="002"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/002.png" alt="002"></p>
 </li>
 </ol>
 <h3 id="132-保底方式中继">1.3.2 保底方式：中继</h3>
@@ -350,7 +350,7 @@
 <h3 id="212-如何区分入向和出向包">2.1.2 如何区分入向和出向包</h3>
 <p>连接（connection）和方向（direction）都是协议设计者头脑中的概念，到了 <strong>物理传输层，每个连接都是双向的</strong>；允许所有的包双向传输。 那<strong>防火墙是如何区分哪些是入向包、哪些是出向包的呢</strong>？ 这就要回到 **“有状态”（stateful）**这三个字了：有状态防火墙会记录它 看到的每个包，当收到下一个包时，会利用这些信息（状态）来判断应该做什么。</p>
 <p>对 UDP 来说，规则很简单：如果防火墙之前看到过一个出向包（outbound），就会允许 相应的入向包（inbound）通过，以下图为例：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/003.png" alt="003"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/003.png" alt="003"></p>
 <p>笔记本电脑中自带了一个防火墙，当该防火墙看到从这台机器出去的 <code>2.2.2.2:1234 -&gt; 5.5.5.5:5678</code> 包时，就会记录一下：<code>5.5.5.5:5678 -&gt; 2.2.2.2:1234</code> 入向包应该放行。 <strong>这里的逻辑</strong>是：我们信任的世界（即笔记本）想主动与 <code>5.5.5.5:5678</code> 通信，因此应该放行（allow）其回包路径。</p>
 <blockquote>
 <p>某些<strong>非常</strong>宽松的防火墙只要看到有从 <code>2.2.2.2:1234</code> 出去的包，就 会允许所有从外部进入 <code>2.2.2.2:1234</code> 的流量。这种防火墙对我们的 NAT 穿透来说非 常友好，但已经越来越少见了。</p>
@@ -361,13 +361,13 @@
 <p>在 NAT 穿透场景中，以上默认规则对 UDP 流量的影响不大 —— 只要<strong>路径上所有防火墙的 “朝向” 是一样的</strong>。 一般来说，从内网访问公网上的某个服务器都属于这种情况。</p>
 <p>我们唯一的要求是：<strong>连接必须是由防火墙后面的机器发起的</strong>。这是因为 在它主动和别人通信之前，没人能主动和它通信，如下图所示：</p>
 <h4 id="穿透方案客户端直连服务端或-hub-and-spoke-拓扑">穿透方案：客户端直连服务端，或 hub-and-spoke 拓扑</h4>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/004.png" alt="004"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/004.png" alt="004"></p>
 <p>但上图是<strong>假设了</strong>通信双方中，其中一端**（服务端）是能直接访问到的**。 在 VPN 场景中，这就形成了所谓的 <strong>hub-and-spoke 拓扑</strong>：中心的 hub 没有任何防火墙策略，谁都能访问到； 防火墙后面的 spokes 连接到 hub。如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/005.png" alt="005"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/005.png" alt="005"></p>
 <h3 id="222-防火墙朝向不同">2.2.2 防火墙朝向不同</h3>
 <h4 id="场景特点服务端-ip-不可直接访问">场景特点：服务端 IP 不可直接访问</h4>
 <p>但如果两个 “客户端” 想直连，以上方式就不行了，此时两边的防火墙相向而立，如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/006.png" alt="006"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/006.png" alt="006"></p>
 <p>根据前面的讨论，这种情况意味着：<strong>两边要同时发起连接请求</strong>，但也意味着 两边都无法发起有效请求，因为对方先发起请求才能在它的防火墙上打开一条缝让我们进去！ 如何破解这个问题呢？一种方式是<strong>让用户重新配置一边或两边的防火墙，打开一个端口</strong>， 允许对方的流量进来。</p>
 <ol>
 <li>这显然对用户不友好，在像 Tailscale 这样的 mesh 网络中的扩展性也不好，在 mesh 网络中，我们假设对端会以一定的粒度在公网上移动。</li>
@@ -390,17 +390,17 @@
 <ol>
 <li>
 <p>如图所示，笔记本出去的第一包，<code>2.2.2.2:1234 -&gt; 7.7.7.7:5678</code>，穿过 Windows Defender 防火墙进入到公网。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/007.png" alt="007"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/007.png" alt="007"></p>
 <p>对方的防火墙会将这个包拦截掉，因为它没有 <code>7.7.7.7:5678 -&gt; 2.2.2.2:1234</code> 的流量记录。 但另一方面，Windows Defender 此时已经记录了出向连接，因此会允许 <code>7.7.7.7:5678 -&gt; 2.2.2.2:1234</code> 的应答包进来。</p>
 </li>
 <li>
 <p>接着，第一个 <code>7.7.7.7:5678 -&gt; 2.2.2.2:1234</code> 穿过它自己的防火墙到达公网。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/008.png" alt="008"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/008.png" alt="008"></p>
 <p>到达客户端侧时，Windows Defender <strong>认为这是刚才出向包的应答包，因此就放行它进入了！</strong> 此外，右侧的防火墙此时也记录了：<code>2.2.2.2:1234 -&gt; 7.7.7.7:5678</code> 的包应该放行。</p>
 </li>
 <li>
 <p>笔记本收到服务器发来的包之后，发送一个包作为应答。这个包穿过 Windows Defender 防火墙 和服务端防火墙（因为这是对服务端发送的包的应答包），达到服务端。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/009.png" alt="009"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/009.png" alt="009"></p>
 </li>
 </ol>
 <p>成功！这样我们就建立了一个<strong>穿透两个相向防火墙</strong>的双向通信连接。 而初看之下，这项任务似乎是不可能完成的。</p>
@@ -448,7 +448,7 @@
 <ol>
 <li>
 <p>笔记本发送 UDP packet <code>192.168.0.20:1234 -&gt; 7.7.7.7:5678</code>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/010.png" alt="010"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/010.png" alt="010"></p>
 <p>这一步就好像笔记本有一个公网 IP 一样，但源地址 <code>192.168.0.20</code> 是私有地址， 只能出现在私有网络，公网不认，收到这样的包时它不知道如何应答。</p>
 </li>
 <li>
@@ -460,17 +460,17 @@
 <li>然后将包发到公网，此时源地址变成了 <code>2.2.2.2:4242</code> 而不是原来的 <code>192.168.0.20:1234</code>。因此服务端看到的是转换之后地址，</li>
 <li>接下来，每个能匹配到这条映射规则的包，都会被路由器改写 IP 和 端口。</li>
 </ol>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/011.png" alt="011"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/011.png" alt="011"></p>
 </li>
 <li>
 <p>反向路径是类似的，路由器会执行相反的地址转换，将 <code>2.2.2.2:4242</code> 变回 <code>192.168.0.20:1234</code>。对于笔记本来说，它根本感知不知道这正反两次变换过程。</p>
 </li>
 </ol>
 <p>这里是拿家用路由器作为例子，但<strong>办公网的原理是一样的</strong>。不同之处在 于，办公网的 NAT 可能有多台设备组成（高可用、容量等目的），而且它们有不止一个公 网 IP 地址可用，因此在选择可用的公网 <code>ip:port</code> 来做映射时，选择空间更大，能支持 更多客户端。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/012.png" alt="012"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/012.png" alt="012"></p>
 <h2 id="35-snat-给穿透带来的挑战">3.5 SNAT 给穿透带来的挑战</h2>
 <p>现在我们遇到了与前面有状态防火墙类似的情况，但这次是 NAT 设备：<strong>通信双方 不知道对方的 ip:port 是什么</strong>，因此<strong>无法主动建连</strong>，如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/013.png" alt="013"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/013.png" alt="013"></p>
 <p>但这次比有状态防火墙更糟糕，严格来说，<strong>在双方发包之前，根本无法确定（自己及对方的）ip:port 信息</strong>，因为 <strong>只有出向包经过路由器之后才会产生 NAT mapping</strong>（即，可以被对方连接的 <code>ip:port</code> 信息）。</p>
 <p>因此我们又回到了与防火墙遇到的问题，并且情况更糟糕：<strong>双方都需要主动和对 方建连，但又不知道对方的公网地址是多少</strong>，只有当对方先说话之后，我们才能拿到它的地址信息。</p>
 <p>如何破解以上死锁呢？这就轮到 <a href="https://en.wikipedia.org/wiki/STUN">STUN</a> 登场了。</p>
@@ -483,7 +483,7 @@
 <li>笔记本向 STUN 服务器发送一个请求：“从你的角度看，我的地址什么？”</li>
 <li>STUN 服务器返回一个响应：“我看到你的 UDP 包是从这个地址来的：<code>ip:port</code>”。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/014.png" alt="014"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/014.png" alt="014"></p>
 <blockquote>
 <p>The STUN protocol has a bunch more stuff in it — there’s a way of obfuscating the <code>ip:port</code> in the response to stop really broken NATs from mangling the packet’s payload, and a whole authentication mechanism that only really gets used by TURN and ICE, sibling protocols to STUN that we’ll talk about in a bit. We can ignore all of that stuff for address discovery.</p>
 </blockquote>
@@ -515,7 +515,7 @@
 </li>
 <li>
 <p>另外一些 NAT 设备就要困难很多了，它会<strong>针对每个目的地址来生成一条相应的映射关系</strong>。 在这样的设备上，如果我们用相同的 socket 来分别发送数据包到 <code>5.5.5.5:1234</code> and <code>7.7.7.7:2345</code>，我们就会得到 <code>2.2.2.2</code> 上的两个不同的端口，每个目的地址对应一个。 如果反向包的端口用的不对，包就无法通过防火墙。如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/015.png" alt="015"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/015.png" alt="015"></p>
 </li>
 </ul>
 <p>知道 NAT 设备的行为并不是完全一样之后，我们来引入一些正式术语。</p>
@@ -623,7 +623,7 @@
 <p>本节将介绍一些五花八门的 tricks，在某些特殊场景下会帮到我们。单独使用这项技术都 无法解决 NAT 穿透问题，但将它们巧妙地组合起来，我们能更加接近 100% 的穿透成功率。</p>
 <h2 id="71-穿透-hard-nat暴力端口扫描">7.1 穿透 hard NAT：暴力端口扫描</h2>
 <p>回忆 hard NAT 中遇到的问题，如下图所示，关键问题是：easy NAT 不知道该往 hard NAT 方的哪个 <code>ip:port</code> 发包。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/016.png" alt="016"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/016.png" alt="016"></p>
 <p>但<strong>必须</strong>要往正确的 <code>ip:port</code> 发包，才能穿透防火墙，实现双向互通。 怎么办呢？</p>
 <ol>
 <li>
@@ -647,7 +647,7 @@
 <p>根据以上结果，如果还是假设 100 ports/s 这样相当温和的探测速率，那 <strong>2 秒钟就有约 50% 的成功概率</strong>。 即使非常不走运，我们仍然能在 <strong>20s 时几乎 100% 穿透成功</strong>，而此时<strong>只探测了总端口空间的 4%</strong>。</p>
 <p>非常好！虽然这种 hard NAT 给我们带来了严重的穿透延迟，但最终结果仍然是成功的。 那么，如果是两个 hard NAT，我们还能处理吗？</p>
 <h2 id="73-双-hard-nat-场景">7.3 双 hard NAT 场景</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/017.png" alt="017"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/017.png" alt="017"></p>
 <p>这种情况下仍然可以用前面的 <strong>多端口 + 随机探测</strong> 方式，但成功概率要低很多了：</p>
 <ul>
 <li>每次通过一台 hard NAT 去探测对方的端口（目的端口）时，我们<strong>自己同时也生成了一个随机源端口</strong>，</li>
@@ -729,7 +729,7 @@
 <p>最后，终归来说，<strong>只要这种协议可用，就能有效地减少一次 NAT</strong>，大大方便建连过程。 但接下来看一些不常见的场景。</p>
 <h2 id="75-多-nat-协商negotiating-numerous-nats">7.5 多 NAT 协商（Negotiating numerous NATs）</h2>
 <p>目前为止，我们看到的客户端和服务端都各只有一个 NAT 设备。如果有多个 NAT 设备会 怎么样？例如下面这种拓扑：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/018.png" alt="018"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/018.png" alt="018"></p>
 <p>这个例子比较简单，不会给穿透带来太大问题。包从客户端 A <strong>经过多次 NAT</strong> 到达公网的过程，与前面分析的<strong>穿过多层有状态防火墙</strong>是一样的：</p>
 <ul>
 <li>额外的这层（NAT 设备）<strong>对客户端和服务端来说都不可见</strong>，我们的穿 透技术也不关心中间到底经过了多少层设备。</li>
@@ -756,7 +756,7 @@
 <li>ISP’s network 中的 NAT 设备再将这些 intermediate IPs 映射到少量的公网 IP。</li>
 </ol>
 <p>后面这种 NAT 就称为 “运营商级 NAT”（<strong>carrier-grade NAT</strong>，或称电信级 NAT），缩写 CGNAT。如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/019.png" alt="019"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/019.png" alt="019"></p>
 <p>CGNAT 对 NAT 穿透来说是一个大麻烦。</p>
 <ul>
 <li>在此之前，办公网用户要快速实现 NAT 穿透，只需在他们的路由器上手动设置端口映射就行了。</li>
@@ -765,7 +765,7 @@
 <p>好消息是：这其实是 double-NAT 的一个小变种，因此前面介绍的解决方式大部分还仍然是适用的。 某些东西可能会无法按预期工作，但只要肯给 ISP 交钱，这些也都能解决。 除了 port mapping protocols，其他我们已经介绍的所有东西在 CGNAT 里都是适用的。</p>
 <h3 id="新挑战同一-cgnat-侧直连stun-不可用">新挑战：同一 CGNAT 侧直连，STUN 不可用</h3>
 <p>但我们确实遇到了一个新挑战：如何直连两个在同一 CGNAT 但不同家用路由器中的对端呢？如下图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/020.png" alt="020"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/020.png" alt="020"></p>
 <p><strong>在这种情况下，STUN 就无法正常工作了</strong>：STUN 看到的是客户端在公网（CGNAT 后面）看到的地址， 而我们想获得的是在 “middle network” 中的 <code>ip:port</code>，这才是对端真正需要的地址，</p>
 <h3 id="解决方案如果端口映射协议能用一端做端口映射">解决方案：如果端口映射协议能用：一端做端口映射</h3>
 <p>怎么办呢？</p>
@@ -781,7 +781,7 @@
 <li>通过 CGNAT 的 internal 接口（而不是 public 接口，对应公网）将包发给 B。</li>
 </ol>
 <p>这种 NAT 行为有个专门的术语，叫 <strong>hairpinning</strong>（直译为发卡，意思 是像发卡一样，沿着一边上去，然后从另一边绕回来），</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/021.png" alt="021"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/021.png" alt="021"></p>
 <p>大家应该猜到的一个事实是：<strong>不是所以 NAT 都支持 hairpin 模式</strong>。 实际上，大量 well-behaved NAT 设备都不支持 hairpin 模式，</p>
 <ul>
 <li>因为它们都有 <strong>“只有 src_ip 是私有地址且 dst_ip 是公网地址的包才会经过我”</strong> 之类的假设。</li>
@@ -827,7 +827,7 @@
 <p>不幸的是，这意味着，IPv6 ** 还 ** 无法作为我们的解决方案。 就目前来说，它只是我们的工具箱中的一个备选。对于某些 peer 来说，它简直是完美工 具，但对其他 peer 来说，它是用不了的。如果目标是 “任何情况下都能穿透（连接） 成功”，那我们就仍然需要 IPv4+NAT 那些东西。</p>
 <h3 id="新场景nat64dns64">新场景：NAT64/DNS64</h3>
 <p>IPv4/IPv6 共存也引出了一个新的场景：NAT64 设备。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/img_src/20220707/022.png" alt="022"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/20220707/022.png" alt="022"></p>
 <p>前面介绍的都是 NAT44 设备：它们将一个 IPv4 地址转换成另一 IPv4 地址。 NAT64 从名字可以看出，是将一个内侧 IPv6 地址转换成一个外侧 IPv4 地址。 利用 DNS64 设备，我们能将 IPv4 DNS 应答给 IPv6 网络，这样对终端来说，它看到的就是一个 全 IPv6 网络，而仍然能访问 IPv4 公网。</p>
 <blockquote>
 <p>Incidentally, you can extend this naming scheme indefinitely. There have been some experiments with NAT46; you could deploy NAT66 if you enjoy chaos; and some RFCs use NAT444 for carrier-grade NAT.</p>

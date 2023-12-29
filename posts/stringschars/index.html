@@ -7,13 +7,13 @@
     <meta name="description" content="A simple homepage of Jensen Zhang.">
     <meta name="author" content='Jensen Zhang'>
 
-    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/homepage_css2.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/buttonsstyle.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/buttonsstyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
 
-    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/backbutton.js"></script>
-    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/busuanzi.pure.mini.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/busuanzi.pure.mini.js"></script>
 
     
     <script>
@@ -37,7 +37,7 @@
         }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/he-simple-common-v2.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/qweather/he-simple-common-v2.0.2.js"></script>
     
 
     
@@ -55,7 +55,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/search-v1.3.js"></script>
 
     
     <script id="search-result-template" type="text/x-js-template">
@@ -113,7 +113,7 @@
 <div class="container mt-5" style="text-align: right;">
     
     <div style="display: inline-flex; background-color: #1f71e0;">
-        <div id="he-plugin-simple"></div>
+        <div style="z-index: 9999;"><div id="he-plugin-simple"></div></div>
     </div>
     
     <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
@@ -147,7 +147,7 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resumes/Resume_of_Jensen.pdf" title="Resume/CV">
                         Resume/CV
                     </a>
                     
@@ -167,7 +167,7 @@
     <hr>
     
     
-    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/stringsandchars.png" alt="Logo"/></p>
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/stringsandchars.png" alt="Logo"/></p>
     <hr>
     
     
@@ -533,7 +533,7 @@
 </span></span><span style="display:flex;"><span>output: newString <span style="color:#66d9ef">is</span> Jense.
 </span></span></code></pre></div><p>就像<code>String</code>，每一个<code>Substring</code>都会在内存里保存字符集。而<code>String</code>和<code>Substring</code>的区别在于性能优化上，<code>Substring</code>可以重用原<code>String</code>的内存空间，或者另一个<code>Substring</code>的内存空间（String也有同样地优化，但如果两个String共享内存的话，它们就会相等）。这一优化意味着在修改<code>String</code>和<code>Substring</code>之前都不需要消耗性能去复制内存。就像前面说的那样，<code>Substring</code>不适合长期存储，因为其重用了原<code>String</code>的内存空间，原<code>String</code>的呢粗黁空间必须保留直到它的<code>Substring</code>不再被使用为止。</p>
 <p>上述例子中，<code>niceGreeting</code>是一个<code>String</code>，意味着它在内存里有一片空间保存字符集。而由于<code>beginning</code>是<code>niceGreeting</code>的<code>Substring</code>，它重用了<code>niceGreeting</code>的内存空间。相反，<code>newString</code>是一个<code>String</code>，其是使用<code>Substring</code>创建的，拥有一片自己的内存空间。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/stringSubstring.png" alt="String substring"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/stringSubstring.png" alt="String substring"></p>
 <blockquote>
 <p><strong>注意</strong></p>
 <p>String和Substring都遵循StringProtocol协议，这意味着操作字符串的函数使用StringProtocol会更加方便。可以传入String或Substring去调用函数。</p>

@@ -7,13 +7,13 @@
     <meta name="description" content="A simple homepage of Jensen Zhang.">
     <meta name="author" content='Jensen Zhang'>
 
-    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/homepage_css2.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/buttonsstyle.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/buttonsstyle.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
 
-    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/backbutton.js"></script>
-    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/busuanzi.pure.mini.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/busuanzi.pure.mini.js"></script>
 
     
     <script>
@@ -37,7 +37,7 @@
         }
         }
     </script>
-    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/he-simple-common-v2.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/qweather/he-simple-common-v2.0.2.js"></script>
     
 
     
@@ -55,7 +55,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/search-v1.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/search-v1.3.js"></script>
 
     
     <script id="search-result-template" type="text/x-js-template">
@@ -113,7 +113,7 @@
 <div class="container mt-5" style="text-align: right;">
     
     <div style="display: inline-flex; background-color: #1f71e0;">
-        <div id="he-plugin-simple"></div>
+        <div style="z-index: 9999;"><div id="he-plugin-simple"></div></div>
     </div>
     
     <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
@@ -147,7 +147,7 @@
                         <span class="nav-item navbar-text mx-1">/</span>
                     
                 
-                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resume_of_Jensen.pdf" title="Resume/CV">
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resumes/Resume_of_Jensen.pdf" title="Resume/CV">
                         Resume/CV
                     </a>
                     
@@ -167,7 +167,7 @@
     <hr>
     
     
-    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/collectiontype.png" alt="Logo"/></p>
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/collectiontype.png" alt="Logo"/></p>
     <hr>
     
     
@@ -182,7 +182,7 @@
     <br>
     
     <p><code>Swift</code>语言提供数组（Array）、集合（Set）和字典（Dictionary）三种基本的集合类型来存储集合数据。<strong>数组是有序数据的集。集合是无序无重复数据的集。字典是无序的键值对的集</strong>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/CollectionTypes_intro.png" alt="Collection Type Intro"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/CollectionTypes_intro.png" alt="Collection Type Intro"></p>
 <p><code>Swift</code>中的数组、集合和字典必须明确其中保存的键和值类型，这样就可以避免插入一个错误数据类型的值。同理，对于获取到的值也可以放心，其数据类型是确定的。</p>
 <blockquote>
 <p><strong>注意</strong></p>
@@ -452,7 +452,7 @@
 <h2 id="集合操作">集合操作</h2>
 <p>可以高效地完成集合的一些基本操作，比如把两个集合组合到一起，判断两个集合的共有元素，或者判断两个集合是否全包含，部分包含或者不相交。</p>
 <h3 id="基本集合操作">基本集合操作</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/setVennDiagram.png" alt="SetVennDiagram"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/setVennDiagram.png" alt="SetVennDiagram"></p>
 <ul>
 <li>使用<code>intersection(_:)</code>方法根据两个集合的交集创建一个新的集合。</li>
 <li>使用<code>symmetricDifference(_:)</code>方法根据两个集合不相交的值创建一个新的集合。</li>
@@ -473,7 +473,7 @@
 </span></span><span style="display:flex;"><span>SubTracting: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">9</span>]
 </span></span><span style="display:flex;"><span>SymmetricDifference: [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">9</span>]
 </span></span></code></pre></div><h3 id="集合成员关系和相等">集合成员关系和相等</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/Jen-Jon.github.io/images/setEulerDiagram.png" alt="SetEulerDiagram"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/setEulerDiagram.png" alt="SetEulerDiagram"></p>
 <ul>
 <li>使用“是否相等”运算符<code>==</code>来判断两个集合包含的值是否相同。</li>
 <li>使用<code>isSubset(of:)</code>方法来判断一个集合中的所有值是否也被包含在另外一个集合中。</li>
