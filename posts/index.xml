@@ -66,6 +66,13 @@
     </item>
     <item>
       <title>Python基础</title>
+      <link>https://jen-jon.github.io/posts/20211229/</link>
+      <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://jen-jon.github.io/posts/20211229/</guid>
+      <description>函数知识点汇总 调用函数 Python内置了很多有用的函数可以直接调用。 要掉用一个函数需要知道函数的名称与参数，可以从Python的官方网站查看文档，也可以通过help函数查询帮助信息，如help(abs</description>
+    </item>
+    <item>
+      <title>Python基础</title>
       <link>https://jen-jon.github.io/posts/pythonbasic/</link>
       <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
       <guid>https://jen-jon.github.io/posts/pythonbasic/</guid>
