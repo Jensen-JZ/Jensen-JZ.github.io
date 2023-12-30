@@ -142,13 +142,6 @@
       <description>运算符是检查、改变、合并值的特殊符号或短语。例如，加号+将两个数组相加（如let i = 1 + 2）。更复杂的运算例子包括逻辑与运算符&amp;amp;&amp;amp;（如if enteredDoorCode &amp;amp;&amp;amp; passedRetinaScan）。 Swi</description>
     </item>
     <item>
-      <title>Swift学习(3)-基本运算符（代码完善版）</title>
-      <link>https://jen-jon.github.io/posts/swiftbasicop/</link>
-      <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jen-jon.github.io/posts/swiftbasicop/</guid>
-      <description>运算符是检查、改变、合并值的特殊符号或短语。例如，加号+将两个数组相加（如let i = 1 + 2）。更复杂的运算例子包括逻辑与运算符&amp;amp;&amp;amp;（如if enteredDoorCode &amp;amp;&amp;amp; passedRetinaScan）。 Swi</description>
-    </item>
-    <item>
       <title>Swift学习(2)-基础部分（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/20210807/</link>
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
@@ -157,9 +150,9 @@
     </item>
     <item>
       <title>Swift学习(1)-初•见（代码完善版）</title>
-      <link>https://jen-jon.github.io/posts/swiftfirst/</link>
+      <link>https://jen-jon.github.io/posts/20210804/</link>
       <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jen-jon.github.io/posts/swiftfirst/</guid>
+      <guid>https://jen-jon.github.io/posts/20210804/</guid>
       <description>Swift简介 Swift是美国苹果公司推出的编程语言，专门针对苹果桌面操作系统macOS和苹果移动操作系统iOS、iPadOS以及watchOS和tvOS的应用开发。Swift 在各个方面优于 Obje</description>
     </item>
     <item>
