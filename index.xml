@@ -135,13 +135,6 @@
       <description>字符串是一系列字符的集合，例如“Hello, world”，“albatross”。Swift的字符串通过String类型来表示。而String内容的访问方式有多种，例如以Character值的集合。 S</description>
     </item>
     <item>
-      <title>Swift学习(5)-字符串和字符（代码完善版）</title>
-      <link>https://jen-jon.github.io/posts/stringschars/</link>
-      <pubDate>Fri, 13 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jen-jon.github.io/posts/stringschars/</guid>
-      <description>字符串是一系列字符的集合，例如“Hello, world”，“albatross”。Swift的字符串通过String类型来表示。而String内容的访问方式有多种，例如以Character值的集合。 S</description>
-    </item>
-    <item>
       <title>Swift学习(4)-高级运算符（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/20210812/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
