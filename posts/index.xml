@@ -86,6 +86,13 @@
       <description>枚举为一组相关的值定义了一个共同的类型。使得能够在代码中以类型安全的方式来使用这些值。 如果熟悉C语言，会知道在C语言中，枚举会为一组整型值分配相关联的名称。Swift中的枚举更加灵活，不必给每一个枚举</description>
     </item>
     <item>
+      <title>Swift学习(10)-枚举（代码完善版）</title>
+      <link>https://jen-jon.github.io/posts/enumerations/</link>
+      <pubDate>Wed, 25 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jen-jon.github.io/posts/enumerations/</guid>
+      <description>枚举为一组相关的值定义了一个共同的类型。使得能够在代码中以类型安全的方式来使用这些值。 如果熟悉C语言，会知道在C语言中，枚举会为一组整型值分配相关联的名称。Swift中的枚举更加灵活，不必给每一个枚举</description>
+    </item>
+    <item>
       <title>Swift学习(9)-闭包（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/20210823/</link>
       <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
