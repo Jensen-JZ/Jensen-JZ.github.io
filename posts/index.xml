@@ -93,13 +93,6 @@
       <description>闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift中的闭包与C和Objective-C中的代码块（blocks）以及Python语言中的匿名函数（Lambdas）比较相似。 闭包可以捕获和存</description>
     </item>
     <item>
-      <title>Swift学习(9)-闭包（代码完善版）</title>
-      <link>https://jen-jon.github.io/posts/closures/</link>
-      <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jen-jon.github.io/posts/closures/</guid>
-      <description>闭包是自包含的函数代码块，可以在代码中被传递和使用。Swift中的闭包与C和Objective-C中的代码块（blocks）以及Python语言中的匿名函数（Lambdas）比较相似。 闭包可以捕获和存</description>
-    </item>
-    <item>
       <title>Swift学习(8)-函数（代码完善版）</title>
       <link>https://jen-jon.github.io/posts/function/</link>
       <pubDate>Sun, 22 Aug 2021 00:00:00 +0000</pubDate>
@@ -112,6 +105,13 @@
       <pubDate>Sat, 21 Aug 2021 00:00:00 +0000</pubDate>
       <guid>https://jen-jon.github.io/posts/controlflow/</guid>
       <description>Swift提供了多种流程控制结构，包括可以多次执行任务的while循环，基于特定条件选择执行不同代码分支的if、guard和switch语句，还有控制流程跳转到其他代码位置的break和continu</description>
+    </item>
+    <item>
+      <title>Swift学习(6)-集合类型（代码完善版）</title>
+      <link>https://jen-jon.github.io/posts/20210820/</link>
+      <pubDate>Fri, 20 Aug 2021 00:00:00 +0000</pubDate>
+      <guid>https://jen-jon.github.io/posts/20210820/</guid>
+      <description>Swift语言提供数组（Array）、集合（Set）和字典（Dictionary）三种基本的集合类型来存储集合数据。数组是有序数据的集。集合是无序无重复数据的集。字典是无序的键值对的集。 Swift中的</description>
     </item>
     <item>
       <title>Swift学习(6)-集合类型（代码完善版）</title>
