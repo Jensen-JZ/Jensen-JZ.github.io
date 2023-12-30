@@ -143,9 +143,9 @@
     </item>
     <item>
       <title>Swift学习(3)-基本运算符（代码完善版）</title>
-      <link>https://jen-jon.github.io/posts/swiftbasicop/</link>
+      <link>https://jen-jon.github.io/posts/20210810/</link>
       <pubDate>Tue, 10 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jen-jon.github.io/posts/swiftbasicop/</guid>
+      <guid>https://jen-jon.github.io/posts/20210810/</guid>
       <description>运算符是检查、改变、合并值的特殊符号或短语。例如，加号+将两个数组相加（如let i = 1 + 2）。更复杂的运算例子包括逻辑与运算符&amp;amp;&amp;amp;（如if enteredDoorCode &amp;amp;&amp;amp; passedRetinaScan）。 Swi</description>
     </item>
     <item>
