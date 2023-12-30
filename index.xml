@@ -136,9 +136,9 @@
     </item>
     <item>
       <title>Swift学习(4)-高级运算符（代码完善版）</title>
-      <link>https://jen-jon.github.io/posts/advancedop/</link>
+      <link>https://jen-jon.github.io/posts/20210812/</link>
       <pubDate>Thu, 12 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jen-jon.github.io/posts/advancedop/</guid>
+      <guid>https://jen-jon.github.io/posts/20210812/</guid>
       <description>除了之前介绍过的基本运算符，Swift还提供了数种可以对数值进行复杂运算的高级运算符。它们包含了在C和Objective-C中已经被大家所熟知的位运算符和移位运算符。 自定义结构体、类和枚举时，如果也为</description>
     </item>
     <item>
