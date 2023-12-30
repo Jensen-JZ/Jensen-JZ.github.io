@@ -6,15 +6,8 @@
     <description>Recent content in Jensen | Home on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sat, 30 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Oct 2022 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jen-jon.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>测试一下新的模板！！</title>
-      <link>https://jen-jon.github.io/posts/%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B/</link>
-      <pubDate>Sat, 30 Dec 2023 00:00:00 +0000</pubDate>
-      <guid>https://jen-jon.github.io/posts/%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B/</guid>
-      <description>什么是 API 密钥# 在您完成初始化之后可在设置界面修改/创建 API 密钥, 用于 Webhook 中的身份验证。若留空系统会随机生成一个 API 密钥 为什么我新建的文章没有显示 | Qexo 如何保证文件最新# Qexo 为了加快访问速度引进了缓存机制, 你可以</description>
-    </item>
     <item>
       <title>隔离日寄</title>
       <link>https://jen-jon.github.io/posts/20221028/</link>
