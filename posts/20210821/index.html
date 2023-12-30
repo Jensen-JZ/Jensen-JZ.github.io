@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang=""><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Swift学习(7)-控制流（代码完善版）</title>
+    <meta name="description" content="A simple homepage of Jensen Zhang.">
+    <meta name="author" content='Jensen Zhang'>
+
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/homepage_css2.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/buttonsstyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous">
+
+    <script defer src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/backbutton.js"></script>
+    <script async src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/busuanzi.pure.mini.js"></script>
+
+    
+    <script>
+        WIDGET = {
+        "CONFIG": {
+            "modules": "0124",
+            "background": "5",
+            "tmpColor": "fff",
+            "tmpSize": "16",
+            "tmpPadding": "10px",
+            "cityColor": "000",
+            "citySize": "16",
+            "aqiColor": "fff",
+            "aqiSize": "16",
+            "weatherIconSize": "24",
+            "alertIconSize": "18",
+            "padding": "0px",
+            
+            "language": "en",
+            "key": "06a49925209149af84e325a6c7e5c521"
+        }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/qweather/he-simple-common-v2.0.2.js"></script>
+    
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?a4cacad7bf6ee4f58534d26d5b23ad14";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/bloglayouts/search-v1.3.js"></script>
+
+    
+    <script id="search-result-template" type="text/x-js-template">
+        <article id="summary-${key}">
+            <header>
+                <h3><i class="fas fa-file-alt"></i> <a href="${link}">${title}</a></h3>
+                <h4>${date} | ${type} blog | ${tags}</h4>
+            </header>
+            <div>
+                <div>${snippet}...</div>
+                
+                <div class="ReadButton">
+                    <a class="read-more-link ReadButton_a" href="https://jen-jon.github.io/posts/20210821/">
+                        <strong style="color: #fff;">Read More</strong>
+                    </a>
+                </div>
+                
+            </div>
+            <hr>
+        </article>
+    </script>
+
+    
+    <link rel="stylesheet" href="/sass/researcher.min.css">
+
+    
+        <link rel="icon" type="image/ico" href="https://jen-jon.github.io/images/favicon.ico">
+    
+
+    
+        
+    
+</head>
+
+    <body><div id="ukraine" style="background-color: #1f71e0; ">
+    <a class="cba fas fa-window-close" onclick="test()" style="display:block; float:right; width:30px; height:29px;" href="#"></a>
+    <div style="height: 50px; display: flex; text-align: center; justify-content: center; align-items: center;">
+        <div style="margin: 0 10px;">
+            <div style="font-size: 45px;">🇺🇦</div>
+        </div>
+        <div style="margin: 0 10px;">
+            <a style="color: white;" href="/we-stand-with-ukraine">
+                <div style="color: white; font-weight: bold; font-size: large;">We stand with Ukraine!</div>
+                <div style="color: white; font-weight: bold; font-size: large;">我们支持乌克兰！</div>
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    function test() {
+        document.getElementById("ukraine").parentElement.removeChild(document.getElementById("ukraine"));
+    }
+</script>
+
+<div class="container mt-5" style="text-align: right;">
+    
+    <div style="display: inline-flex; background-color: #1f71e0;">
+        <div style="z-index: 9999;"><div id="he-plugin-simple"></div></div>
+    </div>
+    
+    <nav class="navbar navbar-expand-sm flex-column flex-sm-row text-nowrap p-0">
+        <a class="navbar-brand mx-0 mr-sm-auto" href="https://jen-jon.github.io/" title="Jensen&#39;s Homepage">
+          
+          <i class="fas fa-home"></i>
+          Jensen&#39;s Homepage
+        </a>
+        <div class="navbar-nav flex-row flex-wrap justify-content-center">
+            
+                
+                
+                    <a class="nav-item nav-link" href="/about" title="About">
+                        About
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/posts" title="Posts">
+                        Posts
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="/mediatest" title="Media">
+                        Media
+                    </a>
+                    
+                        <span class="nav-item navbar-text mx-1">/</span>
+                    
+                
+                    <a class="nav-item nav-link" href="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/Resumes/Resume_of_Jensen.pdf" title="Resume/CV">
+                        Resume/CV
+                    </a>
+                    
+                
+            
+        </div>
+    </nav>
+</div>
+<hr><div id="content">
+<div class="container">
+    
+    <h1 style="color: #1f71e0;">Swift学习(7)-控制流（代码完善版）</h1>
+    
+    <h5>Posted by <a href="https://jen-jon.github.io/">Jensen Zhang</a> on <em>August 21, 2021</em> | <spa id="busuanzi_container_page_pv"><i class="fas fa-eye"></i> <em><span id="busuanzi_value_page_pv"></span></em> readings</span> </h5>
+    
+    <h5>This article is about <em style="color: #1f71e0;">13190</em> words and may take <em style="color: #1f71e0;">27</em> minutes to read.</h5>
+    <hr>
+    
+    
+    <p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/controlflow.png" alt="Logo"/></p>
+    <hr>
+    
+    
+    <blockquote>
+        <p><strong>Type: technology blog</strong></p>
+        <p><strong>Tags: iOS; Swift; Apple</strong></p>
+    </blockquote>
+    <hr>
+    
+    
+    <h1 style="color: #1f71e0;">Content</h1>
+    <br>
+    
+    <p><code>Swift</code>提供了多种流程控制结构，包括可以多次执行任务的<code>while</code>循环，基于特定条件选择执行不同代码分支的<code>if</code>、<code>guard</code>和<code>switch</code>语句，还有控制流程跳转到其他代码位置的<code>break</code>和<code>continue</code>语句。</p>
+<p><code>Swift</code>还提供了<code>for-in</code>循环，用来更简单地遍历数组（Array），字典（Dictionary），区间（Range），字符串（String）和其他序列类型。</p>
+<p><code>Swift</code>的<code>switch</code>语句比许多类<code>C</code>语言要更加强大。<code>case</code>还可以匹配很多不同的模式，包括范围匹配，元组（tuple）和特定类型匹配。<code>switch</code>语句的<code>case</code>中匹配的值可以声明为临时常量或变量，在<code>case</code>作用域内使用，也可以配合<code>where</code>来描述更复杂的恶匹配条件。</p>
+<hr>
+<h2 id="for-in循环">For-In循环</h2>
+<p>可以使用<code>for-in</code>循环来遍历一个集合中的所有元素，例如数组中的元素、范围内的数字或者字符串中的字符。</p>
+<p>以下例子使用<code>for-in</code>遍历一个数组中的所有元素：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> names = [<span style="color:#e6db74">&#34;Anna&#34;</span>, <span style="color:#e6db74">&#34;Alex&#34;</span>, <span style="color:#e6db74">&#34;Brian&#34;</span>, <span style="color:#e6db74">&#34;Jack&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> name <span style="color:#66d9ef">in</span> names {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Hello, </span><span style="color:#e6db74">\(</span>name<span style="color:#e6db74">)</span><span style="color:#e6db74">!&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// Hello, Anna!  // Hello, Alex!  // Hello, Brian!  // Hello, Jack!</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Hello, Anna!
+</span></span><span style="display:flex;"><span>Hello, Alex!
+</span></span><span style="display:flex;"><span>Hello, Brian!
+</span></span><span style="display:flex;"><span>Hello, Jack!
+</span></span></code></pre></div><p>也可以通过遍历一个字典来访问它的键值对。遍历字典时，字典的每项元素会以<code>(Key, Value)</code>元组的形式返回，可以在<code>for-in</code>循环中使用显式的常量名称来解读该元组。下面的例子中，字典的键会被声明为<code>animalName</code>常量，字典的值会被声明为<code>legCount</code>常量：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> numberOfLegs = [<span style="color:#e6db74">&#34;Spider&#34;</span>: <span style="color:#ae81ff">8</span>, <span style="color:#e6db74">&#34;Ant&#34;</span>: <span style="color:#ae81ff">6</span> , <span style="color:#e6db74">&#34;Cat&#34;</span>: <span style="color:#ae81ff">4</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (animalName, legCount) <span style="color:#66d9ef">in</span> numberOfLegs {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>animalName<span style="color:#e6db74">)</span><span style="color:#e6db74"> has </span><span style="color:#e6db74">\(</span>legCount<span style="color:#e6db74">)</span><span style="color:#e6db74"> legs!&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// Cat has 4 legs!  // Ant has 6 legs!  // Spider has 8 legs!</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Ant has <span style="color:#ae81ff">6</span> legs!
+</span></span><span style="display:flex;"><span>Cat has <span style="color:#ae81ff">4</span> legs!
+</span></span><span style="display:flex;"><span>Spider has <span style="color:#ae81ff">8</span> legs!
+</span></span></code></pre></div><p>字典的内用理论上是无序的，遍历元素时的顺序是无法确定的。将元素插入字典的顺序并不会决定它们被遍历的顺序。</p>
+<p><code>for-in</code>循环还可以使用数字范围。下面的例子用来输出乘法表的一部分内容。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> index <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1.</span>..<span style="color:#ae81ff">5</span> {  <span style="color:#75715e">// 默认循环中的index是常量，其值不可以在循环中被更改。若使用变量可以 for var index in 1...5 {}</span>
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>index<span style="color:#e6db74">)</span><span style="color:#e6db74"> times 5 is </span><span style="color:#e6db74">\(</span>index <span style="color:#f92672">*</span> <span style="color:#ae81ff">5</span><span style="color:#e6db74">)</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 1 times 5 is 5  // 2 times 5 is 10  // 3 times 5 is 15  // 4 times 5 is 20  // 5 times 5 is 25</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#ae81ff">1</span> times <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> times <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> times <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span> times <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">5</span> times <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">25</span>
+</span></span></code></pre></div><p>例子中用来进行遍历的元素是使用闭区间操作符<code>...</code>表示从1到5的数字区间。<code>index</code>被赋值为闭区间中的第一个数字（1），然后循环中的语句被执行一次。在本例中 ，这个循环只包含一个语句，用来输出当前<code>index</code>值所对应的乘5乘法表的结果。该语句执行后，<code>index</code>的值被更新为闭区间中第二个数字（2），之后<code>print(_:separator:terminator:)</code>函数会再执行一次。整个过程会进行到闭区间的结尾为止。</p>
+<p>上面的例子中，<code>index</code>是一个每次循环遍历开始时被自动赋值的常量。这种情况下，<code>index</code>在使用前不需要声明，只需要将其包含在循环的声明中，就可以对其进行隐式声明，而无需使用<code>let</code>关键字声明。</p>
+<p>如果不需要区间序列内的每一项值，可以使用下划线<code>_</code>替代变量名来忽略这个值：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> base = <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> power = <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> answer = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#66d9ef">_</span> <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">1.</span>..power {
+</span></span><span style="display:flex;"><span>    answer <span style="color:#f92672">*=</span> base
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>base<span style="color:#e6db74">)</span><span style="color:#e6db74"> to the power of </span><span style="color:#e6db74">\(</span>power<span style="color:#e6db74">)</span><span style="color:#e6db74"> is </span><span style="color:#e6db74">\(</span>answer<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 输出&#34;3 to the power of 10 is 59049.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#ae81ff">3</span> to the power of <span style="color:#ae81ff">10</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">59049.</span>
+</span></span></code></pre></div><p>这个例子计算<code>base</code>这个数的<code>power</code>次幂（本例中，是3的10次幂），从1（3的0次幂）开始做3的乘法，进行10次，使用1到10的闭区间循环。这个计算并不需要知道每一次循环中计数器的具体的值，只需要执行了正确的循环次数即可。下划线符号<code>_</code>（替代循环中的变量）能够忽略当前值，并不提供循环遍历时对值的访问。</p>
+<p>在某些情况下，可能不想使用包括两个端点的闭区间。想象一下，在一个手表上绘制分钟的刻度线。总共60个刻度，从0开始。可以使用半开区间运算符<code>..&lt;</code>来表示一个左闭右开的区间。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> minutes = <span style="color:#ae81ff">60</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> tickMark <span style="color:#66d9ef">in</span> <span style="color:#ae81ff">0.</span>.&lt;minutes {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 每一分钟都渲染一个刻度线</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>一些用户可能在其<code>UI</code>中需要较少的刻度，他们可以使用每5分钟作为一个刻度，使用<code>stride(from:to:by:)</code>函数跳过不需要的标记。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> minuteInterval = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> tickMark <span style="color:#66d9ef">in</span> stride(from: <span style="color:#ae81ff">0</span>, to: minutes, by: minuteInterval) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 每5分钟渲染一个刻度线（0，5，10，15...50，55）</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>可以在闭区间使用<code>stride(from:through:by:)</code>函数起到同样地作用：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hours = <span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> hourInterval = <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> tickMark <span style="color:#66d9ef">in</span> stride(from: <span style="color:#ae81ff">3</span>, through: hours, by: hourInterval) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 每3小时渲染一个刻度线（3，6，9，12）</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>以上示例使用<code>for-in</code>循环来遍历范围、数组、字典和字符串。可以用它们来遍历任何集合，包括实现了<code>Sequence</code>协议的自定义类或者集合类型。</p>
+<p>使用<code>for-in</code>循环遍历集合<code>Set</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> fruitSet: Set&lt;String&gt; = [<span style="color:#e6db74">&#34;Apple&#34;</span>, <span style="color:#e6db74">&#34;Orange&#34;</span>, <span style="color:#e6db74">&#34;Peach&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> fruit <span style="color:#66d9ef">in</span> fruitSet.sorted() {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;I love </span><span style="color:#e6db74">\(</span>fruit<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: I love Apple.
+</span></span><span style="display:flex;"><span>I love Orange.
+</span></span><span style="display:flex;"><span>I love Peach.
+</span></span></code></pre></div><hr>
+<h2 id="while循环">While循环</h2>
+<p><code>while</code>循环会一直运行一段语句直到条件变成<code>false</code>。这类循环适合使用在第一次迭代前，迭代次数未知的情况下。<code>Swift</code>提供两种<code>while</code>循环形式：</p>
+<ul>
+<li><code>while</code>循环，每次在循环开始时计算条件是否符合；</li>
+<li><code>repeat-while</code>循环，每次在循环结束时计算条件是否符合；</li>
+</ul>
+<h3 id="while">while</h3>
+<p><code>while</code>循环从计算一个条件开始，如果条件为<code>true</code>，会重复运行一段语句，直到条件变为<code>false</code>。</p>
+<p>下面是<code>while</code>循环的一般格式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">while condition {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    statements
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">}
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span></code></pre></div><p>下面的例子来玩一个叫做蛇和梯子（也叫做滑道和梯子）的小游戏：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/snakesAndLadders.png" alt="Snakes And Ladders"></p>
+<blockquote>
+<p><strong>游戏规则如下：</strong></p>
+<ul>
+<li>游戏盘面包括 25 个方格，游戏目标是达到或者超过第 25 个方格；</li>
+<li>每一轮，你通过掷一个六面体骰子来确定你移动方块的步数，移动的路线由上图中横向的虚线所示；</li>
+<li>如果在某轮结束，你移动到了梯子的底部，可以顺着梯子爬上去；</li>
+<li>如果在某轮结束，你移动到了蛇的头部，你会顺着蛇的身体滑下去。</li>
+</ul>
+</blockquote>
+<p>游戏盘面可以用一个<code>Int</code>数组来表达，数组的长度由一个<code>finalSquare</code>常量存储，用来初始化数组和检测最终胜利的条件。游戏盘面由26个<code>Int</code> 0值初始化，而不是25个（由0到25，一共26个）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> finalSquare = <span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> board = [Int](repeating: <span style="color:#ae81ff">0</span>, count: finalSquare <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 一些方格被设置成特定的值来表示有蛇或者有梯子。梯子底部的方格是一个正值使得可以向上移动，蛇头处的方格是一个负值，会让向下移动：</span>
+</span></span><span style="display:flex;"><span>board[<span style="color:#ae81ff">03</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">08</span>; board[<span style="color:#ae81ff">06</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">11</span>; board[<span style="color:#ae81ff">09</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">09</span>; board[<span style="color:#ae81ff">10</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">02</span>
+</span></span><span style="display:flex;"><span>board[<span style="color:#ae81ff">14</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>; board[<span style="color:#ae81ff">19</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">11</span>; board[<span style="color:#ae81ff">22</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">02</span>; board[<span style="color:#ae81ff">24</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">08</span>
+</span></span></code></pre></div><p>3号方格是梯子的底部，会让向上移动到11号方格，使用<code>board[03]</code>等于<code>+08</code>来表示11和3之间的差值。为了对齐语句，这里使用了一元正运算符<code>+i</code>和一元负运算符<code>-i</code>，并且小于10的数字都是用0补齐，这些语法的技巧并不是必要的，只是为了让代码看起来更加整洁。</p>
+<p>玩家由左下角空白处编号为0的方格开始游戏，玩家第一次掷骰子后才会进入到游戏盘面：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> square = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> diceRoll = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> square <span style="color:#f92672">&lt;</span> finalSquare {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 掷骰子</span>
+</span></span><span style="display:flex;"><span>    diceRoll <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> diceRoll == <span style="color:#ae81ff">7</span> { diceRoll = <span style="color:#ae81ff">1</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 根据点数移动</span>
+</span></span><span style="display:flex;"><span>    square <span style="color:#f92672">+=</span> diceRoll
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> square <span style="color:#f92672">&lt;</span> board.count {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// 顺着梯子爬上去或者顺着🐍滑下来</span>
+</span></span><span style="display:flex;"><span>        square <span style="color:#f92672">+=</span> board[square]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    print(square, terminator: <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Game Over!&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">18</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">27</span> Game Over!
+</span></span></code></pre></div><p>本例中使用了最简单的方法来模拟掷骰子。<code>diceRoll</code>的值并不是一个随机数，而是以0为初始值，之后每一次<code>while</code>循环，<code>diceRoll</code>的值增加1，然后检测是否超出了最大值。当 <code>diceRoll</code>的值等于7时，就超过了骰子的最大值，会被重置为1。所以<code>diceRoll</code>的取值顺序会一直是1，2，3，4，5，6，1，2等。</p>
+<p>掷完骰子后，玩家向前移动<code>diceRoll</code>个方格，如果玩家移动超过了第25个方格，这个时候游戏将会结束。为了应对这种情况，代码会首先判断<code>square</code>的值是否小于<code>board</code>的<code>count</code>属性，只有小于才会在<code>board[square]</code>上增加<code>square</code>来向前或向后移动。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>如果没有这个检测（square &lt; board.count），board[square]可能会越界访问<code>board</code>数组导致运行时的错误。</p>
+<p>当本轮<code>while</code>循环运行完毕，会再检测循环条件是否需要再运行一次循环。如果玩家移动到或者超过第25个方格，循环条件结果为<code>false</code>，此时游戏结束。<code>while</code>循环比较适合本例中的这种情况，因为在<code>while</code>循环开始时，我们并不知道游戏要跑多久，只有在达成指定条件时循环才会结束。</p>
+</blockquote>
+<h3 id="repeat-while">Repeat-While</h3>
+<p><code>while</code>循环的另外一种形式是<code>repeat-while</code>，它和<code>while</code>的区别是在判断循环条件之前先执行一次循环的代码块，然后重复循环直到条件为<code>false</code>。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>Swift语言的repeat-while循环和其他语言中的do-while循环是类似的。</p>
+</blockquote>
+<p>下面是<code>repeat-while</code>循环的一般格式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> repeat {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     statements
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> } while condition
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span>
+</span></span></code></pre></div><p>还是蛇和梯子的游戏，使用<code>repeat-while</code>循环来替代<code>while</code>循环，<code>finalSquare</code>、<code>board</code>、<code>square</code>和<code>diceRoll</code>的值初始化同<code>while</code>循环时一样：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> FinalSquare = <span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> boards = [Int](repeating: <span style="color:#ae81ff">0</span>, count: FinalSquare <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>boards[<span style="color:#ae81ff">03</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">08</span>; boards[<span style="color:#ae81ff">06</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">11</span>; boards[<span style="color:#ae81ff">09</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">09</span>; boards[<span style="color:#ae81ff">10</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">02</span>
+</span></span><span style="display:flex;"><span>boards[<span style="color:#ae81ff">14</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>; boards[<span style="color:#ae81ff">19</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">11</span>; boards[<span style="color:#ae81ff">22</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">02</span>; boards[<span style="color:#ae81ff">24</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">08</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> Square = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> DiceRoll = <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p><code>repeat-while</code>的循环版本，循环中第一步就需要去检测是否在梯子或者蛇的方块上，没有梯子会让玩家直接上到第25个方格，所以玩家不会通过梯子直接赢得游戏，这样在循环开始时先检测是否踩在梯子或者蛇上是安全的。</p>
+<p>游戏开始时，玩家在第 0 个方格上，board[0] 一直等于 0， 不会有什么影响：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">repeat</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 顺着梯子爬上去或者顺着蛇滑下去</span>
+</span></span><span style="display:flex;"><span>    Square <span style="color:#f92672">+=</span> boards[Square]
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 掷骰子</span>
+</span></span><span style="display:flex;"><span>    DiceRoll <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> DiceRoll == <span style="color:#ae81ff">7</span> { DiceRoll = <span style="color:#ae81ff">1</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 根据点数移动</span>
+</span></span><span style="display:flex;"><span>    Square <span style="color:#f92672">+=</span> DiceRoll
+</span></span><span style="display:flex;"><span>    print(Square, terminator: <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">while</span> Square <span style="color:#f92672">&lt;</span> FinalSquare
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Game Over!&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">3</span> <span style="color:#ae81ff">14</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">19</span> <span style="color:#ae81ff">9</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">27</span> Game Over!
+</span></span></code></pre></div><p>检测完玩家是否踩在梯子或者蛇上之后，开始掷骰子，然后玩家向前移动<code>diceRoll</code>个方格，本轮循环结束。</p>
+<p>循环条件（while Square &lt; FinalSquare）和<code>while</code>方式相同，但是只会在循环结束后进行计算。在这个游戏中，<code>repeat-while</code>表现得比<code>while</code>循环更好。<code>repeat-while</code>方式会在条件判断<code>Square</code>没有超出后直接运行<code>Square += boards[Square]</code>，这种方式比起前面<code>while</code>循环的版本，可以省去数组越界的检查。</p>
+<hr>
+<h2 id="条件语句">条件语句</h2>
+<p>根据特定的条件执行的代码通常都是十分有用的。当错误发生时，开发者可能想运行额外的代码；或者，当值太大或太小时，向用户显示一条消息。要实现这些功能，就需要使用条件语句。</p>
+<p><code>Swift</code>提供两种类型的条件语句：<code>if</code>语句和<code>switch</code>语句。通常，当条件为简单且可能情况很少时，使用<code>if</code>语句。而<code>switch</code>语句更适用于当条件复杂、有更多排列组合的时候。并且<code>switch</code>在需要用到模式匹配（Pattern-Matching）的情况下会更有用。</p>
+<h3 id="if">If</h3>
+<p><code>if</code>语句最简单的形式就是只包含一个条件，只有该条件为<code>true</code>时，才执行相关代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> temperatureInFahrenheit = <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> temperatureInFahrenheit <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">32</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;It&#39;s very cold! Consider wearing a scarf.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 输出&#34;It&#39;s very cold! Consider wearing a scarf.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: It<span style="color:#960050;background-color:#1e0010">&#39;</span>s very cold! Consider wearing a scarf.
+</span></span></code></pre></div><p>上面的例子会判断温度是否小于等于32华氏度（水的冰点）。如果是，则打印一条消息；否则，不打印任何消息，继续执行if代码块后面的代码。</p>
+<p>当然，<code>if</code>语句允许二选一执行，叫做<code>else</code>从句。也就是当条件为<code>false</code>时，执行<code>else</code>语句：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>temperatureInFahrenheit = <span style="color:#ae81ff">40</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> temperatureInFahrenheit <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">32</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;It&#39;s very cold! Consider wearing a scarf.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;It&#39;s not that cold. Wear a t-shirt.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 输出&#34;It&#39;s not that cold. Wear a t-shirt.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: It<span style="color:#960050;background-color:#1e0010">&#39;</span>s not that cold. Wear a t<span style="color:#f92672">-</span>shirt.
+</span></span></code></pre></div><p>显然，这两条分支中总有一条会被执行。由于温度已升至40华氏度，不算太冷，没必要再围围巾。因此，<code>else</code>分支就被触发了。</p>
+<p>可以把多个<code>if</code>语句链接在一起，来实现更多分支：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>temperatureInFahrenheit = <span style="color:#ae81ff">90</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> temperatureInFahrenheit <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">32</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;It&#39;s very cold. Consider wearing a scarf.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> temperatureInFahrenheit <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">86</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;It&#39;s really warm. Don&#39;t forget to wear sunscreen.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;It&#39;s not that cold. Wear a t-shirt.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 输出“It&#39;s really warm. Don&#39;t forget to wear sunscreen.”</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: It<span style="color:#960050;background-color:#1e0010">&#39;</span>s really warm. Don<span style="color:#960050;background-color:#1e0010">&#39;</span>t forget to wear sunscreen.
+</span></span></code></pre></div><p>在上面的例子中，额外的<code>if</code>语句用于判断是不是特别热。而最后的<code>else</code>语句被保留了下来，用于打印既不冷也不热时的消息。</p>
+<p>实际上，当不需要完整判断情况的时候，最后的<code>else</code>语句是可选的：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>temperatureInFahrenheit = <span style="color:#ae81ff">72</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> temperatureInFahrenheit <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">32</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;It&#39;s very cold. Consider wearing a scarf.&#34;</span>)
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> temperatureInFahrenheit <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">86</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;It&#39;s really warm. Don&#39;t forget to wear sunscreen.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>在这个例子中，由于既不冷也不热，所以不会触发if或else if分支，也就不会打印任何消息。</p>
+<h3 id="switch">Switch</h3>
+<p><code>switch</code>语句会尝试把某个值与若干个模式（pattern）进行匹配，根据第一个匹配成功的模式，<code>switch</code>语句会执行对应的代码。当有可能的情况较多时，通常用<code>switch</code>语句替换<code>if</code>语句。</p>
+<p><code>switch</code>语句最简单的形式就是把某个值与一个或若干个相同类型的值做比较：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> switch some value to consider {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> case value 1:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     respond to value 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> case value 2, value 3:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     respond to value 2 or 3
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     default:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     otherwise, do something else
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span></code></pre></div><p><code>switch</code>语句由多个<code>case</code>构成，每个由<code>case</code>关键字开始，为了匹配某些更特定的值，<code>Swift</code>提供了几种方法来进行更复杂的模式匹配，这些模式将在本节的稍后部分提到。</p>
+<p>与<code>if</code>语句类似，每一个<code>case</code>都是代码执行的一条分支，<code>switch</code>语句会决定哪一条分支应该被执行，这个流程被称作根据给定的值切换（Switching）。</p>
+<p><code>switch</code>语句必须是完备的。这就是说，每一个可能的值都必须至少有一个<code>case</code>分支与之对应。在某些不可能涵盖所有值的情况下，可以使用默认（default）分支来涵盖其他所有没有对应的值，这个默认分支必须在<code>switch</code>语句的<strong>最后面</strong>。</p>
+<p>下面的例子使用<code>switch</code>语句了匹配一个名为<code>someCharacter</code>的小写字符：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> someCharacter: Character = <span style="color:#e6db74">&#34;z&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> someCharacter {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;a&#34;</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The 1st letter of the alphabet.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;z&#34;</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The last letter of the alphabet.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Some other character.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 输出&#34;The last letter of the alphaet.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The last letter of the alphabet.
+</span></span></code></pre></div><p>在这个例子中，第一个<code>case</code>分支用于匹配第一个英文字母<code>a</code>，第二个<code>case</code>分支用于匹配最后一个字母<code>z</code>。因为<code>switch</code>语句必须有一个<code>case</code>分支用于覆盖所有可能的字符，而不仅仅是所有的英文字母，所以<code>switch</code>语句使用<code>default</code>分支来匹配除了<code>a</code>和<code>z</code>外的所有值，这个分支保证了<code>switch</code>语句的完备性。</p>
+<h3 id="不存在隐式的贯穿">不存在隐式的贯穿</h3>
+<p>与<code>C</code>和<code>Objective-C</code>中的<code>switch</code>语句不同，在<code>Swift</code>中，当匹配的<code>case</code>分支中的代码执行完毕后，程序会终止<code>switch</code>语句，而不会继续执行下一个<code>case</code>分支。也就是说，不需要在<code>case</code>分支中显式地使用<code>break</code>语句，这使得<code>switch</code>语句更安全更易用，也避免了漏写<code>break</code>语句导致多个<code>case</code>分支被执行的错误。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>虽然在Swift中break不是必须的，但是依然可以在case分支中的代码执行完毕前使用break跳出。</p>
+</blockquote>
+<p>每一个<code>case</code>分支都必须包含至少一条语句。向下面这样书写代码是无效的，因为第一个<code>case</code>分支是空的：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> anotherCharacter: Character = <span style="color:#e6db74">&#34;a&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> anotherCharacter {
+</span></span><span style="display:flex;"><span><span style="color:#75715e">//case &#34;a&#34;: // 无效，这个分支下面没有语句，若取消注释则报错&#39;case&#39; label in a &#39;switch&#39; should have at least one executable statement</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;A&#34;</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The letter A.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Not the letter A.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Not the letter A.
+</span></span></code></pre></div><p>不像<code>C</code>语言里的<code>switch</code>语句，在<code>Swift</code>中，<code>switch</code>语句不会一起匹配“A”和“a”。避免了意外地从一个<code>case</code>分支贯穿到另外一个，使得代码更安全、也更直观。</p>
+<p>为了让单个<code>case</code>同时匹配<code>a</code>和<code>A</code>，可以将这两个值组合成一个复合匹配，并且用逗号分开。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> AnotherCharacter: Character = <span style="color:#e6db74">&#34;a&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> AnotherCharacter {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;A&#34;</span>, <span style="color:#e6db74">&#34;a&#34;</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The letter A.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Not the letter A.&#34;</span>)  <span style="color:#75715e">// 输出&#34;The letter A.&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The letter A.
+</span></span></code></pre></div><p>为了可读性，复合匹配可以写成多行形式。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>如果想要显式贯穿case分支，请使用fallthrough语句</p>
+</blockquote>
+<h3 id="区间匹配">区间匹配</h3>
+<p><code>case</code>分支的模式也可以是一个值的区间，下面的例子展示了如何使用区间匹配来输出任意数字对应的自然语言格式：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> approximateCount = <span style="color:#ae81ff">62</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> countedThings = <span style="color:#e6db74">&#34;Moons orbiting Saturn&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span> naturalCount: String
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> approximateCount {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>    naturalCount = <span style="color:#e6db74">&#34;no&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1.</span>.&lt;<span style="color:#ae81ff">5</span>:
+</span></span><span style="display:flex;"><span>    naturalCount = <span style="color:#e6db74">&#34;a few&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#ae81ff">5.</span>.&lt;<span style="color:#ae81ff">12</span>:
+</span></span><span style="display:flex;"><span>    naturalCount = <span style="color:#e6db74">&#34;servel&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#ae81ff">12.</span>.&lt;<span style="color:#ae81ff">100</span>:
+</span></span><span style="display:flex;"><span>    naturalCount = <span style="color:#e6db74">&#34;dozens of&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#ae81ff">100.</span>.&lt;<span style="color:#ae81ff">1000</span>:
+</span></span><span style="display:flex;"><span>    naturalCount = <span style="color:#e6db74">&#34;hundreds of&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>    naturalCount = <span style="color:#e6db74">&#34;many&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;There are </span><span style="color:#e6db74">\(</span>naturalCount<span style="color:#e6db74">)</span><span style="color:#e6db74"> </span><span style="color:#e6db74">\(</span>countedThings<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 输出&#34;There are dozens of Moons orbiting Saturn.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: There are dozens of Moons orbiting Saturn.
+</span></span></code></pre></div><p>在上例中，<code>approximateCount</code>在一个<code>switch</code>声明中被评估。每一个<code>case</code>都与之进行比较。因为<code>approximateCount</code>落到了12和100的区间，所以<code>naturalCount</code>等于“dozens of”值，并且此后的执行跳出了<code>switch</code>语句。</p>
+<h3 id="元组">元组</h3>
+<p>可以使用元组在同一个<code>switch</code>语句中测试多个值，元组中的元素可以是值，也可以是区间。另外，使用下划线<code>_</code>来匹配所有可能的值。</p>
+<p>下面的例子展示了如何使用一个(Int, Int)类型的元组类分类下图中的点(x, y)：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> somePoint = (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> somePoint {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> (<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>somePoint<span style="color:#e6db74">)</span><span style="color:#e6db74"> is at the origin.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> (<span style="color:#66d9ef">_</span>, <span style="color:#ae81ff">0</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>somePoint<span style="color:#e6db74">)</span><span style="color:#e6db74"> is at the x-axis.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> (<span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">_</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>somePoint<span style="color:#e6db74">)</span><span style="color:#e6db74"> is at the y-axis.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> (<span style="color:#f92672">-</span><span style="color:#ae81ff">2.</span>..<span style="color:#ae81ff">2</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">2.</span>..<span style="color:#ae81ff">2</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>somePoint<span style="color:#e6db74">)</span><span style="color:#e6db74"> is inside the box.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>somePoint<span style="color:#e6db74">)</span><span style="color:#e6db74"> is outside of the box.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 输出&#34;(1, 1) is inside the box.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">is</span> inside the box.
+</span></span></code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/coordinateGraphSimple.png" alt="Coordinate Graph Simple"></p>
+<p>在上面的例子中，<code>switch</code>语句会判断某个点是否是原点(0, 0)，是否在红色的<code>x</code>轴上，是否在橘黄色的<code>y</code>轴上，是否在一个以原点为中心的4x4的蓝色矩形里，或者在这个矩形外面。</p>
+<p>不像<code>C</code>语言，<code>Swift</code>允许多个<code>case</code>匹配同一个值。实际上，在这个例子中，点(0, 0)可以匹配所有四个<code>case</code>。但是如果存在多个匹配，那么只会执行第一个被匹配到的<code>case</code>分支。考虑点(0, 0)会首先匹配<code>case(0, 0)</code>，因此剩下的能够匹配的分支都会被忽视掉。</p>
+<h3 id="值绑定value-bindings">值绑定（Value Bindings）</h3>
+<p><code>case</code>分支允许将匹配的值声明为临时常量或变量，并且在<code>case</code>分支体内使用，这种行为被称为值绑定（Value Binding），因为匹配的值在<code>case</code>分支体内，与临时的常量或变量绑定。</p>
+<p>下面的例子将下图中的点(x, y)，使用(Int, Int)类型的元组表示，然后分类表示：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> anotherPoint = (<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> anotherPoint {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> (<span style="color:#66d9ef">let</span> x, <span style="color:#ae81ff">0</span>):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;On the x-axis with an x value of </span><span style="color:#e6db74">\(</span>x<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> (<span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">let</span> y):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;On the y-axis with a y value of </span><span style="color:#e6db74">\(</span>y<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> (x, y):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Somewhere else at (</span><span style="color:#e6db74">\(</span>x<span style="color:#e6db74">)</span><span style="color:#e6db74">, </span><span style="color:#e6db74">\(</span>y<span style="color:#e6db74">)</span><span style="color:#e6db74">).&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// Somewhere else at (2, 1).</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Somewhere <span style="color:#66d9ef">else</span> at (<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">1</span>).
+</span></span></code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/coordinateGraphMedium.png" alt="Coordinate Graph Medium"></p>
+<p>在上面的例子中，<code>switch</code>语句会判断某个点是否在红色的<code>x</code>轴上，是否在橘黄色的<code>y</code>轴上，或者不在坐标轴上。</p>
+<p>这三个<code>case</code>都声明了常量<code>x</code>和<code>y</code>的占位符，用于临时获取元组<code>anotherPoint</code>的一个或两个值，第一个<code>case--&gt;case(let x, 0)</code>将匹配一个纵坐标为0的点，并把这个点的横坐标赋值给临时常量<code>x</code>。类似的，第二个<code>case--&gt;case(0, let y)</code>将匹配一个横坐标为0的点，并把这个点的纵坐标赋值给临时常量<code>y</code>。</p>
+<p>一旦声明了这些临时常量，它们就可以在其对应的<code>case</code>分支里使用，在这个例子中，它们用于打印给定点的类型。</p>
+<p>请注意，这个<code>switch</code>语句不包含默认分支，这是因为最后一个<code>case--&gt;case let (x, y)</code>声明了一个可以匹配余下所有值的元组，这使得<code>switch</code>语句已经完备了，因此不需要再书写默认分支。</p>
+<h3 id="where">where</h3>
+<p><code>case</code>分支的模式可以使用<code>where</code>语句来判断额外的条件。</p>
+<p>下面的例子把下图的点(x, y)进行了分类：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> yetAnotherPoint = (<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> yetAnotherPoint {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> (x, y) <span style="color:#66d9ef">where</span> x == y:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;(</span><span style="color:#e6db74">\(</span>x<span style="color:#e6db74">)</span><span style="color:#e6db74">, </span><span style="color:#e6db74">\(</span>y<span style="color:#e6db74">)</span><span style="color:#e6db74">) is on the line x == y.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> (x, y) <span style="color:#66d9ef">where</span> x == <span style="color:#f92672">-</span>y:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;(</span><span style="color:#e6db74">\(</span>x<span style="color:#e6db74">)</span><span style="color:#e6db74">, </span><span style="color:#e6db74">\(</span>y<span style="color:#e6db74">)</span><span style="color:#e6db74">) is on the line x == -y.&#34;</span> )
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> (x, y):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;(</span><span style="color:#e6db74">\(</span>x<span style="color:#e6db74">)</span><span style="color:#e6db74">, </span><span style="color:#e6db74">\(</span>y<span style="color:#e6db74">)</span><span style="color:#e6db74">) is just some arbitrary point.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 输出&#34;(1, -1) is on the line x == -y.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: (<span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">is</span> on the line x == <span style="color:#f92672">-</span>y.
+</span></span></code></pre></div><p><img src="https://cdn.jsdelivr.net/gh/Jen-Jon/CDN_Bank/srcs/blogstatic/images/coordinateGraphComplex.png" alt="Coordinate Graph Complex"></p>
+<p>在上面的例子中，<code>switch</code>语句会判断某个点是否在绿色的对角线<code>x == y</code>上，是否在紫色的对角线<code>x == -y</code>上，或者不在对角线上。</p>
+<p>这三个<code>case</code>都声明了常量<code>x</code>和<code>y</code>的占位符，用于临时获取元组<code>yetAnotherPoint</code>的两个值，这两个常量被用作<code>where</code>语句的一部分，从而创建一个动态的过滤器（filter）。当且仅当<code>where</code>语句的条件为<code>true</code>时，匹配到的<code>case</code>分支才会被执行。</p>
+<p>就像是值绑定中的例子，由于最后一个<code>case</code>分支匹配了余下所有可能的值，<code>switch</code>语句就已经完备了，因此不需要再书写默认分支。</p>
+<h3 id="复合型cases">复合型Cases</h3>
+<p>当多个条件可以使用同一种方式来处理时，可以将这几种可能放在同一个<code>case</code>后面，并且用逗号隔开。当<code>case</code>后面的任意一种模式匹配的时候，这条分支就会被匹配。并且，如果匹配列表过长，还可以分行书写。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> SomeCharacter: Character = <span style="color:#e6db74">&#34;e&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> SomeCharacter {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;e&#34;</span>, <span style="color:#e6db74">&#34;i&#34;</span>, <span style="color:#e6db74">&#34;o&#34;</span>, <span style="color:#e6db74">&#34;u&#34;</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>SomeCharacter<span style="color:#e6db74">)</span><span style="color:#e6db74"> is a vowel.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;b&#34;</span>, <span style="color:#e6db74">&#34;c&#34;</span>, <span style="color:#e6db74">&#34;d&#34;</span>, <span style="color:#e6db74">&#34;f&#34;</span>, <span style="color:#e6db74">&#34;g&#34;</span>, <span style="color:#e6db74">&#34;h&#34;</span>, <span style="color:#e6db74">&#34;j&#34;</span>, <span style="color:#e6db74">&#34;k&#34;</span>, <span style="color:#e6db74">&#34;l&#34;</span>, <span style="color:#e6db74">&#34;m&#34;</span>, <span style="color:#e6db74">&#34;n&#34;</span>,
+</span></span><span style="display:flex;"><span>     <span style="color:#e6db74">&#34;p&#34;</span>, <span style="color:#e6db74">&#34;q&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>, <span style="color:#e6db74">&#34;s&#34;</span>, <span style="color:#e6db74">&#34;t&#34;</span>, <span style="color:#e6db74">&#34;v&#34;</span>, <span style="color:#e6db74">&#34;w&#34;</span>, <span style="color:#e6db74">&#34;x&#34;</span>, <span style="color:#e6db74">&#34;y&#34;</span>, <span style="color:#e6db74">&#34;z&#34;</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>SomeCharacter<span style="color:#e6db74">)</span><span style="color:#e6db74"> is a consonant.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">\(</span>SomeCharacter<span style="color:#e6db74">)</span><span style="color:#e6db74"> is not a vowel or a consonant.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 打印输出&#34;e is a vowel.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: e <span style="color:#66d9ef">is</span> a vowel.
+</span></span></code></pre></div><p>这个<code>switch</code>语句中的第一个<code>case</code>，匹配了英语中的五个小写元音字母。相似的，第二个<code>case</code>匹配了英语中所有的小写辅音字母。最终，<code>default</code>分支匹配了其它所有字符。</p>
+<p>复合匹配同样可以包含值绑定，复合匹配里所有的匹配模式，都必须包含相同的值绑定，并且每一个绑定都必须获取到相同类型的值。这保证了，无论复合匹配的哪个模式发生了匹配，分支体内的代码都能获取到绑定的值，并且绑定的值都有一样的类型。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> stillAnotherPoint = (<span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> stillAnotherPoint {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> (<span style="color:#66d9ef">let</span> distance, <span style="color:#ae81ff">0</span>), (<span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">let</span> distance):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;On the axis, </span><span style="color:#e6db74">\(</span>distance<span style="color:#e6db74">)</span><span style="color:#e6db74"> from the origin.&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Not on an axis.&#34;</span>)
+</span></span><span style="display:flex;"><span>}  <span style="color:#75715e">// 输出&#34;On an axis, 9 from the origin.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: On the axis, <span style="color:#ae81ff">9</span> from the origin.
+</span></span></code></pre></div><p>上面的<code>case</code>有两种模式：<code>(let distance, 0)</code>匹配了在<code>x</code>轴上的值，<code>(0, let distance)</code>匹配了在<code>y</code>轴上的值。这两个模式都绑定了<code>distance</code>，并且<code>distance</code>在两种模式下，都是整型。这意味着分支体内的代码，只要<code>case</code>匹配，都可以获取到<code>distance</code>的值。</p>
+<hr>
+<h2 id="控制转移语句">控制转移语句</h2>
+<p>控制转移语句改变代码执行的顺序，通过它可以实现代码的跳转。<code>Swift</code>有五种控制转移语句：</p>
+<ul>
+<li>continue</li>
+<li>break</li>
+<li>fallthrough</li>
+<li>return</li>
+<li>throw</li>
+</ul>
+<p>下面将会介绍<code>continue</code>、<code>break</code>和<code>fallthrough</code>语句。<code>return</code>语句将会在函数章节讨论，<code>throw</code>语句会在错误抛出章节讨论。</p>
+<h3 id="continue">Continue</h3>
+<p><code>continue</code>语句告诉一个循环体立刻停止本次循环，重新开始下次循环。就好像在说“本次循环我已经执行完了”，但是并不会离开整个循环体。</p>
+<p>下面的例子把一个小写字符串中的元音字母和空格字符删除，生成了一个含义模糊的短句：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> puzzleInput = <span style="color:#e6db74">&#34;Great minds think alike&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> puzzleOutput = <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> character <span style="color:#66d9ef">in</span> puzzleInput {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span> character {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;a&#34;</span>, <span style="color:#e6db74">&#34;e&#34;</span>, <span style="color:#e6db74">&#34;i&#34;</span>, <span style="color:#e6db74">&#34;o&#34;</span>, <span style="color:#e6db74">&#34;u&#34;</span>, <span style="color:#e6db74">&#34; &#34;</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>        puzzleOutput.append(character)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>print(puzzleOutput)  <span style="color:#75715e">// 输出&#34;Grtmndsthnklk&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Grtmndsthnklk
+</span></span></code></pre></div><p>在上面的代码中，只要匹配到元音字母或者空格字符，就调用<code>continue</code>语句，使本次循环结束，重新开始下次循环。这种行为使switch`匹配到元音字母和空格字符时不做处理，而不是让每一个匹配到的字符都被打印。</p>
+<h3 id="break">Break</h3>
+<p><code>break</code>语句会立刻结束整个控制流的执行。<code>break</code>可以在<code>switch</code>或循环语句中使用，用来提前结束<code>switch</code>或循环语句。</p>
+<h4 id="循环语句中的break">循环语句中的Break</h4>
+<p>当在一个循环体中使用<code>break</code>时，会立刻中断该循环体的执行，然后跳转到表示循环体结束的大括号<code>}</code>后的第一行代码。<strong>不会再有本次循环的代码被执行，也不会再有下次的循环产生</strong>。</p>
+<h4 id="switch语句中的break">Switch语句中的Break</h4>
+<p>当在一个<code>switch</code>代码块中使用<code>break</code>时，会立刻中断该<code>switch</code>代码块的执行，并且跳转到表示<code>switch</code>代码块结束的大括号<code>}</code>后的第一行代码。</p>
+<p>这种特性可以被用来匹配或者忽略一个或多个分支，因为<code>Swift</code>的<code>switch</code>需要包含所有的分支而且不允许有为空的分支，有时为了使意图更明显，需要特意匹配或者忽略某个分支。那么当想忽略某个分支时，可以在该分支内写上<code>break</code>语句，当那个分支被匹配到时，分支内的<code>break</code>语句立即结束<code>switch</code>代码块。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>当一个switch分支仅仅包含注释时，会被报编译时错误。注释不是代码语句而且也不能让switch分支达到被忽略的效果。应该使用break来忽略某个分支。</p>
+</blockquote>
+<p>下面的例子通过<code>switch</code>来判断一个<code>Character</code>值是否代表下面四种语言之一。为了简洁，多个值被包含在了同一个分支情况中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> numberSymbol: Character = <span style="color:#e6db74">&#34;三&#34;</span>  <span style="color:#75715e">// 简体中文里的数字3</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> possibleIntegerValue: Int?
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> numberSymbol {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;1&#34;</span>, <span style="color:#e6db74">&#34;١&#34;</span>, <span style="color:#e6db74">&#34;一&#34;</span>, <span style="color:#e6db74">&#34;๑&#34;</span>:
+</span></span><span style="display:flex;"><span>    possibleIntegerValue = <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;2&#34;</span>, <span style="color:#e6db74">&#34;٢&#34;</span>, <span style="color:#e6db74">&#34;二&#34;</span>, <span style="color:#e6db74">&#34;๒&#34;</span>:
+</span></span><span style="display:flex;"><span>    possibleIntegerValue = <span style="color:#ae81ff">2</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;3&#34;</span>, <span style="color:#e6db74">&#34;٣&#34;</span>, <span style="color:#e6db74">&#34;三&#34;</span>, <span style="color:#e6db74">&#34;๓&#34;</span>:
+</span></span><span style="display:flex;"><span>    possibleIntegerValue = <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#34;4&#34;</span>, <span style="color:#e6db74">&#34;٤&#34;</span>, <span style="color:#e6db74">&#34;四&#34;</span>, <span style="color:#e6db74">&#34;๔&#34;</span>:
+</span></span><span style="display:flex;"><span>    possibleIntegerValue = <span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#66d9ef">let</span> integerValue = possibleIntegerValue {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;The integer value of </span><span style="color:#e6db74">\(</span>numberSymbol<span style="color:#e6db74">)</span><span style="color:#e6db74"> is </span><span style="color:#e6db74">\(</span>integerValue<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)  <span style="color:#75715e">// 输出&#34;The integer value of 三 is 3.&#34;</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;An integer value could not be found for </span><span style="color:#e6db74">\(</span>numberSymbol<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The integer value of <span style="color:#960050;background-color:#1e0010">三</span> <span style="color:#66d9ef">is</span> <span style="color:#ae81ff">3.</span>
+</span></span></code></pre></div><p>这个例子检查<code>numberSymbol</code>是否拉丁，阿拉伯，中文或者泰语中的1到4之一。如果被匹配到，该<code>switch</code>分支语句给<code>Int?</code>类型变量<code>possibleIntegerValue</code>设置一个整数值。</p>
+<p>当<code>switch</code>代码块执行完成后，接下来的代码通过使用可选绑定来判断<code>possibleIntegerValue</code>是否曾经被设置过值。因为是可选类型的缘故，<code>possibleIntegerValue</code>有一个隐式的初始值<code>nil</code>，所以仅仅当<code>possibleIntegerValue</code>曾被<code>switch</code>代码块的前四个分支中的某一个设置过一个值时，可选的绑定才会被判定为成功。</p>
+<p>在上面的例子中，想要把<code>Character</code>所有的可能性都枚举出来是不现实的，所以使用<code>default</code>分支来包含所有上面没有匹配到字符的情况。由于这个<code>default</code>分支不需要执行任何动作，所以只写了一条<code>break</code>语句。一旦落入到<code>default</code>分支中后，<code>break</code>语句就完成了该分支的所有代码操作，代码继续向下，开始执行<code>if let</code>语句。</p>
+<h3 id="贯穿fallthrough">贯穿（Fallthrough）</h3>
+<p>在<code>Swift</code>里，<code>switch</code>语句不会从上一个<code>case</code>分支跳转到下一个<code>case</code>分支中。相反，只要第一个匹配到的<code>case</code>分支完成了它需要执行的语句，整个<code>switch</code>代码块完成了它的执行。相比之下，<code>C</code>语言要求显式的插入<code>break</code>语句到每个<code>case</code>分支的末尾来阻止自动落入到下一个<code>case</code>分支中。<code>Swift</code>的这种避免默认落入到下一个分支中的特性意味着它的<code>switch</code>功能要比<code>C</code>语言的更加清晰和可预测，可以避免无意识地执行多个<code>case</code>分支从而引发的错误。</p>
+<p>如果确实需要<code>C</code>语言风格的贯穿的特性，可以在每个需要该特性的<code>case</code>分支中使用<code>fallthrough</code>关键字，下面的例子使用<code>fallthrough</code>来创建一个数字的描述语句：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> integerToDescribe = <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> description = <span style="color:#e6db74">&#34;The number </span><span style="color:#e6db74">\(</span>integerToDescribe<span style="color:#e6db74">)</span><span style="color:#e6db74"> is &#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> integerToDescribe {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">case</span> <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">11</span>, <span style="color:#ae81ff">13</span>, <span style="color:#ae81ff">17</span>, <span style="color:#ae81ff">19</span>:
+</span></span><span style="display:flex;"><span>    description <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;a prime number, and also &#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fallthrough</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>    description <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#34;an integer.&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>print(description)  <span style="color:#75715e">// 打印输出&#34;The number 5 is a prime number, and also an integer.&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: The number <span style="color:#ae81ff">5</span> <span style="color:#66d9ef">is</span> a prime number, and also an integer.
+</span></span></code></pre></div><p>这个例子定义了一个<code>String</code>类型的变量<code>description</code>并且给它设置了一个初始值。函数使用<code>switch</code>逻辑来判断<code>integerToDescribe</code>变量的值。当<code>integerTo Describe</code>的值属于列表中的素数之一时，该函数在<code>description</code>后面添加一段文字，来表明这个数字是一个素数，然后使用<code>fallthrough</code>关键字来“贯穿”到<code>default</code>分支中。<code>default</code>分支在<code>description</code>的最后一段添加额外的文字，至此<code>switch</code>代码块执行完了。</p>
+<p>如果<code>integerToDescribe</code>的值不属于列表中的任何素数，那么它不会匹配到第一个<code>switch</code>分支，而这里没有其他特别的分支，因此<code>integerToDescribe</code>匹配到<code>default</code>分支中。</p>
+<p>当<code>switch</code>代码块执行完成后，使用<code>print(_:separator:terminator:)</code>函数打印该数字的描述，在这个例子中，数字5被准确地识别为了一个素数。</p>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>fallthrough关键字不会检查它下一个将会落入执行的case中的匹配条件，fallthrough简单地使代码继续连接到下一个case代码中，这和C语言标准中的switch语句特性是一样的。</p>
+</blockquote>
+<h3 id="带标签的语句">带标签的语句</h3>
+<p>在<code>Swift</code>中，可以在循环体和条件语句中嵌套循环体和条件语句来创造复杂的控制流结构。并且，循环体和条件语句都可以使用<code>break</code>语句来提前结束整个代码块。因此，显式地指明<code>break</code>语句想要终止的是哪个循环体或者条件语句会很有用。类似地，如果有很多嵌套的循环体，显示指明<code>continue</code>语句想要影响哪一个循环体也会变得非常有用。</p>
+<p>为了实现这个目的，可以使用标签（Statement Label）来标记一个循环体或者条件语句，对于一个条件语句，可以使用<code>break</code>加标签的方式，来结束这个被标记的语句。对于一个循环语句，可以使用<code>break</code>或者<code>continue</code>加标签，来结束或者继续这条被标记语句的执行。</p>
+<p>声明一个带标签的语句是通过在该语句的关键词的同一行前面放置一个标签，作为这个语句的前导关键词（Introducor Keyword），并且该标签后面更衰一个冒号。下面是一个针对<code>while</code>循环体的标签语法，同样地规则适用于所有的循环体和条件语句。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> label name: while condition {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     statements
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span></code></pre></div><p>下面的例子是前面章节中🐍和🪜的适配版本，在此版本中，将使用一个带有标签的<code>while</code>循环体调用<code>break</code>和<code>continue</code>语句。这次，游戏增加了一个额外的规则：</p>
+<ul>
+<li>为了获胜，必须刚好落在第25个方格中</li>
+<li>如果某次掷骰子使得移动超出第25个方块，必须重新掷骰子，直到掷出的骰子数刚好能使得落在第25个方块中。游戏的棋盘和之前的一样。</li>
+</ul>
+<p><code>finalSQUARE</code>、<code>BOARD</code>、<code>SQUARE</code>和<code>diceROLL</code>的值被和之前一样的方式初始化：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> finalSQUARE = <span style="color:#ae81ff">25</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> BOARD = [Int](repeating: <span style="color:#ae81ff">0</span>, count: finalSQUARE <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>BOARD[<span style="color:#ae81ff">03</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">08</span>; BOARD[<span style="color:#ae81ff">06</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">11</span>; BOARD[<span style="color:#ae81ff">09</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">09</span>; BOARD[<span style="color:#ae81ff">10</span>] = <span style="color:#f92672">+</span><span style="color:#ae81ff">02</span>
+</span></span><span style="display:flex;"><span>BOARD[<span style="color:#ae81ff">14</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">10</span>; BOARD[<span style="color:#ae81ff">19</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">11</span>; BOARD[<span style="color:#ae81ff">22</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">02</span>; BOARD[<span style="color:#ae81ff">24</span>] = <span style="color:#f92672">-</span><span style="color:#ae81ff">08</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> SQUARE = <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> diceROLL = <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><p>这个版本的游戏使用<code>while</code>循环和<code>switch</code>语句来实现游戏的逻辑。<code>while</code>循环有一个标签名<code>gameLoop</code>，来表明它是游戏的主循环。</p>
+<p>该<code>while</code>循环体的条件判断语句是<code>while SQUARE != finalSQUARE</code>，这表明必须刚好落在方格25中。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span>gameLoop: <span style="color:#66d9ef">while</span> SQUARE <span style="color:#f92672">!=</span> finalSQUARE {
+</span></span><span style="display:flex;"><span>    diceROLL <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> diceROLL == <span style="color:#ae81ff">7</span> { diceROLL = <span style="color:#ae81ff">1</span> }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span> SQUARE <span style="color:#f92672">+</span> diceROLL {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> finalSQUARE:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span> gameLoop
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> <span style="color:#66d9ef">let</span> newSquare <span style="color:#66d9ef">where</span> newSquare <span style="color:#f92672">&gt;</span> finalSQUARE:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span> gameLoop
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">default</span>:
+</span></span><span style="display:flex;"><span>        SQUARE <span style="color:#f92672">+=</span> diceROLL
+</span></span><span style="display:flex;"><span>        SQUARE <span style="color:#f92672">+=</span> BOARD[SQUARE]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    print(SQUARE, terminator: <span style="color:#e6db74">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">&#34;Game Over!&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">11</span> <span style="color:#ae81ff">4</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">13</span> <span style="color:#ae81ff">8</span> <span style="color:#ae81ff">18</span> <span style="color:#ae81ff">20</span> <span style="color:#ae81ff">23</span> <span style="color:#ae81ff">16</span> <span style="color:#ae81ff">18</span> <span style="color:#ae81ff">21</span> Game Over!
+</span></span></code></pre></div><p>每次循环迭代开始时掷骰子。与之前玩家掷完骰子就立即移动不同，这里使用了<code>switch</code>语句来考虑每次移动可能产生的结果，从而决定玩家本次是否能够移动。</p>
+<ul>
+<li>如果骰子数刚好使玩家移动到最终的方格里，游戏结束。<code>break gameLoop</code>语句跳转控制去执行<code>while</code>循环体后的第一行代码，意味着游戏结束。</li>
+<li>如果骰子数将会使玩家的移动超出最后的方格，那么这种移动是不合法的，玩家需要重新掷骰子。<code>continue gameLoop</code>语句结束本次<code>while</code>循环，开始下一次循环。</li>
+<li>在剩余的所有情况中，骰子数产生的都是合法的移动。玩家向前移动<code>diceROLL</code>个方格，然后游戏逻辑再处理玩家当前是否处于蛇头或者梯子的底部。接着本次循环结束，控制跳转到<code>while</code>循环体的条件判断语句处，再决定是否需要继续执行下次循环。</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>如果上述的break语句没有使用gameLoop标签，那么它将会中断switch语句而不是while循环。使用gameLoop标签清晰的表明了break想要中断的是哪个代码块。</p>
+<p>同时请注意，当调用continue gameLoop去跳转到下一次循环迭代时，这里使用gameLoop标签并不是严格必须的。因为在这个游戏中，只有一个循环体，所以continue语句会影响到哪个循环体是没有歧义的。然而continue语句使用gameLoop标签也是没有危害的。这样做符合标签的使用规则，同时参照旁边的break gameLoop，能够使游戏的逻辑更加清晰和易于理解。</p>
+</blockquote>
+<hr>
+<h2 id="提前退出">提前退出</h2>
+<p>像<code>if</code>语句一样，<code>guard</code>的执行取决于一个布尔表达式的布尔值。我们可以使用<code>guard</code>语句来要求条件必须为真时，以执行<code>guard</code>语句后的代码。不同于<code>if</code>语句，一个<code>guard</code>语句总是有一个<code>else</code>从句，如果条件不为真则执行<code>else</code>从句中的代码。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">greet</span>(person: [String: String]) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> name = person[<span style="color:#e6db74">&#34;name&#34;</span>] <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;Hello </span><span style="color:#e6db74">\(</span>name<span style="color:#e6db74">)</span><span style="color:#e6db74">!&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">guard</span> <span style="color:#66d9ef">let</span> location = person[<span style="color:#e6db74">&#34;location&#34;</span>] <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        print(<span style="color:#e6db74">&#34;I hope the weather is nice near you.&#34;</span>)
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">&#34;I hope the weather is nice in </span><span style="color:#e6db74">\(</span>location<span style="color:#e6db74">)</span><span style="color:#e6db74">.&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>greet(person: [<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;John&#34;</span>])  <span style="color:#75715e">// 输出&#34;Hello John!&#34;  // 输出&#34;I hope the weather is nice near you.&#34;</span>
+</span></span><span style="display:flex;"><span>greet(person: [<span style="color:#e6db74">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;Jensen&#34;</span>, <span style="color:#e6db74">&#34;location&#34;</span>: <span style="color:#e6db74">&#34;Hefei&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#f92672">---</span>
+</span></span><span style="display:flex;"><span>output: Hello John!
+</span></span><span style="display:flex;"><span>I hope the weather <span style="color:#66d9ef">is</span> nice near you.
+</span></span></code></pre></div><p>如果<code>guard</code>语句的条件被满足，则继续执行<code>guard</code>语句大括号后的代码。将变量或者常量的可选绑定作为<code>guard</code>语句的条件，都可以保护<code>guard</code>语句后面的代码。</p>
+<p>如果条件不被满足，在<code>else</code>分支上的代码就会被执行。这个分支必须转移控制以退出<code>guard</code>语句出现的代码段。它可以用控制转移语句如<code>return</code>、<code>break</code>、<code>continue</code>或者<code>throw</code>做这件事，或者调用一个不返回的方法或者函数，例如<code>fatalError()</code>。</p>
+<p>相比于可以实现同样功能的<code>if</code>语句，按需要使用<code>guard</code>语句会提升代码的可读性。它可以使代码连贯执行而不需要将它们包含在<code>else</code>块中，它可以使你在紧邻条件判断的地方，处理违规的情况。</p>
+<hr>
+<h2 id="检测api可用性">检测API可用性</h2>
+<p><code>Swift</code>内置支持检查<code>API</code>可用性，这可以确保不会在当前部署机器上，不小心地使用了不可用的<code>API</code>。</p>
+<p>编译器使用<code>SDK</code>中的可用信息来验证代码中使用的所有<code>API</code>项目在指定的部署目标上是否可用。如果尝试使用一个不可用的<code>API</code>，<code>Swift</code>会在编译的时候报错。</p>
+<p>在<code>if</code>或者<code>guard</code>语句中使用可用性条件（Availability Condition）<code>去有条件的执行一段代码，来在运行时判断调用的</code>API是否可用。编译器使用从可用性条件语句中获取的信息去验证，在这个代码块中调用的<code>API</code>是否可用。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#75715e">#available</span>(<span style="color:#75715e">iOS</span> <span style="color:#ae81ff">10</span>, <span style="color:#75715e">macOS</span> <span style="color:#ae81ff">10.12</span>, <span style="color:#f92672">*</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 在iOS使用iOS 10的API，在macOS使用macOS 10.12的API</span>
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// 使用先前版本的iOS和macOS的API</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>以上可用性条件的指定，<code>if</code>语句的代码块仅仅在<code>iOS 10</code>或<code>macOS 10.12</code>以及更高版本才能运行，最后一个参数<code>*</code>是必须的，用于指定在所有其他平台中，如果版本号高于你的设备指定的最低版本，<code>if</code>语句的代码块将会执行。</p>
+<p>在它一般的形式中，可用性条件使用了一个平台名字和版本的列表。平台名字可以是<code>iOS</code>，<code>macOS</code>，<code>watchOS</code>和<code>tvOS</code>，除了指定像<code>iOS 8</code>或<code>macOS 10.10</code>的大版本号，也可以指定像<code>iOS 11.2.6</code>以及<code>macOS 10.13.3</code>的小版本号。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Swift" data-lang="Swift"><span style="display:flex;"><span><span style="color:#75715e">/*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">if #available(平台名称 版本号, ..., *) {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     APIs 可用，语句将执行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> } else {
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">     APIs 不可用，语句将不执行
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> }
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
+</span></span></code></pre></div>
+    <div class="CornerButtons">
+        <div class="CornerAnimayedFlex">
+            <div class="CornerButton" title="Back to the top">
+                <a href="#top" class="cba fas fa-hand-middle-finger" ></a>
+            </div>
+        </div>
+    </div>
+
+<hr>
+
+<h1 style="color: #1f71e0;">Comments</h1>
+<script defer src="https://utteranc.es/client.js" 
+repo="Jen-Jon/Jen-Jon.github.io" 
+issue-term="title" 
+theme="github-light" 
+crossorigin="anonymous" async></script>
+
+
+</div>
+
+<h5 style="text-align: center; font-size: large;">This blog is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>, please indicate the source for non-commercial reposted.</h5>
+
+
+        </div><strong id="footer" class="mb-5">
+    <hr>
+    
+    <div class="container text-center">
+        
+            <a href="https://github.com/Jen-Jon/" class="fab fa-github fa-1x" title="Github" style="text-decoration: none;"></a>
+        
+            <a href="https://hub.docker.com/u/ijerry22" class="fab fa-docker fa-1x" title="DockerHub" style="text-decoration: none;"></a>
+        
+            <a href="https://www.researchgate.net/profile/Jingyao-Zhang-4" class="fab fa-researchgate fa-1x" title="researchgate" style="text-decoration: none;"></a>
+        
+            <a href="mailto:jensen.acm@gmail.com" class="fas fa-envelope fa-1x" title="E-mail" style="text-decoration: none;"></a>
+        
+    </div>
+    
+        <div class="container text-center">
+            <h5 class="text-center" style="font-size: small;">Copyright © 2020-2024 <a href="https://github.com/Jen-Jon/" style="color: #1f71e0;" title="Jensen-Jon">Jensen-Jon</a>. All rights reserved.</h5>
+        </div>
+    
+</div>
+</body>
+</html>
