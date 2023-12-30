@@ -143,9 +143,9 @@
     </item>
     <item>
       <title>Swift学习(2)-基础部分（代码完善版）</title>
-      <link>https://jen-jon.github.io/posts/swiftbase/</link>
+      <link>https://jen-jon.github.io/posts/20210807/</link>
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jen-jon.github.io/posts/swiftbase/</guid>
+      <guid>https://jen-jon.github.io/posts/20210807/</guid>
       <description>Swift包含了C和Objective-C上所有基础数据类型，Int表示整型值；Double和Float表示浮点值；Bool是布尔型值；String是文本型数据。Swift还提供了三个基本的集合类型，</description>
     </item>
     <item>
