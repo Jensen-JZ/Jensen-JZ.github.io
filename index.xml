@@ -6,8 +6,15 @@
     <description>Recent content in Jensen | Home on Jensen&#39;s Homepage</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 28 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 02 Jan 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jen-jon.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024年，祝大家新年快乐！</title>
+      <link>https://jen-jon.github.io/posts/2024%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/</link>
+      <pubDate>Tue, 02 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://jen-jon.github.io/posts/2024%E6%96%B0%E5%B9%B4%E5%BF%AB%E4%B9%90/</guid>
+      <description>2024年，祝大家新的一年，新年快乐！！！（先占坑，后面更新！）</description>
+    </item>
     <item>
       <title>隔离日寄</title>
       <link>https://jen-jon.github.io/posts/20221028/</link>
@@ -160,13 +167,6 @@
       <link>https://jen-jon.github.io/posts/20210804/</link>
       <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
       <guid>https://jen-jon.github.io/posts/20210804/</guid>
-      <description>Swift简介 Swift是美国苹果公司推出的编程语言，专门针对苹果桌面操作系统macOS和苹果移动操作系统iOS、iPadOS以及watchOS和tvOS的应用开发。Swift 在各个方面优于 Obje</description>
-    </item>
-    <item>
-      <title>Swift学习(1)-初•见（代码完善版）</title>
-      <link>https://jen-jon.github.io/posts/swiftfirst/</link>
-      <pubDate>Wed, 04 Aug 2021 00:00:00 +0000</pubDate>
-      <guid>https://jen-jon.github.io/posts/swiftfirst/</guid>
       <description>Swift简介 Swift是美国苹果公司推出的编程语言，专门针对苹果桌面操作系统macOS和苹果移动操作系统iOS、iPadOS以及watchOS和tvOS的应用开发。Swift 在各个方面优于 Obje</description>
     </item>
     <item>
